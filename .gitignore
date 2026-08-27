@@ -1,0 +1,43 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.ipynb_checkpoints/
+
+# LaTeX build products
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.xdv
+main.pdf
+
+# Local credentials and environment files
+.env
+*.pem
+*.key
+id_rsa*
+known_hosts
+
+# Never commit credentialed or patient-level data
+data/
+raw_data/
+mimiciv/
+mimic-iv-*/
+eicu/
+eicu-crd-*/
+*.db
+*.sqlite
+*.sqlite3
+*.parquet
+*.feather
+*.pkl
+*.rds
+*.dta
+*features_server_only.csv
+mimic_extra_labevents_24h_source_subset.csv
+*patient_level*
+*row_level*
+*predictions*

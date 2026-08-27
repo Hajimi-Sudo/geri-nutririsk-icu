@@ -1,0 +1,1336 @@
+{
+  "protocol": "V14_DOMAIN_UPDATE_NUTRITION_APACHE_LOCK",
+  "status_date": "2026-08-26",
+  "red_lines": [
+    "APACHE predictions are comparators only and are never model inputs.",
+    "Nested eICU update, Platt calibration, and held-out evaluation use disjoint eICU partitions.",
+    "Nutrition incremental value is reported as observed, including negative or null increments."
+  ],
+  "feature_sets": {
+    "full_all_features": {
+      "name": "full_all_features",
+      "feature_count": 83,
+      "features": [
+        "age",
+        "male",
+        "bmi",
+        "enteral_24h",
+        "parenteral_24h",
+        "albumin",
+        "glucose",
+        "creatinine",
+        "bun",
+        "sodium",
+        "bilirubin",
+        "hematocrit",
+        "wbc",
+        "albumin_missing",
+        "glucose_missing",
+        "creatinine_missing",
+        "bun_missing",
+        "sodium_missing",
+        "bilirubin_missing",
+        "hematocrit_missing",
+        "wbc_missing",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing",
+        "lactate",
+        "platelet",
+        "potassium",
+        "chloride",
+        "bicarbonate",
+        "calcium",
+        "magnesium",
+        "inr",
+        "pt",
+        "ptt",
+        "ph",
+        "pco2",
+        "pao2",
+        "fio2",
+        "base_excess",
+        "anion_gap",
+        "hemoglobin",
+        "lactate_missing",
+        "platelet_missing",
+        "potassium_missing",
+        "chloride_missing",
+        "bicarbonate_missing",
+        "calcium_missing",
+        "magnesium_missing",
+        "inr_missing",
+        "pt_missing",
+        "ptt_missing",
+        "ph_missing",
+        "pco2_missing",
+        "pao2_missing",
+        "fio2_missing",
+        "base_excess_missing",
+        "anion_gap_missing",
+        "hemoglobin_missing",
+        "pf_ratio",
+        "icu_type_cardiac",
+        "icu_type_surgical",
+        "icu_type_neuro",
+        "icu_type_trauma",
+        "icu_type_medical",
+        "icu_type_med_surg",
+        "admit_emergency_or_ed",
+        "admit_transfer",
+        "admit_elective"
+      ],
+      "nested_heldout": {
+        "source_only_platt": {
+          "n": 57488,
+          "events": 7130,
+          "event_rate": 0.12402588366267743,
+          "auc": 0.8068412522579564,
+          "brier": 0.08473601154514825,
+          "ece_q10": 0.014275532791407045
+        },
+        "combined_nested_platt": {
+          "n": 57488,
+          "events": 7130,
+          "event_rate": 0.12402588366267743,
+          "auc": 0.8721554260554737,
+          "brier": 0.07321767063415748,
+          "ece_q10": 0.0036501171723538487
+        }
+      },
+      "apache_same_subset_nested_heldout": {
+        "APACHE_IV": {
+          "APACHE": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8461494788736464,
+            "brier": 0.08481210052531886,
+            "ece_q10": 0.04568745016963188
+          },
+          "coverage_n": 39920,
+          "full_all_features_source_only_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8348579385100727,
+            "brier": 0.08289705900991931,
+            "ece_q10": 0.024165058267083997
+          },
+          "full_all_features_source_only_platt_minus_APACHE_auc": -0.011291540363573715,
+          "full_all_features_source_only_platt_minus_APACHE_brier": -0.0019150415153995487,
+          "full_all_features_source_only_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": -0.011291540363573715,
+            "ci_95": [
+              -0.017790376790339908,
+              -0.004620962508705296
+            ],
+            "n_resamples": 500
+          },
+          "full_all_features_source_only_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.0019150415153995487,
+            "ci_95": [
+              -0.0035943598661151545,
+              -0.0003129543420100002
+            ],
+            "n_resamples": 500
+          },
+          "full_all_features_combined_nested_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8713008417559248,
+            "brier": 0.07413677623154692,
+            "ece_q10": 0.00919351141348936
+          },
+          "full_all_features_combined_nested_platt_minus_APACHE_auc": 0.025151362882278372,
+          "full_all_features_combined_nested_platt_minus_APACHE_brier": -0.010675324293771937,
+          "full_all_features_combined_nested_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": 0.025151362882278372,
+            "ci_95": [
+              0.02014710262831671,
+              0.030533758131093987
+            ],
+            "n_resamples": 500
+          },
+          "full_all_features_combined_nested_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.010675324293771937,
+            "ci_95": [
+              -0.011983670912346554,
+              -0.009438664115915315
+            ],
+            "n_resamples": 500
+          }
+        },
+        "APACHE_IVa": {
+          "APACHE": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8504124477532476,
+            "brier": 0.08204785646844932,
+            "ece_q10": 0.028903707174170422
+          },
+          "coverage_n": 39920,
+          "full_all_features_source_only_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8348579385100727,
+            "brier": 0.08289705900991931,
+            "ece_q10": 0.024165058267083997
+          },
+          "full_all_features_source_only_platt_minus_APACHE_auc": -0.015554509243174919,
+          "full_all_features_source_only_platt_minus_APACHE_brier": 0.0008492025414699872,
+          "full_all_features_source_only_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": -0.015554509243174919,
+            "ci_95": [
+              -0.02178584883007025,
+              -0.00909745052665726
+            ],
+            "n_resamples": 500
+          },
+          "full_all_features_source_only_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": 0.0008492025414699872,
+            "ci_95": [
+              -0.0006423222237571218,
+              0.0022499907640693997
+            ],
+            "n_resamples": 500
+          },
+          "full_all_features_combined_nested_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8713008417559248,
+            "brier": 0.07413677623154692,
+            "ece_q10": 0.00919351141348936
+          },
+          "full_all_features_combined_nested_platt_minus_APACHE_auc": 0.02088839400267717,
+          "full_all_features_combined_nested_platt_minus_APACHE_brier": -0.007911080236902401,
+          "full_all_features_combined_nested_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": 0.02088839400267717,
+            "ci_95": [
+              0.015794108939442907,
+              0.026035203629681848
+            ],
+            "n_resamples": 500
+          },
+          "full_all_features_combined_nested_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.007911080236902401,
+            "ci_95": [
+              -0.009118030426902781,
+              -0.006789170780593212
+            ],
+            "n_resamples": 500
+          }
+        }
+      }
+    },
+    "without_v12_nutrition_construct": {
+      "name": "without_v12_nutrition_construct",
+      "feature_count": 64,
+      "features": [
+        "age",
+        "male",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing",
+        "lactate",
+        "platelet",
+        "potassium",
+        "chloride",
+        "bicarbonate",
+        "calcium",
+        "magnesium",
+        "inr",
+        "pt",
+        "ptt",
+        "ph",
+        "pco2",
+        "pao2",
+        "fio2",
+        "base_excess",
+        "anion_gap",
+        "hemoglobin",
+        "lactate_missing",
+        "platelet_missing",
+        "potassium_missing",
+        "chloride_missing",
+        "bicarbonate_missing",
+        "calcium_missing",
+        "magnesium_missing",
+        "inr_missing",
+        "pt_missing",
+        "ptt_missing",
+        "ph_missing",
+        "pco2_missing",
+        "pao2_missing",
+        "fio2_missing",
+        "base_excess_missing",
+        "anion_gap_missing",
+        "hemoglobin_missing",
+        "pf_ratio",
+        "icu_type_cardiac",
+        "icu_type_surgical",
+        "icu_type_neuro",
+        "icu_type_trauma",
+        "icu_type_medical",
+        "icu_type_med_surg",
+        "admit_emergency_or_ed",
+        "admit_transfer",
+        "admit_elective"
+      ],
+      "nested_heldout": {
+        "source_only_platt": {
+          "n": 57488,
+          "events": 7130,
+          "event_rate": 0.12402588366267743,
+          "auc": 0.8252418434360609,
+          "brier": 0.08206749051448355,
+          "ece_q10": 0.005348611883521193
+        },
+        "combined_nested_platt": {
+          "n": 57488,
+          "events": 7130,
+          "event_rate": 0.12402588366267743,
+          "auc": 0.867208119457949,
+          "brier": 0.07431225428070601,
+          "ece_q10": 0.004286201010495371
+        }
+      },
+      "apache_same_subset_nested_heldout": {
+        "APACHE_IV": {
+          "APACHE": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8461494788736464,
+            "brier": 0.08481210052531886,
+            "ece_q10": 0.04568745016963188
+          },
+          "coverage_n": 39920,
+          "without_v12_nutrition_construct_source_only_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8285758514303516,
+            "brier": 0.0821639884223075,
+            "ece_q10": 0.01099006978047647
+          },
+          "without_v12_nutrition_construct_source_only_platt_minus_APACHE_auc": -0.017573627443294826,
+          "without_v12_nutrition_construct_source_only_platt_minus_APACHE_brier": -0.0026481121030113575,
+          "without_v12_nutrition_construct_source_only_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": -0.017573627443294826,
+            "ci_95": [
+              -0.024016428228657065,
+              -0.010952984527119992
+            ],
+            "n_resamples": 500
+          },
+          "without_v12_nutrition_construct_source_only_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.0026481121030113575,
+            "ci_95": [
+              -0.004209585386843591,
+              -0.0012473740511405357
+            ],
+            "n_resamples": 500
+          },
+          "without_v12_nutrition_construct_combined_nested_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8635325205706799,
+            "brier": 0.07547856947045893,
+            "ece_q10": 0.007168949364118746
+          },
+          "without_v12_nutrition_construct_combined_nested_platt_minus_APACHE_auc": 0.01738304169703342,
+          "without_v12_nutrition_construct_combined_nested_platt_minus_APACHE_brier": -0.009333531054859928,
+          "without_v12_nutrition_construct_combined_nested_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": 0.01738304169703342,
+            "ci_95": [
+              0.012085766491622407,
+              0.022874728136129722
+            ],
+            "n_resamples": 500
+          },
+          "without_v12_nutrition_construct_combined_nested_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.009333531054859928,
+            "ci_95": [
+              -0.010662003530939702,
+              -0.008088731299135496
+            ],
+            "n_resamples": 500
+          }
+        },
+        "APACHE_IVa": {
+          "APACHE": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8504124477532476,
+            "brier": 0.08204785646844932,
+            "ece_q10": 0.028903707174170422
+          },
+          "coverage_n": 39920,
+          "without_v12_nutrition_construct_source_only_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8285758514303516,
+            "brier": 0.0821639884223075,
+            "ece_q10": 0.01099006978047647
+          },
+          "without_v12_nutrition_construct_source_only_platt_minus_APACHE_auc": -0.02183659632289603,
+          "without_v12_nutrition_construct_source_only_platt_minus_APACHE_brier": 0.00011613195385817843,
+          "without_v12_nutrition_construct_source_only_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": -0.02183659632289603,
+            "ci_95": [
+              -0.0284083992482501,
+              -0.015414012717286187
+            ],
+            "n_resamples": 500
+          },
+          "without_v12_nutrition_construct_source_only_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": 0.00011613195385817843,
+            "ci_95": [
+              -0.001257381971701709,
+              0.0014573321924260397
+            ],
+            "n_resamples": 500
+          },
+          "without_v12_nutrition_construct_combined_nested_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8635325205706799,
+            "brier": 0.07547856947045893,
+            "ece_q10": 0.007168949364118746
+          },
+          "without_v12_nutrition_construct_combined_nested_platt_minus_APACHE_auc": 0.013120072817432216,
+          "without_v12_nutrition_construct_combined_nested_platt_minus_APACHE_brier": -0.006569286997990392,
+          "without_v12_nutrition_construct_combined_nested_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": 0.013120072817432216,
+            "ci_95": [
+              0.007846203094567173,
+              0.018393591580790018
+            ],
+            "n_resamples": 500
+          },
+          "without_v12_nutrition_construct_combined_nested_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.006569286997990392,
+            "ci_95": [
+              -0.007788749789905795,
+              -0.0054168980537788345
+            ],
+            "n_resamples": 500
+          }
+        }
+      }
+    },
+    "without_explicit_nutrition": {
+      "name": "without_explicit_nutrition",
+      "feature_count": 76,
+      "features": [
+        "age",
+        "male",
+        "creatinine",
+        "bun",
+        "sodium",
+        "bilirubin",
+        "hematocrit",
+        "wbc",
+        "creatinine_missing",
+        "bun_missing",
+        "sodium_missing",
+        "bilirubin_missing",
+        "hematocrit_missing",
+        "wbc_missing",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing",
+        "lactate",
+        "platelet",
+        "potassium",
+        "chloride",
+        "bicarbonate",
+        "calcium",
+        "magnesium",
+        "inr",
+        "pt",
+        "ptt",
+        "ph",
+        "pco2",
+        "pao2",
+        "fio2",
+        "base_excess",
+        "anion_gap",
+        "hemoglobin",
+        "lactate_missing",
+        "platelet_missing",
+        "potassium_missing",
+        "chloride_missing",
+        "bicarbonate_missing",
+        "calcium_missing",
+        "magnesium_missing",
+        "inr_missing",
+        "pt_missing",
+        "ptt_missing",
+        "ph_missing",
+        "pco2_missing",
+        "pao2_missing",
+        "fio2_missing",
+        "base_excess_missing",
+        "anion_gap_missing",
+        "hemoglobin_missing",
+        "pf_ratio",
+        "icu_type_cardiac",
+        "icu_type_surgical",
+        "icu_type_neuro",
+        "icu_type_trauma",
+        "icu_type_medical",
+        "icu_type_med_surg",
+        "admit_emergency_or_ed",
+        "admit_transfer",
+        "admit_elective"
+      ],
+      "nested_heldout": {
+        "source_only_platt": {
+          "n": 57488,
+          "events": 7130,
+          "event_rate": 0.12402588366267743,
+          "auc": 0.8169380280668673,
+          "brier": 0.08265671452621043,
+          "ece_q10": 0.01254836215642547
+        },
+        "combined_nested_platt": {
+          "n": 57488,
+          "events": 7130,
+          "event_rate": 0.12402588366267743,
+          "auc": 0.8704519372011684,
+          "brier": 0.07389069313980558,
+          "ece_q10": 0.004611428855204368
+        }
+      },
+      "apache_same_subset_nested_heldout": {
+        "APACHE_IV": {
+          "APACHE": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8461494788736464,
+            "brier": 0.08481210052531886,
+            "ece_q10": 0.04568745016963188
+          },
+          "coverage_n": 39920,
+          "without_explicit_nutrition_source_only_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8343422922542074,
+            "brier": 0.08209474379016841,
+            "ece_q10": 0.01917958085206168
+          },
+          "without_explicit_nutrition_source_only_platt_minus_APACHE_auc": -0.011807186619439025,
+          "without_explicit_nutrition_source_only_platt_minus_APACHE_brier": -0.0027173567351504446,
+          "without_explicit_nutrition_source_only_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": -0.011807186619439025,
+            "ci_95": [
+              -0.01847979385151204,
+              -0.005195353765525093
+            ],
+            "n_resamples": 500
+          },
+          "without_explicit_nutrition_source_only_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.0027173567351504446,
+            "ci_95": [
+              -0.004314257451638572,
+              -0.0012592755730463307
+            ],
+            "n_resamples": 500
+          },
+          "without_explicit_nutrition_combined_nested_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8679258495236285,
+            "brier": 0.07502852358494923,
+            "ece_q10": 0.008213324554485028
+          },
+          "without_explicit_nutrition_combined_nested_platt_minus_APACHE_auc": 0.021776370649982058,
+          "without_explicit_nutrition_combined_nested_platt_minus_APACHE_brier": -0.009783576940369632,
+          "without_explicit_nutrition_combined_nested_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": 0.021776370649982058,
+            "ci_95": [
+              0.016706134400013974,
+              0.026835798698908692
+            ],
+            "n_resamples": 500
+          },
+          "without_explicit_nutrition_combined_nested_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.009783576940369632,
+            "ci_95": [
+              -0.011085638960520216,
+              -0.008547186622884933
+            ],
+            "n_resamples": 500
+          }
+        },
+        "APACHE_IVa": {
+          "APACHE": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8504124477532476,
+            "brier": 0.08204785646844932,
+            "ece_q10": 0.028903707174170422
+          },
+          "coverage_n": 39920,
+          "without_explicit_nutrition_source_only_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8343422922542074,
+            "brier": 0.08209474379016841,
+            "ece_q10": 0.01917958085206168
+          },
+          "without_explicit_nutrition_source_only_platt_minus_APACHE_auc": -0.01607015549904023,
+          "without_explicit_nutrition_source_only_platt_minus_APACHE_brier": 4.688732171909127e-05,
+          "without_explicit_nutrition_source_only_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": -0.01607015549904023,
+            "ci_95": [
+              -0.022557945290914913,
+              -0.009571646028676403
+            ],
+            "n_resamples": 500
+          },
+          "without_explicit_nutrition_source_only_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": 4.688732171909127e-05,
+            "ci_95": [
+              -0.0013838590623050605,
+              0.0014130010646302843
+            ],
+            "n_resamples": 500
+          },
+          "without_explicit_nutrition_combined_nested_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8679258495236285,
+            "brier": 0.07502852358494923,
+            "ece_q10": 0.008213324554485028
+          },
+          "without_explicit_nutrition_combined_nested_platt_minus_APACHE_auc": 0.017513401770380854,
+          "without_explicit_nutrition_combined_nested_platt_minus_APACHE_brier": -0.007019332883500096,
+          "without_explicit_nutrition_combined_nested_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": 0.017513401770380854,
+            "ci_95": [
+              0.012563234983677483,
+              0.022453702227419377
+            ],
+            "n_resamples": 500
+          },
+          "without_explicit_nutrition_combined_nested_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.007019332883500096,
+            "ci_95": [
+              -0.008271507630945276,
+              -0.005916128730456315
+            ],
+            "n_resamples": 500
+          }
+        }
+      }
+    },
+    "without_nutrition_support": {
+      "name": "without_nutrition_support",
+      "feature_count": 81,
+      "features": [
+        "age",
+        "male",
+        "bmi",
+        "albumin",
+        "glucose",
+        "creatinine",
+        "bun",
+        "sodium",
+        "bilirubin",
+        "hematocrit",
+        "wbc",
+        "albumin_missing",
+        "glucose_missing",
+        "creatinine_missing",
+        "bun_missing",
+        "sodium_missing",
+        "bilirubin_missing",
+        "hematocrit_missing",
+        "wbc_missing",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing",
+        "lactate",
+        "platelet",
+        "potassium",
+        "chloride",
+        "bicarbonate",
+        "calcium",
+        "magnesium",
+        "inr",
+        "pt",
+        "ptt",
+        "ph",
+        "pco2",
+        "pao2",
+        "fio2",
+        "base_excess",
+        "anion_gap",
+        "hemoglobin",
+        "lactate_missing",
+        "platelet_missing",
+        "potassium_missing",
+        "chloride_missing",
+        "bicarbonate_missing",
+        "calcium_missing",
+        "magnesium_missing",
+        "inr_missing",
+        "pt_missing",
+        "ptt_missing",
+        "ph_missing",
+        "pco2_missing",
+        "pao2_missing",
+        "fio2_missing",
+        "base_excess_missing",
+        "anion_gap_missing",
+        "hemoglobin_missing",
+        "pf_ratio",
+        "icu_type_cardiac",
+        "icu_type_surgical",
+        "icu_type_neuro",
+        "icu_type_trauma",
+        "icu_type_medical",
+        "icu_type_med_surg",
+        "admit_emergency_or_ed",
+        "admit_transfer",
+        "admit_elective"
+      ],
+      "nested_heldout": {
+        "source_only_platt": {
+          "n": 57488,
+          "events": 7130,
+          "event_rate": 0.12402588366267743,
+          "auc": 0.8074132632511108,
+          "brier": 0.08457386594009006,
+          "ece_q10": 0.013815770728930876
+        },
+        "combined_nested_platt": {
+          "n": 57488,
+          "events": 7130,
+          "event_rate": 0.12402588366267743,
+          "auc": 0.8727036995755552,
+          "brier": 0.0733189795959456,
+          "ece_q10": 0.0038928411210531573
+        }
+      },
+      "apache_same_subset_nested_heldout": {
+        "APACHE_IV": {
+          "APACHE": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8461494788736464,
+            "brier": 0.08481210052531886,
+            "ece_q10": 0.04568745016963188
+          },
+          "coverage_n": 39920,
+          "without_nutrition_support_source_only_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8335920451881372,
+            "brier": 0.08292660528093648,
+            "ece_q10": 0.023048723952525794
+          },
+          "without_nutrition_support_source_only_platt_minus_APACHE_auc": -0.012557433685509212,
+          "without_nutrition_support_source_only_platt_minus_APACHE_brier": -0.0018854952443823764,
+          "without_nutrition_support_source_only_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": -0.012557433685509212,
+            "ci_95": [
+              -0.01891022761920961,
+              -0.005712988533429694
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_support_source_only_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.0018854952443823764,
+            "ci_95": [
+              -0.0035445531041840266,
+              -0.0002978348777569369
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_support_combined_nested_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8714249345735436,
+            "brier": 0.07434639974952588,
+            "ece_q10": 0.009024485300229885
+          },
+          "without_nutrition_support_combined_nested_platt_minus_APACHE_auc": 0.025275455699897198,
+          "without_nutrition_support_combined_nested_platt_minus_APACHE_brier": -0.01046570077579298,
+          "without_nutrition_support_combined_nested_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": 0.025275455699897198,
+            "ci_95": [
+              0.020232760957683345,
+              0.03087758132469259
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_support_combined_nested_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.01046570077579298,
+            "ci_95": [
+              -0.011761711974110816,
+              -0.00921490600977127
+            ],
+            "n_resamples": 500
+          }
+        },
+        "APACHE_IVa": {
+          "APACHE": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8504124477532476,
+            "brier": 0.08204785646844932,
+            "ece_q10": 0.028903707174170422
+          },
+          "coverage_n": 39920,
+          "without_nutrition_support_source_only_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8335920451881372,
+            "brier": 0.08292660528093648,
+            "ece_q10": 0.023048723952525794
+          },
+          "without_nutrition_support_source_only_platt_minus_APACHE_auc": -0.016820402565110415,
+          "without_nutrition_support_source_only_platt_minus_APACHE_brier": 0.0008787488124871595,
+          "without_nutrition_support_source_only_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": -0.016820402565110415,
+            "ci_95": [
+              -0.02324821295075065,
+              -0.010314463469208293
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_support_source_only_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": 0.0008787488124871595,
+            "ci_95": [
+              -0.0006122949196438587,
+              0.0022824605931707335
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_support_combined_nested_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8714249345735436,
+            "brier": 0.07434639974952588,
+            "ece_q10": 0.009024485300229885
+          },
+          "without_nutrition_support_combined_nested_platt_minus_APACHE_auc": 0.021012486820295995,
+          "without_nutrition_support_combined_nested_platt_minus_APACHE_brier": -0.007701456718923444,
+          "without_nutrition_support_combined_nested_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": 0.021012486820295995,
+            "ci_95": [
+              0.01566889904672645,
+              0.0263103592067121
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_support_combined_nested_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.007701456718923444,
+            "ci_95": [
+              -0.008943352373652822,
+              -0.006579969544577221
+            ],
+            "n_resamples": 500
+          }
+        }
+      }
+    },
+    "without_nutrition_metabolic_labs": {
+      "name": "without_nutrition_metabolic_labs",
+      "feature_count": 67,
+      "features": [
+        "age",
+        "male",
+        "bmi",
+        "enteral_24h",
+        "parenteral_24h",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing",
+        "lactate",
+        "platelet",
+        "potassium",
+        "chloride",
+        "bicarbonate",
+        "calcium",
+        "magnesium",
+        "inr",
+        "pt",
+        "ptt",
+        "ph",
+        "pco2",
+        "pao2",
+        "fio2",
+        "base_excess",
+        "anion_gap",
+        "hemoglobin",
+        "lactate_missing",
+        "platelet_missing",
+        "potassium_missing",
+        "chloride_missing",
+        "bicarbonate_missing",
+        "calcium_missing",
+        "magnesium_missing",
+        "inr_missing",
+        "pt_missing",
+        "ptt_missing",
+        "ph_missing",
+        "pco2_missing",
+        "pao2_missing",
+        "fio2_missing",
+        "base_excess_missing",
+        "anion_gap_missing",
+        "hemoglobin_missing",
+        "pf_ratio",
+        "icu_type_cardiac",
+        "icu_type_surgical",
+        "icu_type_neuro",
+        "icu_type_trauma",
+        "icu_type_medical",
+        "icu_type_med_surg",
+        "admit_emergency_or_ed",
+        "admit_transfer",
+        "admit_elective"
+      ],
+      "nested_heldout": {
+        "source_only_platt": {
+          "n": 57488,
+          "events": 7130,
+          "event_rate": 0.12402588366267743,
+          "auc": 0.8209029909661689,
+          "brier": 0.08236155497247244,
+          "ece_q10": 0.007648045382943395
+        },
+        "combined_nested_platt": {
+          "n": 57488,
+          "events": 7130,
+          "event_rate": 0.12402588366267743,
+          "auc": 0.8663021684792983,
+          "brier": 0.07440602875842865,
+          "ece_q10": 0.0038393217196264003
+        }
+      },
+      "apache_same_subset_nested_heldout": {
+        "APACHE_IV": {
+          "APACHE": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8461494788736464,
+            "brier": 0.08481210052531886,
+            "ece_q10": 0.04568745016963188
+          },
+          "coverage_n": 39920,
+          "without_nutrition_metabolic_labs_source_only_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8262147984519809,
+            "brier": 0.08229837470762186,
+            "ece_q10": 0.012673355383751648
+          },
+          "without_nutrition_metabolic_labs_source_only_platt_minus_APACHE_auc": -0.019934680421665574,
+          "without_nutrition_metabolic_labs_source_only_platt_minus_APACHE_brier": -0.0025137258176970018,
+          "without_nutrition_metabolic_labs_source_only_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": -0.019934680421665574,
+            "ci_95": [
+              -0.02640673418996158,
+              -0.013635284275186288
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_metabolic_labs_source_only_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.0025137258176970018,
+            "ci_95": [
+              -0.004121550202548329,
+              -0.0010551729027318832
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_metabolic_labs_combined_nested_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.863848214822413,
+            "brier": 0.07544652836998209,
+            "ece_q10": 0.007475743041385442
+          },
+          "without_nutrition_metabolic_labs_combined_nested_platt_minus_APACHE_auc": 0.017698735948766586,
+          "without_nutrition_metabolic_labs_combined_nested_platt_minus_APACHE_brier": -0.009365572155336774,
+          "without_nutrition_metabolic_labs_combined_nested_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": 0.017698735948766586,
+            "ci_95": [
+              0.01255604619188334,
+              0.023481020911529926
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_metabolic_labs_combined_nested_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.009365572155336774,
+            "ci_95": [
+              -0.010709505846282602,
+              -0.008033988295933386
+            ],
+            "n_resamples": 500
+          }
+        },
+        "APACHE_IVa": {
+          "APACHE": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8504124477532476,
+            "brier": 0.08204785646844932,
+            "ece_q10": 0.028903707174170422
+          },
+          "coverage_n": 39920,
+          "without_nutrition_metabolic_labs_source_only_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.8262147984519809,
+            "brier": 0.08229837470762186,
+            "ece_q10": 0.012673355383751648
+          },
+          "without_nutrition_metabolic_labs_source_only_platt_minus_APACHE_auc": -0.024197649301266777,
+          "without_nutrition_metabolic_labs_source_only_platt_minus_APACHE_brier": 0.00025051823917253413,
+          "without_nutrition_metabolic_labs_source_only_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": -0.024197649301266777,
+            "ci_95": [
+              -0.030679228665741486,
+              -0.01788002138586332
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_metabolic_labs_source_only_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": 0.00025051823917253413,
+            "ci_95": [
+              -0.0012110023000374357,
+              0.0016265279236058435
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_metabolic_labs_combined_nested_platt": {
+            "n": 39920,
+            "events": 4956,
+            "event_rate": 0.12414829659318637,
+            "auc": 0.863848214822413,
+            "brier": 0.07544652836998209,
+            "ece_q10": 0.007475743041385442
+          },
+          "without_nutrition_metabolic_labs_combined_nested_platt_minus_APACHE_auc": 0.013435767069165383,
+          "without_nutrition_metabolic_labs_combined_nested_platt_minus_APACHE_brier": -0.006601328098467238,
+          "without_nutrition_metabolic_labs_combined_nested_platt_minus_APACHE_auc_bootstrap": {
+            "metric": "auc",
+            "estimate": 0.013435767069165383,
+            "ci_95": [
+              0.008082064056426974,
+              0.01917267519124116
+            ],
+            "n_resamples": 500
+          },
+          "without_nutrition_metabolic_labs_combined_nested_platt_minus_APACHE_brier_bootstrap": {
+            "metric": "brier",
+            "estimate": -0.006601328098467238,
+            "ci_95": [
+              -0.00781036515484782,
+              -0.005399516819762331
+            ],
+            "n_resamples": 500
+          }
+        }
+      }
+    }
+  },
+  "paired_incremental_value": {
+    "full_minus_without_v12_nutrition_construct": {
+      "source_only_auc_diff": {
+        "metric": "auc",
+        "estimate": -0.018400591178104442,
+        "ci_95": [
+          -0.020936730796997836,
+          -0.015648126532269768
+        ],
+        "n_resamples": 500
+      },
+      "source_only_brier_diff": {
+        "metric": "brier",
+        "estimate": 0.0026685210306647,
+        "ci_95": [
+          0.0022922310590534696,
+          0.0030657942949740245
+        ],
+        "n_resamples": 500
+      },
+      "combined_nested_auc_diff": {
+        "metric": "auc",
+        "estimate": 0.0049473065975247366,
+        "ci_95": [
+          0.0028927039295123746,
+          0.007102413364720533
+        ],
+        "n_resamples": 500
+      },
+      "combined_nested_brier_diff": {
+        "metric": "brier",
+        "estimate": -0.0010945836465485331,
+        "ci_95": [
+          -0.0014452171111999721,
+          -0.0007020602751457288
+        ],
+        "n_resamples": 500
+      }
+    },
+    "full_minus_without_explicit_nutrition": {
+      "source_only_auc_diff": {
+        "metric": "auc",
+        "estimate": -0.010096775808910885,
+        "ci_95": [
+          -0.011987074677097595,
+          -0.008120624692984706
+        ],
+        "n_resamples": 500
+      },
+      "source_only_brier_diff": {
+        "metric": "brier",
+        "estimate": 0.0020792970189378174,
+        "ci_95": [
+          0.0018078115733905816,
+          0.002353114417392486
+        ],
+        "n_resamples": 500
+      },
+      "combined_nested_auc_diff": {
+        "metric": "auc",
+        "estimate": 0.0017034888543052684,
+        "ci_95": [
+          0.00033367204632427376,
+          0.003074558585460862
+        ],
+        "n_resamples": 500
+      },
+      "combined_nested_brier_diff": {
+        "metric": "brier",
+        "estimate": -0.0006730225056481021,
+        "ci_95": [
+          -0.000938809622185429,
+          -0.00039697641617144285
+        ],
+        "n_resamples": 500
+      }
+    },
+    "full_minus_without_nutrition_support": {
+      "source_only_auc_diff": {
+        "metric": "auc",
+        "estimate": -0.0005720109931544037,
+        "ci_95": [
+          -0.0015197982413950512,
+          0.00044454740325207106
+        ],
+        "n_resamples": 500
+      },
+      "source_only_brier_diff": {
+        "metric": "brier",
+        "estimate": 0.00016214560505818654,
+        "ci_95": [
+          1.6493651012303862e-05,
+          0.00029811264033761736
+        ],
+        "n_resamples": 500
+      },
+      "combined_nested_auc_diff": {
+        "metric": "auc",
+        "estimate": -0.0005482735200814659,
+        "ci_95": [
+          -0.0012807006926033899,
+          0.00016428001069753158
+        ],
+        "n_resamples": 500
+      },
+      "combined_nested_brier_diff": {
+        "metric": "brier",
+        "estimate": -0.00010130896178812965,
+        "ci_95": [
+          -0.0002618211128069665,
+          4.5775525619173154e-05
+        ],
+        "n_resamples": 500
+      }
+    },
+    "full_minus_without_nutrition_metabolic_labs": {
+      "source_only_auc_diff": {
+        "metric": "auc",
+        "estimate": -0.014061738708212479,
+        "ci_95": [
+          -0.01643065503118655,
+          -0.011361800219164796
+        ],
+        "n_resamples": 500
+      },
+      "source_only_brier_diff": {
+        "metric": "brier",
+        "estimate": 0.0023744565726758066,
+        "ci_95": [
+          0.0020519858631989386,
+          0.0027368967313343316
+        ],
+        "n_resamples": 500
+      },
+      "combined_nested_auc_diff": {
+        "metric": "auc",
+        "estimate": 0.005853257576175386,
+        "ci_95": [
+          0.00409164467151939,
+          0.007713685275827284
+        ],
+        "n_resamples": 500
+      },
+      "combined_nested_brier_diff": {
+        "metric": "brier",
+        "estimate": -0.0011883581242711772,
+        "ci_95": [
+          -0.001507196898040614,
+          -0.0008288559187700037
+        ],
+        "n_resamples": 500
+      }
+    }
+  }
+}

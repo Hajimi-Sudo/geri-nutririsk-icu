@@ -1,0 +1,230 @@
+{
+  "protocol": "V16_HOSPITAL_CLUSTER_ROBUSTNESS",
+  "status_date": "2026-08-26",
+  "heldout_hospitals": 206,
+  "heldout_n": 57488,
+  "heldout_events": 7130,
+  "heldout_model": {
+    "n": 57488,
+    "events": 7130,
+    "event_rate": 0.12402588366267743,
+    "auc": 0.8721554260554737,
+    "brier": 0.07321767063415748,
+    "ece_q10": 0.0036501171723538487
+  },
+  "sensitivity": [
+    {
+      "label": "all_heldout_hospitals",
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8721554260554737,
+      "brier": 0.07321767063415748,
+      "ece_q10": 0.0036501171723538487
+    },
+    {
+      "label": "excluding_top10_hospitals_by_n",
+      "n": 44777,
+      "events": 5330,
+      "event_rate": 0.11903432565826205,
+      "auc": 0.8700997481552063,
+      "brier": 0.07156632297515893,
+      "ece_q10": 0.002751475092473206
+    },
+    {
+      "label": "hospitals_with_n_ge_100",
+      "n": 54833,
+      "events": 6804,
+      "event_rate": 0.12408586070432039,
+      "auc": 0.8736785935804584,
+      "brier": 0.07284273296587243,
+      "ece_q10": 0.004525003372757429
+    },
+    {
+      "label": "hospitals_with_n_ge_200",
+      "n": 47517,
+      "events": 5967,
+      "event_rate": 0.12557610960287896,
+      "auc": 0.87473452565121,
+      "brier": 0.07315298560256372,
+      "ece_q10": 0.005453417074295362
+    }
+  ],
+  "hospital_cluster_bootstrap_model": {
+    "model_auc": {
+      "mean": 0.8723132154704478,
+      "ci_95": [
+        0.8663568945773135,
+        0.8788914261203034
+      ],
+      "n_resamples": 500
+    },
+    "model_brier": {
+      "mean": 0.07330052670003277,
+      "ci_95": [
+        0.06920194563254858,
+        0.07697349394038824
+      ],
+      "n_resamples": 500
+    }
+  },
+  "apache_same_subset": {
+    "IV": {
+      "coverage_n": 39920,
+      "model_same_subset": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8713008417559248,
+        "brier": 0.07413677623154692,
+        "ece_q10": 0.00919351141348936
+      },
+      "apache_same_subset": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8461494788736464,
+        "brier": 0.08481210052531886,
+        "ece_q10": 0.04568745016963188
+      },
+      "point_differences": {
+        "auc": 0.025151362882278372,
+        "brier": -0.010675324293771937
+      },
+      "hospital_cluster_bootstrap": {
+        "model_auc": {
+          "mean": 0.87155067125622,
+          "ci_95": [
+            0.8650868814682343,
+            0.8784557996605262
+          ],
+          "n_resamples": 500
+        },
+        "model_brier": {
+          "mean": 0.07408087732815265,
+          "ci_95": [
+            0.07009148747438816,
+            0.07805993441226103
+          ],
+          "n_resamples": 500
+        },
+        "model_minus_apache_auc": {
+          "mean": 0.025360562448505868,
+          "ci_95": [
+            0.019283339817463763,
+            0.03240644653295899
+          ],
+          "n_resamples": 500
+        },
+        "model_minus_apache_brier": {
+          "mean": -0.010741458420000958,
+          "ci_95": [
+            -0.012618337277318994,
+            -0.008760122046924935
+          ],
+          "n_resamples": 500
+        }
+      }
+    },
+    "IVa": {
+      "coverage_n": 39920,
+      "model_same_subset": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8713008417559248,
+        "brier": 0.07413677623154692,
+        "ece_q10": 0.00919351141348936
+      },
+      "apache_same_subset": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8504124477532476,
+        "brier": 0.08204785646844932,
+        "ece_q10": 0.028903707174170422
+      },
+      "point_differences": {
+        "auc": 0.02088839400267717,
+        "brier": -0.007911080236902401
+      },
+      "hospital_cluster_bootstrap": {
+        "model_auc": {
+          "mean": 0.87155067125622,
+          "ci_95": [
+            0.8650868814682343,
+            0.8784557996605262
+          ],
+          "n_resamples": 500
+        },
+        "model_brier": {
+          "mean": 0.07408087732815265,
+          "ci_95": [
+            0.07009148747438816,
+            0.07805993441226103
+          ],
+          "n_resamples": 500
+        },
+        "model_minus_apache_auc": {
+          "mean": 0.021045560538223554,
+          "ci_95": [
+            0.015120028962587198,
+            0.02778003830827698
+          ],
+          "n_resamples": 500
+        },
+        "model_minus_apache_brier": {
+          "mean": -0.007956844530024728,
+          "ci_95": [
+            -0.009675752809448483,
+            -0.006241696693638492
+          ],
+          "n_resamples": 500
+        }
+      }
+    }
+  },
+  "top10_hospitals_by_heldout_n": [
+    [
+      "73",
+      1695
+    ],
+    [
+      "264",
+      1615
+    ],
+    [
+      "338",
+      1281
+    ],
+    [
+      "420",
+      1262
+    ],
+    [
+      "243",
+      1233
+    ],
+    [
+      "208",
+      1170
+    ],
+    [
+      "188",
+      1153
+    ],
+    [
+      "199",
+      1123
+    ],
+    [
+      "458",
+      1120
+    ],
+    [
+      "300",
+      1059
+    ]
+  ],
+  "claim_boundary": "Hospital-cluster results assess robustness across the multicenter eICU validation dataset. They do not substitute for prospective implementation validation."
+}

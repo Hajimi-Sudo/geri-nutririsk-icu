@@ -1,0 +1,253 @@
+{
+  "protocol": "V13_STRONG_CLINICAL_FEATURE_UPGRADE",
+  "status_date": "2026-08-26",
+  "red_lines": [
+    "No APACHE predicted mortality, APACHE score, or acute physiology score used as model input.",
+    "Source-only validation and eICU domain-updated held-out validation are reported separately.",
+    "Nutrition-construct ablation retained."
+  ],
+  "feature_count": 83,
+  "extra_features": [
+    "lactate",
+    "platelet",
+    "potassium",
+    "chloride",
+    "bicarbonate",
+    "calcium",
+    "magnesium",
+    "inr",
+    "pt",
+    "ptt",
+    "ph",
+    "pco2",
+    "pao2",
+    "fio2",
+    "base_excess",
+    "anion_gap",
+    "hemoglobin",
+    "lactate_missing",
+    "platelet_missing",
+    "potassium_missing",
+    "chloride_missing",
+    "bicarbonate_missing",
+    "calcium_missing",
+    "magnesium_missing",
+    "inr_missing",
+    "pt_missing",
+    "ptt_missing",
+    "ph_missing",
+    "pco2_missing",
+    "pao2_missing",
+    "fio2_missing",
+    "base_excess_missing",
+    "anion_gap_missing",
+    "hemoglobin_missing",
+    "pf_ratio",
+    "icu_type_cardiac",
+    "icu_type_surgical",
+    "icu_type_neuro",
+    "icu_type_trauma",
+    "icu_type_medical",
+    "icu_type_med_surg",
+    "admit_emergency_or_ed",
+    "admit_transfer",
+    "admit_elective"
+  ],
+  "extra_lab_nonmissing": {
+    "mimic": {
+      "lactate": 18482,
+      "platelet": 32477,
+      "potassium": 32709,
+      "chloride": 32684,
+      "bicarbonate": 32635,
+      "calcium": 32161,
+      "magnesium": 31293,
+      "inr": 28205,
+      "pt": 28208,
+      "ptt": 27990,
+      "ph": 18962,
+      "pco2": 18376,
+      "pao2": 18378,
+      "fio2": 3830,
+      "base_excess": 18379,
+      "anion_gap": 32631,
+      "hemoglobin": 32489
+    },
+    "eicu": {
+      "lactate": 14807,
+      "platelet": 58794,
+      "potassium": 62242,
+      "chloride": 61299,
+      "bicarbonate": 61737,
+      "calcium": 60020,
+      "magnesium": 35263,
+      "inr": 24030,
+      "pt": 23367,
+      "ptt": 15697,
+      "ph": 20622,
+      "pco2": 13995,
+      "pao2": 21036,
+      "fio2": 21699,
+      "base_excess": 15771,
+      "anion_gap": 57362,
+      "hemoglobin": 60257
+    }
+  },
+  "source_only_lightgbm": {
+    "mimic_internal_test": {
+      "n": 6735,
+      "events": 946,
+      "event_rate": 0.140460282108389,
+      "auc": 0.89491807930547,
+      "brier": 0.09879210386754039,
+      "ece_q10": 0.10179121077527017
+    },
+    "eicu_full_original": {
+      "n": 71861,
+      "events": 8860,
+      "event_rate": 0.12329358066266821,
+      "auc": 0.8087576864217606,
+      "brier": 0.17124615692085948,
+      "ece_q10": 0.21767295600560113
+    },
+    "eicu_heldout_platt": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8099679005195173,
+      "brier": 0.08423331578899695,
+      "ece_q10": 0.013064309215851633
+    },
+    "platt_parameters": {
+      "intercept": -1.8809834479929972,
+      "slope": 0.6276185483182765
+    }
+  },
+  "eicu_calibration_only_update_head": {
+    "eicu_heldout": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8771565799256008,
+      "brier": 0.09541586556295333,
+      "ece_q10": 0.10228952466931222
+    },
+    "interpretation": "Model fitted only on the prespecified eICU calibration split; not a source-only external validation model."
+  },
+  "combined_mimic_eicu_calibration_update_head": {
+    "eicu_heldout": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8805720744936103,
+      "brier": 0.09977818024926242,
+      "ece_q10": 0.12485546404065631
+    },
+    "interpretation": "Model fitted on MIMIC development plus the prespecified eICU calibration split; evaluated on held-out eICU."
+  },
+  "source_only_nutrition_construct_ablation": {
+    "full_v13_eicu_heldout_platt": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8099679005195173,
+      "brier": 0.08423331578899695,
+      "ece_q10": 0.013064309215851633
+    },
+    "without_nutrition_construct_eicu_heldout_platt": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8281343003450136,
+      "brier": 0.08132558846875478,
+      "ece_q10": 0.006743545803653287
+    },
+    "paired_auc_diff_full_minus_without_nutrition": {
+      "estimate": -0.018166399825496282,
+      "ci_95": [
+        -0.020832262151793523,
+        -0.01536523795639058
+      ],
+      "n_resamples": 500
+    }
+  },
+  "apache_same_heldout_subset": {
+    "APACHE_IV_heldout_same_subset": {
+      "APACHE": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8461494788736464,
+        "brier": 0.08481210052531886,
+        "ece_q10": 0.04568745016963188
+      },
+      "coverage_n": 39920,
+      "V13_source_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8363452690968014,
+        "brier": 0.08247330544846077,
+        "ece_q10": 0.024534362854801775
+      },
+      "V13_source_platt_minus_APACHE_auc": -0.009804209776845041,
+      "V13_eicu_calibration_update": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8752297532090888,
+        "brier": 0.09480955435363429,
+        "ece_q10": 0.09571719691601244
+      },
+      "V13_eicu_calibration_update_minus_APACHE_auc": 0.029080274335442358,
+      "V13_combined_domain_update": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8773502093563503,
+        "brier": 0.0993563034106744,
+        "ece_q10": 0.1177358738609705
+      },
+      "V13_combined_domain_update_minus_APACHE_auc": 0.031200730482703887
+    },
+    "APACHE_IVa_heldout_same_subset": {
+      "APACHE": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8504124477532476,
+        "brier": 0.08204785646844932,
+        "ece_q10": 0.028903707174170422
+      },
+      "coverage_n": 39920,
+      "V13_source_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8363452690968014,
+        "brier": 0.08247330544846077,
+        "ece_q10": 0.024534362854801775
+      },
+      "V13_source_platt_minus_APACHE_auc": -0.014067178656446244,
+      "V13_eicu_calibration_update": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8752297532090888,
+        "brier": 0.09480955435363429,
+        "ece_q10": 0.09571719691601244
+      },
+      "V13_eicu_calibration_update_minus_APACHE_auc": 0.024817305455841154,
+      "V13_combined_domain_update": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8773502093563503,
+        "brier": 0.0993563034106744,
+        "ece_q10": 0.1177358738609705
+      },
+      "V13_combined_domain_update_minus_APACHE_auc": 0.026937761603102683
+    }
+  },
+  "claim_boundary": "If domain-updated models exceed APACHE on held-out eICU, this is a local model-updating result, not source-only transport superiority. If source-only remains below APACHE, APACHE should remain a contextual clinical benchmark."
+}

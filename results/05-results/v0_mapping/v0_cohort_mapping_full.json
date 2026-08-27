@@ -1,0 +1,3431 @@
+{
+  "mimic_base": {
+    "n_first_older_icu": 33671,
+    "age": {
+      "n": 33671,
+      "mean": 76.717,
+      "p25": 70.0,
+      "median": 76.0,
+      "p75": 83.0,
+      "min": 65.0,
+      "max": 91.0
+    },
+    "los_days": {
+      "n": 33666,
+      "mean": 3.428,
+      "p25": 1.123,
+      "median": 1.98,
+      "p75": 3.77,
+      "min": 0.007,
+      "max": 99.638
+    },
+    "hospital_mortality_events": 5279,
+    "hospital_mortality_rate": 0.1568,
+    "gender": {
+      "F": 15680,
+      "M": 17991
+    },
+    "careunit_top": [
+      [
+        "Cardiac Vascular Intensive Care Unit (CVICU)",
+        6761
+      ],
+      [
+        "Medical Intensive Care Unit (MICU)",
+        6041
+      ],
+      [
+        "Medical/Surgical Intensive Care Unit (MICU/SICU)",
+        5033
+      ],
+      [
+        "Coronary Care Unit (CCU)",
+        4586
+      ],
+      [
+        "Surgical Intensive Care Unit (SICU)",
+        4276
+      ],
+      [
+        "Trauma SICU (TSICU)",
+        3405
+      ],
+      [
+        "Neuro Intermediate",
+        2203
+      ],
+      [
+        "Neuro Surgical Intensive Care Unit (Neuro SICU)",
+        746
+      ],
+      [
+        "Neuro Stepdown",
+        504
+      ],
+      [
+        "Surgery/Vascular/Intermediate",
+        48
+      ]
+    ],
+    "race_top": [
+      [
+        "WHITE",
+        22243
+      ],
+      [
+        "UNKNOWN",
+        3604
+      ],
+      [
+        "BLACK/AFRICAN AMERICAN",
+        1952
+      ],
+      [
+        "OTHER",
+        971
+      ],
+      [
+        "WHITE - OTHER EUROPEAN",
+        914
+      ],
+      [
+        "UNABLE TO OBTAIN",
+        836
+      ],
+      [
+        "WHITE - RUSSIAN",
+        475
+      ],
+      [
+        "ASIAN - CHINESE",
+        395
+      ],
+      [
+        "ASIAN",
+        361
+      ],
+      [
+        "HISPANIC/LATINO - PUERTO RICAN",
+        220
+      ],
+      [
+        "PATIENT DECLINED TO ANSWER",
+        197
+      ],
+      [
+        "BLACK/CAPE VERDEAN",
+        195
+      ]
+    ],
+    "insurance": {
+      "Medicare": 28677,
+      "Private": 3048,
+      "Medicaid": 1431,
+      "Other": 245,
+      "": 269,
+      "No charge": 1
+    }
+  },
+  "eicu_base": {
+    "n_first_older_unit_stays_by_uniquepid": 71861,
+    "age": {
+      "n": 71861,
+      "mean": 76.747,
+      "p25": 70,
+      "median": 76,
+      "p75": 83,
+      "min": 65,
+      "max": 90
+    },
+    "height_cm": {
+      "n": 70349,
+      "mean": 167.873,
+      "p25": 160.0,
+      "median": 167.6,
+      "p75": 177.0,
+      "min": 0.0,
+      "max": 605.0
+    },
+    "weight_kg": {
+      "n": 67601,
+      "mean": 79.745,
+      "p25": 64.0,
+      "median": 77.1,
+      "p75": 91.5,
+      "min": 0.0,
+      "max": 880.6
+    },
+    "bmi": {
+      "n": 66787,
+      "mean": 28.115,
+      "p25": 23.227,
+      "median": 26.949,
+      "p75": 31.55,
+      "min": 8.855,
+      "max": 265.274
+    },
+    "hospital_mortality_events": 8824,
+    "hospital_mortality_rate": 0.1228,
+    "icu_mortality_events": 5720,
+    "icu_mortality_rate": 0.0796,
+    "gender": {
+      "Female": 34731,
+      "Male": 37082,
+      "Unknown": 28,
+      "": 16,
+      "Other": 4
+    },
+    "ethnicity_top": [
+      [
+        "Caucasian",
+        59147
+      ],
+      [
+        "African American",
+        5044
+      ],
+      [
+        "Other/Unknown",
+        2828
+      ],
+      [
+        "Hispanic",
+        2497
+      ],
+      [
+        "Asian",
+        1217
+      ],
+      [
+        "",
+        880
+      ],
+      [
+        "Native American",
+        248
+      ]
+    ],
+    "unit_type_top": [
+      [
+        "Med-Surg ICU",
+        39869
+      ],
+      [
+        "CCU-CTICU",
+        6223
+      ],
+      [
+        "MICU",
+        6032
+      ],
+      [
+        "Neuro ICU",
+        5008
+      ],
+      [
+        "Cardiac ICU",
+        4807
+      ],
+      [
+        "SICU",
+        4168
+      ],
+      [
+        "CSICU",
+        3219
+      ],
+      [
+        "CTICU",
+        2535
+      ]
+    ]
+  },
+  "mimic_lab_itemids": {
+    "glucose": [
+      {
+        "itemid": "50809",
+        "label": "Glucose",
+        "fluid": "Blood",
+        "category": "Blood Gas"
+      },
+      {
+        "itemid": "50842",
+        "label": "Glucose, Ascites",
+        "fluid": "Ascites",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "50931",
+        "label": "Glucose",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51022",
+        "label": "Glucose, Joint Fluid",
+        "fluid": "Joint Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51034",
+        "label": "Glucose, Body Fluid",
+        "fluid": "Other Body Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51053",
+        "label": "Glucose, Pleural",
+        "fluid": "Pleural",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51084",
+        "label": "Glucose, Urine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51478",
+        "label": "Glucose",
+        "fluid": "Urine",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51790",
+        "label": "Glucose, CSF",
+        "fluid": "Cerebrospinal Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51941",
+        "label": "Glucose, Stool",
+        "fluid": "Stool",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51981",
+        "label": "Glucose",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "52027",
+        "label": "Glucose, Whole Blood",
+        "fluid": "Blood",
+        "category": "Blood Gas"
+      },
+      {
+        "itemid": "52569",
+        "label": "Glucose",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      }
+    ],
+    "hematocrit": [
+      {
+        "itemid": "50810",
+        "label": "Hematocrit, Calculated",
+        "fluid": "Blood",
+        "category": "Blood Gas"
+      },
+      {
+        "itemid": "51115",
+        "label": "Hematocrit, Ascites",
+        "fluid": "Ascites",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51221",
+        "label": "Hematocrit",
+        "fluid": "Blood",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51369",
+        "label": "Hematocrit, Joint Fluid",
+        "fluid": "Joint Fluid",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51422",
+        "label": "Hematocrit, Other Fluid",
+        "fluid": "Other Body Fluid",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51445",
+        "label": "Hematocrit, Pleural",
+        "fluid": "Pleural",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51480",
+        "label": "Hematocrit",
+        "fluid": "Urine",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51638",
+        "label": "Hematocrit",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51639",
+        "label": "Hematocrit",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "52028",
+        "label": "Hematocrit",
+        "fluid": "Blood",
+        "category": "Blood Gas"
+      },
+      {
+        "itemid": "52257",
+        "label": "Hematocrit, CSF",
+        "fluid": "Cerebrospinal Fluid",
+        "category": "Hematology"
+      }
+    ],
+    "sodium": [
+      {
+        "itemid": "50824",
+        "label": "Sodium, Whole Blood",
+        "fluid": "Blood",
+        "category": "Blood Gas"
+      },
+      {
+        "itemid": "50834",
+        "label": "Sodium, Body Fluid",
+        "fluid": "Other Body Fluid",
+        "category": "Blood Gas"
+      },
+      {
+        "itemid": "50848",
+        "label": "Sodium, Ascites",
+        "fluid": "Ascites",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "50983",
+        "label": "Sodium",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51042",
+        "label": "Sodium, Body Fluid",
+        "fluid": "Other Body Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51058",
+        "label": "Sodium, Pleural",
+        "fluid": "Pleural",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51065",
+        "label": "Sodium, Stool",
+        "fluid": "Stool",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51100",
+        "label": "Sodium, Urine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51801",
+        "label": "Sodium, CSF",
+        "fluid": "Cerebrospinal Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51823",
+        "label": "Sodium, Joint Fluid",
+        "fluid": "Joint Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "52047",
+        "label": "Sodium, Urine",
+        "fluid": "Urine",
+        "category": "Blood Gas"
+      },
+      {
+        "itemid": "52455",
+        "label": "Sodium, Whole Blood",
+        "fluid": "Blood",
+        "category": "Blood Gas"
+      },
+      {
+        "itemid": "52623",
+        "label": "Sodium",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      }
+    ],
+    "albumin": [
+      {
+        "itemid": "50835",
+        "label": "Albumin, Ascites",
+        "fluid": "Ascites",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "50862",
+        "label": "Albumin",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51019",
+        "label": "Albumin, Joint Fluid",
+        "fluid": "Joint Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51025",
+        "label": "Albumin, Body Fluid",
+        "fluid": "Other Body Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51046",
+        "label": "Albumin, Pleural",
+        "fluid": "Pleural",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51069",
+        "label": "Albumin, Urine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51070",
+        "label": "Albumin/Creatinine, Urine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51775",
+        "label": "(Albumin)",
+        "fluid": "Cerebrospinal Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51776",
+        "label": "<Albumin>",
+        "fluid": "Cerebrospinal Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51777",
+        "label": "Albumin, CSF",
+        "fluid": "Cerebrospinal Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51807",
+        "label": "(Albumin)",
+        "fluid": "Joint Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51836",
+        "label": "<Albumin>",
+        "fluid": "Other Body Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51897",
+        "label": "Surfactant/Albumin",
+        "fluid": "Other Body Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51910",
+        "label": "(Albumin)",
+        "fluid": "Pleural",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51926",
+        "label": "(Albumin)",
+        "fluid": "Stool",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51927",
+        "label": "Albumin, Stool",
+        "fluid": "Stool",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "52022",
+        "label": "Albumin, Blood",
+        "fluid": "Blood",
+        "category": "Blood Gas"
+      },
+      {
+        "itemid": "52703",
+        "label": "Albumin, Urine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "53085",
+        "label": "Albumin",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "53116",
+        "label": "(Albumin)",
+        "fluid": "Ascites",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "53138",
+        "label": "(Albumin)",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      }
+    ],
+    "bilirubin": [
+      {
+        "itemid": "50838",
+        "label": "Bilirubin, Total, Ascites",
+        "fluid": "Ascites",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "50883",
+        "label": "Bilirubin, Direct",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "50884",
+        "label": "Bilirubin, Indirect",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "50885",
+        "label": "Bilirubin, Total",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51028",
+        "label": "Bilirubin, Total, Body Fluid",
+        "fluid": "Other Body Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51049",
+        "label": "Bilirubin, Total, Pleural",
+        "fluid": "Pleural",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51464",
+        "label": "Bilirubin",
+        "fluid": "Urine",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51465",
+        "label": "Bilirubin Crystals",
+        "fluid": "Urine",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51568",
+        "label": "Bilirubin, Neonatal",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51569",
+        "label": "Bilirubin, Neonatal, Direct",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51570",
+        "label": "Bilirubin, Neonatal, Indirect",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51783",
+        "label": "Bilirubin, Total, CSF",
+        "fluid": "Cerebrospinal Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51812",
+        "label": "Bilirubin, Total, Joint Fluid",
+        "fluid": "Joint Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51932",
+        "label": "Bilirubin, Total, Stool",
+        "fluid": "Stool",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51966",
+        "label": "Bilirubin",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "53089",
+        "label": "Bilirubin, Total",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      }
+    ],
+    "creatinine": [
+      {
+        "itemid": "50841",
+        "label": "Creatinine, Ascites",
+        "fluid": "Ascites",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "50912",
+        "label": "Creatinine",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51021",
+        "label": "Creatinine, Joint Fluid",
+        "fluid": "Joint Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51032",
+        "label": "Creatinine, Body Fluid",
+        "fluid": "Other Body Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51052",
+        "label": "Creatinine, Pleural",
+        "fluid": "Pleural",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51067",
+        "label": "24 hr Creatinine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51070",
+        "label": "Albumin/Creatinine, Urine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51073",
+        "label": "Amylase/Creatinine Ratio, Urine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51080",
+        "label": "Creatinine Clearance",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51081",
+        "label": "Creatinine, Serum",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51082",
+        "label": "Creatinine, Urine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51099",
+        "label": "Protein/Creatinine Ratio",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51106",
+        "label": "Urine Creatinine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51787",
+        "label": "Creatinine, CSF",
+        "fluid": "Cerebrospinal Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51937",
+        "label": "Creatinine, Stool",
+        "fluid": "Stool",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51963",
+        "label": "Amylase/Creatinine Clearance",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51977",
+        "label": "Creatinine, Blood",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "52000",
+        "label": "Urine  Creatinine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "52024",
+        "label": "Creatinine, Whole Blood",
+        "fluid": "Blood",
+        "category": "Blood Gas"
+      },
+      {
+        "itemid": "52546",
+        "label": "Creatinine",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      }
+    ],
+    "bun": [
+      {
+        "itemid": "50851",
+        "label": "Urea Nitrogen, Ascites",
+        "fluid": "Ascites",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51006",
+        "label": "Urea Nitrogen",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51045",
+        "label": "Urea Nitrogen, Body Fluid",
+        "fluid": "Other Body Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51104",
+        "label": "Urea Nitrogen, Urine",
+        "fluid": "Urine",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51804",
+        "label": "Urea Nitrogen, CSF",
+        "fluid": "Cerebrospinal Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51825",
+        "label": "Urea Nitrogen, Joint Fluid",
+        "fluid": "Joint Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51842",
+        "label": "Bun",
+        "fluid": "Other Body Fluid",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51922",
+        "label": "Urea Nitrogen, Pleural",
+        "fluid": "Pleural",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51951",
+        "label": "Urea Nitrogen, Stool",
+        "fluid": "Stool",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "52647",
+        "label": "Urea Nitrogen",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      }
+    ],
+    "wbc": [
+      {
+        "itemid": "51300",
+        "label": "WBC Count",
+        "fluid": "Blood",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51301",
+        "label": "White Blood Cells",
+        "fluid": "Blood",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51516",
+        "label": "WBC",
+        "fluid": "Urine",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51517",
+        "label": "WBC Casts",
+        "fluid": "Urine",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51518",
+        "label": "WBC Clumps",
+        "fluid": "Urine",
+        "category": "Hematology"
+      },
+      {
+        "itemid": "51755",
+        "label": "White Blood Cells",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "51756",
+        "label": "White Blood Cells",
+        "fluid": "Blood",
+        "category": "Chemistry"
+      },
+      {
+        "itemid": "52407",
+        "label": "WBC",
+        "fluid": "Stool",
+        "category": "Hematology"
+      }
+    ]
+  },
+  "mimic_icu_itemids": {
+    "enteral_nutrition": [
+      {
+        "itemid": "220045",
+        "label": "Heart Rate",
+        "abbreviation": "HR",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "bpm",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "220048",
+        "label": "Heart Rhythm",
+        "abbreviation": "Heart Rhythm",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "220050",
+        "label": "Arterial Blood Pressure systolic",
+        "abbreviation": "ABPs",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "90",
+        "highnormalvalue": "140"
+      },
+      {
+        "itemid": "220051",
+        "label": "Arterial Blood Pressure diastolic",
+        "abbreviation": "ABPd",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "60",
+        "highnormalvalue": "90"
+      },
+      {
+        "itemid": "220052",
+        "label": "Arterial Blood Pressure mean",
+        "abbreviation": "ABPm",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "220179",
+        "label": "Non Invasive Blood Pressure systolic",
+        "abbreviation": "NBPs",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "220180",
+        "label": "Non Invasive Blood Pressure diastolic",
+        "abbreviation": "NBPd",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "220181",
+        "label": "Non Invasive Blood Pressure mean",
+        "abbreviation": "NBPm",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "220218",
+        "label": "Vital Capacity",
+        "abbreviation": "VC",
+        "linksto": "chartevents",
+        "category": "Respiratory",
+        "unitname": "Liters",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "221029",
+        "label": "Osmolite",
+        "abbreviation": "Osmolite",
+        "linksto": "inputevents",
+        "category": "Fluids - Other (Not In Use)",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "221036",
+        "label": "Nutren Renal (Full)",
+        "abbreviation": "Nutren Renal (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "221037",
+        "label": "Jevity 1.2",
+        "abbreviation": "Jevity 1.2",
+        "linksto": "inputevents",
+        "category": "Fluids - Other (Not In Use)",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "221038",
+        "label": "Jevity",
+        "abbreviation": "Jevity",
+        "linksto": "inputevents",
+        "category": "Fluids - Other (Not In Use)",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "221207",
+        "label": "Impact (Full)",
+        "abbreviation": "Impact (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "222190",
+        "label": "Ranitidine",
+        "abbreviation": "Ranitidine",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mg",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "223761",
+        "label": "Temperature Fahrenheit",
+        "abbreviation": "Temperature F",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "°F",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "223762",
+        "label": "Temperature Celsius",
+        "abbreviation": "Temperature C",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "°C",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "223763",
+        "label": "Bladder Pressure",
+        "abbreviation": "Bladder Pressure",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "223764",
+        "label": "Orthostatic HR lying",
+        "abbreviation": "Orthostatic HR lying",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "bpm",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "223765",
+        "label": "Orthostatic HR sitting",
+        "abbreviation": "Orthostatic HR sitting",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "bpm",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "223766",
+        "label": "Orthostatic BPs standing",
+        "abbreviation": "Orthostatic BPs standing",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224166",
+        "label": "Doppler BP",
+        "abbreviation": "Doppler BP",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224167",
+        "label": "Manual Blood Pressure Systolic Left",
+        "abbreviation": "Manual BPs L",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224192",
+        "label": "Pulsus Paradoxus",
+        "abbreviation": "Pulsus Paradoxus",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "None",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224359",
+        "label": "QTc",
+        "abbreviation": "QTc",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "sec",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224420",
+        "label": "Vital Cap",
+        "abbreviation": "Vital Cap",
+        "linksto": "chartevents",
+        "category": "Respiratory",
+        "unitname": "Liters",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224642",
+        "label": "Temperature Site",
+        "abbreviation": "Temp Site",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224643",
+        "label": "Manual Blood Pressure Diastolic Left",
+        "abbreviation": "Manual BPd L",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224645",
+        "label": "Orthostatic BPs lying",
+        "abbreviation": "Orthostatic BPs lying",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224646",
+        "label": "Orthostatic BPs sitting",
+        "abbreviation": "Orthostatic BPs sitting",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224647",
+        "label": "Orthostatic HR standing",
+        "abbreviation": "Orthostatic HR standing",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "bpm",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224650",
+        "label": "Ectopy Type 1",
+        "abbreviation": "Ectopy Type 1",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "224651",
+        "label": "Ectopy Frequency 1",
+        "abbreviation": "Ectopy Frequency 1",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225309",
+        "label": "ART BP Systolic",
+        "abbreviation": "ART BP Systolic",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225310",
+        "label": "ART BP Diastolic",
+        "abbreviation": "ART BP Diastolic",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225312",
+        "label": "ART BP Mean",
+        "abbreviation": "ART BP Mean",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225801",
+        "label": "Lipids 20%",
+        "abbreviation": "Lipids 20%",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225916",
+        "label": "TPN w/ Lipids",
+        "abbreviation": "TPN w/ Lipids",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225917",
+        "label": "TPN without Lipids",
+        "abbreviation": "TPN without Lipids",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225920",
+        "label": "Peripheral Parenteral Nutrition",
+        "abbreviation": "Peripheral Parenteral Nutrition",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225928",
+        "label": "Impact with Fiber (Full)",
+        "abbreviation": "Impact with Fiber (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225929",
+        "label": "ProBalance (Full)",
+        "abbreviation": "ProBalance (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225930",
+        "label": "Peptamen 1.5 (Full)",
+        "abbreviation": "Peptamen 1.5 (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225931",
+        "label": "Nutren 2.0 (Full)",
+        "abbreviation": "Nutren 2.0 (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225934",
+        "label": "Vivonex (Full)",
+        "abbreviation": "Vivonex (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225935",
+        "label": "Replete (Full)",
+        "abbreviation": "Replete (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225936",
+        "label": "Replete with Fiber (Full)",
+        "abbreviation": "Replete with Fiber (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225937",
+        "label": "Ensure (Full)",
+        "abbreviation": "Ensure (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225947",
+        "label": "Dextrose PN",
+        "abbreviation": "Dextrose PN",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "grams",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225948",
+        "label": "Amino Acids",
+        "abbreviation": "Amino Acids",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "grams",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225969",
+        "label": "Lipids (additive)",
+        "abbreviation": "Lipids (additive)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "grams",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225970",
+        "label": "Beneprotein",
+        "abbreviation": "Beneprotein",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "grams",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226016",
+        "label": "Nutren 2.0 (1/4)",
+        "abbreviation": "Nutren 2.0 (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226017",
+        "label": "Nutren 2.0 (2/3)",
+        "abbreviation": "Nutren 2.0 (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226018",
+        "label": "Nutren 2.0 (3/4)",
+        "abbreviation": "Nutren 2.0 (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226019",
+        "label": "Nutren 2.0 (1/2)",
+        "abbreviation": "Nutren 2.0 (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226020",
+        "label": "Impact (1/4)",
+        "abbreviation": "Impact (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226021",
+        "label": "Impact (2/3)",
+        "abbreviation": "Impact (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226022",
+        "label": "Impact (3/4)",
+        "abbreviation": "Impact (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226023",
+        "label": "Impact (1/2)",
+        "abbreviation": "Impact (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226024",
+        "label": "Impact with Fiber (1/4)",
+        "abbreviation": "Impact with Fiber (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226025",
+        "label": "Impact with Fiber (2/3)",
+        "abbreviation": "Impact with Fiber (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226026",
+        "label": "Impact with Fiber (3/4)",
+        "abbreviation": "Impact with Fiber (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226027",
+        "label": "Impact with Fiber (1/2)",
+        "abbreviation": "Impact with Fiber (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226028",
+        "label": "Nutren Renal (1/4)",
+        "abbreviation": "Nutren Renal (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226029",
+        "label": "Nutren Renal (2/3)",
+        "abbreviation": "Nutren Renal (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226030",
+        "label": "Nutren Renal (3/4)",
+        "abbreviation": "Nutren Renal (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226031",
+        "label": "Nutren Renal (1/2)",
+        "abbreviation": "Nutren Renal (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226036",
+        "label": "Peptamen 1.5 (1/4)",
+        "abbreviation": "Peptamen 1.5 (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226037",
+        "label": "Peptamen 1.5 (2/3)",
+        "abbreviation": "Peptamen 1.5 (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226038",
+        "label": "Peptamen 1.5 (3/4)",
+        "abbreviation": "Peptamen 1.5 (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226039",
+        "label": "Peptamen 1.5 (1/2)",
+        "abbreviation": "Peptamen 1.5 (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226040",
+        "label": "ProBalance (1/4)",
+        "abbreviation": "ProBalance (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226041",
+        "label": "ProBalance (2/3)",
+        "abbreviation": "ProBalance (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226042",
+        "label": "ProBalance (3/4)",
+        "abbreviation": "ProBalance (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226043",
+        "label": "ProBalance (1/2)",
+        "abbreviation": "ProBalance (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226044",
+        "label": "Replete (1/4)",
+        "abbreviation": "Replete (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226045",
+        "label": "Replete (2/3)",
+        "abbreviation": "Replete (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226046",
+        "label": "Replete (3/4)",
+        "abbreviation": "Replete (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226047",
+        "label": "Replete (1/2)",
+        "abbreviation": "Replete (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226048",
+        "label": "Replete with Fiber (1/4)",
+        "abbreviation": "Replete with Fiber (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226049",
+        "label": "Replete with Fiber (2/3)",
+        "abbreviation": "Replete with Fiber (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226050",
+        "label": "Replete with Fiber (3/4)",
+        "abbreviation": "Replete with Fiber (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226051",
+        "label": "Replete with Fiber (1/2)",
+        "abbreviation": "Replete with Fiber (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226056",
+        "label": "Vivonex (1/4)",
+        "abbreviation": "Vivonex (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226057",
+        "label": "Vivonex (2/3)",
+        "abbreviation": "Vivonex (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226058",
+        "label": "Vivonex (3/4)",
+        "abbreviation": "Vivonex (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226059",
+        "label": "Vivonex (1/2)",
+        "abbreviation": "Vivonex (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226092",
+        "label": "Orthostatic BPd lying",
+        "abbreviation": "Orthostatic BPd lying",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226094",
+        "label": "Orthostatic BPd sitting",
+        "abbreviation": "Orthostatic BPd sitting",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226096",
+        "label": "Orthostatic BPd standing",
+        "abbreviation": "Orthostatic BPd standing",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226221",
+        "label": "Enteral Nutrition Ingredient",
+        "abbreviation": "Enteral Nutrition Ingredient",
+        "linksto": "ingredientevents",
+        "category": "Ingredients",
+        "unitname": "mL",
+        "param_type": "Ingredient",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226226",
+        "label": "Enteral Nutriton Residuals",
+        "abbreviation": "Enteral Nutriton Residuals",
+        "linksto": "chartevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "None",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226329",
+        "label": "Blood Temperature CCO (C)",
+        "abbreviation": "Blood Temp CCO (C)",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "°C",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226479",
+        "label": "Ectopy Type 2",
+        "abbreviation": "Ectopy Type 2",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226480",
+        "label": "Ectopy Frequency 2",
+        "abbreviation": "Ectopy Frequency 2",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226875",
+        "label": "Ensure (3/4)",
+        "abbreviation": "Ensure (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226876",
+        "label": "Ensure (1/2)",
+        "abbreviation": "Ensure (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226877",
+        "label": "Ensure Plus (Full)",
+        "abbreviation": "Ensure Plus (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226878",
+        "label": "Ensure Plus (3/4)",
+        "abbreviation": "Ensure Plus (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226879",
+        "label": "Ensure Plus (1/2)",
+        "abbreviation": "Ensure Plus (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226880",
+        "label": "Nutren Pulmonary (Full)",
+        "abbreviation": "Nutren Pulmonary (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226881",
+        "label": "Nutren Pulmonary (3/4)",
+        "abbreviation": "Nutren Pulmonary (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226882",
+        "label": "Nutren Pulmonary (1/2)",
+        "abbreviation": "Nutren Pulmonary (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227079",
+        "label": "Parenteral Nutrition Ingredient",
+        "abbreviation": "Parenteral Nutrition Ingredient",
+        "linksto": "ingredientevents",
+        "category": "Ingredients",
+        "unitname": "mL",
+        "param_type": "Ingredient",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227090",
+        "label": "Lipids 10%",
+        "abbreviation": "Lipids 10%",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227091",
+        "label": "Ensure (1/4)",
+        "abbreviation": "Ensure (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227092",
+        "label": "Ensure Plus (1/4)",
+        "abbreviation": "Ensure Plus (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227242",
+        "label": "Manual Blood Pressure Diastolic Right",
+        "abbreviation": "Manual BPd R",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227243",
+        "label": "Manual Blood Pressure Systolic Right",
+        "abbreviation": "Manual BPs R",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "mmHg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227370",
+        "label": "Peptamen VHP (Full)",
+        "abbreviation": "Peptamen VHP (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227371",
+        "label": "Peptamen VHP (3/4)",
+        "abbreviation": "Peptamen VHP (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227372",
+        "label": "Peptamen VHP (2/3)",
+        "abbreviation": "Peptamen VHP (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227373",
+        "label": "Peptamen VHP (1/4)",
+        "abbreviation": "Peptamen VHP (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227374",
+        "label": "Peptamen VHP (1/2)",
+        "abbreviation": "Peptamen VHP (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227518",
+        "label": "Nutren 2.0 (3/4)",
+        "abbreviation": "Nutren 2.0 (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227630",
+        "label": "Arctic Sun Temp #1 Location",
+        "abbreviation": "Arctic Sun Temp #1 Location",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227631",
+        "label": "Arctic Sun Temp #2 Location",
+        "abbreviation": "Arctic Sun Temp #2 Location",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227632",
+        "label": "Arctic Sun/Alsius Temp #1 C",
+        "abbreviation": "Arctic Sun/Alsius Temp #1 C",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "°C",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227634",
+        "label": "Arctic Sun/Alsius Temp #2 C",
+        "abbreviation": "Arctic Sun/Alsius Temp #2 C",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "°C",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227695",
+        "label": "Fibersource HN (Full)",
+        "abbreviation": "Fibersource HN (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227696",
+        "label": "Fibersource HN (3/4)",
+        "abbreviation": "Fibersource HN (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227697",
+        "label": "Fibersource HN (2/3)",
+        "abbreviation": "Fibersource HN (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227698",
+        "label": "Fibersource HN (1/2)",
+        "abbreviation": "Fibersource HN (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227699",
+        "label": "Fibersource HN (1/4)",
+        "abbreviation": "Fibersource HN (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227972",
+        "label": "NovaSource Renal (1/4)",
+        "abbreviation": "NovaSource Renal (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227973",
+        "label": "NovaSource Renal (1/2)",
+        "abbreviation": "NovaSource Renal (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227974",
+        "label": "NovaSource Renal (3/4)",
+        "abbreviation": "NovaSource Renal (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227975",
+        "label": "NovaSource Renal (Full)",
+        "abbreviation": "NovaSource Renal (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227976",
+        "label": "Boost Glucose Control (1/4)",
+        "abbreviation": "Boost Glucose Control (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227977",
+        "label": "Boost Glucose Control (1/2)",
+        "abbreviation": "Boost Glucose Control (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227978",
+        "label": "Boost Glucose Control (3/4)",
+        "abbreviation": "Boost Glucose Control (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227979",
+        "label": "Boost Glucose Control (Full)",
+        "abbreviation": "Boost Glucose Control (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228131",
+        "label": "Isosource 1.5 (1/2)",
+        "abbreviation": "Isosource 1.5 (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228132",
+        "label": "Isosource 1.5 (1/4)",
+        "abbreviation": "Isosource 1.5 (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228133",
+        "label": "Isosource 1.5 (2/3)",
+        "abbreviation": "Isosource 1.5 (2/3)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228134",
+        "label": "Isosource 1.5 (3/4)",
+        "abbreviation": "Isosource 1.5 (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228135",
+        "label": "Isosource 1.5 (Full)",
+        "abbreviation": "Isosource 1.5 (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228229",
+        "label": "PAR-Activity",
+        "abbreviation": "PAR-Activity",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228230",
+        "label": "PAR-Circulation",
+        "abbreviation": "PAR-Circulation",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228231",
+        "label": "PAR-Consciousness",
+        "abbreviation": "PAR-Consciousness",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228232",
+        "label": "PAR-Oxygen saturation",
+        "abbreviation": "PAR-Oxygen saturation",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228233",
+        "label": "PAR-Remain sedated",
+        "abbreviation": "PAR-Remain sedated",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Checkbox",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228234",
+        "label": "PAR-Respiration",
+        "abbreviation": "PAR-Respiration",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228348",
+        "label": "Nepro (1/2)",
+        "abbreviation": "Nepro (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228349",
+        "label": "Nepro (1/4)",
+        "abbreviation": "Nepro (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228350",
+        "label": "Nepro (3/4)",
+        "abbreviation": "Nepro (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228351",
+        "label": "Nepro (Full)",
+        "abbreviation": "Nepro (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228352",
+        "label": "Enlive (1/2)",
+        "abbreviation": "Enlive (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228353",
+        "label": "Enlive (1/4)",
+        "abbreviation": "Enlive (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228354",
+        "label": "Enlive (3/4)",
+        "abbreviation": "Enlive (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228355",
+        "label": "Enlive (Full)",
+        "abbreviation": "Enlive (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228356",
+        "label": "Glucerna (1/2)",
+        "abbreviation": "Glucerna (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228357",
+        "label": "Glucerna (1/4)",
+        "abbreviation": "Glucerna (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228358",
+        "label": "Glucerna (3/4)",
+        "abbreviation": "Glucerna (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228359",
+        "label": "Glucerna (Full)",
+        "abbreviation": "Glucerna (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228360",
+        "label": "Pulmocare (1/2)",
+        "abbreviation": "Pulmocare (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228361",
+        "label": "Pulmocare (1/4)",
+        "abbreviation": "Pulmocare (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228362",
+        "label": "Pulmocare (3/4)",
+        "abbreviation": "Pulmocare (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228363",
+        "label": "Pulmocare (Full)",
+        "abbreviation": "Pulmocare (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228364",
+        "label": "Two Cal HN (1/2)",
+        "abbreviation": "Two Cal HN (1/2)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228365",
+        "label": "Two Cal HN (1/4)",
+        "abbreviation": "Two Cal HN (1/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228366",
+        "label": "Two Cal HN (3/4)",
+        "abbreviation": "Two Cal HN (3/4)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228367",
+        "label": "Two Cal HN (Full)",
+        "abbreviation": "Two Cal HN (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228383",
+        "label": "Peptamen Bariatric (Full)",
+        "abbreviation": "Peptamen Bariatric (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228640",
+        "label": "EtCO2",
+        "abbreviation": "EtCO2",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "None",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "228641",
+        "label": "EtCO2 Clinical indication",
+        "abbreviation": "EtCO2 Clinical indication",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229009",
+        "label": "Promote (Full)",
+        "abbreviation": "Promote (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229010",
+        "label": "Jevity 1.2 (Full)",
+        "abbreviation": "Jevity 1.2 (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229011",
+        "label": "Jevity 1.5 (Full)",
+        "abbreviation": "Jevity 1.5 (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229012",
+        "label": "Vital 1.5 (Full)",
+        "abbreviation": "Vital 1.5 (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229013",
+        "label": "Glucerna 1.2 (Full)",
+        "abbreviation": "Glucerna 1.2 (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229014",
+        "label": "Promote with Fiber (Full)",
+        "abbreviation": "Promote with Fiber (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229294",
+        "label": "Ensure Clear (Full)",
+        "abbreviation": "Ensure Clear (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229295",
+        "label": "Glucerna 1.5 (Full)",
+        "abbreviation": "Glucerna 1.5 (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229296",
+        "label": "Vital High Protein (Full)",
+        "abbreviation": "Vital High Protein (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229297",
+        "label": "Osmolite 1.5 (Full)",
+        "abbreviation": "Osmolite 1.5 (Full)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Enteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229501",
+        "label": "Small Bore Nasal Enteral Tube Placement",
+        "abbreviation": "SBNET Placement (Dobhoff)",
+        "linksto": "procedureevents",
+        "category": "4-Procedures",
+        "unitname": "None",
+        "param_type": "Processes",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229583",
+        "label": "Beneprotein.",
+        "abbreviation": "Beneprotein.",
+        "linksto": "inputevents",
+        "category": "Nutrition - Supplements",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229862",
+        "label": "Forehead SpO2 Sensor in Place",
+        "abbreviation": "Forehead SpO2 Sensor in Place",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Checkbox",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "229863",
+        "label": "Forehead Sensor Position Changed",
+        "abbreviation": "Forehead Sensor Position Changed",
+        "linksto": "chartevents",
+        "category": "Routine Vital Signs",
+        "unitname": "",
+        "param_type": "Checkbox",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      }
+    ],
+    "parenteral_nutrition": [
+      {
+        "itemid": "220344",
+        "label": "Amino Acid",
+        "abbreviation": "Amino Acid",
+        "linksto": "ingredientevents",
+        "category": "Ingredients - general (Not In Use)",
+        "unitname": "mg",
+        "param_type": "Ingredient",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "220984",
+        "label": "Intralipid 10%",
+        "abbreviation": "Intralipid 10%",
+        "linksto": "inputevents",
+        "category": "Fluids - Other (Not In Use)",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "220985",
+        "label": "Intralipid 20%",
+        "abbreviation": "Intralipid 20%",
+        "linksto": "inputevents",
+        "category": "Fluids - Other (Not In Use)",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "220986",
+        "label": "Intralipid 30%",
+        "abbreviation": "Intralipid 30%",
+        "linksto": "inputevents",
+        "category": "Fluids - Other (Not In Use)",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "222190",
+        "label": "Ranitidine",
+        "abbreviation": "Ranitidine",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mg",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225801",
+        "label": "Lipids 20%",
+        "abbreviation": "Lipids 20%",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225916",
+        "label": "TPN w/ Lipids",
+        "abbreviation": "TPN w/ Lipids",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225917",
+        "label": "TPN without Lipids",
+        "abbreviation": "TPN without Lipids",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225920",
+        "label": "Peripheral Parenteral Nutrition",
+        "abbreviation": "Peripheral Parenteral Nutrition",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225947",
+        "label": "Dextrose PN",
+        "abbreviation": "Dextrose PN",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "grams",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225948",
+        "label": "Amino Acids",
+        "abbreviation": "Amino Acids",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "grams",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225969",
+        "label": "Lipids (additive)",
+        "abbreviation": "Lipids (additive)",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "grams",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227079",
+        "label": "Parenteral Nutrition Ingredient",
+        "abbreviation": "Parenteral Nutrition Ingredient",
+        "linksto": "ingredientevents",
+        "category": "Ingredients",
+        "unitname": "mL",
+        "param_type": "Ingredient",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227090",
+        "label": "Lipids 10%",
+        "abbreviation": "Lipids 10%",
+        "linksto": "inputevents",
+        "category": "Nutrition - Parenteral",
+        "unitname": "mL",
+        "param_type": "Solution",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      }
+    ],
+    "weight": [
+      {
+        "itemid": "224639",
+        "label": "Daily Weight",
+        "abbreviation": "Daily Weight",
+        "linksto": "chartevents",
+        "category": "General",
+        "unitname": "kg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "225124",
+        "label": "Unintentional weight loss >10 lbs.",
+        "abbreviation": "Unintentional weight loss >10 lbs.",
+        "linksto": "chartevents",
+        "category": "Adm History/FHPA",
+        "unitname": "",
+        "param_type": "Checkbox",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226512",
+        "label": "Admission Weight (Kg)",
+        "abbreviation": "Admission Weight (Kg)",
+        "linksto": "chartevents",
+        "category": "General",
+        "unitname": "kg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226531",
+        "label": "Admission Weight (lbs.)",
+        "abbreviation": "Admission Weight (lbs.)",
+        "linksto": "chartevents",
+        "category": "General",
+        "unitname": "None",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226740",
+        "label": "APACHE II Diagnosistic weight factors - Medical",
+        "abbreviation": "Diagnostic weight category - Medical",
+        "linksto": "chartevents",
+        "category": "Scores - APACHE II",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226741",
+        "label": "APACHE II Diagnosistic weight factors - Surgical emergency",
+        "abbreviation": "Diagnosistic weight categories - Surgical emergenc",
+        "linksto": "chartevents",
+        "category": "Scores - APACHE II",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226742",
+        "label": "APACHE II Diagnosistic weight factors - Surgical",
+        "abbreviation": "Diagnosistic weight categories - Surgical",
+        "linksto": "chartevents",
+        "category": "Scores - APACHE II",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226846",
+        "label": "Feeding Weight",
+        "abbreviation": "Feeding Weight",
+        "linksto": "chartevents",
+        "category": "General",
+        "unitname": "kg",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "227854",
+        "label": "Weight Bearing Status",
+        "abbreviation": "Weight Bearing Status",
+        "linksto": "chartevents",
+        "category": "OT Notes",
+        "unitname": "",
+        "param_type": "Text",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      }
+    ],
+    "height": [
+      {
+        "itemid": "226707",
+        "label": "Height",
+        "abbreviation": "Height",
+        "linksto": "chartevents",
+        "category": "General",
+        "unitname": "Inch",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      },
+      {
+        "itemid": "226730",
+        "label": "Height (cm)",
+        "abbreviation": "Height (cm)",
+        "linksto": "chartevents",
+        "category": "General",
+        "unitname": "cm",
+        "param_type": "Numeric",
+        "lownormalvalue": "",
+        "highnormalvalue": ""
+      }
+    ]
+  },
+  "eicu_lab_concepts": {
+    "creatinine": [
+      [
+        "creatinine",
+        1277760
+      ],
+      [
+        "urinary creatinine",
+        13282
+      ]
+    ],
+    "bun": [
+      [
+        "BUN",
+        1270484
+      ],
+      [
+        "24 h urine urea nitrogen",
+        275
+      ]
+    ],
+    "sodium": [
+      [
+        "sodium",
+        1393205
+      ],
+      [
+        "urinary sodium",
+        16800
+      ]
+    ],
+    "wbc": [
+      [
+        "WBC x 1000",
+        1134952
+      ],
+      [
+        "WBC's in urine",
+        24453
+      ],
+      [
+        "WBC's in cerebrospinal fluid",
+        3331
+      ],
+      [
+        "WBC's in body fluid",
+        2022
+      ],
+      [
+        "WBC's in pleural fluid",
+        456
+      ],
+      [
+        "WBC's in peritoneal fluid",
+        341
+      ],
+      [
+        "WBC's in synovial fluid",
+        146
+      ],
+      [
+        "WBC's in pericardial fluid",
+        47
+      ]
+    ],
+    "bilirubin": [
+      [
+        "total bilirubin",
+        427307
+      ],
+      [
+        "direct bilirubin",
+        77732
+      ]
+    ],
+    "glucose": [
+      [
+        "bedside glucose",
+        3175835
+      ],
+      [
+        "glucose",
+        1319496
+      ],
+      [
+        "glucose - CSF",
+        4071
+      ]
+    ],
+    "albumin": [
+      [
+        "albumin",
+        506025
+      ]
+    ],
+    "prealbumin": [
+      [
+        "prealbumin",
+        20010
+      ]
+    ]
+  },
+  "eicu_text_signal_counts": {
+    "intakeOutput.csv.gz": {
+      "rows_scanned": 1000000,
+      "signal_counts": {
+        "enteral_nutrition": 39500,
+        "diet_or_oral_intake": 45248,
+        "parenteral_nutrition": 5507
+      }
+    },
+    "treatment.csv.gz": {
+      "rows_scanned": 1000000,
+      "signal_counts": {
+        "parenteral_nutrition": 32119,
+        "enteral_nutrition": 43866,
+        "diet_or_oral_intake": 22509
+      }
+    },
+    "diagnosis.csv.gz": {
+      "rows_scanned": 1000000,
+      "signal_counts": {
+        "parenteral_nutrition": 11516,
+        "diet_or_oral_intake": 2514,
+        "malnutrition": 2506,
+        "dysphagia": 1611,
+        "enteral_nutrition": 9
+      }
+    },
+    "nurseCharting.csv.gz": {
+      "rows_scanned": 1000000,
+      "signal_counts": {
+        "enteral_nutrition": 959863
+      }
+    }
+  },
+  "shared_feature_dictionary": [
+    {
+      "domain": "demographics",
+      "feature": "age",
+      "mimic_source": "hosp/patients.anchor_age",
+      "eicu_source": "patient.age",
+      "status": "shared"
+    },
+    {
+      "domain": "demographics",
+      "feature": "sex/gender",
+      "mimic_source": "hosp/patients.gender",
+      "eicu_source": "patient.gender",
+      "status": "shared"
+    },
+    {
+      "domain": "anthropometrics",
+      "feature": "height",
+      "mimic_source": "hosp/omr result_name/item labels; requires extraction",
+      "eicu_source": "patient.admissionheight",
+      "status": "shared_with_mapping_work"
+    },
+    {
+      "domain": "anthropometrics",
+      "feature": "weight",
+      "mimic_source": "icu d_items/input/chartevents or hosp/omr; requires extraction",
+      "eicu_source": "patient.admissionweight",
+      "status": "shared_with_mapping_work"
+    },
+    {
+      "domain": "nutrition/metabolic labs",
+      "feature": "albumin",
+      "mimic_source": "hosp/d_labitems + labevents",
+      "eicu_source": "apacheApsVar.albumin and lab.labname",
+      "status": "shared"
+    },
+    {
+      "domain": "nutrition/metabolic labs",
+      "feature": "glucose",
+      "mimic_source": "hosp/d_labitems + labevents",
+      "eicu_source": "apacheApsVar.glucose and lab.labname",
+      "status": "shared"
+    },
+    {
+      "domain": "renal/metabolic",
+      "feature": "creatinine",
+      "mimic_source": "hosp/d_labitems + labevents",
+      "eicu_source": "apacheApsVar.creatinine and lab.labname",
+      "status": "shared"
+    },
+    {
+      "domain": "renal/metabolic",
+      "feature": "BUN",
+      "mimic_source": "hosp/d_labitems + labevents",
+      "eicu_source": "apacheApsVar.bun and lab.labname",
+      "status": "shared"
+    },
+    {
+      "domain": "severity",
+      "feature": "ventilation",
+      "mimic_source": "procedureevents/chartevents; requires extraction",
+      "eicu_source": "apacheApsVar.vent",
+      "status": "shared_with_mapping_work"
+    },
+    {
+      "domain": "severity",
+      "feature": "dialysis/CRRT",
+      "mimic_source": "procedures/inputevents/diagnoses; requires extraction",
+      "eicu_source": "apacheApsVar.dialysis",
+      "status": "shared_with_mapping_work"
+    },
+    {
+      "domain": "outcome",
+      "feature": "hospital mortality",
+      "mimic_source": "hosp/admissions.hospital_expire_flag",
+      "eicu_source": "patient.hospitaldischargestatus or apachePatientResult.actualhospitalmortality",
+      "status": "shared"
+    },
+    {
+      "domain": "nutrition support",
+      "feature": "enteral/parenteral nutrition signal",
+      "mimic_source": "icu/inputevents and ingredientevents itemids; requires itemid extraction",
+      "eicu_source": "intakeOutput/treatment/medication/nurseCharting text signals",
+      "status": "candidate_shared_proxy"
+    }
+  ]
+}

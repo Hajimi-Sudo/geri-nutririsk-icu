@@ -1,0 +1,1822 @@
+{
+  "mimic_inventory": [
+    {
+      "relative_path": "hosp/patients.csv.gz",
+      "exists": true,
+      "size_mb": 2.7,
+      "n_columns": 6,
+      "columns": [
+        "subject_id",
+        "gender",
+        "anchor_age",
+        "anchor_year",
+        "anchor_year_group",
+        "dod"
+      ],
+      "rows_if_counted": 364627,
+      "counted": true
+    },
+    {
+      "relative_path": "hosp/admissions.csv.gz",
+      "exists": true,
+      "size_mb": 19.0,
+      "n_columns": 16,
+      "columns": [
+        "subject_id",
+        "hadm_id",
+        "admittime",
+        "dischtime",
+        "deathtime",
+        "admission_type",
+        "admit_provider_id",
+        "admission_location",
+        "discharge_location",
+        "insurance",
+        "language",
+        "marital_status",
+        "race",
+        "edregtime",
+        "edouttime",
+        "hospital_expire_flag"
+      ],
+      "rows_if_counted": 546028,
+      "counted": true
+    },
+    {
+      "relative_path": "icu/icustays.csv.gz",
+      "exists": true,
+      "size_mb": 3.19,
+      "n_columns": 8,
+      "columns": [
+        "subject_id",
+        "hadm_id",
+        "stay_id",
+        "first_careunit",
+        "last_careunit",
+        "intime",
+        "outtime",
+        "los"
+      ],
+      "rows_if_counted": 94458,
+      "counted": true
+    },
+    {
+      "relative_path": "icu/d_items.csv.gz",
+      "exists": true,
+      "size_mb": 0.06,
+      "n_columns": 9,
+      "columns": [
+        "itemid",
+        "label",
+        "abbreviation",
+        "linksto",
+        "category",
+        "unitname",
+        "param_type",
+        "lownormalvalue",
+        "highnormalvalue"
+      ],
+      "rows_if_counted": 4095,
+      "counted": true
+    },
+    {
+      "relative_path": "hosp/d_labitems.csv.gz",
+      "exists": true,
+      "size_mb": 0.01,
+      "n_columns": 4,
+      "columns": [
+        "itemid",
+        "label",
+        "fluid",
+        "category"
+      ],
+      "rows_if_counted": 1650,
+      "counted": true
+    },
+    {
+      "relative_path": "hosp/d_icd_diagnoses.csv.gz",
+      "exists": true,
+      "size_mb": 0.84,
+      "n_columns": 3,
+      "columns": [
+        "icd_code",
+        "icd_version",
+        "long_title"
+      ],
+      "rows_if_counted": 112107,
+      "counted": true
+    },
+    {
+      "relative_path": "hosp/omr.csv.gz",
+      "exists": true,
+      "size_mb": 42.03,
+      "n_columns": 5,
+      "columns": [
+        "subject_id",
+        "chartdate",
+        "seq_num",
+        "result_name",
+        "result_value"
+      ],
+      "rows_if_counted": null,
+      "counted": false
+    },
+    {
+      "relative_path": "icu/inputevents.csv.gz",
+      "exists": true,
+      "size_mb": 382.51,
+      "n_columns": 26,
+      "columns": [
+        "subject_id",
+        "hadm_id",
+        "stay_id",
+        "caregiver_id",
+        "starttime",
+        "endtime",
+        "storetime",
+        "itemid",
+        "amount",
+        "amountuom",
+        "rate",
+        "rateuom",
+        "orderid",
+        "linkorderid",
+        "ordercategoryname",
+        "secondaryordercategoryname",
+        "ordercomponenttypedescription",
+        "ordercategorydescription",
+        "patientweight",
+        "totalamount",
+        "totalamountuom",
+        "isopenbag",
+        "continueinnextdept",
+        "statusdescription",
+        "originalamount",
+        "originalrate"
+      ],
+      "rows_if_counted": null,
+      "counted": false
+    },
+    {
+      "relative_path": "icu/ingredientevents.csv.gz",
+      "exists": true,
+      "size_mb": 297.21,
+      "n_columns": 17,
+      "columns": [
+        "subject_id",
+        "hadm_id",
+        "stay_id",
+        "caregiver_id",
+        "starttime",
+        "endtime",
+        "storetime",
+        "itemid",
+        "amount",
+        "amountuom",
+        "rate",
+        "rateuom",
+        "orderid",
+        "linkorderid",
+        "statusdescription",
+        "originalamount",
+        "originalrate"
+      ],
+      "rows_if_counted": null,
+      "counted": false
+    },
+    {
+      "relative_path": "hosp/labevents.csv.gz",
+      "exists": true,
+      "size_mb": 2472.79,
+      "n_columns": 16,
+      "columns": [
+        "labevent_id",
+        "subject_id",
+        "hadm_id",
+        "specimen_id",
+        "itemid",
+        "order_provider_id",
+        "charttime",
+        "storetime",
+        "value",
+        "valuenum",
+        "valueuom",
+        "ref_range_lower",
+        "ref_range_upper",
+        "flag",
+        "priority",
+        "comments"
+      ],
+      "rows_if_counted": null,
+      "counted": false
+    }
+  ],
+  "eicu_inventory": [
+    {
+      "relative_path": "patient.csv.gz",
+      "exists": true,
+      "size_mb": 9.88,
+      "n_columns": 29,
+      "columns": [
+        "patientunitstayid",
+        "patienthealthsystemstayid",
+        "gender",
+        "age",
+        "ethnicity",
+        "hospitalid",
+        "wardid",
+        "apacheadmissiondx",
+        "admissionheight",
+        "hospitaladmittime24",
+        "hospitaladmitoffset",
+        "hospitaladmitsource",
+        "hospitaldischargeyear",
+        "hospitaldischargetime24",
+        "hospitaldischargeoffset",
+        "hospitaldischargelocation",
+        "hospitaldischargestatus",
+        "unittype",
+        "unitadmittime24",
+        "unitadmitsource",
+        "unitvisitnumber",
+        "unitstaytype",
+        "admissionweight",
+        "dischargeweight",
+        "unitdischargetime24",
+        "unitdischargeoffset",
+        "unitdischargelocation",
+        "unitdischargestatus",
+        "uniquepid"
+      ],
+      "rows_if_counted": 200859,
+      "counted": true
+    },
+    {
+      "relative_path": "lab.csv.gz",
+      "exists": true,
+      "size_mb": 492.87,
+      "n_columns": 10,
+      "columns": [
+        "labid",
+        "patientunitstayid",
+        "labresultoffset",
+        "labtypeid",
+        "labname",
+        "labresult",
+        "labresulttext",
+        "labmeasurenamesystem",
+        "labmeasurenameinterface",
+        "labresultrevisedoffset"
+      ],
+      "rows_if_counted": null,
+      "counted": false
+    },
+    {
+      "relative_path": "intakeOutput.csv.gz",
+      "exists": true,
+      "size_mb": 218.57,
+      "n_columns": 12,
+      "columns": [
+        "intakeoutputid",
+        "patientunitstayid",
+        "intakeoutputoffset",
+        "intaketotal",
+        "outputtotal",
+        "dialysistotal",
+        "nettotal",
+        "intakeoutputentryoffset",
+        "cellpath",
+        "celllabel",
+        "cellvaluenumeric",
+        "cellvaluetext"
+      ],
+      "rows_if_counted": null,
+      "counted": false
+    },
+    {
+      "relative_path": "medication.csv.gz",
+      "exists": true,
+      "size_mb": 128.06,
+      "n_columns": 15,
+      "columns": [
+        "medicationid",
+        "patientunitstayid",
+        "drugorderoffset",
+        "drugstartoffset",
+        "drugivadmixture",
+        "drugordercancelled",
+        "drugname",
+        "drughiclseqno",
+        "dosage",
+        "routeadmin",
+        "frequency",
+        "loadingdose",
+        "prn",
+        "drugstopoffset",
+        "gtc"
+      ],
+      "rows_if_counted": null,
+      "counted": false
+    },
+    {
+      "relative_path": "treatment.csv.gz",
+      "exists": true,
+      "size_mb": 40.79,
+      "n_columns": 5,
+      "columns": [
+        "treatmentid",
+        "patientunitstayid",
+        "treatmentoffset",
+        "treatmentstring",
+        "activeupondischarge"
+      ],
+      "rows_if_counted": null,
+      "counted": false
+    },
+    {
+      "relative_path": "diagnosis.csv.gz",
+      "exists": true,
+      "size_mb": 33.59,
+      "n_columns": 7,
+      "columns": [
+        "diagnosisid",
+        "patientunitstayid",
+        "activeupondischarge",
+        "diagnosisoffset",
+        "diagnosisstring",
+        "icd9code",
+        "diagnosispriority"
+      ],
+      "rows_if_counted": null,
+      "counted": false
+    },
+    {
+      "relative_path": "apachePatientResult.csv.gz",
+      "exists": true,
+      "size_mb": 16.51,
+      "n_columns": 23,
+      "columns": [
+        "apachepatientresultsid",
+        "patientunitstayid",
+        "physicianspeciality",
+        "physicianinterventioncategory",
+        "acutephysiologyscore",
+        "apachescore",
+        "apacheversion",
+        "predictedicumortality",
+        "actualicumortality",
+        "predictediculos",
+        "actualiculos",
+        "predictedhospitalmortality",
+        "actualhospitalmortality",
+        "predictedhospitallos",
+        "actualhospitallos",
+        "preopmi",
+        "preopcardiaccath",
+        "ptcawithin24h",
+        "unabridgedunitlos",
+        "unabridgedhosplos",
+        "actualventdays",
+        "predventdays",
+        "unabridgedactualventdays"
+      ],
+      "rows_if_counted": 297064,
+      "counted": true
+    },
+    {
+      "relative_path": "apacheApsVar.csv.gz",
+      "exists": true,
+      "size_mb": 4.85,
+      "n_columns": 26,
+      "columns": [
+        "apacheapsvarid",
+        "patientunitstayid",
+        "intubated",
+        "vent",
+        "dialysis",
+        "eyes",
+        "motor",
+        "verbal",
+        "meds",
+        "urine",
+        "wbc",
+        "temperature",
+        "respiratoryrate",
+        "sodium",
+        "heartrate",
+        "meanbp",
+        "ph",
+        "hematocrit",
+        "creatinine",
+        "albumin",
+        "pao2",
+        "pco2",
+        "bun",
+        "glucose",
+        "bilirubin",
+        "fio2"
+      ],
+      "rows_if_counted": 171177,
+      "counted": true
+    },
+    {
+      "relative_path": "vitalPeriodic.csv.gz",
+      "exists": true,
+      "size_mb": 1701.55,
+      "n_columns": 19,
+      "columns": [
+        "vitalperiodicid",
+        "patientunitstayid",
+        "observationoffset",
+        "temperature",
+        "sao2",
+        "heartrate",
+        "respiration",
+        "cvp",
+        "etco2",
+        "systemicsystolic",
+        "systemicdiastolic",
+        "systemicmean",
+        "pasystolic",
+        "padiastolic",
+        "pamean",
+        "st1",
+        "st2",
+        "st3",
+        "icp"
+      ],
+      "rows_if_counted": null,
+      "counted": false
+    },
+    {
+      "relative_path": "nurseCharting.csv.gz",
+      "exists": true,
+      "size_mb": 1649.77,
+      "n_columns": 8,
+      "columns": [
+        "nursingchartid",
+        "patientunitstayid",
+        "nursingchartoffset",
+        "nursingchartentryoffset",
+        "nursingchartcelltypecat",
+        "nursingchartcelltypevallabel",
+        "nursingchartcelltypevalname",
+        "nursingchartvalue"
+      ],
+      "rows_if_counted": null,
+      "counted": false
+    }
+  ],
+  "mimic_cohort": {
+    "patients_total": 364627,
+    "patients_age_ge_65": 95715,
+    "icu_stays_total": 94458,
+    "icu_stays_age_ge_65": 47444,
+    "unique_subjects_age_ge_65_with_icu": 33671,
+    "unique_hadm_age_ge_65_with_icu": 42766,
+    "hospital_mortality_events_among_older_icu_stays": 7172,
+    "hospital_mortality_rate_among_older_icu_stays": 0.1512
+  },
+  "eicu_cohort": {
+    "unit_stays_total": 200859,
+    "unit_stays_age_ge_65": 103278,
+    "hospital_mortality_events_age_ge_65": 12022,
+    "hospital_mortality_rate_age_ge_65": 0.1164,
+    "icu_mortality_events_age_ge_65": 7016,
+    "icu_mortality_rate_age_ge_65": 0.0679,
+    "older_stays_with_admissionweight": 94495,
+    "older_stays_with_admissionheight": 101265,
+    "top_unit_types": [
+      [
+        "Med-Surg ICU",
+        57460
+      ],
+      [
+        "MICU",
+        9021
+      ],
+      [
+        "CCU-CTICU",
+        8312
+      ],
+      [
+        "Neuro ICU",
+        6736
+      ],
+      [
+        "Cardiac ICU",
+        6414
+      ],
+      [
+        "SICU",
+        6058
+      ],
+      [
+        "CSICU",
+        5875
+      ],
+      [
+        "CTICU",
+        3402
+      ]
+    ]
+  },
+  "nutrition_hits": {
+    "mimic": {
+      "icu/d_items.csv.gz": [
+        {
+          "label": "Glucose (ingr)",
+          "abbreviation": "Glucose (ingr)"
+        },
+        {
+          "label": "Protein",
+          "abbreviation": "Protein"
+        },
+        {
+          "label": "ZAlbumin",
+          "abbreviation": "ZAlbumin"
+        },
+        {
+          "label": "ZC Reactive Protein (CRP)",
+          "abbreviation": "ZC Reaction Protein (CRP)"
+        },
+        {
+          "label": "Glucose (serum)",
+          "abbreviation": "Glucose (serum)"
+        },
+        {
+          "label": "Total Protein",
+          "abbreviation": "Total Protein"
+        },
+        {
+          "label": "Albumin (Human) 20%",
+          "abbreviation": "Albumin 20%"
+        },
+        {
+          "label": "Albumin 25%",
+          "abbreviation": "Albumin 25%"
+        },
+        {
+          "label": "Albumin (Human) 4%",
+          "abbreviation": "Albumin 4%"
+        },
+        {
+          "label": "Albumin 5%",
+          "abbreviation": "Albumin 5%"
+        },
+        {
+          "category": "Nutrition - Enteral"
+        },
+        {
+          "category": "Nutrition - Supplements"
+        },
+        {
+          "category": "Nutrition - Parenteral"
+        },
+        {
+          "label": "Insulin - 70/30",
+          "abbreviation": "Insulin - 70/30"
+        },
+        {
+          "label": "Insulin - Regular",
+          "abbreviation": "Insulin - Regular"
+        },
+        {
+          "label": "Insulin - NPH",
+          "abbreviation": "Insulin - NPH"
+        },
+        {
+          "label": "Insulin - Glargine",
+          "abbreviation": "Insulin - Glargine"
+        },
+        {
+          "label": "Insulin - Humalog 75/25",
+          "abbreviation": "Insulin - Humalog 75/25"
+        },
+        {
+          "label": "Insulin - Humalog",
+          "abbreviation": "Insulin - Humalog"
+        },
+        {
+          "label": "Diet Type",
+          "abbreviation": "Diet Type"
+        },
+        {
+          "label": "Braden Nutrition",
+          "abbreviation": "Braden Nutrition"
+        },
+        {
+          "label": "Daily Weight",
+          "abbreviation": "Daily Weight"
+        },
+        {
+          "label": "Unable to assess nutrition / education",
+          "abbreviation": "Unable to assess nutrition / education"
+        },
+        {
+          "label": "Special diet",
+          "abbreviation": "Special diet"
+        },
+        {
+          "label": "Unintentional weight loss >10 lbs.",
+          "abbreviation": "Unintentional weight loss >10 lbs."
+        },
+        {
+          "label": "Glucose finger stick (range 70-100)",
+          "abbreviation": "Glucose FS (range 70 -100)"
+        },
+        {
+          "label": "TPN w/ Lipids",
+          "abbreviation": "TPN w/ Lipids",
+          "category": "Nutrition - Parenteral"
+        },
+        {
+          "label": "TPN without Lipids",
+          "abbreviation": "TPN without Lipids",
+          "category": "Nutrition - Parenteral"
+        },
+        {
+          "label": "Peripheral Parenteral Nutrition",
+          "abbreviation": "Peripheral Parenteral Nutrition",
+          "category": "Nutrition - Parenteral"
+        },
+        {
+          "label": "Beneprotein",
+          "abbreviation": "Beneprotein",
+          "category": "Nutrition - Enteral"
+        },
+        {
+          "label": "Calories",
+          "abbreviation": "Calories"
+        },
+        {
+          "label": "Estimated Protein Needs/Kg",
+          "abbreviation": "Estimated Protein Needs/Kg"
+        },
+        {
+          "label": "Enteral Nutrition Ingredient",
+          "abbreviation": "Enteral Nutrition Ingredient"
+        },
+        {
+          "label": "Insulin Ingredient",
+          "abbreviation": "Insulin Ingredient"
+        },
+        {
+          "label": "Enteral Nutriton Residuals",
+          "abbreviation": "Enteral Nutriton Residuals",
+          "category": "Nutrition - Enteral"
+        },
+        {
+          "label": "Admission Weight (Kg)",
+          "abbreviation": "Admission Weight (Kg)"
+        },
+        {
+          "label": "Admission Weight (lbs.)",
+          "abbreviation": "Admission Weight (lbs.)"
+        },
+        {
+          "label": "Glucose (whole blood)",
+          "abbreviation": "Glucose (whole blood)"
+        },
+        {
+          "label": "Height",
+          "abbreviation": "Height"
+        },
+        {
+          "label": "Height (cm)",
+          "abbreviation": "Height (cm)"
+        },
+        {
+          "label": "APACHE II Diagnosistic weight factors - Medical",
+          "abbreviation": "Diagnostic weight category - Medical"
+        },
+        {
+          "label": "APACHE II Diagnosistic weight factors - Surgical emergency",
+          "abbreviation": "Diagnosistic weight categories - Surgical emergenc"
+        },
+        {
+          "label": "APACHE II Diagnosistic weight factors - Surgical",
+          "abbreviation": "Diagnosistic weight categories - Surgical"
+        },
+        {
+          "label": "Feeding Weight",
+          "abbreviation": "Feeding Weight"
+        },
+        {
+          "label": "Albumin_ApacheIV",
+          "abbreviation": "Albumin_ApacheIV"
+        },
+        {
+          "label": "AlbuminScore_ApacheIV",
+          "abbreviation": "AlbuminScore_ApacheIV"
+        },
+        {
+          "label": "Glucose_ApacheIV",
+          "abbreviation": "Glucose_ApacheIV"
+        },
+        {
+          "label": "GlucoseScore_ApacheIV",
+          "abbreviation": "GlucoseScore_ApacheIV"
+        },
+        {
+          "label": "Parenteral Nutrition Ingredient",
+          "abbreviation": "Parenteral Nutrition Ingredient"
+        },
+        {
+          "label": "C Reactive Protein (CRP)",
+          "abbreviation": "C Reactive Protein (CRP)"
+        },
+        {
+          "label": "Albumin",
+          "abbreviation": "Albumin"
+        },
+        {
+          "label": "Breast Feeding",
+          "abbreviation": "Breast Feeding"
+        },
+        {
+          "label": "Breast Feeding - L",
+          "abbreviation": "Breast Feeding - L"
+        },
+        {
+          "label": "Breast Feeding - R",
+          "abbreviation": "Breast Feeding - R"
+        },
+        {
+          "label": "Self Feeding",
+          "abbreviation": "Self Feeding"
+        },
+        {
+          "label": "Weight Bearing Status",
+          "abbreviation": "Weight Bearing Status"
+        },
+        {
+          "label": "Boost Glucose Control (1/4)",
+          "abbreviation": "Boost Glucose Control (1/4)",
+          "category": "Nutrition - Enteral"
+        },
+        {
+          "label": "Boost Glucose Control (1/2)",
+          "abbreviation": "Boost Glucose Control (1/2)",
+          "category": "Nutrition - Enteral"
+        },
+        {
+          "label": "Boost Glucose Control (3/4)",
+          "abbreviation": "Boost Glucose Control (3/4)",
+          "category": "Nutrition - Enteral"
+        },
+        {
+          "label": "Boost Glucose Control (Full)",
+          "abbreviation": "Boost Glucose Control (Full)",
+          "category": "Nutrition - Enteral"
+        },
+        {
+          "label": "Insulin pump",
+          "abbreviation": "Insulin pump"
+        },
+        {
+          "label": "Glucose (whole blood) (soft)",
+          "abbreviation": "Glucose (whole blood) (soft)"
+        },
+        {
+          "label": "Glucose Control - Prophy",
+          "abbreviation": "Glucose Control - Prophy"
+        },
+        {
+          "label": "Nutrition",
+          "abbreviation": "Nutrition"
+        },
+        {
+          "label": "Nutrition  NCP - Expected outcomes",
+          "abbreviation": "Nutrition NCP - Expected outcomes"
+        },
+        {
+          "label": "Nutrition  NCP - Goal",
+          "abbreviation": "Nutrition NCP - Goal"
+        },
+        {
+          "label": "Nutrition  NCP - Interventions",
+          "abbreviation": "Nutrition NCP - Interventions"
+        },
+        {
+          "label": "Nutrition  NCP - outcomes met",
+          "abbreviation": "Nutrition NCP - outcomes met"
+        },
+        {
+          "label": "Nutrition NCP - Body needs",
+          "abbreviation": "Nutrition NCP - Body needs"
+        },
+        {
+          "label": "Nutrition  NCP - Plan revised",
+          "abbreviation": "Nutrition NCP - Plan revised"
+        },
+        {
+          "label": "Nutrition  NCP - Problem resolved",
+          "abbreviation": "Nutrition NCP - Problem resolved"
+        },
+        {
+          "label": "Vital High Protein (Full)",
+          "abbreviation": "Vital High Protein (Full)",
+          "category": "Nutrition - Enteral"
+        },
+        {
+          "label": "Insulin - Novolog",
+          "abbreviation": "Insulin - Novolog"
+        },
+        {
+          "label": "Small Bore Nasal Enteral Tube Placement"
+        },
+        {
+          "label": "Plan-Nutritional",
+          "abbreviation": "Plan-Nutritional"
+        },
+        {
+          "label": "Beneprotein.",
+          "abbreviation": "Beneprotein.",
+          "category": "Nutrition - Supplements"
+        },
+        {
+          "label": "Insulin - U500",
+          "abbreviation": "Insulin - U500"
+        }
+      ],
+      "hosp/d_labitems.csv.gz": [
+        {
+          "label": "Glucose"
+        },
+        {
+          "label": "Albumin, Ascites"
+        },
+        {
+          "label": "Glucose, Ascites"
+        },
+        {
+          "label": "Total Protein, Ascites"
+        },
+        {
+          "label": "Albumin"
+        },
+        {
+          "label": "Alpha-Fetoprotein"
+        },
+        {
+          "label": "C-Reactive Protein"
+        },
+        {
+          "label": "Protein Electrophoresis"
+        },
+        {
+          "label": "Protein, Total"
+        },
+        {
+          "label": "Albumin, Joint Fluid"
+        },
+        {
+          "label": "Glucose, Joint Fluid"
+        },
+        {
+          "label": "Total Protein, Joint Fluid"
+        },
+        {
+          "label": "Albumin, Body Fluid"
+        },
+        {
+          "label": "Glucose, Body Fluid"
+        },
+        {
+          "label": "Total Protein, Body Fluid"
+        },
+        {
+          "label": "Albumin, Pleural"
+        },
+        {
+          "label": "Glucose, Pleural"
+        },
+        {
+          "label": "Total Protein, Pleural"
+        },
+        {
+          "label": "24 hr Protein"
+        },
+        {
+          "label": "Albumin, Urine"
+        },
+        {
+          "label": "Albumin/Creatinine, Urine"
+        },
+        {
+          "label": "Glucose, Urine"
+        },
+        {
+          "label": "Protein/Creatinine Ratio"
+        },
+        {
+          "label": "Total Protein, Urine"
+        },
+        {
+          "label": "Protein C, Antigen"
+        },
+        {
+          "label": "Protein C, Functional"
+        },
+        {
+          "label": "Protein S, Antigen"
+        },
+        {
+          "label": "Protein S, Functional"
+        },
+        {
+          "label": "Protein"
+        },
+        {
+          "label": "Insulin"
+        },
+        {
+          "label": "(Albumin)"
+        },
+        {
+          "label": "<Albumin>"
+        },
+        {
+          "label": "Albumin, CSF"
+        },
+        {
+          "label": "Glucose, CSF"
+        },
+        {
+          "label": "Total Protein, CSF"
+        },
+        {
+          "label": "Surfactant/Albumin"
+        },
+        {
+          "label": "Albumin, Stool"
+        },
+        {
+          "label": "Glucose, Stool"
+        },
+        {
+          "label": "Total Protein, Stool"
+        },
+        {
+          "label": "Albumin, Blood"
+        },
+        {
+          "label": "Glucose, Whole Blood"
+        },
+        {
+          "label": "Protein S"
+        }
+      ],
+      "hosp/d_icd_diagnoses.csv.gz": [
+        {
+          "long_title": "Postsurgical hypoinsulinemia"
+        },
+        {
+          "long_title": "Nutritional marasmus"
+        },
+        {
+          "long_title": "Other severe protein-calorie malnutrition"
+        },
+        {
+          "long_title": "Malnutrition of moderate degree"
+        },
+        {
+          "long_title": "Malnutrition of mild degree"
+        },
+        {
+          "long_title": "Arrested development following protein-calorie malnutrition"
+        },
+        {
+          "long_title": "Other protein-calorie malnutrition"
+        },
+        {
+          "long_title": "Unspecified protein-calorie malnutrition"
+        },
+        {
+          "long_title": "Other nutritional deficiency"
+        },
+        {
+          "long_title": "Unspecified nutritional deficiency"
+        },
+        {
+          "long_title": "Lipoprotein deficiencies"
+        },
+        {
+          "long_title": "Monoclonal paraproteinemia"
+        },
+        {
+          "long_title": "Other paraproteinemias"
+        },
+        {
+          "long_title": "Other disorders of plasma protein metabolism"
+        },
+        {
+          "long_title": "Unspecified disorder of plasma protein metabolism"
+        },
+        {
+          "long_title": "Overweight"
+        },
+        {
+          "long_title": "Iron deficiency anemia secondary to inadequate dietary iron intake"
+        },
+        {
+          "long_title": "Protein-deficiency anemia"
+        },
+        {
+          "long_title": "Anemia associated with other specified nutritional deficiency"
+        },
+        {
+          "long_title": "Nutritional optic neuropathy"
+        },
+        {
+          "long_title": "Nutritional and metabolic cardiomyopathy"
+        },
+        {
+          "long_title": "Other late effects of cerebrovascular disease, dysphagia"
+        },
+        {
+          "long_title": "Pulmonary alveolar proteinosis"
+        },
+        {
+          "long_title": "Postural proteinuria"
+        },
+        {
+          "long_title": "Edema or excessive weight gain in pregnancy, without mention of hypertension, unspecified as to episode of care or not applicable"
+        },
+        {
+          "long_title": "Edema or excessive weight gain in pregnancy, without mention of hypertension, delivered, with or without mention of antepartum complication"
+        },
+        {
+          "long_title": "Edema or excessive weight gain in pregnancy, without mention of hypertension, delivered, with mention of postpartum complication"
+        },
+        {
+          "long_title": "Edema or excessive weight gain in pregnancy, without mention of hypertension, antepartum condition or complication"
+        },
+        {
+          "long_title": "Edema or excessive weight gain in pregnancy, without mention of hypertension, postpartum condition or complication"
+        },
+        {
+          "long_title": "Abnormal glucose tolerance of mother, unspecified as to episode of care or not applicable"
+        },
+        {
+          "long_title": "Abnormal glucose tolerance of mother, delivered, with or without mention of antepartum condition"
+        },
+        {
+          "long_title": "Abnormal glucose tolerance of mother, delivered, with mention of postpartum complication"
+        },
+        {
+          "long_title": "Abnormal glucose tolerance of mother, antepartum condition or complication"
+        },
+        {
+          "long_title": "Abnormal glucose tolerance of mother, postpartum condition or complication"
+        },
+        {
+          "long_title": "Maternal nutritional disorders affecting fetus or newborn"
+        },
+        {
+          "long_title": "Diethylstilbestrol [DES] affecting fetus or newborn via placenta or breast milk"
+        },
+        {
+          "long_title": "\"Light-for-dates\" without mention of fetal malnutrition, unspecified [weight]"
+        },
+        {
+          "long_title": "\"Light-for-dates\" without mention of fetal malnutrition, less than 500 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" without mention of fetal malnutrition, 500-749 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" without mention of fetal malnutrition, 750-999 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" without mention of fetal malnutrition, 1,000- 1,249 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\"without mention of fetal malnutrition, 1,250- 1,499 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" without mention of fetal malnutrition, 1,500- 1,749 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" without mention of fetal malnutrition, 1,750- 1,999 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" without mention of fetal malnutrition, 2,000- 2,499 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" without mention of fetal malnutrition, 2,500 grams and over"
+        },
+        {
+          "long_title": "\"Light-for-dates\" with signs of fetal malnutrition, unspecified [weight]"
+        },
+        {
+          "long_title": "\"Light-for-dates\" with signs of fetal malnutrition, less than 500 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\"with signs of fetal malnutrition, 500-749 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" with signs of fetal malnutrition, 750-999 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" with signs of fetal malnutrition, 1,000-1,249 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" with signs of fetal malnutrition, 1,250-1,499 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" with signs of fetal malnutrition, 1,500-1,749 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\" with signs of fetal malnutrition, 1,750-1,999 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\"with signs of fetal malnutrition, 2,000-2,499 grams"
+        },
+        {
+          "long_title": "\"Light-for-dates\"with signs of fetal malnutrition, 2,500 grams and over"
+        },
+        {
+          "long_title": "Fetal malnutrition without mention of \"light-for-dates\", unspecified [weight]"
+        },
+        {
+          "long_title": "Fetal malnutrition without mention of \"light-for-dates\", less than 500 grams"
+        },
+        {
+          "long_title": "Fetal malnutrition without mention of \"light-for-dates\", 500-749 grams"
+        },
+        {
+          "long_title": "Fetal malnutrition without mention of \"light-for-dates\", 750-999 grams"
+        },
+        {
+          "long_title": "Fetal malnutrition without mention of \"light-for-dates\", 1,000-1,249 grams"
+        },
+        {
+          "long_title": "Fetal malnutrition without mention of \"light-for-dates\", 1,250-1,499 grams"
+        },
+        {
+          "long_title": "Fetal malnutrition without mention of \"light-for-dates\", 1,500-1,749 grams"
+        },
+        {
+          "long_title": "Fetal malnutrition without mention of \"light-for-dates\", 1,750-1,999 grams"
+        },
+        {
+          "long_title": "Fetal malnutrition without mention of \"light-for-dates\", 2,000-2,499 grams"
+        },
+        {
+          "long_title": "Fetal malnutrition without mention of \"light-for-dates\", 2,500 grams and over"
+        },
+        {
+          "long_title": "Fetal growth retardation, unspecified, unspecified [weight]"
+        },
+        {
+          "long_title": "Extreme immaturity, unspecified [weight]"
+        },
+        {
+          "long_title": "Other preterm infants, unspecified [weight]"
+        },
+        {
+          "long_title": "Nb feeding problems"
+        },
+        {
+          "long_title": "Feeding problems in newborn"
+        },
+        {
+          "long_title": "Loss of height"
+        },
+        {
+          "long_title": "Abnormal weight gain"
+        },
+        {
+          "long_title": "Loss of weight"
+        },
+        {
+          "long_title": "Underweight"
+        },
+        {
+          "long_title": "Feeding difficulties and mismanagement"
+        },
+        {
+          "long_title": "Other symptoms concerning nutrition, metabolism, and development"
+        },
+        {
+          "long_title": "Dysphagia, unspecified"
+        },
+        {
+          "long_title": "Dysphagia, oral phase"
+        },
+        {
+          "long_title": "Dysphagia, oropharyngeal phase"
+        },
+        {
+          "long_title": "Dysphagia, pharyngeal phase"
+        },
+        {
+          "long_title": "Dysphagia, pharyngoesophageal phase"
+        },
+        {
+          "long_title": "Other dysphagia"
+        },
+        {
+          "long_title": "Impaired fasting glucose"
+        },
+        {
+          "long_title": "Impaired glucose tolerance test (oral)"
+        },
+        {
+          "long_title": "Other abnormal glucose"
+        },
+        {
+          "long_title": "Elevated C-reactive protein (CRP)"
+        },
+        {
+          "long_title": "Proteinuria"
+        },
+        {
+          "long_title": "Cachexia"
+        },
+        {
+          "long_title": "Poisoning by insulins and antidiabetic agents"
+        },
+        {
+          "long_title": "Poisoning by dietetics"
+        },
+        {
+          "long_title": "Unspecified adverse effect of insulin"
+        },
+        {
+          "long_title": "Child neglect (nutritional)"
+        },
+        {
+          "long_title": "Adult neglect (nutritional)"
+        },
+        {
+          "long_title": "Mechanical complication due to insulin pump"
+        },
+        {
+          "long_title": "Sideropenic dysphagia"
+        },
+        {
+          "long_title": "Vitamin B12 deficiency anemia due to selective vitamin B12 malabsorption with proteinuria"
+        },
+        {
+          "long_title": "Other dietary vitamin B12 deficiency anemia"
+        },
+        {
+          "long_title": "Dietary folate deficiency anemia"
+        },
+        {
+          "long_title": "Other nutritional anemias"
+        }
+      ],
+      "hosp/omr.csv.gz": [
+        {
+          "result_name": "Weight (Lbs)"
+        },
+        {
+          "result_name": "BMI (kg/m2)"
+        },
+        {
+          "result_name": "Height (Inches)"
+        },
+        {
+          "result_name": "BMI"
+        },
+        {
+          "result_name": "Weight"
+        },
+        {
+          "result_name": "Height"
+        }
+      ]
+    },
+    "eicu": {
+      "lab.csv.gz": [
+        {
+          "labname": "glucose"
+        },
+        {
+          "labname": "total protein"
+        },
+        {
+          "labname": "albumin"
+        },
+        {
+          "labname": "bedside glucose"
+        },
+        {
+          "labname": "prealbumin"
+        },
+        {
+          "labname": "protein S"
+        },
+        {
+          "labname": "protein C"
+        },
+        {
+          "labname": "protein - CSF"
+        },
+        {
+          "labname": "glucose - CSF"
+        },
+        {
+          "labname": "24 h urine protein"
+        }
+      ],
+      "intakeOutput.csv.gz": [
+        {
+          "cellpath": "flowsheet|Flowsheet Cell Labels|I&O|Weight|Bodyweight (lb)",
+          "celllabel": "Bodyweight (lb)"
+        },
+        {
+          "cellpath": "flowsheet|Flowsheet Cell Labels|I&O|Weight|Bodyweight (kg)",
+          "celllabel": "Bodyweight (kg)"
+        },
+        {
+          "cellpath": "flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Generic Intake (ml)|Tube Feeding Flush (mL)",
+          "celllabel": "Tube Feeding Flush (mL)"
+        },
+        {
+          "cellpath": "flowsheet|Flowsheet Cell Labels|I&O|Output (ml)|Tube Feeding Residual Discarded (mL)",
+          "celllabel": "Tube Feeding Residual Discarded (mL)"
+        },
+        {
+          "cellpath": "flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Generic Intake (ml)|Volume (ml) Insulin",
+          "celllabel": "Volume (ml) Insulin"
+        },
+        {
+          "cellpath": "flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Crystalloids (ml)|Volume (mL)-albumin human 5 % injection 25 g",
+          "celllabel": "Volume (mL)-albumin human 5 % injection 25 g"
+        },
+        {
+          "cellpath": "flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Crystalloids (ml)|Volume (mL)-albumin human 5 % injection",
+          "celllabel": "Volume (mL)-albumin human 5 % injection"
+        },
+        {
+          "cellpath": "flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Crystalloids (ml)|Volume (mL)-albumin human (SPA) 25 % injection 12.5 g",
+          "celllabel": "Volume (mL)-albumin human (SPA) 25 % injection 12.5 g"
+        },
+        {
+          "cellpath": "flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Crystalloids (ml)|Volume (mL)-albumin human 5 % injection 12.5 g",
+          "celllabel": "Volume (mL)-albumin human 5 % injection 12.5 g"
+        },
+        {
+          "cellpath": "flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Crystalloids (ml)|Volume (mL)-albumin human (SPA) 25 % injection 25 g",
+          "celllabel": "Volume (mL)-albumin human (SPA) 25 % injection 25 g"
+        },
+        {
+          "cellpath": "flowsheet|Flowsheet Cell Labels|I&O|Intake (ml)|Crystalloids (ml)|Volume (mL)-ALBUMIN HUMAN 5 % IV SOLN Pyxis Override",
+          "celllabel": "Volume (mL)-ALBUMIN HUMAN 5 % IV SOLN Pyxis Override"
+        }
+      ],
+      "medication.csv.gz": [
+        {
+          "drugname": "3 ML VIAL : INSULIN LISPRO (HUMAN) 100 UNIT/ML SC SOLN"
+        },
+        {
+          "drugname": "3 ML VIAL : INSULIN REGULAR HUMAN 100 UNIT/ML IJ SOLN"
+        },
+        {
+          "drugname": "37.5 G TUBE : GLUCOSE 40 % PO GEL"
+        },
+        {
+          "drugname": "INSULIN ASPART"
+        },
+        {
+          "drugname": "INSULIN HUMAN REGULAR"
+        },
+        {
+          "drugname": "INSULIN DETEMIR"
+        },
+        {
+          "drugname": "INSULIN GLARGINE"
+        },
+        {
+          "drugname": "ALBUMIN HUMAN 25%"
+        },
+        {
+          "drugname": "GLUCOSE"
+        },
+        {
+          "drugname": "INSULIN REGULAR, HUMAN"
+        },
+        {
+          "drugname": "INSULIN-GLARGINE *UNIT* INJ"
+        },
+        {
+          "drugname": "ALBUMIN 5% 250 ML INJ"
+        },
+        {
+          "drugname": "ALBUMIN 25% 100 ML INJ"
+        },
+        {
+          "drugname": "INSULIN-REGULAR (HUMAN) *UNIT* INJ"
+        },
+        {
+          "drugname": "GLUCOSE 40% 15 GRAM BQ GEL"
+        },
+        {
+          "drugname": "ALBUMIN 5% 500 ML INJ"
+        },
+        {
+          "drugname": "INSULIN (REGULAR) 100 UNITS in 1"
+        }
+      ],
+      "treatment.csv.gz": [
+        {
+          "treatmentstring": "endocrine|glucose metabolism|insulin"
+        },
+        {
+          "treatmentstring": "cardiovascular|vascular disorders|VTE prophylaxis|low molecular weight heparin|enoxaparin"
+        },
+        {
+          "treatmentstring": "renal|electrolyte correction|treatment of hyperkalemia|insulin / glucose"
+        },
+        {
+          "treatmentstring": "endocrine|glucose metabolism|insulin|sliding scale administration"
+        },
+        {
+          "treatmentstring": "neurologic|pain / agitation / altered mentation|analgesics|bolus parenteral analgesics"
+        },
+        {
+          "treatmentstring": "cardiovascular|myocardial ischemia / infarction|glycoprotein IIB/IIIA inhibitor|eptifibatide"
+        },
+        {
+          "treatmentstring": "endocrine|glucose metabolism|glucose|D50"
+        },
+        {
+          "treatmentstring": "cardiovascular|intravenous fluid|colloid administration|albumin"
+        },
+        {
+          "treatmentstring": "renal|intravenous fluid|colloid administration|albumin"
+        },
+        {
+          "treatmentstring": "pulmonary|vascular disorders|VTE prophylaxis|low molecular weight heparin|enoxaparin"
+        },
+        {
+          "treatmentstring": "pulmonary|medications|glucocorticoid administration|parenteral"
+        },
+        {
+          "treatmentstring": "cardiovascular|arrhythmias|anticoagulant administration|low molecular weight heparin|enoxaparin"
+        },
+        {
+          "treatmentstring": "endocrine|glucose metabolism|insulin|subcutaneous dose of longer-acting insulin prepara"
+        },
+        {
+          "treatmentstring": "endocrine|glucose metabolism|insulin|continuous infusion"
+        },
+        {
+          "treatmentstring": "pulmonary|vascular disorders|VTE prophylaxis|low molecular weight heparin"
+        },
+        {
+          "treatmentstring": "endocrine|glucose metabolism|glucose"
+        },
+        {
+          "treatmentstring": "endocrine|glucose metabolism|oral hypoglycemic administration"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|feeding tube"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|parenteral feeds|intralipid"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|parenteral feeds|TPN"
+        },
+        {
+          "treatmentstring": "endocrine|glucose metabolism|insulin|subcutaneous dose of regular insulin"
+        },
+        {
+          "treatmentstring": "neurologic|pain / agitation / altered mentation|analgesics|continuous parenteral analgesics"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|feeding tube|nasogastric"
+        },
+        {
+          "treatmentstring": "endocrine|electrolyte correction|treatment of hyperkalemia|insulin / glucose"
+        },
+        {
+          "treatmentstring": "gastrointestinal|medications|anti-inflammatories|systemic glucocorticoid|parenteral"
+        },
+        {
+          "treatmentstring": "cardiovascular|vascular disorders|anticoagulant administration|low molecular weight heparin|enoxaparin"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|parenteral feeds"
+        },
+        {
+          "treatmentstring": "cardiovascular|vascular disorders|VTE prophylaxis|low molecular weight heparin"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|feeding tube|PEG"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|enteral feeds"
+        },
+        {
+          "treatmentstring": "surgery|analgesics /sedatives/ nmbs|analgesics|bolus parenteral analgesics"
+        },
+        {
+          "treatmentstring": "cardiovascular|myocardial ischemia / infarction|anticoagulant administration|low molecular weight heparin|enoxaparin"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|enteral feeds|tube feeding"
+        },
+        {
+          "treatmentstring": "surgery|nutrition|parenteral feeds|intralipid"
+        },
+        {
+          "treatmentstring": "surgery|nutrition|parenteral feeds|TPN"
+        },
+        {
+          "treatmentstring": "pulmonary|medications|anticoagulant administration|low molecular weight heparin"
+        },
+        {
+          "treatmentstring": "surgery|immunosuppressives|glucocorticoid administration|parenteral"
+        },
+        {
+          "treatmentstring": "cardiovascular|myocardial ischemia / infarction|analgesics|bolus parenteral analgesics"
+        },
+        {
+          "treatmentstring": "gastrointestinal|endoscopy/gastric instrumentation|feeding tube|PEG"
+        },
+        {
+          "treatmentstring": "gastrointestinal|intravenous fluid administration|colloid administration|albumin"
+        },
+        {
+          "treatmentstring": "surgery|nutrition|feeding tube|PEG"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|feeding tube|surgically placed"
+        },
+        {
+          "treatmentstring": "renal|medications|glucocorticoid administration|parenteral"
+        },
+        {
+          "treatmentstring": "gastrointestinal|endoscopy/gastric instrumentation|feeding tube|oral gastric"
+        },
+        {
+          "treatmentstring": "pulmonary|vascular disorders|VTE prophylaxis|low molecular weight heparin|dalteparin"
+        },
+        {
+          "treatmentstring": "surgery|tubes and catheters|feeding tube|oral gastric"
+        },
+        {
+          "treatmentstring": "endocrine|glucose metabolism|glucose|D10W"
+        },
+        {
+          "treatmentstring": "gastrointestinal|endoscopy/gastric instrumentation|feeding tube"
+        },
+        {
+          "treatmentstring": "pulmonary|vascular disorders|anticoagulant administration|low molecular weight heparin"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|enteral feeds|enteral formula"
+        },
+        {
+          "treatmentstring": "gastrointestinal|endoscopy/gastric instrumentation|feeding tube|jejunal"
+        },
+        {
+          "treatmentstring": "cardiovascular|myocardial ischemia / infarction|anticoagulant administration|low molecular weight heparin"
+        },
+        {
+          "treatmentstring": "infectious diseases|medications|systemic glucocorticoid|parenteral"
+        },
+        {
+          "treatmentstring": "cardiovascular|arrhythmias|anticoagulant administration|low molecular weight heparin"
+        },
+        {
+          "treatmentstring": "pulmonary|medications|anticoagulant administration|low molecular weight heparin|enoxaparin"
+        },
+        {
+          "treatmentstring": "neurologic|neuromyopathy therapy|systemic glucocorticoid|parenteral"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|enteral feeds|oral feeds"
+        },
+        {
+          "treatmentstring": "toxicology|drug overdose|agent specific therapy|calcium channel blockers overdose|insulin/dextrose"
+        },
+        {
+          "treatmentstring": "endocrine|glucose metabolism|glucose|juice or other oral glucose administration"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|parenteral feeds|PPN"
+        },
+        {
+          "treatmentstring": "pulmonary|medications|bronchodilator|parenteral"
+        },
+        {
+          "treatmentstring": "surgery|analgesics /sedatives/ nmbs|analgesics|continuous parenteral analgesics"
+        },
+        {
+          "treatmentstring": "gastrointestinal|endoscopy/gastric instrumentation|feeding tube|surgically placed"
+        },
+        {
+          "treatmentstring": "surgery|tubes and catheters|feeding tube|gastrostomy"
+        },
+        {
+          "treatmentstring": "endocrine|glucose metabolism|glucose|D5W"
+        },
+        {
+          "treatmentstring": "surgery|nutrition|prokinetic agent|metoclopramide"
+        },
+        {
+          "treatmentstring": "surgery|intravenous fluids / electrolytes|colloid administration|albumin"
+        },
+        {
+          "treatmentstring": "gastrointestinal|endoscopy/gastric instrumentation|feeding tube|nasogastric"
+        },
+        {
+          "treatmentstring": "hematology|oncological issues|systemic glucocorticoid|parenteral"
+        },
+        {
+          "treatmentstring": "gastrointestinal|endoscopy/gastric instrumentation|feeding tube|gastrostomy"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|prokinetic agent|erythromycin"
+        },
+        {
+          "treatmentstring": "pulmonary|medications|analgesics|continuous parenteral analgesics"
+        },
+        {
+          "treatmentstring": "surgery|glucose control|insulin|sliding scale administration"
+        },
+        {
+          "treatmentstring": "surgery|glucose control|insulin|subcutaneous dose of regular insulin"
+        },
+        {
+          "treatmentstring": "surgery|glucose control|glucose|D50"
+        },
+        {
+          "treatmentstring": "gastrointestinal|medications|analgesics|continuous parenteral analgesics"
+        },
+        {
+          "treatmentstring": "surgery|nutrition|feeding tube|nasogastric"
+        },
+        {
+          "treatmentstring": "neurologic|ICH/ cerebral infarct|anticoagulant administration|low molecular weight heparin|enoxaparin"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|feeding tube|oral gastric"
+        },
+        {
+          "treatmentstring": "pulmonary|medications|analgesics|bolus parenteral analgesics"
+        },
+        {
+          "treatmentstring": "neurologic|pain / agitation / altered mentation|systemic glucocorticoid|parenteral"
+        },
+        {
+          "treatmentstring": "renal|electrolyte correction|treatment of hyperkalemia|parenteral beta-agonist"
+        },
+        {
+          "treatmentstring": "surgery|nutrition|feeding tube|surgically placed"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|feeding tube|jejunal"
+        },
+        {
+          "treatmentstring": "gastrointestinal|medications|analgesics|bolus parenteral analgesics"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|enteral feeds|nutritional supplement"
+        },
+        {
+          "treatmentstring": "surgery|glucose control|insulin|continuous infusion"
+        },
+        {
+          "treatmentstring": "endocrine|glucose metabolism|glucose|D5NS"
+        },
+        {
+          "treatmentstring": "burns/trauma|skin care|systemic glucocorticoid|parenteral"
+        },
+        {
+          "treatmentstring": "surgery|glucose control|insulin"
+        },
+        {
+          "treatmentstring": "hematology|coagulation and platelets|systemic glucocorticoid|parenteral"
+        },
+        {
+          "treatmentstring": "surgery|nutrition|feeding tube|oral gastric"
+        },
+        {
+          "treatmentstring": "gastrointestinal|nutrition|feeding tube|gastrostomy"
+        },
+        {
+          "treatmentstring": "oncology|medications|analgesics|continuous parenteral analgesics"
+        },
+        {
+          "treatmentstring": "oncology|medications|analgesics|bolus parenteral analgesics"
+        },
+        {
+          "treatmentstring": "surgery|glucose control|insulin|subcutaneous dose of longer-acting insulin prepara"
+        },
+        {
+          "treatmentstring": "cardiovascular|other therapies|systemic glucocorticoid|parenteral"
+        },
+        {
+          "treatmentstring": "renal|medications|analgesics|bolus parenteral analgesics"
+        },
+        {
+          "treatmentstring": "surgery|glucose control|glucose|D5NS"
+        },
+        {
+          "treatmentstring": "cardiovascular|myocardial ischemia / infarction|analgesics|continuous parenteral analgesics"
+        }
+      ],
+      "diagnosis.csv.gz": [
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|diabetes mellitus"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|hyperglycemia"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|DKA"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|hypoglycemia"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|DKA|with altered mental status"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|hyperosmolar nonketotic coma"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|hyperglycemia|corticosteroid related"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|diabetes mellitus|Type II"
+        },
+        {
+          "diagnosisstring": "gastrointestinal|malnutrition|nutritional deficiency|severe"
+        },
+        {
+          "diagnosisstring": "gastrointestinal|malnutrition|protein-calorie malnutrition"
+        },
+        {
+          "diagnosisstring": "gastrointestinal|abdominal/ general|dysphagia"
+        },
+        {
+          "diagnosisstring": "gastrointestinal|malnutrition|nutritional deficiency"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|diabetes mellitus|Type I|uncontrolled"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|diabetes mellitus|Type I"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|diabetes mellitus|Type II|controlled"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|hypoglycemia|from excess exogenous insulin"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|hypoglycemia|from oral hypoglycemic medication"
+        },
+        {
+          "diagnosisstring": "gastrointestinal|malnutrition|nutritional deficiency|moderate"
+        },
+        {
+          "diagnosisstring": "hematology|coagulation disorders|hypercoagulable state|protein C deficiency"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|hypoglycemia|suspected"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|diabetes mellitus|Type II|uncontrolled"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|diabetes mellitus|Type I|controlled"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|hyperosmolar nonketotic coma|insulin-requiring"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|hyperglycemia|stress related"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|hyperglycemia|due to hepatic failure"
+        },
+        {
+          "diagnosisstring": "endocrine|glucose metabolism|hyperglycemia|suspected"
+        },
+        {
+          "diagnosisstring": "hematology|coagulation disorders|hypercoagulable state|protein S deficiency"
+        },
+        {
+          "diagnosisstring": "general|quality measures|dysphagia screening done"
+        }
+      ],
+      "nurseCharting.csv.gz": [
+        {
+          "nursingchartcelltypevallabel": "Bedside Glucose",
+          "nursingchartcelltypevalname": "Bedside Glucose"
+        }
+      ]
+    }
+  }
+}

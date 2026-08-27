@@ -1,0 +1,7 @@
+model,mimic_internal_test_auc,mimic_internal_test_brier,eicu_external_auc,eicu_external_brier,eicu_external_n,eicu_external_events
+V0_demographics_bmi_nutrition_support,0.58384,0.11916,0.57495,0.10841,71861,8860
+V1_plus_labs,0.76455,0.10524,0.6427,0.13744,71861,8860
+V2_plus_vitals,0.78607,0.09797,0.66627,0.22078,71861,8860
+V3_plus_severity,0.82952,0.08992,0.72739,0.15493,71861,8860
+nutrition_metabolic_core,0.76455,0.10524,0.6427,0.13744,71861,8860
+severity_only_baseline,0.78184,0.09757,0.72179,0.11853,71861,8860

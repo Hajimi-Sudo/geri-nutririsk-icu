@@ -1,0 +1,237 @@
+{
+  "protocol": "V15_V14_EXPLAINABILITY",
+  "status_date": "2026-08-26",
+  "model": "V14 full-feature combined nested domain-update LightGBM with Platt calibration",
+  "heldout_n": 57488,
+  "base_auc": 0.8721554260554737,
+  "base_brier": 0.07321767063415748,
+  "platt_parameters": {
+    "intercept": -1.3138162345455833,
+    "slope": 0.8761241936480344
+  },
+  "top_gain_features": [
+    {
+      "feature": "gcs_24h",
+      "group": "Organ support and neurologic severity",
+      "gain": 165915.23634433746,
+      "split": 1054,
+      "gain_fraction": 0.11874143900238938
+    },
+    {
+      "feature": "calcium",
+      "group": "Additional chemistry",
+      "gain": 80941.23414230347,
+      "split": 1301,
+      "gain_fraction": 0.05792764322584447
+    },
+    {
+      "feature": "bun",
+      "group": "Nutrition/metabolic labs",
+      "gain": 79290.2207903862,
+      "split": 1503,
+      "gain_fraction": 0.05674605372545676
+    },
+    {
+      "feature": "resp_rate",
+      "group": "Vital signs",
+      "gain": 72040.48208606243,
+      "split": 1302,
+      "gain_fraction": 0.05155759469595485
+    },
+    {
+      "feature": "urine_24h_ml",
+      "group": "Organ support and neurologic severity",
+      "gain": 64064.26341712475,
+      "split": 1699,
+      "gain_fraction": 0.04584921188907523
+    },
+    {
+      "feature": "lactate",
+      "group": "Blood gas and perfusion",
+      "gain": 60559.68836295605,
+      "split": 726,
+      "gain_fraction": 0.043341074033910305
+    },
+    {
+      "feature": "heart_rate",
+      "group": "Vital signs",
+      "gain": 55892.16007065773,
+      "split": 1777,
+      "gain_fraction": 0.0400006392539385
+    },
+    {
+      "feature": "icu_type_cardiac",
+      "group": "ICU and admission context",
+      "gain": 45606.42523109913,
+      "split": 185,
+      "gain_fraction": 0.03263939273459265
+    },
+    {
+      "feature": "ph",
+      "group": "Blood gas and perfusion",
+      "gain": 45123.213571071625,
+      "split": 831,
+      "gain_fraction": 0.032293570077682944
+    },
+    {
+      "feature": "bmi",
+      "group": "Explicit nutrition",
+      "gain": 39275.6359102726,
+      "split": 1378,
+      "gain_fraction": 0.028108603094418906
+    },
+    {
+      "feature": "anion_gap",
+      "group": "Additional chemistry",
+      "gain": 36738.663440823555,
+      "split": 1043,
+      "gain_fraction": 0.02629295452368349
+    },
+    {
+      "feature": "platelet",
+      "group": "Coagulation and hematology",
+      "gain": 35696.91935634613,
+      "split": 1771,
+      "gain_fraction": 0.025547403998074408
+    },
+    {
+      "feature": "spo2",
+      "group": "Vital signs",
+      "gain": 34411.79901099205,
+      "split": 1026,
+      "gain_fraction": 0.02462767509034532
+    },
+    {
+      "feature": "age",
+      "group": "Demographics",
+      "gain": 33216.90181052685,
+      "split": 1336,
+      "gain_fraction": 0.02377251666023766
+    },
+    {
+      "feature": "temperature_c",
+      "group": "Vital signs",
+      "gain": 33061.45321750641,
+      "split": 1472,
+      "gain_fraction": 0.023661265939491097
+    },
+    {
+      "feature": "wbc",
+      "group": "Nutrition/metabolic labs",
+      "gain": 30087.165454745293,
+      "split": 1490,
+      "gain_fraction": 0.021532641608543655
+    },
+    {
+      "feature": "ptt",
+      "group": "Coagulation and hematology",
+      "gain": 30065.397783875465,
+      "split": 1301,
+      "gain_fraction": 0.021517063023841227
+    },
+    {
+      "feature": "map",
+      "group": "Vital signs",
+      "gain": 29980.377709388733,
+      "split": 1406,
+      "gain_fraction": 0.021456216255267828
+    },
+    {
+      "feature": "hemoglobin",
+      "group": "Coagulation and hematology",
+      "gain": 27793.379058241844,
+      "split": 1378,
+      "gain_fraction": 0.019891035307120813
+    },
+    {
+      "feature": "bicarbonate",
+      "group": "Additional chemistry",
+      "gain": 26693.183580994606,
+      "split": 1099,
+      "gain_fraction": 0.01910365256259015
+    }
+  ],
+  "group_permutation_importance": [
+    {
+      "group": "Organ support and neurologic severity",
+      "n_features": 4,
+      "auc_after_permutation": 0.8094368194693735,
+      "auc_drop": 0.06271860658610018,
+      "brier_after_permutation": 0.0850465031590732,
+      "brier_increase": 0.01182883252491572
+    },
+    {
+      "group": "Vital signs",
+      "n_features": 5,
+      "auc_after_permutation": 0.8239562182180914,
+      "auc_drop": 0.048199207837382296,
+      "brier_after_permutation": 0.08418148864580009,
+      "brier_increase": 0.010963818011642618
+    },
+    {
+      "group": "Blood gas and perfusion",
+      "n_features": 7,
+      "auc_after_permutation": 0.8522675650755737,
+      "auc_drop": 0.01988786097990003,
+      "brier_after_permutation": 0.07839598596084389,
+      "brier_increase": 0.005178315326686417
+    },
+    {
+      "group": "Nutrition/metabolic labs",
+      "n_features": 6,
+      "auc_after_permutation": 0.85616783827793,
+      "auc_drop": 0.01598758777754372,
+      "brier_after_permutation": 0.07592080242381812,
+      "brier_increase": 0.00270313178966064
+    },
+    {
+      "group": "Additional chemistry",
+      "n_features": 6,
+      "auc_after_permutation": 0.8625225572836778,
+      "auc_drop": 0.009632868771795922,
+      "brier_after_permutation": 0.07599473842312982,
+      "brier_increase": 0.00277706778897234
+    },
+    {
+      "group": "Demographics",
+      "n_features": 2,
+      "auc_after_permutation": 0.8646206179184807,
+      "auc_drop": 0.007534808136993032,
+      "brier_after_permutation": 0.0743793557124022,
+      "brier_increase": 0.0011616850782447258
+    },
+    {
+      "group": "Missingness indicators",
+      "n_features": 34,
+      "auc_after_permutation": 0.8653943932550929,
+      "auc_drop": 0.006761032800380762,
+      "brier_after_permutation": 0.07496699289410261,
+      "brier_increase": 0.0017493222599451325
+    },
+    {
+      "group": "Coagulation and hematology",
+      "n_features": 5,
+      "auc_after_permutation": 0.8666372447887432,
+      "auc_drop": 0.0055181812667305374,
+      "brier_after_permutation": 0.0746529410921076,
+      "brier_increase": 0.0014352704579501246
+    },
+    {
+      "group": "Explicit nutrition",
+      "n_features": 5,
+      "auc_after_permutation": 0.8668248022977362,
+      "auc_drop": 0.005330623757737518,
+      "brier_after_permutation": 0.07448554585917891,
+      "brier_increase": 0.0012678752250214337
+    },
+    {
+      "group": "ICU and admission context",
+      "n_features": 9,
+      "auc_after_permutation": 0.8682792133986853,
+      "auc_drop": 0.0038762126567883914,
+      "brier_after_permutation": 0.07384864882920028,
+      "brier_increase": 0.0006309781950428056
+    }
+  ],
+  "claim_boundary": "Feature importance is explanatory for the fitted prediction model and does not support causal claims about nutrition treatment, malnutrition, or physiology."
+}

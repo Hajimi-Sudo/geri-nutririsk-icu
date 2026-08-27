@@ -1,0 +1,3 @@
+cohort,n,events,event_rate,ventilation_24h_positive,dialysis_24h_positive,urine_24h_ml_median,gcs_24h_median
+MIMIC-IV development/internal validation,33671,4659,0.1384,10920,409,1445.0,13.0
+eICU-CRD external validation,71861,8860,0.1233,14754,1620,1264.9824,15.0

@@ -1,0 +1,224 @@
+{
+  "features": [
+    "age",
+    "male",
+    "bmi",
+    "enteral_24h",
+    "parenteral_24h"
+  ],
+  "mimic_summary": {
+    "n": 33671,
+    "events": 4659,
+    "event_rate": 0.1384,
+    "feature_nonmissing": {
+      "age": 33671,
+      "male": 33671,
+      "bmi": 17239,
+      "enteral_24h": 33671,
+      "parenteral_24h": 33671
+    },
+    "feature_positive": {
+      "male": 17991,
+      "enteral_24h": 1084,
+      "parenteral_24h": 148
+    }
+  },
+  "eicu_summary": {
+    "n": 103278,
+    "events": 12022,
+    "event_rate": 0.1164,
+    "feature_nonmissing": {
+      "age": 103278,
+      "male": 103278,
+      "bmi": 93451,
+      "enteral_24h": 103278,
+      "parenteral_24h": 103278
+    },
+    "feature_positive": {
+      "male": 53768,
+      "enteral_24h": 11079,
+      "parenteral_24h": 9877
+    }
+  },
+  "imputation_from_mimic": {
+    "age": 76.0,
+    "male": 1.0,
+    "bmi": 27.4,
+    "enteral_24h": 0.0,
+    "parenteral_24h": 0.0
+  },
+  "standardization_from_mimic": {
+    "age": [
+      76.7169077247483,
+      7.778369445239995
+    ],
+    "male": [
+      0.5343173650916219,
+      0.4988209282429601
+    ],
+    "bmi": [
+      27.826541749106486,
+      4.624380827907228
+    ],
+    "enteral_24h": [
+      0.032193876035757775,
+      0.17651467469180016
+    ],
+    "parenteral_24h": [
+      0.004395473849900508,
+      0.06615250304814892
+    ]
+  },
+  "coefficients": {
+    "intercept": -1.8601039066537521,
+    "age": 0.24610399597792004,
+    "male": -0.013756647070265499,
+    "bmi": -0.02495969794256602,
+    "enteral_24h": 0.14719560165485276,
+    "parenteral_24h": -0.0004334589390679291
+  },
+  "mimic_internal_apparent": {
+    "auc": 0.5888,
+    "brier": 0.1176,
+    "calibration_bins": [
+      {
+        "bin": 1,
+        "n": 3310,
+        "pred_mean": 0.0954,
+        "obs_rate": 0.0952
+      },
+      {
+        "bin": 2,
+        "n": 3048,
+        "pred_mean": 0.102,
+        "obs_rate": 0.102
+      },
+      {
+        "bin": 3,
+        "n": 3743,
+        "pred_mean": 0.1088,
+        "obs_rate": 0.1015
+      },
+      {
+        "bin": 4,
+        "n": 3124,
+        "pred_mean": 0.1169,
+        "obs_rate": 0.1197
+      },
+      {
+        "bin": 5,
+        "n": 3513,
+        "pred_mean": 0.1253,
+        "obs_rate": 0.1187
+      },
+      {
+        "bin": 6,
+        "n": 3465,
+        "pred_mean": 0.1354,
+        "obs_rate": 0.1356
+      },
+      {
+        "bin": 7,
+        "n": 3366,
+        "pred_mean": 0.1466,
+        "obs_rate": 0.1441
+      },
+      {
+        "bin": 8,
+        "n": 3219,
+        "pred_mean": 0.159,
+        "obs_rate": 0.1587
+      },
+      {
+        "bin": 9,
+        "n": 3364,
+        "pred_mean": 0.1757,
+        "obs_rate": 0.1858
+      },
+      {
+        "bin": 10,
+        "n": 3519,
+        "pred_mean": 0.2144,
+        "obs_rate": 0.2191
+      }
+    ]
+  },
+  "eicu_external_validation": {
+    "auc": 0.5759,
+    "brier": 0.1036,
+    "calibration_bins": [
+      {
+        "bin": 1,
+        "n": 10328,
+        "pred_mean": 0.0947,
+        "obs_rate": 0.0811
+      },
+      {
+        "bin": 2,
+        "n": 10328,
+        "pred_mean": 0.1027,
+        "obs_rate": 0.085
+      },
+      {
+        "bin": 3,
+        "n": 10103,
+        "pred_mean": 0.1104,
+        "obs_rate": 0.0895
+      },
+      {
+        "bin": 4,
+        "n": 10551,
+        "pred_mean": 0.1188,
+        "obs_rate": 0.1
+      },
+      {
+        "bin": 5,
+        "n": 10329,
+        "pred_mean": 0.1285,
+        "obs_rate": 0.1061
+      },
+      {
+        "bin": 6,
+        "n": 10328,
+        "pred_mean": 0.1397,
+        "obs_rate": 0.1201
+      },
+      {
+        "bin": 7,
+        "n": 10327,
+        "pred_mean": 0.1527,
+        "obs_rate": 0.1309
+      },
+      {
+        "bin": 8,
+        "n": 10328,
+        "pred_mean": 0.169,
+        "obs_rate": 0.135
+      },
+      {
+        "bin": 9,
+        "n": 10328,
+        "pred_mean": 0.1886,
+        "obs_rate": 0.1554
+      },
+      {
+        "bin": 10,
+        "n": 10328,
+        "pred_mean": 0.2623,
+        "obs_rate": 0.1607
+      }
+    ]
+  },
+  "eicu_subgroup_auc_by_male": {
+    "0": {
+      "n": 49510,
+      "auc": 0.5666,
+      "event_rate": 0.1175
+    },
+    "1": {
+      "n": 53768,
+      "auc": 0.585,
+      "event_rate": 0.1154
+    }
+  }
+}

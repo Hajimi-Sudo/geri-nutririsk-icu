@@ -1,0 +1,225 @@
+{
+  "protocol": "V8_SOTA_TABULAR_BENCHMARK",
+  "source_feature_tables": {
+    "mimic": "/root/autodl-tmp/frontiers_nutrition_mimic_eicu/v3_severity_model/mimic_v3_features_server_only.csv",
+    "eicu": "/root/autodl-tmp/frontiers_nutrition_mimic_eicu/v3_severity_model/eicu_v3_features_server_only.csv"
+  },
+  "split": {
+    "mimic_training": "row_index_mod_5_not_equal_0",
+    "mimic_internal_test": "row_index_mod_5_equal_0",
+    "eicu_platt_calibration": "row_index_mod_5_equal_0",
+    "eicu_platt_heldout": "row_index_mod_5_not_equal_0"
+  },
+  "environment_modules": {
+    "xgboost": "3.4.1",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10"
+  },
+  "benchmark": {
+    "GERI-NutriRisk-ICU_logistic": {
+      "model_family": "standardized_l2_logistic_regression",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8295186577152777,
+        "brier": 0.08991772032179846,
+        "ece": 0.014649808727611194
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7273901381693644,
+        "brier": 0.15491682919048408,
+        "ece": 0.17972557084742885
+      }
+    },
+    "XGBoost_hist": {
+      "model_family": "gradient_boosted_decision_trees",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8802969618329142,
+        "brier": 0.1358264444455346,
+        "ece": 0.20137181212792332
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7784240892947953,
+        "brier": 0.2973057567968339,
+        "ece": 0.39162789820619887
+      }
+    },
+    "LightGBM_gbdt": {
+      "model_family": "gradient_boosted_decision_trees",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8818136532908334,
+        "brier": 0.12377723324618903,
+        "ece": 0.167068610076102
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7929620433485541,
+        "brier": 0.2910915122176176,
+        "ece": 0.38572734564870254
+      }
+    },
+    "CatBoost_ordered": {
+      "model_family": "ordered_gradient_boosting",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8814477190647715,
+        "brier": 0.13778285860393677,
+        "ece": 0.20542801047868578
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7410090681494432,
+        "brier": 0.3766160331037558,
+        "ece": 0.4787341355770905
+      }
+    }
+  },
+  "external_recalibration": {
+    "GERI-NutriRisk-ICU_logistic": {
+      "platt_parameters": {
+        "intercept": -1.5753138896229328,
+        "slope": 0.5898910398473783
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.722845194329472,
+        "brier": 0.15539613956921225,
+        "ece": 0.18212982086510082
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7284948186134542,
+        "brier": 0.15479699325822932,
+        "ece": 0.17912446652123903
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7284948186134542,
+        "brier": 0.0989306289192577,
+        "ece": 0.009327907295615999
+      }
+    },
+    "XGBoost_hist": {
+      "platt_parameters": {
+        "intercept": -2.54138631997552,
+        "slope": 0.6392074684799076
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.7748342087901688,
+        "brier": 0.2992212522268541,
+        "ece": 0.39518841361585644
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7793092760184902,
+        "brier": 0.29682684961941125,
+        "ece": 0.3907376911172075
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7793092760184902,
+        "brier": 0.09198303155387817,
+        "ece": 0.023773343288712917
+      }
+    },
+    "LightGBM_gbdt": {
+      "platt_parameters": {
+        "intercept": -2.6005917817792152,
+        "slope": 0.7200161216322736
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.7905391226107435,
+        "brier": 0.2936318243821922,
+        "ece": 0.3901207372497006
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.793562733186625,
+        "brier": 0.29045638998791007,
+        "ece": 0.38462892132569343
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.793562733186625,
+        "brier": 0.08843649626206498,
+        "ece": 0.020989102312679052
+      }
+    },
+    "CatBoost_ordered": {
+      "platt_parameters": {
+        "intercept": -2.6417191527635,
+        "slope": 0.4980053539646954
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.7359014264101911,
+        "brier": 0.37979706726961665,
+        "ece": 0.4828063980853723
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7422422495604682,
+        "brier": 0.37582071922840926,
+        "ece": 0.47771599911328
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7422422495604682,
+        "brier": 0.09903131852560976,
+        "ece": 0.015438178959065707
+      }
+    }
+  },
+  "models_run": [
+    "GERI-NutriRisk-ICU_logistic",
+    "XGBoost_hist",
+    "LightGBM_gbdt",
+    "CatBoost_ordered"
+  ],
+  "claim_boundary": "SOTA comparators are trained only on MIMIC-IV development data. eICU labels are reserved for external evaluation and prespecified Platt-domain recalibration splits. Patient-level predictions are not exported."
+}

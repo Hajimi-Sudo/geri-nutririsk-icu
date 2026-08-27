@@ -1,0 +1,273 @@
+{
+  "protocol": "V13B_DOMAIN_UPDATE_CALIBRATION",
+  "status_date": "2026-08-26",
+  "feature_count": 83,
+  "splits": {
+    "eicu_calibration_all": 14373,
+    "eicu_update_fit_nested": 7187,
+    "eicu_update_cal_nested": 7186,
+    "eicu_heldout_main": 57488,
+    "eicu_heldout_nested": 57488
+  },
+  "main_heldout": {
+    "source_only_platt": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.806770864230622,
+      "brier": 0.08465076556579265,
+      "ece_q10": 0.013622185888719374
+    },
+    "eicu_update_same_pool_platt": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8766300246754973,
+      "brier": 0.08106846435561481,
+      "ece_q10": 0.06512406284108065
+    },
+    "combined_update_same_pool_platt": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8804993107693933,
+      "brier": 0.07671455206116143,
+      "ece_q10": 0.047123492154063404
+    }
+  },
+  "nested_heldout": {
+    "eicu_update_nested_platt": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8680296816727714,
+      "brier": 0.07475728136184358,
+      "ece_q10": 0.005134968047394458
+    },
+    "combined_update_nested_platt": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8727165305668079,
+      "brier": 0.07322258299157254,
+      "ece_q10": 0.0036116398185344336
+    },
+    "source_only_platt_on_nested_heldout": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.806770864230622,
+      "brier": 0.08465076556579265,
+      "ece_q10": 0.013622185888719374
+    }
+  },
+  "apache_same_subset_main_heldout": {
+    "APACHE_IV": {
+      "APACHE": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8461494788736464,
+        "brier": 0.08481210052531886,
+        "ece_q10": 0.04568745016963188
+      },
+      "coverage_n": 39920,
+      "source_only_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.834063099284688,
+        "brier": 0.08280536950435688,
+        "ece_q10": 0.02453440225667332
+      },
+      "source_only_platt_minus_APACHE_auc": -0.012086379588958418,
+      "source_only_platt_minus_APACHE_brier": -0.00200673102096198,
+      "eicu_update_same_pool_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.875014011875607,
+        "brier": 0.08274837370892675,
+        "ece_q10": 0.0673003098694939
+      },
+      "eicu_update_same_pool_platt_minus_APACHE_auc": 0.02886453300196057,
+      "eicu_update_same_pool_platt_minus_APACHE_brier": -0.0020637268163921085,
+      "combined_update_same_pool_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8775373267594322,
+        "brier": 0.07836205964583132,
+        "ece_q10": 0.04963616204221011
+      },
+      "combined_update_same_pool_platt_minus_APACHE_auc": 0.03138784788578575,
+      "combined_update_same_pool_platt_minus_APACHE_brier": -0.0064500408794875425,
+      "eicu_update_nested_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8672232878480612,
+        "brier": 0.07544917187669403,
+        "ece_q10": 0.008491292386418305
+      },
+      "eicu_update_nested_platt_minus_APACHE_auc": 0.0210738089744148,
+      "eicu_update_nested_platt_minus_APACHE_brier": -0.009362928648624827,
+      "combined_update_nested_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8719749468587499,
+        "brier": 0.07415347411864359,
+        "ece_q10": 0.009202913632013811
+      },
+      "combined_update_nested_platt_minus_APACHE_auc": 0.025825467985103434,
+      "combined_update_nested_platt_minus_APACHE_brier": -0.010658626406675267
+    },
+    "APACHE_IVa": {
+      "APACHE": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8504124477532476,
+        "brier": 0.08204785646844932,
+        "ece_q10": 0.028903707174170422
+      },
+      "coverage_n": 39920,
+      "source_only_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.834063099284688,
+        "brier": 0.08280536950435688,
+        "ece_q10": 0.02453440225667332
+      },
+      "source_only_platt_minus_APACHE_auc": -0.01634934846855962,
+      "source_only_platt_minus_APACHE_brier": 0.000757513035907556,
+      "eicu_update_same_pool_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.875014011875607,
+        "brier": 0.08274837370892675,
+        "ece_q10": 0.0673003098694939
+      },
+      "eicu_update_same_pool_platt_minus_APACHE_auc": 0.024601564122359365,
+      "eicu_update_same_pool_platt_minus_APACHE_brier": 0.0007005172404774274,
+      "combined_update_same_pool_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8775373267594322,
+        "brier": 0.07836205964583132,
+        "ece_q10": 0.04963616204221011
+      },
+      "combined_update_same_pool_platt_minus_APACHE_auc": 0.027124879006184544,
+      "combined_update_same_pool_platt_minus_APACHE_brier": -0.0036857968226180066,
+      "eicu_update_nested_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8672232878480612,
+        "brier": 0.07544917187669403,
+        "ece_q10": 0.008491292386418305
+      },
+      "eicu_update_nested_platt_minus_APACHE_auc": 0.016810840094813595,
+      "eicu_update_nested_platt_minus_APACHE_brier": -0.006598684591755291,
+      "combined_update_nested_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8719749468587499,
+        "brier": 0.07415347411864359,
+        "ece_q10": 0.009202913632013811
+      },
+      "combined_update_nested_platt_minus_APACHE_auc": 0.02156249910550223,
+      "combined_update_nested_platt_minus_APACHE_brier": -0.007894382349805731
+    }
+  },
+  "apache_same_subset_nested_heldout": {
+    "APACHE_IV": {
+      "APACHE": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8461494788736464,
+        "brier": 0.08481210052531886,
+        "ece_q10": 0.04568745016963188
+      },
+      "coverage_n": 39920,
+      "source_only_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.834063099284688,
+        "brier": 0.08280536950435688,
+        "ece_q10": 0.02453440225667332
+      },
+      "source_only_platt_minus_APACHE_auc": -0.012086379588958418,
+      "source_only_platt_minus_APACHE_brier": -0.00200673102096198,
+      "eicu_update_nested_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8672232878480612,
+        "brier": 0.07544917187669403,
+        "ece_q10": 0.008491292386418305
+      },
+      "eicu_update_nested_platt_minus_APACHE_auc": 0.0210738089744148,
+      "eicu_update_nested_platt_minus_APACHE_brier": -0.009362928648624827,
+      "combined_update_nested_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8719749468587499,
+        "brier": 0.07415347411864359,
+        "ece_q10": 0.009202913632013811
+      },
+      "combined_update_nested_platt_minus_APACHE_auc": 0.025825467985103434,
+      "combined_update_nested_platt_minus_APACHE_brier": -0.010658626406675267
+    },
+    "APACHE_IVa": {
+      "APACHE": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8504124477532476,
+        "brier": 0.08204785646844932,
+        "ece_q10": 0.028903707174170422
+      },
+      "coverage_n": 39920,
+      "source_only_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.834063099284688,
+        "brier": 0.08280536950435688,
+        "ece_q10": 0.02453440225667332
+      },
+      "source_only_platt_minus_APACHE_auc": -0.01634934846855962,
+      "source_only_platt_minus_APACHE_brier": 0.000757513035907556,
+      "eicu_update_nested_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8672232878480612,
+        "brier": 0.07544917187669403,
+        "ece_q10": 0.008491292386418305
+      },
+      "eicu_update_nested_platt_minus_APACHE_auc": 0.016810840094813595,
+      "eicu_update_nested_platt_minus_APACHE_brier": -0.006598684591755291,
+      "combined_update_nested_platt": {
+        "n": 39920,
+        "events": 4956,
+        "event_rate": 0.12414829659318637,
+        "auc": 0.8719749468587499,
+        "brier": 0.07415347411864359,
+        "ece_q10": 0.009202913632013811
+      },
+      "combined_update_nested_platt_minus_APACHE_auc": 0.02156249910550223,
+      "combined_update_nested_platt_minus_APACHE_brier": -0.007894382349805731
+    }
+  },
+  "claim_boundary": "Same-pool update can be reported only as a local domain-updated performance head. Nested update is the cleaner calibrated domain-update sensitivity because eICU update fitting and Platt calibration use disjoint calibration-pool halves. Neither is source-only transport superiority."
+}

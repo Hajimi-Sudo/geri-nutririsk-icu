@@ -1,0 +1,12 @@
+domain,subgroup,n,events,auc,brier,ece
+age_group,65-74,31322,3114,0.806,0.253,0.349
+age_group,75-84,26004,3391,0.782,0.305,0.399
+age_group,85+,14535,2355,0.768,0.349,0.442
+albumin_available,available,22000,3651,0.815,0.259,0.342
+albumin_available,missing,49861,5209,0.784,0.305,0.405
+enteral_24h,no,63935,7580,0.796,0.294,0.391
+enteral_24h,yes,7926,1280,0.779,0.269,0.341
+sex,female_or_other,34780,4330,0.787,0.297,0.393
+sex,male,37081,4530,0.798,0.286,0.379
+ventilation_24h,no,57107,4749,0.786,0.295,0.405
+ventilation_24h,yes,14754,4111,0.785,0.277,0.311

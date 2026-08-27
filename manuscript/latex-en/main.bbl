@@ -1,0 +1,249 @@
+\begin{thebibliography}{30}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \expandafter\ifx\csname doi\endcsname\relax
+  \def\doi#1{doi:\discretionary{}{}{}#1}\fi \else
+  \expandafter\ifx\csname doi\endcsname\relax
+  \def\doi{doi:\discretionary{}{}{}\begingroup \urlstyle{rm}\Url}\fi \fi
+\expandafter\ifx\csname selectlanguage\endcsname\relax
+  \def\selectlanguage#1{}\fi
+
+\bibitem[{Singer et~al.(2023)Singer, Blaser, Berger, Calder, Casaer, Hiesmayr
+  et~al.}]{Singer2023ESPENPractical}
+Singer P, Blaser AR, Berger MM, Calder PC, Casaer M, Hiesmayr M, et~al.
+\newblock Espen practical and partially revised guideline: Clinical nutrition
+  in the intensive care unit.
+\newblock {\em Clinical Nutrition\/} {\bf 42} (2023) 1671--1689.
+\newblock \doi{10.1016/j.clnu.2023.07.011}.
+
+\bibitem[{Compher et~al.(2022)Compher, Bingham, McCall, Patel, Rice,
+  Braunschweig et~al.}]{Compher2022ASPEN}
+Compher C, Bingham AL, McCall M, Patel J, Rice TW, Braunschweig C, et~al.
+\newblock Guidelines for the provision of nutrition support therapy in the
+  adult critically ill patient: The american society for parenteral and enteral
+  nutrition.
+\newblock {\em Journal of Parenteral and Enteral Nutrition\/} {\bf 46} (2022)
+  12--41.
+\newblock \doi{10.1002/jpen.2267}.
+
+\bibitem[{de~Man et~al.(2024)de~Man, Gunst, and
+  Reintam~Blaser}]{deMan2024ICUNutrition}
+de~Man AME, Gunst J, Reintam~Blaser A.
+\newblock Nutrition in the intensive care unit: from the acute phase to beyond.
+\newblock {\em Intensive Care Medicine\/} {\bf 50} (2024) 1035--1048.
+\newblock \doi{10.1007/s00134-024-07458-9}.
+
+\bibitem[{Compher et~al.(2025)Compher, Fukushima, Correia, Gonzalez, McKeever,
+  Nakamura et~al.}]{Compher2025GLIMCriticalIllness}
+Compher CW, Fukushima R, Correia MITD, Gonzalez MC, McKeever L, Nakamura K,
+  et~al.
+\newblock Recognizing malnutrition in adults with critical illness: Guidance
+  statements from the global leadership initiative on malnutrition.
+\newblock {\em Journal of Parenteral and Enteral Nutrition\/} {\bf 49} (2025)
+  405--413.
+\newblock \doi{10.1002/jpen.2748}.
+
+\bibitem[{Moisi et~al.(2024)Moisi, Mino, Guidet, and Vallet}]{Moisi2024Frailty}
+Moisi L, Mino JC, Guidet B, Vallet H.
+\newblock Frailty assessment in critically ill older adults: a narrative
+  review.
+\newblock {\em Annals of Intensive Care\/} {\bf 14} (2024) 93.
+\newblock \doi{10.1186/s13613-024-01315-0}.
+
+\bibitem[{Inaba et~al.(2023)Inaba, Naito, Yorifuji, Nakamichi, Maeyama,
+  Ishikawa et~al.}]{Inaba2023Frailty}
+Inaba M, Naito H, Yorifuji T, Nakamichi C, Maeyama H, Ishikawa H, et~al.
+\newblock Impact of frailty on long-term mortality in older patients receiving
+  intensive care via the emergency department.
+\newblock {\em Scientific Reports\/} {\bf 13} (2023).
+\newblock \doi{10.1038/s41598-023-32519-2}.
+
+\bibitem[{Heyland et~al.(2011)Heyland, Dhaliwal, Jiang, and
+  Day}]{Heyland2011NUTRIC}
+Heyland DK, Dhaliwal R, Jiang X, Day AG.
+\newblock Identifying critically ill patients who benefit the most from
+  nutrition therapy: the development and initial validation of a novel risk
+  assessment tool.
+\newblock {\em Critical Care\/} {\bf 15} (2011) R268.
+\newblock \doi{10.1186/cc10546}.
+
+\bibitem[{Peng et~al.(2023)Peng, Zhu, Xing, Li, Gao, and Gong}]{Peng2023GNRI}
+Peng JC, Zhu YW, Xing SP, Li W, Gao Y, Gong WW.
+\newblock Association of geriatric nutritional risk index with all-cause
+  hospital mortality among elderly patients in intensive care unit.
+\newblock {\em Frontiers in Nutrition\/} {\bf 10} (2023) 1117054.
+\newblock \doi{10.3389/fnut.2023.1117054}.
+
+\bibitem[{Zimmerman et~al.(2006)Zimmerman, Kramer, McNair, and
+  Malila}]{Zimmerman2006ApacheIV}
+Zimmerman JE, Kramer AA, McNair DS, Malila FM.
+\newblock Acute physiology and chronic health evaluation (apache) iv: hospital
+  mortality assessment for today's critically ill patients.
+\newblock {\em Critical Care Medicine\/} {\bf 34} (2006) 1297--1310.
+\newblock \doi{10.1097/01.CCM.0000215112.84523.F0}.
+
+\bibitem[{Zhang et~al.(2026)Zhang, Fang, Lou, Yao, Huang, and
+  Hu}]{Zhang2026ENUTRIC}
+Zhang X, Fang A, Lou P, Yao K, Huang T, Hu J.
+\newblock Development and interpretability analysis of a stacking ensemble
+  model for early prediction of nutritional risk in intensive care unit
+  patients: Retrospective cohort study.
+\newblock {\em JMIR Medical Informatics\/} {\bf 14} (2026) e77872.
+\newblock \doi{10.2196/77872}.
+
+\bibitem[{Cao et~al.(2026)Cao, Gu, Wang, Bai, Hao, Wang et~al.}]{Cao2026NIM}
+Cao Y, Gu G, Wang R, Bai J, Hao Z, Wang B, et~al.
+\newblock Nutritional-inflammatory-metabolic indices associated with
+  in-hospital mortality in acute kidney injury patients undergoing continuous
+  renal replacement therapy: dose-response analysis and machine learning-based
+  risk stratification.
+\newblock {\em Frontiers in Nutrition\/} {\bf 13} (2026) 1850255.
+\newblock \doi{10.3389/fnut.2026.1850255}.
+
+\bibitem[{Johnson et~al.(2023)Johnson, Bulgarelli, Shen, Gayles, Shammout,
+  Horng et~al.}]{Johnson2023MIMICIV}
+Johnson AEW, Bulgarelli L, Shen L, Gayles A, Shammout A, Horng S, et~al.
+\newblock Mimic-iv, a freely accessible electronic health record dataset.
+\newblock {\em Scientific Data\/} {\bf 10} (2023) 1.
+\newblock \doi{10.1038/s41597-022-01899-x}.
+
+\bibitem[{Pollard et~al.(2018)Pollard, Johnson, Raffa, Celi, Mark, and
+  Badawi}]{Pollard2018EICU}
+Pollard TJ, Johnson AEW, Raffa JD, Celi LA, Mark RG, Badawi O.
+\newblock The eicu collaborative research database, a freely available
+  multi-center database for critical care research.
+\newblock {\em Scientific Data\/} {\bf 5} (2018) 180178.
+\newblock \doi{10.1038/sdata.2018.178}.
+
+\bibitem[{Collins et~al.(2024{\natexlab{a}})Collins, Dhiman, Ma, Schlussel,
+  Archer, Van~Calster et~al.}]{Collins2024EvalPart1}
+Collins GS, Dhiman P, Ma J, Schlussel MM, Archer L, Van~Calster B, et~al.
+\newblock Evaluation of clinical prediction models (part 1): from development
+  to external validation.
+\newblock {\em BMJ\/} {\bf 384} (2024{\natexlab{a}}) e074819.
+\newblock \doi{10.1136/bmj-2023-074819}.
+
+\bibitem[{Riley et~al.(2024)Riley, Archer, Snell, Ensor, Dhiman, Martin
+  et~al.}]{Riley2024EvalPart2}
+Riley RD, Archer L, Snell KIE, Ensor J, Dhiman P, Martin GP, et~al.
+\newblock Evaluation of clinical prediction models (part 2): how to undertake
+  an external validation study.
+\newblock {\em BMJ\/} {\bf 384} (2024) e074820.
+\newblock \doi{10.1136/bmj-2023-074820}.
+
+\bibitem[{Collins et~al.(2024{\natexlab{b}})Collins, Moons, Dhiman, Riley,
+  Beam, Van~Calster et~al.}]{Collins2024TRIPODAI}
+Collins GS, Moons KGM, Dhiman P, Riley RD, Beam AL, Van~Calster B, et~al.
+\newblock Tripod+ai statement: updated guidance for reporting clinical
+  prediction models that use regression or machine learning methods.
+\newblock {\em BMJ\/} {\bf 385} (2024{\natexlab{b}}) e078378.
+\newblock \doi{10.1136/bmj-2023-078378}.
+
+\bibitem[{Moons et~al.(2025)Moons, Damen, Kaul, Hooft, Andaur~Navarro, Dhiman
+  et~al.}]{Moons2025PROBASTAI}
+Moons KGM, Damen JAA, Kaul T, Hooft L, Andaur~Navarro C, Dhiman P, et~al.
+\newblock Probast+ai: an updated quality, risk of bias, and applicability
+  assessment tool for prediction models using regression or artificial
+  intelligence methods.
+\newblock {\em BMJ\/} {\bf 388} (2025) e082505.
+\newblock \doi{10.1136/bmj-2024-082505}.
+
+\bibitem[{Van~Calster et~al.(2023)Van~Calster, Steyerberg, Wynants, and van
+  Smeden}]{VanCalster2023NoValidated}
+Van~Calster B, Steyerberg EW, Wynants L, van Smeden M.
+\newblock There is no such thing as a validated prediction model.
+\newblock {\em BMC Medicine\/} {\bf 21} (2023) 70.
+\newblock \doi{10.1186/s12916-023-02779-w}.
+
+\bibitem[{Van~Calster et~al.(2019)Van~Calster, McLernon, van Smeden, Wynants,
+  and Steyerberg}]{VanCalster2019Calibration}
+Van~Calster B, McLernon DJ, van Smeden M, Wynants L, Steyerberg EW.
+\newblock Calibration: the achilles heel of predictive analytics.
+\newblock {\em BMC Medicine\/} {\bf 17} (2019) 230.
+\newblock \doi{10.1186/s12916-019-1466-7}.
+
+\bibitem[{Zhang et~al.(2025)Zhang, Zhao, Zhou, Yao, Liu, Fang
+  et~al.}]{Zhang2025IBD}
+Zhang Z, Zhao C, Zhou Y, Yao L, Liu P, Fang Z, et~al.
+\newblock Random forest-driven mortality prediction in critical ibd care: a
+  dual-database model integrating comorbidity patterns and real-time
+  physiometrics.
+\newblock {\em Frontiers in Medicine\/} {\bf 12} (2025) 1624899.
+\newblock \doi{10.3389/fmed.2025.1624899}.
+
+\bibitem[{Liu et~al.(2026)Liu, Han, and Xiang}]{Liu2026TabPFN}
+Liu LL, Han L, Xiang ZL.
+\newblock A tabular prior-data fitted network-based prediction model
+  integrating ferritin and total iron-binding capacity for 30-day all-cause
+  mortality in critically ill cancer patients.
+\newblock {\em JAMIA Open\/} {\bf 9} (2026).
+\newblock \doi{10.1093/jamiaopen/ooag148}.
+
+\bibitem[{Huynh et~al.(2026)Huynh, Nguyen, Luu, Vo, and Quach}]{Huynh2026PAR}
+Huynh TM, Nguyen TCP, Luu PL, Vo UPP, Quach DT.
+\newblock Phosphate-to-albumin ratio and 30-day mortality in critically ill
+  acute pancreatitis: multicenter development and external validation of an
+  interpretable machine learning model.
+\newblock {\em International Journal of Surgery\/}  (2026).
+\newblock \doi{10.1097/JS9.0000000000005437}.
+
+\bibitem[{Vickers and Elkin(2006)}]{Vickers2006DCA}
+Vickers AJ, Elkin EB.
+\newblock Decision curve analysis: a novel method for evaluating prediction
+  models.
+\newblock {\em Medical Decision Making\/} {\bf 26} (2006) 565--574.
+\newblock \doi{10.1177/0272989X06295361}.
+
+\bibitem[{Ghassemi et~al.(2021)Ghassemi, Oakden-Rayner, and
+  Beam}]{Ghassemi2021XAI}
+Ghassemi M, Oakden-Rayner L, Beam AL.
+\newblock The false hope of current approaches to explainable artificial
+  intelligence in health care.
+\newblock {\em The Lancet Digital Health\/} {\bf 3} (2021) e745--e750.
+\newblock \doi{10.1016/S2589-7500(21)00208-9}.
+
+\bibitem[{Chen and Guestrin(2016)}]{Chen2016XGBoost}
+Chen T, Guestrin C.
+\newblock Xgboost: a scalable tree boosting system.
+\newblock {\em Proceedings of the 22nd ACM SIGKDD International Conference on
+  Knowledge Discovery and Data Mining\/} (2016), 785--794.
+\newblock \doi{10.1145/2939672.2939785}.
+
+\bibitem[{Ke et~al.(2017)Ke, Meng, Finley, Wang, Chen, Ma
+  et~al.}]{Ke2017LightGBM}
+Ke G, Meng Q, Finley T, Wang T, Chen W, Ma W, et~al.
+\newblock Lightgbm: a highly efficient gradient boosting decision tree.
+\newblock {\em Advances in Neural Information Processing Systems\/} (2017),
+  vol.~30, 3146--3154.
+
+\bibitem[{Johnson et~al.(2024)Johnson, Bulgarelli, Pollard, Gow, Moody, Horng
+  et~al.}]{PhysioNetMIMICIV31}
+[Dataset] Johnson A, Bulgarelli L, Pollard T, Gow B, Moody B, Horng S, et~al.
+\newblock {MIMIC-IV}.
+\newblock PhysioNet (2024).
+\newblock \doi{10.13026/kpb9-mt58}.
+\newblock Version 3.1. RRID:SCR\_007345.
+
+\bibitem[{Pollard et~al.(2019)Pollard, Johnson, Raffa, Celi, Badawi, and
+  Mark}]{PhysioNetEICU20}
+[Dataset] Pollard T, Johnson A, Raffa J, Celi LA, Badawi O, Mark R.
+\newblock {eICU Collaborative Research Database}.
+\newblock PhysioNet (2019).
+\newblock \doi{10.13026/C2WM1R}.
+\newblock Version 2.0. RRID:SCR\_007345.
+
+\bibitem[{Prokhorenkova et~al.(2018)Prokhorenkova, Gusev, Vorobev, Dorogush,
+  and Gulin}]{Prokhorenkova2018CatBoost}
+Prokhorenkova L, Gusev G, Vorobev A, Dorogush AV, Gulin A.
+\newblock Catboost: unbiased boosting with categorical features.
+\newblock {\em Advances in Neural Information Processing Systems\/} (2018),
+  vol.~31, 6639--6649.
+
+\bibitem[{Arik and Pfister(2021)}]{Arik2021TabNet}
+Arik SO, Pfister T.
+\newblock Tabnet: attentive interpretable tabular learning.
+\newblock {\em Proceedings of the AAAI Conference on Artificial Intelligence\/}
+  {\bf 35} (2021) 6679--6687.
+\newblock \doi{10.1609/aaai.v35i8.16826}.
+
+\end{thebibliography}

@@ -1,0 +1,401 @@
+{
+  "protocol": "V6_NUTRITION_CONSTRUCT_INCREMENT",
+  "design": "Same V3 server feature tables and row-index MIMIC internal split; eICU used only for external evaluation of prespecified ablations.",
+  "feature_sets": {
+    "full_v3": {
+      "features": [
+        "age",
+        "male",
+        "bmi",
+        "enteral_24h",
+        "parenteral_24h",
+        "albumin",
+        "glucose",
+        "creatinine",
+        "bun",
+        "sodium",
+        "bilirubin",
+        "hematocrit",
+        "wbc",
+        "albumin_missing",
+        "glucose_missing",
+        "creatinine_missing",
+        "bun_missing",
+        "sodium_missing",
+        "bilirubin_missing",
+        "hematocrit_missing",
+        "wbc_missing",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing"
+      ],
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8295177447057316,
+        "brier": 0.08991828290154978,
+        "ece": 0.014653180997952863
+      },
+      "eicu_external": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7273861019010662,
+        "brier": 0.1549270804817188,
+        "ece": 0.17974740074533055
+      }
+    },
+    "without_nutrition_support": {
+      "features": [
+        "age",
+        "male",
+        "bmi",
+        "albumin",
+        "glucose",
+        "creatinine",
+        "bun",
+        "sodium",
+        "bilirubin",
+        "hematocrit",
+        "wbc",
+        "albumin_missing",
+        "glucose_missing",
+        "creatinine_missing",
+        "bun_missing",
+        "sodium_missing",
+        "bilirubin_missing",
+        "hematocrit_missing",
+        "wbc_missing",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing"
+      ],
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8270648532592797,
+        "brier": 0.09001641294106179,
+        "ece": 0.014943368179144555
+      },
+      "eicu_external": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7255738389332959,
+        "brier": 0.15059327648823226,
+        "ece": 0.16958135795699164
+      }
+    },
+    "without_nutrition_metabolic_labs": {
+      "features": [
+        "age",
+        "male",
+        "bmi",
+        "enteral_24h",
+        "parenteral_24h",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing"
+      ],
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.7842277235713866,
+        "brier": 0.09651702998951825,
+        "ece": 0.017924081057419987
+      },
+      "eicu_external": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7323923196890744,
+        "brier": 0.11759536485762276,
+        "ece": 0.11006128551010026
+      }
+    },
+    "without_all_nutrition_construct": {
+      "features": [
+        "age",
+        "male",
+        "bmi",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing"
+      ],
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.7797474031269481,
+        "brier": 0.09679113254559878,
+        "ece": 0.020233949984559147
+      },
+      "eicu_external": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7292897246283274,
+        "brier": 0.11441259806882292,
+        "ece": 0.09768526411667686
+      }
+    },
+    "non_nutrition_clinical_baseline": {
+      "features": [
+        "age",
+        "male",
+        "heart_rate",
+        "resp_rate",
+        "spo2",
+        "map",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml_missing",
+        "gcs_24h_missing"
+      ],
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.781839473200796,
+        "brier": 0.09757388776248413,
+        "ece": 0.0184155170028603
+      },
+      "eicu_external": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.721794589379659,
+        "brier": 0.11852923537118938,
+        "ece": 0.10717256315802812
+      }
+    },
+    "nutrition_metabolic_core": {
+      "features": [
+        "age",
+        "male",
+        "bmi",
+        "enteral_24h",
+        "parenteral_24h",
+        "albumin",
+        "glucose",
+        "creatinine",
+        "bun",
+        "sodium",
+        "bilirubin",
+        "hematocrit",
+        "wbc",
+        "albumin_missing",
+        "glucose_missing",
+        "creatinine_missing",
+        "bun_missing",
+        "sodium_missing",
+        "bilirubin_missing",
+        "hematocrit_missing",
+        "wbc_missing"
+      ],
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.7645540112709203,
+        "brier": 0.10524067935803724,
+        "ece": 0.012856242889961206
+      },
+      "eicu_external": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.6427041521394748,
+        "brier": 0.1374407331655716,
+        "ece": 0.13653757697494046
+      }
+    }
+  },
+  "paired_external_deltas": [
+    {
+      "comparison": "full_v3 minus without_nutrition_support",
+      "point": {
+        "auc": 0.0018122629677703728,
+        "brier": 0.00433380399348654,
+        "ece": 0.010166042788338908
+      },
+      "ci_95": {
+        "auc": [
+          0.0010786290893752576,
+          0.002590592952513692
+        ],
+        "brier": [
+          0.004110223698614217,
+          0.004524880163475894
+        ],
+        "ece": [
+          0.009954074724694272,
+          0.010370983681955196
+        ]
+      },
+      "n_resamples": 1000
+    },
+    {
+      "comparison": "full_v3 minus without_nutrition_metabolic_labs",
+      "point": {
+        "auc": -0.005006217788008138,
+        "brier": 0.03733171562409604,
+        "ece": 0.06968611523523029
+      },
+      "ci_95": {
+        "auc": [
+          -0.00840336840590134,
+          -0.001981147102030087
+        ],
+        "brier": [
+          0.03646044142069807,
+          0.03825540735025989
+        ],
+        "ece": [
+          0.06875044922170627,
+          0.0706931016524534
+        ]
+      },
+      "n_resamples": 1000
+    },
+    {
+      "comparison": "full_v3 minus without_all_nutrition_construct",
+      "point": {
+        "auc": -0.0019036227272611894,
+        "brier": 0.040514482412895875,
+        "ece": 0.08206213662865369
+      },
+      "ci_95": {
+        "auc": [
+          -0.005551943862283981,
+          0.001416850120746682
+        ],
+        "brier": [
+          0.03956250517359577,
+          0.041541499818887585
+        ],
+        "ece": [
+          0.08110564690309113,
+          0.08313936697512753
+        ]
+      },
+      "n_resamples": 1000
+    },
+    {
+      "comparison": "full_v3 minus non_nutrition_clinical_baseline",
+      "point": {
+        "auc": 0.005591512521407216,
+        "brier": 0.03639784511052942,
+        "ece": 0.07257483758730243
+      },
+      "ci_95": {
+        "auc": [
+          0.001984353688444382,
+          0.00900895860367133
+        ],
+        "brier": [
+          0.035493226053775605,
+          0.03740627978892411
+        ],
+        "ece": [
+          0.0716400492947059,
+          0.07365076979217068
+        ]
+      },
+      "n_resamples": 1000
+    },
+    {
+      "comparison": "full_v3 minus nutrition_metabolic_core",
+      "point": {
+        "auc": 0.08468194976159138,
+        "brier": 0.017486347316147205,
+        "ece": 0.04320982377039009
+      },
+      "ci_95": {
+        "auc": [
+          0.08060449617765152,
+          0.08889842671474914
+        ],
+        "brier": [
+          0.016338225351993946,
+          0.018590287258621902
+        ],
+        "ece": [
+          0.04201086155178658,
+          0.044432683883872066
+        ]
+      },
+      "n_resamples": 1000
+    }
+  ],
+  "claim_boundary": "Nutrition-related variables provide incremental context but do not dominate external discrimination; full framework claim should emphasize integrated nutrition-metabolic-severity stratification."
+}

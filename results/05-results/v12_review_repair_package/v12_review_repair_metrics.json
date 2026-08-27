@@ -1,0 +1,744 @@
+{
+  "protocol": "V12_REVIEW_REPAIR_PACKAGE",
+  "status_date": "2026-08-26",
+  "purpose": "Address external-review blockers before Frontiers in Nutrition packaging.",
+  "cohort_split_audit": {
+    "mimic_rows": 33671,
+    "mimic_unique_subjects": 33671,
+    "mimic_unique_hadm": 33671,
+    "mimic_subject_overlap_train_internal_test": 0,
+    "eicu_rows": 71861,
+    "eicu_unique_uniquepid": 71861,
+    "eicu_unique_healthsystem_stays": 71861,
+    "eicu_unique_hospitals": 207,
+    "eicu_uniquepid_overlap_calibration_heldout": 0,
+    "eicu_hospital_top10": [
+      [
+        "73",
+        2132
+      ],
+      [
+        "264",
+        2011
+      ],
+      [
+        "338",
+        1584
+      ],
+      [
+        "420",
+        1579
+      ],
+      [
+        "243",
+        1534
+      ],
+      [
+        "208",
+        1462
+      ],
+      [
+        "188",
+        1442
+      ],
+      [
+        "199",
+        1425
+      ],
+      [
+        "458",
+        1404
+      ],
+      [
+        "300",
+        1307
+      ]
+    ],
+    "interpretation": "Feature tables contain the first older ICU/unit stay per MIMIC subject_id and per eICU uniquepid, so the current row-index internal/calibration splits are patient-level under this cohort construction."
+  },
+  "clinical_and_nutrition_proxy_baselines": {
+    "APACHE_IV_predicted_hospital_mortality": {
+      "n": 49970,
+      "events": 6179,
+      "event_rate": 0.12365419251550931,
+      "auc": 0.8466056690316536,
+      "brier": 0.08467903763714524,
+      "ece_q10": 0.04612994376472792,
+      "net_benefit_0_10": 0.06953727792230893,
+      "net_benefit_0_20": 0.045797478487092265,
+      "coverage_n": 49970,
+      "coverage_fraction": 0.6953702286358386,
+      "calibration_intercept_slope": {
+        "intercept": -0.5558360259082367,
+        "slope": 0.9600719086736856
+      }
+    },
+    "APACHE_IV_score_platt_heldout": {
+      "n": 39920,
+      "events": 4956,
+      "event_rate": 0.12414829659318637,
+      "auc": 0.1871199192177283,
+      "brier": 0.12412129430649484,
+      "ece_q10": 0.12397530943092595,
+      "net_benefit_0_10": 0.0,
+      "net_benefit_0_20": 0.0,
+      "coverage_n": 39920,
+      "coverage_fraction": 0.5555169006832635,
+      "platt_intercept": -7.5663295443110945,
+      "platt_slope": -0.018941266051396843
+    },
+    "APACHE_IVa_predicted_hospital_mortality": {
+      "n": 49970,
+      "events": 6179,
+      "event_rate": 0.12365419251550931,
+      "auc": 0.8506577992880444,
+      "brier": 0.0819067410880774,
+      "ece_q10": 0.029419094358770277,
+      "net_benefit_0_10": 0.07182754096902585,
+      "net_benefit_0_20": 0.0495097058234941,
+      "coverage_n": 49970,
+      "coverage_fraction": 0.6953702286358386,
+      "calibration_intercept_slope": {
+        "intercept": -0.2959583253515118,
+        "slope": 1.032168995315257
+      }
+    },
+    "APACHE_IVa_score_platt_heldout": {
+      "n": 39920,
+      "events": 4956,
+      "event_rate": 0.12414829659318637,
+      "auc": 0.1871199192177283,
+      "brier": 0.12412129430649484,
+      "ece_q10": 0.12397530943092595,
+      "net_benefit_0_10": 0.0,
+      "net_benefit_0_20": 0.0,
+      "coverage_n": 39920,
+      "coverage_fraction": 0.5555169006832635,
+      "platt_intercept": -7.5663295443110945,
+      "platt_slope": -0.018941266051396843
+    },
+    "SOFA_lite_proxy": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.7789059589997609,
+      "brier": 0.09140779251787631,
+      "ece_q10": 0.007299926375569781,
+      "net_benefit_0_10": 0.06220235334137366,
+      "net_benefit_0_20": 0.03472463818536042,
+      "raw_score_summary": {
+        "mean": 2.0591837018688857,
+        "median": 1.0,
+        "p25": 0.0,
+        "p75": 3.0
+      },
+      "platt_intercept": -3.1607376001482357,
+      "platt_slope": 0.40230112177976485,
+      "proxy_warning": "Not an exact published score; included as a harmonized, auditable proxy because exact score reconstruction is limited by cross-database variable availability."
+    },
+    "mNUTRIC_lite_proxy": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.6697029353976998,
+      "brier": 0.10268336309227266,
+      "ece_q10": 0.0031049418934323858,
+      "net_benefit_0_10": 0.04265044685654205,
+      "net_benefit_0_20": 0.013281032563317561,
+      "raw_score_summary": {
+        "mean": 1.3176549171316847,
+        "median": 1.0,
+        "p25": 1.0,
+        "p75": 2.0
+      },
+      "platt_intercept": -2.944767903351598,
+      "platt_slope": 0.6267794651960249,
+      "proxy_warning": "Not an exact published score; included as a harmonized, auditable proxy because exact score reconstruction is limited by cross-database variable availability."
+    }
+  },
+  "lightgbm_feature_set_results": {
+    "full_lightgbm": {
+      "name": "full_lightgbm",
+      "features": [
+        "age",
+        "male",
+        "bmi",
+        "enteral_24h",
+        "parenteral_24h",
+        "albumin",
+        "glucose",
+        "creatinine",
+        "bun",
+        "sodium",
+        "bilirubin",
+        "hematocrit",
+        "wbc",
+        "albumin_missing",
+        "glucose_missing",
+        "creatinine_missing",
+        "bun_missing",
+        "sodium_missing",
+        "bilirubin_missing",
+        "hematocrit_missing",
+        "wbc_missing",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing"
+      ],
+      "feature_count": 39,
+      "eicu_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7929620433485541,
+        "brier": 0.2910915122176176,
+        "ece_q10": 0.38572734564870254,
+        "net_benefit_0_10": 0.04076233592939456,
+        "net_benefit_0_20": -0.03769081977706963
+      },
+      "eicu_platt_heldout": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.793562733186625,
+        "brier": 0.08843649626206498,
+        "ece_q10": 0.020989102312679052,
+        "net_benefit_0_10": 0.05949260908556762,
+        "net_benefit_0_20": 0.03373747564709157
+      },
+      "calibration_intercept_slope_heldout": {
+        "intercept": 0.05462612066988507,
+        "slope": 1.0130130754882023
+      },
+      "platt_parameters": {
+        "intercept": -2.6005917817792152,
+        "slope": 0.7200161216322736
+      }
+    },
+    "without_nutrition_support": {
+      "name": "without_nutrition_support",
+      "features": [
+        "age",
+        "male",
+        "bmi",
+        "albumin",
+        "glucose",
+        "creatinine",
+        "bun",
+        "sodium",
+        "bilirubin",
+        "hematocrit",
+        "wbc",
+        "albumin_missing",
+        "glucose_missing",
+        "creatinine_missing",
+        "bun_missing",
+        "sodium_missing",
+        "bilirubin_missing",
+        "hematocrit_missing",
+        "wbc_missing",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing"
+      ],
+      "feature_count": 37,
+      "eicu_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7833657124579663,
+        "brier": 0.3016923727381927,
+        "ece_q10": 0.3947761594570243,
+        "net_benefit_0_10": 0.040303116046565196,
+        "net_benefit_0_20": -0.03973643561876397
+      },
+      "eicu_platt_heldout": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7837038947002019,
+        "brier": 0.09034922856376174,
+        "ece_q10": 0.0194027549491636,
+        "net_benefit_0_10": 0.05851655997773448,
+        "net_benefit_0_20": 0.030367207069301412
+      },
+      "calibration_intercept_slope_heldout": {
+        "intercept": 0.04289701516434348,
+        "slope": 1.0065558595100979
+      },
+      "platt_parameters": {
+        "intercept": -2.594946501246956,
+        "slope": 0.6838619815365967
+      }
+    },
+    "without_nutrition_metabolic_labs": {
+      "name": "without_nutrition_metabolic_labs",
+      "features": [
+        "age",
+        "male",
+        "bmi",
+        "enteral_24h",
+        "parenteral_24h",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing"
+      ],
+      "feature_count": 23,
+      "eicu_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7700717871725351,
+        "brier": 0.27448623844566206,
+        "ece_q10": 0.3813825886124918,
+        "net_benefit_0_10": 0.033969901770238536,
+        "net_benefit_0_20": -0.05442451399229066
+      },
+      "eicu_platt_heldout": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.771160554942739,
+        "brier": 0.08973842404937105,
+        "ece_q10": 0.016895324338176518,
+        "net_benefit_0_10": 0.0561624454958716,
+        "net_benefit_0_20": 0.03475507932090175
+      },
+      "calibration_intercept_slope_heldout": {
+        "intercept": 0.07436357033302299,
+        "slope": 1.027630588926206
+      },
+      "platt_parameters": {
+        "intercept": -2.450281615138505,
+        "slope": 0.7415751879442821
+      }
+    },
+    "without_all_nutrition_construct": {
+      "name": "without_all_nutrition_construct",
+      "features": [
+        "age",
+        "male",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing"
+      ],
+      "feature_count": 20,
+      "eicu_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7764463429098173,
+        "brier": 0.32042650703024683,
+        "ece_q10": 0.44341144627958984,
+        "net_benefit_0_10": 0.02999463470372586,
+        "net_benefit_0_20": -0.06942221789287653
+      },
+      "eicu_platt_heldout": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7779304026090443,
+        "brier": 0.08874560816108899,
+        "ece_q10": 0.018002701998367704,
+        "net_benefit_0_10": 0.057368494294461454,
+        "net_benefit_0_20": 0.035389994433620925
+      },
+      "calibration_intercept_slope_heldout": {
+        "intercept": 0.08215266136666384,
+        "slope": 1.033889662443887
+      },
+      "platt_parameters": {
+        "intercept": -2.764576660543573,
+        "slope": 0.8552150801697875
+      }
+    },
+    "non_nutrition_clinical_baseline": {
+      "name": "non_nutrition_clinical_baseline",
+      "features": [
+        "age",
+        "male",
+        "heart_rate",
+        "resp_rate",
+        "temperature_c",
+        "spo2",
+        "map",
+        "heart_rate_missing",
+        "resp_rate_missing",
+        "temperature_c_missing",
+        "spo2_missing",
+        "map_missing",
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing"
+      ],
+      "feature_count": 20,
+      "eicu_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7764463429098173,
+        "brier": 0.32042650703024683,
+        "ece_q10": 0.44341144627958984,
+        "net_benefit_0_10": 0.02999463470372586,
+        "net_benefit_0_20": -0.06942221789287653
+      },
+      "eicu_platt_heldout": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7779304026090443,
+        "brier": 0.08874560816108899,
+        "ece_q10": 0.018002701998367704,
+        "net_benefit_0_10": 0.057368494294461454,
+        "net_benefit_0_20": 0.035389994433620925
+      },
+      "calibration_intercept_slope_heldout": {
+        "intercept": 0.08215266136666384,
+        "slope": 1.033889662443887
+      },
+      "platt_parameters": {
+        "intercept": -2.764576660543573,
+        "slope": 0.8552150801697875
+      }
+    },
+    "severity_only": {
+      "name": "severity_only",
+      "features": [
+        "urine_24h_ml",
+        "ventilation_24h",
+        "dialysis_24h",
+        "gcs_24h",
+        "urine_24h_ml_missing",
+        "ventilation_24h_missing",
+        "dialysis_24h_missing",
+        "gcs_24h_missing"
+      ],
+      "feature_count": 8,
+      "eicu_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7064103017032622,
+        "brier": 0.27500902812838496,
+        "ece_q10": 0.3900815514076192,
+        "net_benefit_0_10": 0.026701239584444647,
+        "net_benefit_0_20": -0.0798207650881563
+      },
+      "eicu_platt_heldout": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7059381476593927,
+        "brier": 0.09898742297436545,
+        "ece_q10": 0.039520377465065384,
+        "net_benefit_0_10": 0.04800035562977394,
+        "net_benefit_0_20": 0.02567492346228778
+      },
+      "calibration_intercept_slope_heldout": {
+        "intercept": 0.04637709390634432,
+        "slope": 1.0168747655271742
+      },
+      "platt_parameters": {
+        "intercept": -2.272782859890909,
+        "slope": 0.7366034296793772
+      }
+    }
+  },
+  "paired_incremental_value": {
+    "full_minus_without_nutrition_support": {
+      "auc_diff": {
+        "estimate": 0.009858838486423105,
+        "ci_95": [
+          0.008909465942666945,
+          0.010888299740237849
+        ],
+        "n_resamples": 500
+      },
+      "brier_diff": {
+        "estimate": -0.0019127323016967512,
+        "ci_95": [
+          -0.0020466963645608656,
+          -0.001779465199340109
+        ],
+        "n_resamples": 500
+      },
+      "ece_q10_diff": {
+        "estimate": 0.0015863473635154522,
+        "ci_95": [
+          -0.00025681022915802275,
+          0.0028301665848758815
+        ],
+        "n_resamples": 500
+      },
+      "net_benefit_0_10_diff": {
+        "estimate": 0.0009760491078331379,
+        "ci_95": [
+          0.0003804658750038676,
+          0.0015542857253301057
+        ],
+        "n_resamples": 500
+      },
+      "net_benefit_0_20_diff": {
+        "estimate": 0.0033702685777901586,
+        "ci_95": [
+          0.0026110884010576065,
+          0.00407911216253826
+        ],
+        "n_resamples": 500
+      }
+    },
+    "full_minus_without_nutrition_metabolic_labs": {
+      "auc_diff": {
+        "estimate": 0.022402178243885906,
+        "ci_95": [
+          0.018440936400217666,
+          0.026186661343189494
+        ],
+        "n_resamples": 500
+      },
+      "brier_diff": {
+        "estimate": -0.001301927787306062,
+        "ci_95": [
+          -0.0017466749152510585,
+          -0.0008477218122913841
+        ],
+        "n_resamples": 500
+      },
+      "ece_q10_diff": {
+        "estimate": 0.004093777974502534,
+        "ci_95": [
+          0.0011439782057564186,
+          0.006471204987337629
+        ],
+        "n_resamples": 500
+      },
+      "net_benefit_0_10_diff": {
+        "estimate": 0.0033301635896960183,
+        "ci_95": [
+          0.0020235140860314746,
+          0.00444546881281504
+        ],
+        "n_resamples": 500
+      },
+      "net_benefit_0_20_diff": {
+        "estimate": -0.0010176036738101801,
+        "ci_95": [
+          -0.002466384288895066,
+          0.00039801784720289195
+        ],
+        "n_resamples": 500
+      }
+    },
+    "full_minus_without_all_nutrition_construct": {
+      "auc_diff": {
+        "estimate": 0.015632330577580622,
+        "ci_95": [
+          0.01189781821998517,
+          0.019508124436504962
+        ],
+        "n_resamples": 500
+      },
+      "brier_diff": {
+        "estimate": -0.0003091118990240088,
+        "ci_95": [
+          -0.0007651081472162255,
+          0.00013107904308950477
+        ],
+        "n_resamples": 500
+      },
+      "ece_q10_diff": {
+        "estimate": 0.002986400314311348,
+        "ci_95": [
+          3.8204978048226855e-05,
+          0.00595334754909915
+        ],
+        "n_resamples": 500
+      },
+      "net_benefit_0_10_diff": {
+        "estimate": 0.002124114791106163,
+        "ci_95": [
+          0.0008309946810155591,
+          0.0034445352846584325
+        ],
+        "n_resamples": 500
+      },
+      "net_benefit_0_20_diff": {
+        "estimate": -0.0016525187865293542,
+        "ci_95": [
+          -0.0030310673531867456,
+          -0.00033909250626217144
+        ],
+        "n_resamples": 500
+      }
+    },
+    "full_minus_non_nutrition_clinical_baseline": {
+      "auc_diff": {
+        "estimate": 0.015632330577580622,
+        "ci_95": [
+          0.01189781821998517,
+          0.019508124436504962
+        ],
+        "n_resamples": 500
+      },
+      "brier_diff": {
+        "estimate": -0.0003091118990240088,
+        "ci_95": [
+          -0.0007651081472162255,
+          0.00013107904308950477
+        ],
+        "n_resamples": 500
+      },
+      "ece_q10_diff": {
+        "estimate": 0.002986400314311348,
+        "ci_95": [
+          3.8204978048226855e-05,
+          0.00595334754909915
+        ],
+        "n_resamples": 500
+      },
+      "net_benefit_0_10_diff": {
+        "estimate": 0.002124114791106163,
+        "ci_95": [
+          0.0008309946810155591,
+          0.0034445352846584325
+        ],
+        "n_resamples": 500
+      },
+      "net_benefit_0_20_diff": {
+        "estimate": -0.0016525187865293542,
+        "ci_95": [
+          -0.0030310673531867456,
+          -0.00033909250626217144
+        ],
+        "n_resamples": 500
+      }
+    },
+    "full_minus_severity_only": {
+      "auc_diff": {
+        "estimate": 0.08762458552723229,
+        "ci_95": [
+          0.08059775914726279,
+          0.09343968204139297
+        ],
+        "n_resamples": 500
+      },
+      "brier_diff": {
+        "estimate": -0.01055092671230047,
+        "ci_95": [
+          -0.011359465298387572,
+          -0.009787493124555924
+        ],
+        "n_resamples": 500
+      },
+      "ece_q10_diff": {
+        "estimate": -0.018531275152386333,
+        "ci_95": [
+          -0.021679773739052728,
+          -0.01576081610695868
+        ],
+        "n_resamples": 500
+      },
+      "net_benefit_0_10_diff": {
+        "estimate": 0.011492253455793675,
+        "ci_95": [
+          0.010019385688220932,
+          0.012966232566410003
+        ],
+        "n_resamples": 500
+      },
+      "net_benefit_0_20_diff": {
+        "estimate": 0.008062552184803791,
+        "ci_95": [
+          0.006224668626495966,
+          0.009991541713053163
+        ],
+        "n_resamples": 500
+      }
+    }
+  },
+  "reproducibility_manifest": {
+    "file_count": 69,
+    "log_file_count": 3,
+    "log_files": [
+      {
+        "relative_path": "v10_sota_completion_lock.log",
+        "size_bytes": 1642
+      },
+      {
+        "relative_path": "v11_tabnet_neural_sota.log",
+        "size_bytes": 5418
+      },
+      {
+        "relative_path": "v12_review_repair_package.log",
+        "size_bytes": 135
+      }
+    ],
+    "all_files_table": "table_v12_reproducibility_manifest.csv"
+  },
+  "claim_boundary": "This repair package supports nutrition-risk-relevant mortality stratification, not malnutrition diagnosis, nutrition adequacy assessment, nutrition-treatment response, or prospective clinical utility."
+}

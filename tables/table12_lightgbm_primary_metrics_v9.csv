@@ -1,0 +1,4 @@
+evaluation,n,events,auroc_95ci,brier_95ci,ece_95ci
+MIMIC-IV internal test,6735,946,0.882 (0.870-0.893),0.124 (0.119-0.128),0.167 (0.160-0.175)
+"eICU external full, original",71861,8860,0.793 (0.788-0.798),0.291 (0.289-0.293),0.386 (0.383-0.388)
+"eICU held-out, Platt recalibrated",57488,7130,0.794 (0.788-0.799),0.088 (0.087-0.090),0.021 (0.019-0.023)

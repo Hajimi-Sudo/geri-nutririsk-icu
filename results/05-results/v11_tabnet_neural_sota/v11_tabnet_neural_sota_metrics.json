@@ -1,0 +1,34 @@
+{
+  "protocol": "V11_TABNET_NEURAL_SOTA",
+  "train_info": {
+    "best_epoch": 37,
+    "device": "cuda"
+  },
+  "lightgbm_reference": {
+    "model": "LightGBM_gbdt",
+    "family": "gradient_boosted_decision_trees",
+    "mimic_auc": 0.8818136532908334,
+    "mimic_brier": 0.12377723324618903,
+    "eicu_auc_original": 0.7929620433485541,
+    "eicu_brier_original": 0.2910915122176176,
+    "eicu_ece_original": 0.38572734564870254,
+    "eicu_auc_platt_heldout": 0.793562733186625,
+    "eicu_brier_platt_heldout": 0.08843649626206498,
+    "eicu_ece_platt_heldout": 0.020989102312679052
+  },
+  "tabnet": {
+    "model": "TabNet_neural",
+    "family": "attentive_deep_tabular_network",
+    "mimic_auc": 0.8568505114862079,
+    "mimic_brier": 0.15426886240502824,
+    "eicu_auc_original": 0.636383696371153,
+    "eicu_brier_original": 0.4749423034337812,
+    "eicu_ece_original": 0.5673922553727537,
+    "eicu_auc_platt_heldout": 0.636196304306885,
+    "eicu_brier_platt_heldout": 0.10751915928029511,
+    "eicu_ece_platt_heldout": 0.049229070467945765
+  },
+  "tabnet_minus_lightgbm_external_auc": -0.15736642887973995,
+  "model_lock_decision": "keep_lightgbm",
+  "claim_boundary": "TabNet is included as a bounded neural tabular comparator. It is not used for post-hoc model shopping; LightGBM remains locked unless the neural comparator exceeds the prespecified material improvement threshold."
+}

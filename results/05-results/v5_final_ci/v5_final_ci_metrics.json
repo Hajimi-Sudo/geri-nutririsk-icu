@@ -1,0 +1,124 @@
+{
+  "protocol": "V5_FINAL_CI_FOR_GERI_NutriRisk_ICU",
+  "model": "GERI-NutriRisk-ICU / V3_plus_severity logistic framework",
+  "source_feature_tables": {
+    "mimic": "/root/autodl-tmp/frontiers_nutrition_mimic_eicu/v3_severity_model/mimic_v3_features_server_only.csv",
+    "eicu": "/root/autodl-tmp/frontiers_nutrition_mimic_eicu/v3_severity_model/eicu_v3_features_server_only.csv"
+  },
+  "split": {
+    "mimic_internal_test": "row_index_mod_5_equals_0",
+    "eicu_calibration": "row_index_mod_5_equals_0",
+    "eicu_heldout": "row_index_mod_5_not_equal_0"
+  },
+  "platt_parameters": {
+    "intercept": -1.5753913993615314,
+    "slope": 0.5898924901148749
+  },
+  "point_estimates": {
+    "mimic_internal_test": {
+      "n": 6735,
+      "events": 946,
+      "event_rate": 0.140460282108389,
+      "auc": 0.8295177447057316,
+      "brier": 0.08991828290154978,
+      "ece": 0.014653180997952863
+    },
+    "eicu_external_original_full": {
+      "n": 71861,
+      "events": 8860,
+      "event_rate": 0.12329358066266821,
+      "auc": 0.7273861019010662,
+      "brier": 0.1549270804817188,
+      "ece": 0.17974740074533055
+    },
+    "eicu_external_platt_heldout": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.7284903652262146,
+      "brier": 0.09893115596241117,
+      "ece": 0.009397619575381306
+    }
+  },
+  "bootstrap_ci": {
+    "mimic_internal_test": {
+      "auc": {
+        "estimate": 0.8295177447057316,
+        "ci_95": [
+          0.8150106955510464,
+          0.8432846883778868
+        ],
+        "n_resamples": 1000
+      },
+      "brier": {
+        "estimate": 0.08991828290154978,
+        "ci_95": [
+          0.08495351523717433,
+          0.09473971480737772
+        ],
+        "n_resamples": 1000
+      },
+      "ece": {
+        "estimate": 0.014653180997952863,
+        "ci_95": [
+          0.011333142587099165,
+          0.02269826539625078
+        ],
+        "n_resamples": 1000
+      }
+    },
+    "eicu_external_original_full": {
+      "auc": {
+        "estimate": 0.7273861019010662,
+        "ci_95": [
+          0.7218635191192007,
+          0.7329926504939152
+        ],
+        "n_resamples": 1000
+      },
+      "brier": {
+        "estimate": 0.1549270804817188,
+        "ci_95": [
+          0.15336585850819703,
+          0.15643606754643885
+        ],
+        "n_resamples": 1000
+      },
+      "ece": {
+        "estimate": 0.17974740074533055,
+        "ci_95": [
+          0.17733374043061972,
+          0.18232286091828026
+        ],
+        "n_resamples": 1000
+      }
+    },
+    "eicu_external_platt_heldout": {
+      "auc": {
+        "estimate": 0.7284903652262146,
+        "ci_95": [
+          0.7222399874520291,
+          0.7345103176398885
+        ],
+        "n_resamples": 1000
+      },
+      "brier": {
+        "estimate": 0.09893115596241117,
+        "ci_95": [
+          0.09724356302671502,
+          0.10079181373125168
+        ],
+        "n_resamples": 1000
+      },
+      "ece": {
+        "estimate": 0.009397619575381306,
+        "ci_95": [
+          0.007775289132776507,
+          0.01212039447574276
+        ],
+        "n_resamples": 1000
+      }
+    }
+  },
+  "claim_boundary": "Bootstrap is row/stay-level on server-only feature tables; no eICU labels used for MIMIC model fitting; eICU labels used only in prespecified Platt domain-recalibration split and held-out evaluation."
+}

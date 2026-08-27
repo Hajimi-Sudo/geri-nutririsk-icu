@@ -1,0 +1,526 @@
+{
+  "protocol": "V10_SOTA_COMPLETION_LOCK",
+  "source_feature_tables": {
+    "mimic": "/root/autodl-tmp/frontiers_nutrition_mimic_eicu/v3_severity_model/mimic_v3_features_server_only.csv",
+    "eicu": "/root/autodl-tmp/frontiers_nutrition_mimic_eicu/v3_severity_model/eicu_v3_features_server_only.csv"
+  },
+  "split": {
+    "mimic_training": "row_index_mod_5_not_equal_0",
+    "mimic_internal_test": "row_index_mod_5_equal_0",
+    "eicu_platt_calibration": "row_index_mod_5_equal_0",
+    "eicu_platt_heldout": "row_index_mod_5_not_equal_0"
+  },
+  "environment_modules": {
+    "sklearn": "1.9.0",
+    "xgboost": "3.4.1",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10",
+    "tabpfn": "missing: No module named 'tabpfn'",
+    "autogluon": "missing: No module named 'autogluon'"
+  },
+  "benchmark": {
+    "Logistic_GERI_NutriRisk_ICU": {
+      "model_family": "standardized_l2_logistic_regression",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8295186577152777,
+        "brier": 0.08991772032179847,
+        "ece": 0.014649808727611197
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7273901381693644,
+        "brier": 0.15491682919048405,
+        "ece": 0.17972557084742882
+      }
+    },
+    "XGBoost_hist": {
+      "model_family": "gradient_boosted_decision_trees",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8802969618329142,
+        "brier": 0.1358264444455346,
+        "ece": 0.20137181212792332
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7784240892947953,
+        "brier": 0.2973057567968339,
+        "ece": 0.39162789820619887
+      }
+    },
+    "LightGBM_gbdt": {
+      "model_family": "gradient_boosted_decision_trees",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8818136532908334,
+        "brier": 0.12377723324618903,
+        "ece": 0.167068610076102
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7929620433485541,
+        "brier": 0.2910915122176176,
+        "ece": 0.38572734564870254
+      }
+    },
+    "CatBoost_ordered": {
+      "model_family": "ordered_gradient_boosting",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8814477190647715,
+        "brier": 0.13778285860393677,
+        "ece": 0.20542801047868578
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7410090681494432,
+        "brier": 0.3766160331037558,
+        "ece": 0.4787341355770905
+      }
+    },
+    "Sklearn_HistGradientBoosting": {
+      "model_family": "histogram_gradient_boosting",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8803009790749168,
+        "brier": 0.13605641152138656,
+        "ece": 0.20111048690306813
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7925362842246619,
+        "brier": 0.22148698193265667,
+        "ece": 0.3094805248426822
+      }
+    },
+    "RandomForest_balanced": {
+      "model_family": "bagged_decision_trees",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8674134841284247,
+        "brier": 0.14794478704974032,
+        "ece": 0.23432121933339659
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.7565519777660916,
+        "brier": 0.22803215721148756,
+        "ece": 0.3385248233110813
+      }
+    },
+    "ExtraTrees_balanced": {
+      "model_family": "extremely_randomized_trees",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8302432220910329,
+        "brier": 0.18201922073420249,
+        "ece": 0.29101663647571635
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.6742395414340587,
+        "brier": 0.3043538973406702,
+        "ece": 0.4364033548130066
+      }
+    },
+    "Sklearn_MLP": {
+      "model_family": "feedforward_neural_network",
+      "mimic_internal_test": {
+        "n": 6735,
+        "events": 946,
+        "event_rate": 0.140460282108389,
+        "auc": 0.8722999112189518,
+        "brier": 0.08213864170369457,
+        "ece": 0.0092262043941539
+      },
+      "eicu_external_original": {
+        "n": 71861,
+        "events": 8860,
+        "event_rate": 0.12329358066266821,
+        "auc": 0.6762045949824222,
+        "brier": 0.2914500350483978,
+        "ece": 0.3378168651988105
+      }
+    }
+  },
+  "external_recalibration": {
+    "Logistic_GERI_NutriRisk_ICU": {
+      "platt_parameters": {
+        "intercept": -1.5753138896229326,
+        "slope": 0.5898910398473783
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.722845194329472,
+        "brier": 0.15539613956921225,
+        "ece": 0.18212982086510082
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7284948186134542,
+        "brier": 0.15479699325822932,
+        "ece": 0.179124466521239
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7284948186134542,
+        "brier": 0.0989306289192577,
+        "ece": 0.009327907295615986
+      }
+    },
+    "XGBoost_hist": {
+      "platt_parameters": {
+        "intercept": -2.54138631997552,
+        "slope": 0.6392074684799076
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.7748342087901688,
+        "brier": 0.2992212522268541,
+        "ece": 0.39518841361585644
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7793092760184902,
+        "brier": 0.29682684961941125,
+        "ece": 0.3907376911172075
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7793092760184902,
+        "brier": 0.09198303155387817,
+        "ece": 0.023773343288712917
+      }
+    },
+    "LightGBM_gbdt": {
+      "platt_parameters": {
+        "intercept": -2.6005917817792152,
+        "slope": 0.7200161216322736
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.7905391226107435,
+        "brier": 0.2936318243821922,
+        "ece": 0.3901207372497006
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.793562733186625,
+        "brier": 0.29045638998791007,
+        "ece": 0.38462892132569343
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.793562733186625,
+        "brier": 0.08843649626206498,
+        "ece": 0.020989102312679052
+      }
+    },
+    "CatBoost_ordered": {
+      "platt_parameters": {
+        "intercept": -2.6417191527635,
+        "slope": 0.4980053539646954
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.7359014264101911,
+        "brier": 0.37979706726961665,
+        "ece": 0.4828063980853723
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7422422495604682,
+        "brier": 0.37582071922840926,
+        "ece": 0.47771599911328
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7422422495604682,
+        "brier": 0.09903131852560976,
+        "ece": 0.015438178959065707
+      }
+    },
+    "Sklearn_HistGradientBoosting": {
+      "platt_parameters": {
+        "intercept": -2.208650884713373,
+        "slope": 0.8236205489536781
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.7878920410618135,
+        "brier": 0.22240172597802824,
+        "ece": 0.3116142975334055
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7936602815844166,
+        "brier": 0.22125828000940093,
+        "ece": 0.30894704455316496
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7936602815844166,
+        "brier": 0.08910052493607641,
+        "ece": 0.023167369504585752
+      }
+    },
+    "RandomForest_balanced": {
+      "platt_parameters": {
+        "intercept": -2.1741018915147614,
+        "slope": 1.0368683967708523
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.7529037750332725,
+        "brier": 0.22864472376560616,
+        "ece": 0.3408234841453681
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7574352516765374,
+        "brier": 0.2278790049174027,
+        "ece": 0.33795011811745473
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.7574352516765374,
+        "brier": 0.0970631163087608,
+        "ece": 0.029034115573705842
+      }
+    },
+    "ExtraTrees_balanced": {
+      "platt_parameters": {
+        "intercept": -2.3615950390418274,
+        "slope": 0.8515435856982039
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.6679851173099968,
+        "brier": 0.3055083768635374,
+        "ece": 0.4389700895705461
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.6757548296413667,
+        "brier": 0.3040652573778576,
+        "ece": 0.4357616264754385
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.6757548296413667,
+        "brier": 0.10367171457167372,
+        "ece": 0.029670841775462302
+      }
+    },
+    "Sklearn_MLP": {
+      "platt_parameters": {
+        "intercept": -2.0803364916760696,
+        "slope": 0.3130607414530576
+      },
+      "eicu_calibration_split_original": {
+        "n": 14373,
+        "events": 1730,
+        "event_rate": 0.12036457246225561,
+        "auc": 0.6712770300822178,
+        "brier": 0.29429510756346833,
+        "ece": 0.34300182050181527
+      },
+      "eicu_heldout_original": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.6774144057022964,
+        "brier": 0.29073871742977975,
+        "ece": 0.33651872245894765
+      },
+      "eicu_heldout_platt": {
+        "n": 57488,
+        "events": 7130,
+        "event_rate": 0.12402588366267743,
+        "auc": 0.6774144057022964,
+        "brier": 0.10209387489128285,
+        "ece": 0.024947663802285962
+      }
+    }
+  },
+  "rows_sorted": [
+    {
+      "model": "Sklearn_HistGradientBoosting",
+      "family": "histogram_gradient_boosting",
+      "mimic_auc": 0.8803009790749168,
+      "mimic_brier": 0.13605641152138656,
+      "eicu_auc_original": 0.7925362842246619,
+      "eicu_brier_original": 0.22148698193265667,
+      "eicu_ece_original": 0.3094805248426822,
+      "eicu_auc_platt_heldout": 0.7936602815844166,
+      "eicu_brier_platt_heldout": 0.08910052493607641,
+      "eicu_ece_platt_heldout": 0.023167369504585752
+    },
+    {
+      "model": "LightGBM_gbdt",
+      "family": "gradient_boosted_decision_trees",
+      "mimic_auc": 0.8818136532908334,
+      "mimic_brier": 0.12377723324618903,
+      "eicu_auc_original": 0.7929620433485541,
+      "eicu_brier_original": 0.2910915122176176,
+      "eicu_ece_original": 0.38572734564870254,
+      "eicu_auc_platt_heldout": 0.793562733186625,
+      "eicu_brier_platt_heldout": 0.08843649626206498,
+      "eicu_ece_platt_heldout": 0.020989102312679052
+    },
+    {
+      "model": "XGBoost_hist",
+      "family": "gradient_boosted_decision_trees",
+      "mimic_auc": 0.8802969618329142,
+      "mimic_brier": 0.1358264444455346,
+      "eicu_auc_original": 0.7784240892947953,
+      "eicu_brier_original": 0.2973057567968339,
+      "eicu_ece_original": 0.39162789820619887,
+      "eicu_auc_platt_heldout": 0.7793092760184902,
+      "eicu_brier_platt_heldout": 0.09198303155387817,
+      "eicu_ece_platt_heldout": 0.023773343288712917
+    },
+    {
+      "model": "RandomForest_balanced",
+      "family": "bagged_decision_trees",
+      "mimic_auc": 0.8674134841284247,
+      "mimic_brier": 0.14794478704974032,
+      "eicu_auc_original": 0.7565519777660916,
+      "eicu_brier_original": 0.22803215721148756,
+      "eicu_ece_original": 0.3385248233110813,
+      "eicu_auc_platt_heldout": 0.7574352516765374,
+      "eicu_brier_platt_heldout": 0.0970631163087608,
+      "eicu_ece_platt_heldout": 0.029034115573705842
+    },
+    {
+      "model": "CatBoost_ordered",
+      "family": "ordered_gradient_boosting",
+      "mimic_auc": 0.8814477190647715,
+      "mimic_brier": 0.13778285860393677,
+      "eicu_auc_original": 0.7410090681494432,
+      "eicu_brier_original": 0.3766160331037558,
+      "eicu_ece_original": 0.4787341355770905,
+      "eicu_auc_platt_heldout": 0.7422422495604682,
+      "eicu_brier_platt_heldout": 0.09903131852560976,
+      "eicu_ece_platt_heldout": 0.015438178959065707
+    },
+    {
+      "model": "Logistic_GERI_NutriRisk_ICU",
+      "family": "standardized_l2_logistic_regression",
+      "mimic_auc": 0.8295186577152777,
+      "mimic_brier": 0.08991772032179847,
+      "eicu_auc_original": 0.7273901381693644,
+      "eicu_brier_original": 0.15491682919048405,
+      "eicu_ece_original": 0.17972557084742882,
+      "eicu_auc_platt_heldout": 0.7284948186134542,
+      "eicu_brier_platt_heldout": 0.0989306289192577,
+      "eicu_ece_platt_heldout": 0.009327907295615986
+    },
+    {
+      "model": "Sklearn_MLP",
+      "family": "feedforward_neural_network",
+      "mimic_auc": 0.8722999112189518,
+      "mimic_brier": 0.08213864170369457,
+      "eicu_auc_original": 0.6762045949824222,
+      "eicu_brier_original": 0.2914500350483978,
+      "eicu_ece_original": 0.3378168651988105,
+      "eicu_auc_platt_heldout": 0.6774144057022964,
+      "eicu_brier_platt_heldout": 0.10209387489128285,
+      "eicu_ece_platt_heldout": 0.024947663802285962
+    },
+    {
+      "model": "ExtraTrees_balanced",
+      "family": "extremely_randomized_trees",
+      "mimic_auc": 0.8302432220910329,
+      "mimic_brier": 0.18201922073420249,
+      "eicu_auc_original": 0.6742395414340587,
+      "eicu_brier_original": 0.3043538973406702,
+      "eicu_ece_original": 0.4364033548130066,
+      "eicu_auc_platt_heldout": 0.6757548296413667,
+      "eicu_brier_platt_heldout": 0.10367171457167372,
+      "eicu_ece_platt_heldout": 0.029670841775462302
+    }
+  ],
+  "model_lock": {
+    "primary_performance_head": "LightGBM_gbdt",
+    "best_model_by_external_auc": "Sklearn_HistGradientBoosting",
+    "best_external_auc": 0.7936602815844166,
+    "lightgbm_external_auc": 0.793562733186625,
+    "best_minus_lightgbm_external_auc": 9.754839779163582e-05,
+    "material_replacement_gain": false,
+    "model_lock_decision": "lock_lightgbm_no_material_sota_gain",
+    "replacement_rule": "Replace LightGBM only if a bounded comparator improves eICU held-out Platt AUROC by more than 0.015 without worse Brier/ECE or interpretability tradeoff."
+  },
+  "claim_boundary": "All comparators are trained only on MIMIC-IV development data. eICU labels are reserved for external evaluation and prespecified calibration/held-out splits. The comparator queue is bounded to prevent post-hoc model shopping."
+}

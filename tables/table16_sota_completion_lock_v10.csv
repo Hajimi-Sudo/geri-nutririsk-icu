@@ -1,0 +1,9 @@
+model,family,mimic_auc,mimic_brier,eicu_auc_original,eicu_brier_original,eicu_ece_original,eicu_auc_platt_heldout,eicu_brier_platt_heldout,eicu_ece_platt_heldout
+XGBoost,gradient_boosted_decision_trees,0.880,0.136,0.778,0.297,0.392,0.779,0.092,0.024
+Random forest,bagged_decision_trees,0.867,0.148,0.757,0.228,0.339,0.757,0.097,0.029
+CatBoost,ordered_gradient_boosting,0.881,0.138,0.741,0.377,0.479,0.742,0.099,0.015
+MLP,feedforward_neural_network,0.872,0.082,0.676,0.291,0.338,0.677,0.102,0.025
+ExtraTrees,extremely_randomized_trees,0.830,0.182,0.674,0.304,0.436,0.676,0.104,0.030
+HistGradientBoosting,histogram_gradient_boosting,0.880,0.136,0.793,0.221,0.309,0.794,0.089,0.023
+Logistic regression,standardized_l2_logistic_regression,0.830,0.090,0.727,0.155,0.180,0.728,0.099,0.009
+GERI-NutriRisk-ICU,gradient_boosted_decision_trees,0.882,0.124,0.793,0.291,0.386,0.794,0.088,0.021

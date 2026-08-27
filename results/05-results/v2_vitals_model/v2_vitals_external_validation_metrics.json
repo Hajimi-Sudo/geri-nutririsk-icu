@@ -1,0 +1,506 @@
+{
+  "features": [
+    "age",
+    "male",
+    "bmi",
+    "enteral_24h",
+    "parenteral_24h",
+    "albumin",
+    "glucose",
+    "creatinine",
+    "bun",
+    "sodium",
+    "bilirubin",
+    "hematocrit",
+    "wbc",
+    "albumin_missing",
+    "glucose_missing",
+    "creatinine_missing",
+    "bun_missing",
+    "sodium_missing",
+    "bilirubin_missing",
+    "hematocrit_missing",
+    "wbc_missing",
+    "heart_rate",
+    "resp_rate",
+    "temperature_c",
+    "spo2",
+    "map",
+    "heart_rate_missing",
+    "resp_rate_missing",
+    "temperature_c_missing",
+    "spo2_missing",
+    "map_missing"
+  ],
+  "mimic_summary": {
+    "n": 33671,
+    "events": 4659,
+    "event_rate": 0.1384,
+    "feature_nonmissing": {
+      "age": 33671,
+      "male": 33671,
+      "bmi": 17239,
+      "enteral_24h": 33671,
+      "parenteral_24h": 33671,
+      "albumin": 8402,
+      "glucose": 32659,
+      "creatinine": 32647,
+      "bun": 32635,
+      "sodium": 32699,
+      "bilirubin": 13354,
+      "hematocrit": 32563,
+      "wbc": 32455,
+      "heart_rate": 33624,
+      "resp_rate": 33549,
+      "temperature_c": 32466,
+      "spo2": 33574,
+      "map": 33487
+    },
+    "feature_positive": {
+      "male": 17991,
+      "enteral_24h": 1084,
+      "parenteral_24h": 148
+    },
+    "vital_summaries": {
+      "heart_rate": {
+        "n": 33624,
+        "mean": 81.1853,
+        "p25": 70.0,
+        "median": 80.0,
+        "p75": 90.0
+      },
+      "resp_rate": {
+        "n": 33549,
+        "mean": 18.8886,
+        "p25": 16.0,
+        "median": 18.0,
+        "p75": 21.0
+      },
+      "temperature_c": {
+        "n": 32466,
+        "mean": 36.7621,
+        "p25": 36.5556,
+        "median": 36.75,
+        "p75": 37.0
+      },
+      "spo2": {
+        "n": 33574,
+        "mean": 96.9635,
+        "p25": 96.0,
+        "median": 97.0,
+        "p75": 99.0
+      },
+      "map": {
+        "n": 33487,
+        "mean": 76.4684,
+        "p25": 69.0,
+        "median": 75.0,
+        "p75": 83.0
+      }
+    }
+  },
+  "eicu_summary": {
+    "n": 71861,
+    "events": 8860,
+    "event_rate": 0.1233,
+    "feature_nonmissing": {
+      "age": 71861,
+      "male": 71861,
+      "bmi": 64641,
+      "enteral_24h": 71861,
+      "parenteral_24h": 71861,
+      "albumin": 22000,
+      "glucose": 52465,
+      "creatinine": 47215,
+      "bun": 47003,
+      "sodium": 47418,
+      "bilirubin": 19610,
+      "hematocrit": 46868,
+      "wbc": 45410,
+      "heart_rate": 69370,
+      "resp_rate": 63897,
+      "temperature_c": 6634,
+      "spo2": 68244,
+      "map": 16378
+    },
+    "feature_positive": {
+      "male": 37081,
+      "enteral_24h": 7926,
+      "parenteral_24h": 7466
+    },
+    "vital_summaries": {
+      "heart_rate": {
+        "n": 69370,
+        "mean": 81.4887,
+        "p25": 70.0,
+        "median": 80.0,
+        "p75": 92.0
+      },
+      "resp_rate": {
+        "n": 63897,
+        "mean": 19.6481,
+        "p25": 16.0,
+        "median": 19.0,
+        "p75": 22.0
+      },
+      "temperature_c": {
+        "n": 6634,
+        "mean": 36.9404,
+        "p25": 36.6,
+        "median": 37.111,
+        "p75": 37.6
+      },
+      "spo2": {
+        "n": 68244,
+        "mean": 96.7135,
+        "p25": 95.0,
+        "median": 97.0,
+        "p75": 99.0
+      },
+      "map": {
+        "n": 16378,
+        "mean": 76.8424,
+        "p25": 69.0,
+        "median": 75.0,
+        "p75": 84.0
+      }
+    }
+  },
+  "imputation_from_mimic": {
+    "age": 76.0,
+    "male": 1.0,
+    "bmi": 27.4,
+    "enteral_24h": 0.0,
+    "parenteral_24h": 0.0,
+    "albumin": 3.2,
+    "glucose": 130.0,
+    "creatinine": 1.0,
+    "bun": 20.5,
+    "sodium": 138.0,
+    "bilirubin": 0.7,
+    "hematocrit": 31.7,
+    "wbc": 10.7,
+    "albumin_missing": 1.0,
+    "glucose_missing": 0.0,
+    "creatinine_missing": 0.0,
+    "bun_missing": 0.0,
+    "sodium_missing": 0.0,
+    "bilirubin_missing": 1.0,
+    "hematocrit_missing": 0.0,
+    "wbc_missing": 0.0,
+    "heart_rate": 80.0,
+    "resp_rate": 18.0,
+    "temperature_c": 36.75,
+    "spo2": 97.0,
+    "map": 75.0,
+    "heart_rate_missing": 0.0,
+    "resp_rate_missing": 0.0,
+    "temperature_c_missing": 0.0,
+    "spo2_missing": 0.0,
+    "map_missing": 0.0
+  },
+  "standardization_from_mimic": {
+    "age": [
+      76.7169077247483,
+      7.778369445239995
+    ],
+    "male": [
+      0.5343173650916219,
+      0.4988209282429601
+    ],
+    "bmi": [
+      27.826541749106486,
+      4.624380827907228
+    ],
+    "enteral_24h": [
+      0.032193876035757775,
+      0.17651467469180016
+    ],
+    "parenteral_24h": [
+      0.004395473849900508,
+      0.06615250304814892
+    ],
+    "albumin": [
+      3.1809598764515465,
+      0.3156999055498801
+    ],
+    "glucose": [
+      139.6181580588637,
+      48.996739397309916
+    ],
+    "creatinine": [
+      1.3327982536901188,
+      1.147782424905763
+    ],
+    "bun": [
+      27.152386326512428,
+      20.396438882035145
+    ],
+    "sodium": [
+      138.23193549345135,
+      4.751322247930202
+    ],
+    "bilirubin": [
+      0.9499881203409463,
+      1.7516557290781212
+    ],
+    "hematocrit": [
+      32.134106501143414,
+      5.6460701051709705
+    ],
+    "wbc": [
+      12.076909655192898,
+      8.05597916117528
+    ],
+    "albumin_missing": [
+      0.7504677615752428,
+      0.4327423025444674
+    ],
+    "glucose_missing": [
+      0.030055537406076447,
+      0.17074015953286556
+    ],
+    "creatinine_missing": [
+      0.03041192717769,
+      0.17171791363462605
+    ],
+    "bun_missing": [
+      0.030768316949303556,
+      0.1726893963780369
+    ],
+    "sodium_missing": [
+      0.02886757150069793,
+      0.16743427013711987
+    ],
+    "bilirubin_missing": [
+      0.6033975824893826,
+      0.48919212987879446
+    ],
+    "hematocrit_missing": [
+      0.03290665557898488,
+      0.17839228570089835
+    ],
+    "wbc_missing": [
+      0.036114163523506874,
+      0.18657419627725663
+    ],
+    "heart_rate": [
+      81.18360755546315,
+      15.560291242738868
+    ],
+    "resp_rate": [
+      18.885346440557157,
+      3.8602469656477347
+    ],
+    "temperature_c": [
+      36.761692224433155,
+      0.4932269476292101
+    ],
+    "spo2": [
+      96.96360369457396,
+      2.615864552893268
+    ],
+    "map": [
+      76.46035163790799,
+      10.910809706374351
+    ],
+    "heart_rate_missing": [
+      0.0013958599388197558,
+      0.03733512439849309
+    ],
+    "resp_rate_missing": [
+      0.0036232960114044727,
+      0.060084671401433275
+    ],
+    "temperature_c_missing": [
+      0.035787472899527786,
+      0.1857598710243775
+    ],
+    "spo2_missing": [
+      0.0028808173205429003,
+      0.053595878685851965
+    ],
+    "map_missing": [
+      0.005464643164741172,
+      0.07372096608037106
+    ]
+  },
+  "coefficients": {
+    "intercept": -2.1630228725867147,
+    "age": 0.1992856098424673,
+    "male": -0.027877856641501667,
+    "bmi": -0.054315068771666405,
+    "enteral_24h": 0.1416557885803657,
+    "parenteral_24h": -0.025885990508845998,
+    "albumin": -0.15338819691351702,
+    "glucose": 0.19692988008700035,
+    "creatinine": 0.09830465687411051,
+    "bun": 0.2196535712430624,
+    "sodium": 0.04046383433240559,
+    "bilirubin": 0.10986908352098892,
+    "hematocrit": 0.07613743772427525,
+    "wbc": 0.09691824948021474,
+    "albumin_missing": -0.05377572329926742,
+    "glucose_missing": 0.0391199498573041,
+    "creatinine_missing": 0.06747021373051784,
+    "bun_missing": 0.06672978994578775,
+    "sodium_missing": 0.029663223835423188,
+    "bilirubin_missing": -0.26854676605234035,
+    "hematocrit_missing": 0.08782182280510387,
+    "wbc_missing": 0.08312435431924108,
+    "heart_rate": 0.22993788130212833,
+    "resp_rate": 0.31864542983174576,
+    "temperature_c": -0.12169935658774507,
+    "spo2": -0.06833466081401846,
+    "map": -0.1830966046407593,
+    "heart_rate_missing": -0.050105170564327985,
+    "resp_rate_missing": -0.03116958154006836,
+    "temperature_c_missing": 0.10462976539870963,
+    "spo2_missing": 0.0754377068798221,
+    "map_missing": 0.040072271461273734
+  },
+  "mimic_internal_apparent": {
+    "auc": 0.7909,
+    "brier": 0.0974,
+    "calibration_bins": [
+      {
+        "bin": 1,
+        "n": 3367,
+        "pred_mean": 0.0293,
+        "obs_rate": 0.0232
+      },
+      {
+        "bin": 2,
+        "n": 3367,
+        "pred_mean": 0.0417,
+        "obs_rate": 0.03
+      },
+      {
+        "bin": 3,
+        "n": 3368,
+        "pred_mean": 0.0522,
+        "obs_rate": 0.0454
+      },
+      {
+        "bin": 4,
+        "n": 3366,
+        "pred_mean": 0.064,
+        "obs_rate": 0.0511
+      },
+      {
+        "bin": 5,
+        "n": 3367,
+        "pred_mean": 0.0788,
+        "obs_rate": 0.074
+      },
+      {
+        "bin": 6,
+        "n": 3368,
+        "pred_mean": 0.099,
+        "obs_rate": 0.098
+      },
+      {
+        "bin": 7,
+        "n": 3367,
+        "pred_mean": 0.1274,
+        "obs_rate": 0.1334
+      },
+      {
+        "bin": 8,
+        "n": 3366,
+        "pred_mean": 0.171,
+        "obs_rate": 0.1655
+      },
+      {
+        "bin": 9,
+        "n": 3367,
+        "pred_mean": 0.2479,
+        "obs_rate": 0.2593
+      },
+      {
+        "bin": 10,
+        "n": 3368,
+        "pred_mean": 0.4725,
+        "obs_rate": 0.5039
+      }
+    ]
+  },
+  "eicu_external_validation": {
+    "auc": 0.6718,
+    "brier": 0.2129,
+    "calibration_bins": [
+      {
+        "bin": 1,
+        "n": 7186,
+        "pred_mean": 0.0653,
+        "obs_rate": 0.0335
+      },
+      {
+        "bin": 2,
+        "n": 7186,
+        "pred_mean": 0.1261,
+        "obs_rate": 0.0566
+      },
+      {
+        "bin": 3,
+        "n": 7186,
+        "pred_mean": 0.1872,
+        "obs_rate": 0.0746
+      },
+      {
+        "bin": 4,
+        "n": 7186,
+        "pred_mean": 0.2595,
+        "obs_rate": 0.0955
+      },
+      {
+        "bin": 5,
+        "n": 7186,
+        "pred_mean": 0.3441,
+        "obs_rate": 0.117
+      },
+      {
+        "bin": 6,
+        "n": 7187,
+        "pred_mean": 0.4307,
+        "obs_rate": 0.111
+      },
+      {
+        "bin": 7,
+        "n": 7186,
+        "pred_mean": 0.5102,
+        "obs_rate": 0.1332
+      },
+      {
+        "bin": 8,
+        "n": 7185,
+        "pred_mean": 0.5932,
+        "obs_rate": 0.1381
+      },
+      {
+        "bin": 9,
+        "n": 7186,
+        "pred_mean": 0.6928,
+        "obs_rate": 0.1742
+      },
+      {
+        "bin": 10,
+        "n": 7187,
+        "pred_mean": 0.833,
+        "obs_rate": 0.2992
+      }
+    ]
+  },
+  "eicu_subgroup_auc_by_male": {
+    "0": {
+      "n": 34780,
+      "auc": 0.6666,
+      "event_rate": 0.1245
+    },
+    "1": {
+      "n": 37081,
+      "auc": 0.677,
+      "event_rate": 0.1222
+    }
+  }
+}

@@ -1,0 +1,1377 @@
+{
+  "protocol": "V9_LIGHTGBM_PRIMARY_PACKAGE",
+  "model_name": "GERI-NutriRisk-ICU-LightGBM performance head",
+  "source_feature_tables": {
+    "mimic": "/root/autodl-tmp/frontiers_nutrition_mimic_eicu/v3_severity_model/mimic_v3_features_server_only.csv",
+    "eicu": "/root/autodl-tmp/frontiers_nutrition_mimic_eicu/v3_severity_model/eicu_v3_features_server_only.csv"
+  },
+  "hyperparameters": {
+    "boosting_type": "gbdt",
+    "class_weight": null,
+    "colsample_bytree": 0.85,
+    "importance_type": "split",
+    "learning_rate": 0.03,
+    "max_depth": -1,
+    "min_child_samples": 100,
+    "min_child_weight": 0.001,
+    "min_split_gain": 0.0,
+    "n_estimators": 800,
+    "n_jobs": 8,
+    "num_leaves": 16,
+    "objective": "binary",
+    "random_state": 20260826,
+    "reg_alpha": 0.0,
+    "reg_lambda": 3.0,
+    "subsample": 0.85,
+    "subsample_for_bin": 200000,
+    "subsample_freq": 0,
+    "scale_pos_weight": 6.254511176945866,
+    "verbose": -1
+  },
+  "platt_parameters": {
+    "intercept": -2.6005917817792152,
+    "slope": 0.7200161216322736
+  },
+  "point_estimates": {
+    "mimic_internal_test": {
+      "n": 6735,
+      "events": 946,
+      "event_rate": 0.140460282108389,
+      "auc": 0.8818136532908334,
+      "brier": 0.12377723324618903,
+      "ece": 0.167068610076102
+    },
+    "eicu_external_original_full": {
+      "n": 71861,
+      "events": 8860,
+      "event_rate": 0.12329358066266821,
+      "auc": 0.7929620433485541,
+      "brier": 0.2910915122176176,
+      "ece": 0.38572734564870254
+    },
+    "eicu_external_platt_heldout": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.793562733186625,
+      "brier": 0.08843649626206498,
+      "ece": 0.020989102312679052
+    }
+  },
+  "bootstrap_ci": {
+    "mimic_internal_test": {
+      "auc": {
+        "estimate": 0.8818136532908334,
+        "ci_95": [
+          0.8700860128155885,
+          0.8927372612679807
+        ],
+        "n_resamples": 1000
+      },
+      "brier": {
+        "estimate": 0.12377723324618903,
+        "ci_95": [
+          0.1192988156612253,
+          0.12811056549378255
+        ],
+        "n_resamples": 1000
+      },
+      "ece": {
+        "estimate": 0.167068610076102,
+        "ci_95": [
+          0.15962004455900117,
+          0.17452584205377797
+        ],
+        "n_resamples": 1000
+      }
+    },
+    "eicu_external_original_full": {
+      "auc": {
+        "estimate": 0.7929620433485541,
+        "ci_95": [
+          0.7881424042883163,
+          0.7977832911903544
+        ],
+        "n_resamples": 1000
+      },
+      "brier": {
+        "estimate": 0.2910915122176176,
+        "ci_95": [
+          0.28881263226942905,
+          0.293186477016063
+        ],
+        "n_resamples": 1000
+      },
+      "ece": {
+        "estimate": 0.38572734564870254,
+        "ci_95": [
+          0.3829355393639785,
+          0.38835673664236137
+        ],
+        "n_resamples": 1000
+      }
+    },
+    "eicu_external_platt_heldout": {
+      "auc": {
+        "estimate": 0.793562733186625,
+        "ci_95": [
+          0.7881043111563631,
+          0.798800773403712
+        ],
+        "n_resamples": 1000
+      },
+      "brier": {
+        "estimate": 0.08843649626206498,
+        "ci_95": [
+          0.08674651105961319,
+          0.090167830450077
+        ],
+        "n_resamples": 1000
+      },
+      "ece": {
+        "estimate": 0.020989102312679052,
+        "ci_95": [
+          0.018745356238344803,
+          0.023456266258905095
+        ],
+        "n_resamples": 1000
+      }
+    }
+  },
+  "plot_data": {
+    "eicu_roc_original": [
+      {
+        "threshold": 0.998579309548849,
+        "tpr": 0.0001128668171557562,
+        "fpr": 0.0
+      },
+      {
+        "threshold": 0.9875862631771906,
+        "tpr": 0.07223476297968397,
+        "fpr": 0.00125394835002619
+      },
+      {
+        "threshold": 0.977166889343504,
+        "tpr": 0.13205417607223477,
+        "fpr": 0.004253900731734417
+      },
+      {
+        "threshold": 0.9678047336103377,
+        "tpr": 0.1829571106094808,
+        "fpr": 0.008491928699544451
+      },
+      {
+        "threshold": 0.9580485346396833,
+        "tpr": 0.22516930022573364,
+        "fpr": 0.013968032253456294
+      },
+      {
+        "threshold": 0.9486067221517388,
+        "tpr": 0.2608352144469526,
+        "fpr": 0.020364756114982303
+      },
+      {
+        "threshold": 0.9404468836988509,
+        "tpr": 0.2915349887133183,
+        "fpr": 0.02744400882525674
+      },
+      {
+        "threshold": 0.9318708914202929,
+        "tpr": 0.3198645598194131,
+        "fpr": 0.03487246234186759
+      },
+      {
+        "threshold": 0.9241225236795244,
+        "tpr": 0.34142212189616256,
+        "fpr": 0.043237408930016985
+      },
+      {
+        "threshold": 0.9160417585508103,
+        "tpr": 0.36636568848758466,
+        "fpr": 0.0511420453643593
+      },
+      {
+        "threshold": 0.9086382284745133,
+        "tpr": 0.3860045146726862,
+        "fpr": 0.05979270170314757
+      },
+      {
+        "threshold": 0.9014486883110897,
+        "tpr": 0.4059819413092551,
+        "fpr": 0.06837986698623831
+      },
+      {
+        "threshold": 0.8943732868463753,
+        "tpr": 0.4239277652370203,
+        "fpr": 0.07726861478389233
+      },
+      {
+        "threshold": 0.8873793713742697,
+        "tpr": 0.4404063205417607,
+        "fpr": 0.08634783574863891
+      },
+      {
+        "threshold": 0.8807031266940604,
+        "tpr": 0.4572234762979684,
+        "fpr": 0.09539531118553674
+      },
+      {
+        "threshold": 0.8741221014755807,
+        "tpr": 0.4717832957110609,
+        "fpr": 0.1047602419009222
+      },
+      {
+        "threshold": 0.8676201076590155,
+        "tpr": 0.48702031602708806,
+        "fpr": 0.11401406326883701
+      },
+      {
+        "threshold": 0.8605755899416938,
+        "tpr": 0.5012415349887133,
+        "fpr": 0.12342661227599562
+      },
+      {
+        "threshold": 0.853815239915724,
+        "tpr": 0.5135440180586908,
+        "fpr": 0.13309312550594435
+      },
+      {
+        "threshold": 0.84753969154418,
+        "tpr": 0.5253950338600452,
+        "fpr": 0.142839002555515
+      },
+      {
+        "threshold": 0.8409621086377415,
+        "tpr": 0.5376975169300225,
+        "fpr": 0.1525213885493881
+      },
+      {
+        "threshold": 0.8336533024718933,
+        "tpr": 0.5514672686230249,
+        "fpr": 0.16198155584831986
+      },
+      {
+        "threshold": 0.8263809388159975,
+        "tpr": 0.563431151241535,
+        "fpr": 0.17191790606498308
+      },
+      {
+        "threshold": 0.8199263434752556,
+        "tpr": 0.5764108352144469,
+        "fpr": 0.18128283678036858
+      },
+      {
+        "threshold": 0.8132191940951146,
+        "tpr": 0.5876975169300226,
+        "fpr": 0.19110807764956111
+      },
+      {
+        "threshold": 0.8066435251097573,
+        "tpr": 0.5988713318284424,
+        "fpr": 0.20094919128267805
+      },
+      {
+        "threshold": 0.7986332382340781,
+        "tpr": 0.6098194130925508,
+        "fpr": 0.21080617767971938
+      },
+      {
+        "threshold": 0.791524762800145,
+        "tpr": 0.6221218961625282,
+        "fpr": 0.22048856367359249
+      },
+      {
+        "threshold": 0.7841909892252832,
+        "tpr": 0.6326185101580135,
+        "fpr": 0.23040904112633132
+      },
+      {
+        "threshold": 0.7767092402539604,
+        "tpr": 0.6428893905191874,
+        "fpr": 0.24037713687084333
+      },
+      {
+        "threshold": 0.7687331572902895,
+        "tpr": 0.6540632054176072,
+        "fpr": 0.25024999603180903
+      },
+      {
+        "threshold": 0.7607551275397854,
+        "tpr": 0.6642212189616253,
+        "fpr": 0.26018634624847226
+      },
+      {
+        "threshold": 0.7525452259414841,
+        "tpr": 0.6744920993227991,
+        "fpr": 0.2701544419929842
+      },
+      {
+        "threshold": 0.7434519723416045,
+        "tpr": 0.6845372460496614,
+        "fpr": 0.28013841050142063
+      },
+      {
+        "threshold": 0.73450864614026,
+        "tpr": 0.6950338600451468,
+        "fpr": 0.29007476071808386
+      },
+      {
+        "threshold": 0.7251893510836939,
+        "tpr": 0.7029345372460497,
+        "fpr": 0.30037618450500786
+      },
+      {
+        "threshold": 0.7161488214394897,
+        "tpr": 0.7110609480812641,
+        "fpr": 0.31062999000015873
+      },
+      {
+        "threshold": 0.7061914734534367,
+        "tpr": 0.7202031602708804,
+        "fpr": 0.32075681338391454
+      },
+      {
+        "threshold": 0.6951464593740119,
+        "tpr": 0.7299097065462754,
+        "fpr": 0.3307884001841241
+      },
+      {
+        "threshold": 0.6842858012046964,
+        "tpr": 0.7408577878103837,
+        "fpr": 0.3406612593450898
+      },
+      {
+        "threshold": 0.6736321351907536,
+        "tpr": 0.7511286681715575,
+        "fpr": 0.35062935508960175
+      },
+      {
+        "threshold": 0.6629209652348828,
+        "tpr": 0.759706546275395,
+        "fpr": 0.3608196695290551
+      },
+      {
+        "threshold": 0.6505947443271919,
+        "tpr": 0.769864559819413,
+        "fpr": 0.37080363803749145
+      },
+      {
+        "threshold": 0.6369639665333185,
+        "tpr": 0.7800225733634312,
+        "fpr": 0.38077173378200346
+      },
+      {
+        "threshold": 0.6245687090769957,
+        "tpr": 0.7893905191873589,
+        "fpr": 0.3908668116379105
+      },
+      {
+        "threshold": 0.6114846094068652,
+        "tpr": 0.7998871331828442,
+        "fpr": 0.40080316185457376
+      },
+      {
+        "threshold": 0.5977605447983289,
+        "tpr": 0.8091422121896162,
+        "fpr": 0.4108982397104808
+      },
+      {
+        "threshold": 0.5842142537758315,
+        "tpr": 0.8172686230248307,
+        "fpr": 0.42116791796955605
+      },
+      {
+        "threshold": 0.5707243611676377,
+        "tpr": 0.8257336343115124,
+        "fpr": 0.4313741051729338
+      },
+      {
+        "threshold": 0.5560779340946786,
+        "tpr": 0.8341986455981941,
+        "fpr": 0.44159616514023586
+      },
+      {
+        "threshold": 0.5408892620680389,
+        "tpr": 0.841647855530474,
+        "fpr": 0.4519610799828574
+      },
+      {
+        "threshold": 0.5244608051164205,
+        "tpr": 0.8486455981941309,
+        "fpr": 0.4623736131172521
+      },
+      {
+        "threshold": 0.5099186594496661,
+        "tpr": 0.8548532731376975,
+        "fpr": 0.47291312836304183
+      },
+      {
+        "threshold": 0.49503816428819547,
+        "tpr": 0.8620767494356659,
+        "fpr": 0.48329391596958776
+      },
+      {
+        "threshold": 0.4803221821378477,
+        "tpr": 0.8688487584650113,
+        "fpr": 0.4937540673957556
+      },
+      {
+        "threshold": 0.4653479715503436,
+        "tpr": 0.8752821670428894,
+        "fpr": 0.5042618371136967
+      },
+      {
+        "threshold": 0.4498883630784834,
+        "tpr": 0.8818284424379232,
+        "fpr": 0.5147378613037888
+      },
+      {
+        "threshold": 0.43564471710030106,
+        "tpr": 0.8882618510158014,
+        "fpr": 0.5252456310217298
+      },
+      {
+        "threshold": 0.42021819751370276,
+        "tpr": 0.8937923250564334,
+        "fpr": 0.5358645100871414
+      },
+      {
+        "threshold": 0.40512774233823445,
+        "tpr": 0.9006772009029346,
+        "fpr": 0.5463087887493849
+      },
+      {
+        "threshold": 0.3909032519275206,
+        "tpr": 0.9071106094808127,
+        "fpr": 0.5568165584673259
+      },
+      {
+        "threshold": 0.3762380353078132,
+        "tpr": 0.9136568848758465,
+        "fpr": 0.5672925826574181
+      },
+      {
+        "threshold": 0.36224996462318093,
+        "tpr": 0.9191873589164785,
+        "fpr": 0.5779273344867542
+      },
+      {
+        "threshold": 0.3484398331085721,
+        "tpr": 0.9255079006772009,
+        "fpr": 0.5884351042046951
+      },
+      {
+        "threshold": 0.33428171485069846,
+        "tpr": 0.9297968397291196,
+        "fpr": 0.5992444564371994
+      },
+      {
+        "threshold": 0.32087054455209146,
+        "tpr": 0.9351015801354402,
+        "fpr": 0.6099109537943842
+      },
+      {
+        "threshold": 0.3073582146530524,
+        "tpr": 0.9386004514672687,
+        "fpr": 0.6208155426104347
+      },
+      {
+        "threshold": 0.29444471176265014,
+        "tpr": 0.9417607223476298,
+        "fpr": 0.6317836224821828
+      },
+      {
+        "threshold": 0.2805980910361154,
+        "tpr": 0.9457110609480812,
+        "fpr": 0.6426247202425358
+      },
+      {
+        "threshold": 0.2683825982769717,
+        "tpr": 0.95,
+        "fpr": 0.65343407247504
+      },
+      {
+        "threshold": 0.2560495854719238,
+        "tpr": 0.9529345372460497,
+        "fpr": 0.6644338978746369
+      },
+      {
+        "threshold": 0.24375933503532998,
+        "tpr": 0.9563205417607223,
+        "fpr": 0.6753543594546119
+      },
+      {
+        "threshold": 0.23210815924605796,
+        "tpr": 0.9593679458239278,
+        "fpr": 0.6863383120902843
+      },
+      {
+        "threshold": 0.21984419358267093,
+        "tpr": 0.9627539503386005,
+        "fpr": 0.6972587736702592
+      },
+      {
+        "threshold": 0.20857431108599386,
+        "tpr": 0.9652370203160271,
+        "fpr": 0.7083220901255536
+      },
+      {
+        "threshold": 0.19699430475624888,
+        "tpr": 0.9688487584650113,
+        "fpr": 0.7192266789416041
+      },
+      {
+        "threshold": 0.18604057284367567,
+        "tpr": 0.9709932279909707,
+        "fpr": 0.7303217409247472
+      },
+      {
+        "threshold": 0.17534082174129345,
+        "tpr": 0.9733634311512416,
+        "fpr": 0.741400930143966
+      },
+      {
+        "threshold": 0.16483273421735717,
+        "tpr": 0.9757336343115124,
+        "fpr": 0.7524642465992604
+      },
+      {
+        "threshold": 0.15488333498623966,
+        "tpr": 0.9779909706546276,
+        "fpr": 0.7635593085824035
+      },
+      {
+        "threshold": 0.14522875817355754,
+        "tpr": 0.9799097065462754,
+        "fpr": 0.7747019888573198
+      },
+      {
+        "threshold": 0.13536832744368138,
+        "tpr": 0.981941309255079,
+        "fpr": 0.7858129236043873
+      },
+      {
+        "threshold": 0.1267488862774469,
+        "tpr": 0.9839729119638826,
+        "fpr": 0.7969397311153791
+      },
+      {
+        "threshold": 0.11802302850617569,
+        "tpr": 0.9858916478555305,
+        "fpr": 0.808066538626371
+      },
+      {
+        "threshold": 0.10957699818263071,
+        "tpr": 0.9872460496613995,
+        "fpr": 0.8192885827209092
+      },
+      {
+        "threshold": 0.10199314188601627,
+        "tpr": 0.9891647855530474,
+        "fpr": 0.830415390231901
+      },
+      {
+        "threshold": 0.0945462886412253,
+        "tpr": 0.990744920993228,
+        "fpr": 0.8416056887985905
+      },
+      {
+        "threshold": 0.08729948044345728,
+        "tpr": 0.9915349887133182,
+        "fpr": 0.8529070967127506
+      },
+      {
+        "threshold": 0.07991860731942572,
+        "tpr": 0.9928893905191873,
+        "fpr": 0.8641132680433644
+      },
+      {
+        "threshold": 0.07318414588413691,
+        "tpr": 0.9942437923250564,
+        "fpr": 0.8753353121379026
+      },
+      {
+        "threshold": 0.0664073469454912,
+        "tpr": 0.994920993227991,
+        "fpr": 0.8866525928159871
+      },
+      {
+        "threshold": 0.06004446564252588,
+        "tpr": 0.9955981941309255,
+        "fpr": 0.8979540007301472
+      },
+      {
+        "threshold": 0.05429566270355256,
+        "tpr": 0.9961625282167043,
+        "fpr": 0.909287154172156
+      },
+      {
+        "threshold": 0.04849214293667908,
+        "tpr": 0.9967268623024831,
+        "fpr": 0.9206044348502405
+      },
+      {
+        "threshold": 0.0428351905231109,
+        "tpr": 0.9974040632054176,
+        "fpr": 0.9319217155283249
+      },
+      {
+        "threshold": 0.03732573219789793,
+        "tpr": 0.9983069977426636,
+        "fpr": 0.9432072506785607
+      },
+      {
+        "threshold": 0.03163823641959078,
+        "tpr": 0.9988713318284425,
+        "fpr": 0.9545245313566452
+      },
+      {
+        "threshold": 0.026417975079427884,
+        "tpr": 0.9993227990970655,
+        "fpr": 0.9658735575625784
+      },
+      {
+        "threshold": 0.020676143434702594,
+        "tpr": 0.999548532731377,
+        "fpr": 0.977238456532436
+      },
+      {
+        "threshold": 0.014591522470269633,
+        "tpr": 0.9996613995485327,
+        "fpr": 0.9886351010301424
+      },
+      {
+        "threshold": 0.0023497616643460427,
+        "tpr": 1.0,
+        "fpr": 1.0
+      }
+    ],
+    "eicu_calibration_original": [
+      {
+        "bin": 1,
+        "n": 7186,
+        "pred_mean": 0.03728609322307771,
+        "obs_rate": 0.006262176454216532
+      },
+      {
+        "bin": 2,
+        "n": 7186,
+        "pred_mean": 0.10325414394923982,
+        "obs_rate": 0.018508210409128863
+      },
+      {
+        "bin": 3,
+        "n": 7187,
+        "pred_mean": 0.19829436104567508,
+        "obs_rate": 0.03325448726867956
+      },
+      {
+        "bin": 4,
+        "n": 7185,
+        "pred_mean": 0.32162521569776303,
+        "obs_rate": 0.05650661099512874
+      },
+      {
+        "bin": 5,
+        "n": 7186,
+        "pred_mean": 0.46510441711400513,
+        "obs_rate": 0.08071249652101307
+      },
+      {
+        "bin": 6,
+        "n": 7186,
+        "pred_mean": 0.6102439310111398,
+        "obs_rate": 0.11160590036181464
+      },
+      {
+        "bin": 7,
+        "n": 7184,
+        "pred_mean": 0.7239943383985157,
+        "obs_rate": 0.11971046770601336
+      },
+      {
+        "bin": 8,
+        "n": 7188,
+        "pred_mean": 0.8056220826950706,
+        "obs_rate": 0.1434335002782415
+      },
+      {
+        "bin": 9,
+        "n": 7186,
+        "pred_mean": 0.8742280409915478,
+        "obs_rate": 0.18703033676593375
+      },
+      {
+        "bin": 10,
+        "n": 7187,
+        "pred_mean": 0.9504896485401124,
+        "obs_rate": 0.475859190204536
+      }
+    ],
+    "eicu_calibration_platt_heldout": [
+      {
+        "bin": 1,
+        "n": 5749,
+        "pred_mean": 0.006908504840015235,
+        "obs_rate": 0.00643590189598191
+      },
+      {
+        "bin": 2,
+        "n": 5749,
+        "pred_mean": 0.015325993241444121,
+        "obs_rate": 0.018959819098973735
+      },
+      {
+        "bin": 3,
+        "n": 5749,
+        "pred_mean": 0.026388219219467785,
+        "obs_rate": 0.03148373630196556
+      },
+      {
+        "bin": 4,
+        "n": 5748,
+        "pred_mean": 0.04161086530909072,
+        "obs_rate": 0.05758524704244955
+      },
+      {
+        "bin": 5,
+        "n": 5749,
+        "pred_mean": 0.06303313358835218,
+        "obs_rate": 0.08175334840841886
+      },
+      {
+        "bin": 6,
+        "n": 5749,
+        "pred_mean": 0.09346352639051222,
+        "obs_rate": 0.1134110280048704
+      },
+      {
+        "bin": 7,
+        "n": 5745,
+        "pred_mean": 0.13023360256300454,
+        "obs_rate": 0.1185378590078329
+      },
+      {
+        "bin": 8,
+        "n": 5752,
+        "pred_mean": 0.17208133955733962,
+        "obs_rate": 0.14464534075104313
+      },
+      {
+        "bin": 9,
+        "n": 5749,
+        "pred_mean": 0.23326022270818955,
+        "obs_rate": 0.1845538354496434
+      },
+      {
+        "bin": 10,
+        "n": 5749,
+        "pred_mean": 0.4246684385682183,
+        "obs_rate": 0.4828665854931292
+      }
+    ],
+    "eicu_decision_curve_original": [
+      {
+        "threshold": 0.02,
+        "net_benefit_model": 0.10573985094239474,
+        "net_benefit_treat_all": 0.10540161292109002,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.04,
+        "net_benefit_model": 0.08873960377209705,
+        "net_benefit_treat_all": 0.08676414652361272,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.06,
+        "net_benefit_model": 0.0724969333527167,
+        "net_benefit_treat_all": 0.06733359644964704,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.08,
+        "net_benefit_model": 0.05654817906308253,
+        "net_benefit_treat_all": 0.047058239850726324,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.1,
+        "net_benefit_model": 0.04076233592939456,
+        "net_benefit_treat_all": 0.025881756291853575,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.12,
+        "net_benefit_model": 0.025198900402418303,
+        "net_benefit_treat_all": 0.0037427052984866233,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.14,
+        "net_benefit_model": 0.009499282044178936,
+        "net_benefit_treat_all": -0.019426068996897444,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.16,
+        "net_benefit_model": -0.0061030521224507,
+        "net_benefit_treat_all": -0.043698118258728325,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.18,
+        "net_benefit_model": -0.021955665765310467,
+        "net_benefit_treat_all": -0.06915416992357534,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.2,
+        "net_benefit_model": -0.03769081977706963,
+        "net_benefit_treat_all": -0.09588302417166472,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.22,
+        "net_benefit_model": -0.053686622214752885,
+        "net_benefit_treat_all": -0.12398258889401509,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.24,
+        "net_benefit_model": -0.06990395932498339,
+        "net_benefit_treat_all": -0.1535610780754365,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.26,
+        "net_benefit_model": -0.08628218817333917,
+        "net_benefit_treat_all": -0.1847384045099078,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.28,
+        "net_benefit_model": -0.10263487071491414,
+        "net_benefit_treat_all": -0.21764780463518307,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.3,
+        "net_benefit_model": -0.11978482268347429,
+        "net_benefit_treat_all": -0.252437741910474,
+        "net_benefit_treat_none": 0.0
+      }
+    ],
+    "eicu_decision_curve_platt_heldout": [
+      {
+        "threshold": 0.02,
+        "net_benefit_model": 0.1076419852661354,
+        "net_benefit_treat_all": 0.1061488608802831,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.04,
+        "net_benefit_model": 0.09374057774376102,
+        "net_benefit_treat_all": 0.08752696214862232,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.06,
+        "net_benefit_model": 0.08065290961740026,
+        "net_benefit_treat_all": 0.06811264219433769,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.08,
+        "net_benefit_model": 0.06975822553515894,
+        "net_benefit_treat_all": 0.04785422137247547,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.1,
+        "net_benefit_model": 0.05949260908556762,
+        "net_benefit_treat_all": 0.026695426291863805,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.12,
+        "net_benefit_model": 0.050880974369354556,
+        "net_benefit_treat_all": 0.004574867798497084,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.14,
+        "net_benefit_model": 0.045060566735059766,
+        "net_benefit_treat_all": -0.018574553880607678,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.16,
+        "net_benefit_model": 0.040116860827269944,
+        "net_benefit_treat_all": -0.04282632897300308,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.18,
+        "net_benefit_model": 0.03647251091213946,
+        "net_benefit_treat_all": -0.06826111748453971,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.2,
+        "net_benefit_model": 0.03373747564709157,
+        "net_benefit_treat_all": -0.09496764542165322,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.22,
+        "net_benefit_model": 0.03235814653849722,
+        "net_benefit_treat_all": -0.12304373889400329,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.24,
+        "net_benefit_model": 0.03090896772964976,
+        "net_benefit_treat_all": -0.15259752149647704,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.26,
+        "net_benefit_model": 0.029551173076778417,
+        "net_benefit_treat_all": -0.18374880586124676,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.28,
+        "net_benefit_model": 0.028121810928657575,
+        "net_benefit_treat_all": -0.2166307171351703,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.3,
+        "net_benefit_model": 0.02674098445389845,
+        "net_benefit_treat_all": -0.25139159476760364,
+        "net_benefit_treat_none": 0.0
+      }
+    ]
+  },
+  "operating_profile": {
+    "eicu_platt_heldout": [
+      {
+        "threshold": 0.05,
+        "alerts_per_100": 60.48392708043417,
+        "sensitivity": 0.911921458625526,
+        "specificity": 0.4386393423090671,
+        "ppv": 0.18699490955106265,
+        "npv": 0.972355504688119,
+        "net_benefit_model": 0.08722094862818053,
+        "net_benefit_treat_all": 0.07792198280281834,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.1,
+        "alerts_per_100": 43.01593376008906,
+        "sensitivity": 0.7785413744740532,
+        "specificity": 0.6191667659557568,
+        "ppv": 0.2244732904686805,
+        "npv": 0.9517995054794103,
+        "net_benefit_model": 0.05949260908556762,
+        "net_benefit_treat_all": 0.026695426291863805,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.15,
+        "alerts_per_100": 29.93494294461453,
+        "sensitivity": 0.6538569424964937,
+        "specificity": 0.7508439572659756,
+        "ppv": 0.27090475913766054,
+        "npv": 0.9387273765485737,
+        "net_benefit_model": 0.042579730194332116,
+        "net_benefit_treat_all": -0.030557783926261836,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.2,
+        "alerts_per_100": 19.590175340940718,
+        "sensitivity": 0.5335203366058906,
+        "specificity": 0.8519003931847968,
+        "ppv": 0.337773042088439,
+        "npv": 0.9280491498291005,
+        "net_benefit_model": 0.03373747564709157,
+        "net_benefit_treat_all": -0.09496764542165322,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.25,
+        "alerts_per_100": 12.75048705816866,
+        "sensitivity": 0.4395511921458626,
+        "specificity": 0.9166765955756782,
+        "ppv": 0.42755798090040925,
+        "npv": 0.9203317516647395,
+        "net_benefit_model": 0.030186009833936357,
+        "net_benefit_treat_all": -0.16796548844976344,
+        "net_benefit_treat_none": 0.0
+      },
+      {
+        "threshold": 0.3,
+        "alerts_per_100": 8.667895908711383,
+        "sensitivity": 0.3605890603085554,
+        "specificity": 0.952102942928631,
+        "ppv": 0.5159542444310656,
+        "npv": 0.9131701742691172,
+        "net_benefit_model": 0.02674098445389845,
+        "net_benefit_treat_all": -0.25139159476760364,
+        "net_benefit_treat_none": 0.0
+      }
+    ]
+  },
+  "subgroups_original_external": [
+    {
+      "domain": "age_group",
+      "subgroup": "65-74",
+      "n": 31322,
+      "events": 3114,
+      "event_rate": 0.09941893876508524,
+      "auc": 0.805821346499861,
+      "brier": 0.25260964823389015,
+      "ece": 0.34898752145498413
+    },
+    {
+      "domain": "age_group",
+      "subgroup": "75-84",
+      "n": 26004,
+      "events": 3391,
+      "event_rate": 0.1304030149207814,
+      "auc": 0.7821584348694443,
+      "brier": 0.30497065180115457,
+      "ece": 0.3986096480008072
+    },
+    {
+      "domain": "age_group",
+      "subgroup": "85+",
+      "n": 14535,
+      "events": 2355,
+      "event_rate": 0.16202270381836945,
+      "auc": 0.768405272644236,
+      "brier": 0.34918685435508023,
+      "ece": 0.4418521054031929
+    },
+    {
+      "domain": "albumin_available",
+      "subgroup": "available",
+      "n": 22000,
+      "events": 3651,
+      "event_rate": 0.16595454545454547,
+      "auc": 0.8152469215109658,
+      "brier": 0.2593780714537293,
+      "ece": 0.34154623359673686
+    },
+    {
+      "domain": "albumin_available",
+      "subgroup": "missing",
+      "n": 49861,
+      "events": 5209,
+      "event_rate": 0.10447042778925412,
+      "auc": 0.7839530418096271,
+      "brier": 0.3050843261765343,
+      "ece": 0.4052212279443493
+    },
+    {
+      "domain": "enteral_24h",
+      "subgroup": "no",
+      "n": 63935,
+      "events": 7580,
+      "event_rate": 0.11855791037772738,
+      "auc": 0.796389136057723,
+      "brier": 0.2937711753581821,
+      "ece": 0.3912211389768653
+    },
+    {
+      "domain": "enteral_24h",
+      "subgroup": "yes",
+      "n": 7926,
+      "events": 1280,
+      "event_rate": 0.16149381781478678,
+      "auc": 0.778799630416792,
+      "brier": 0.26947603620298394,
+      "ece": 0.3414117165247954
+    },
+    {
+      "domain": "sex",
+      "subgroup": "female_or_other",
+      "n": 34780,
+      "events": 4330,
+      "event_rate": 0.12449683726279472,
+      "auc": 0.7874120979760862,
+      "brier": 0.2968136623270352,
+      "ece": 0.3932956090798944
+    },
+    {
+      "domain": "sex",
+      "subgroup": "male",
+      "n": 37081,
+      "events": 4530,
+      "event_rate": 0.12216499015668401,
+      "auc": 0.7981623064177166,
+      "brier": 0.28572444064981894,
+      "ece": 0.37862871826171585
+    },
+    {
+      "domain": "ventilation_24h",
+      "subgroup": "no",
+      "n": 57107,
+      "events": 4749,
+      "event_rate": 0.08315968270089481,
+      "auc": 0.7864377245175634,
+      "brier": 0.29480166290170084,
+      "ece": 0.4049865965612346
+    },
+    {
+      "domain": "ventilation_24h",
+      "subgroup": "yes",
+      "n": 14754,
+      "events": 4111,
+      "event_rate": 0.2786363020197912,
+      "auc": 0.7847448698412348,
+      "brier": 0.27673096083386156,
+      "ece": 0.3111822702886668
+    }
+  ],
+  "feature_importance": [
+    {
+      "feature": "urine_24h_ml",
+      "gain_importance": 66056.41726207733,
+      "split_importance": 963,
+      "mean_abs_shap_contribution": 0.6163282230464449
+    },
+    {
+      "feature": "gcs_24h",
+      "gain_importance": 83883.91195833683,
+      "split_importance": 618,
+      "mean_abs_shap_contribution": 0.6045982325572955
+    },
+    {
+      "feature": "map",
+      "gain_importance": 24231.16284275055,
+      "split_importance": 766,
+      "mean_abs_shap_contribution": 0.5185847754137674
+    },
+    {
+      "feature": "resp_rate",
+      "gain_importance": 46817.90263915062,
+      "split_importance": 572,
+      "mean_abs_shap_contribution": 0.3921976188362998
+    },
+    {
+      "feature": "bun",
+      "gain_importance": 71168.97950649261,
+      "split_importance": 738,
+      "mean_abs_shap_contribution": 0.37496513060989045
+    },
+    {
+      "feature": "bmi",
+      "gain_importance": 32170.93298137188,
+      "split_importance": 684,
+      "mean_abs_shap_contribution": 0.3205659439895128
+    },
+    {
+      "feature": "heart_rate",
+      "gain_importance": 32025.877204179764,
+      "split_importance": 894,
+      "mean_abs_shap_contribution": 0.30798903411555706
+    },
+    {
+      "feature": "wbc",
+      "gain_importance": 21838.591740608215,
+      "split_importance": 865,
+      "mean_abs_shap_contribution": 0.269830298870469
+    },
+    {
+      "feature": "temperature_c",
+      "gain_importance": 25005.084204792976,
+      "split_importance": 812,
+      "mean_abs_shap_contribution": 0.2190981130549497
+    },
+    {
+      "feature": "glucose",
+      "gain_importance": 22509.16149008274,
+      "split_importance": 795,
+      "mean_abs_shap_contribution": 0.19579847196526876
+    },
+    {
+      "feature": "age",
+      "gain_importance": 15012.921355962753,
+      "split_importance": 469,
+      "mean_abs_shap_contribution": 0.19528305659871809
+    },
+    {
+      "feature": "spo2",
+      "gain_importance": 17289.880342245102,
+      "split_importance": 478,
+      "mean_abs_shap_contribution": 0.18154796832585823
+    },
+    {
+      "feature": "hematocrit",
+      "gain_importance": 22441.678807020187,
+      "split_importance": 910,
+      "mean_abs_shap_contribution": 0.14162455982139174
+    },
+    {
+      "feature": "sodium",
+      "gain_importance": 28283.49859917164,
+      "split_importance": 661,
+      "mean_abs_shap_contribution": 0.13915444031160293
+    },
+    {
+      "feature": "bilirubin",
+      "gain_importance": 27329.413687825203,
+      "split_importance": 574,
+      "mean_abs_shap_contribution": 0.13476408582017513
+    },
+    {
+      "feature": "creatinine",
+      "gain_importance": 15391.353127360344,
+      "split_importance": 558,
+      "mean_abs_shap_contribution": 0.09827470766792495
+    },
+    {
+      "feature": "albumin",
+      "gain_importance": 9370.38572025299,
+      "split_importance": 358,
+      "mean_abs_shap_contribution": 0.06982245933600537
+    },
+    {
+      "feature": "ventilation_24h",
+      "gain_importance": 3074.050465106964,
+      "split_importance": 84,
+      "mean_abs_shap_contribution": 0.05870248095800674
+    },
+    {
+      "feature": "male",
+      "gain_importance": 2700.7863783836365,
+      "split_importance": 117,
+      "mean_abs_shap_contribution": 0.027057558847453336
+    },
+    {
+      "feature": "enteral_24h",
+      "gain_importance": 1644.2155692577362,
+      "split_importance": 54,
+      "mean_abs_shap_contribution": 0.020339372292086728
+    },
+    {
+      "feature": "bilirubin_missing",
+      "gain_importance": 2195.2574977874756,
+      "split_importance": 17,
+      "mean_abs_shap_contribution": 0.01937761930870094
+    },
+    {
+      "feature": "gcs_24h_missing",
+      "gain_importance": 12.865190029144287,
+      "split_importance": 3,
+      "mean_abs_shap_contribution": 0.006620840417102393
+    },
+    {
+      "feature": "albumin_missing",
+      "gain_importance": 142.4843988418579,
+      "split_importance": 5,
+      "mean_abs_shap_contribution": 0.0008409722038034589
+    },
+    {
+      "feature": "dialysis_24h",
+      "gain_importance": 37.248291015625,
+      "split_importance": 3,
+      "mean_abs_shap_contribution": 0.000828789987737088
+    },
+    {
+      "feature": "urine_24h_ml_missing",
+      "gain_importance": 41.31540012359619,
+      "split_importance": 2,
+      "mean_abs_shap_contribution": 0.0006501584355864592
+    },
+    {
+      "feature": "parenteral_24h",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "glucose_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "creatinine_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "bun_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "sodium_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "hematocrit_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "wbc_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "heart_rate_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "resp_rate_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "temperature_c_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "spo2_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "map_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "ventilation_24h_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    },
+    {
+      "feature": "dialysis_24h_missing",
+      "gain_importance": 0.0,
+      "split_importance": 0,
+      "mean_abs_shap_contribution": 0.0
+    }
+  ],
+  "claim_boundary": "LightGBM trained only in MIMIC-IV development data; eICU labels used for external evaluation and prespecified Platt recalibration split only. Patient-level predictions and features remain on server."
+}

@@ -1,0 +1,4 @@
+evaluation,auc_mean_sd,brier_mean_sd,ece_mean_sd,auc_range
+MIMIC internal test,0.828 (0.008),0.090 (0.003),0.014 (0.005),0.816-0.839
+eICU external original,0.728 (0.002),0.154 (0.007),0.174 (0.013),0.726-0.731
+eICU held-out Platt recalibrated,0.728 (0.002),0.099 (0.000),0.014 (0.003),0.725-0.732
