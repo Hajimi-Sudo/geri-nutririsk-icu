@@ -178,7 +178,14 @@ def compute_metrics(y: np.ndarray, p: np.ndarray) -> dict:
     }
 
 
-def fit_lgbm(X: np.ndarray, y: np.ndarray, seed: int, n_estimators: int = 1400, lr: float = 0.02) -> lgb.LGBMClassifier:
+def fit_lgbm(
+    X: np.ndarray,
+    y: np.ndarray,
+    seed: int,
+    n_estimators: int = 1400,
+    lr: float = 0.02,
+    sample_weight: Optional[np.ndarray] = None,
+) -> lgb.LGBMClassifier:
     scale_pos_weight = float((len(y) - y.sum()) / max(y.sum(), 1))
     model = lgb.LGBMClassifier(
         n_estimators=n_estimators,
@@ -194,7 +201,7 @@ def fit_lgbm(X: np.ndarray, y: np.ndarray, seed: int, n_estimators: int = 1400, 
         scale_pos_weight=scale_pos_weight,
         verbose=-1,
     )
-    model.fit(X, y)
+    model.fit(X, y, sample_weight=sample_weight)
     return model
 
 
@@ -258,6 +265,12 @@ def main() -> None:
     parser.add_argument("--output-dir", type=str, default=None, help="Output directory for results")
     parser.add_argument("--n-estimators", type=int, default=1400, help="Number of trees")
     parser.add_argument("--learning-rate", type=float, default=0.02, help="LGBM learning rate")
+    parser.add_argument(
+        "--domain-weighting",
+        choices=["record", "domain_normalized"],
+        default="record",
+        help="Domain weighting scheme in Equation 6: 'record' (default, uniform per-patient weighting lambda_rec=1.0) or 'domain_normalized' (equal 50/50 domain loss weighting via sample_weight lambda_domain=1.0)",
+    )
     args = parser.parse_args()
 
     # Resolve paths
@@ -341,13 +354,24 @@ def main() -> None:
     w_so = fit_platt(logit(p_so_raw[e_update_cal]), y_e[e_update_cal])
     p_so_platt = apply_platt(p_so_raw, w_so)
 
-    print("Training [3/3] Domain-updated primary model (seed 20261840, lambda=1.0)...")
+    if args.domain_weighting == "domain_normalized":
+        n_m = m_train.sum()
+        n_e = e_update_fit.sum()
+        w_m = np.full(n_m, 0.5 * (n_m + n_e) / n_m)
+        w_e = np.full(n_e, 0.5 * (n_m + n_e) / n_e)
+        sw_comb = np.concatenate([w_m, w_e])
+        print("Training [3/3] Domain-updated model (domain-normalized sample_weight, lambda_domain=1.0, 50% MIMIC + 50% eICU)...")
+    else:
+        sw_comb = None
+        print("Training [3/3] Domain-updated primary model (seed 20261840, lambda_rec=1.0 uniform per-record)...")
+
     m_comb = fit_lgbm(
         np.vstack([X_m[m_train], X_e[e_update_fit]]),
         np.concatenate([y_m[m_train], y_e[e_update_fit]]),
         seed=20261840,
         n_estimators=args.n_estimators,
         lr=args.learning_rate,
+        sample_weight=sw_comb,
     )
     p_comb_raw = m_comb.predict_proba(X_e)[:, 1]
     w_comb = fit_platt(logit(p_comb_raw[e_update_cal]), y_e[e_update_cal])

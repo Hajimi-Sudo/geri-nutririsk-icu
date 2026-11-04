@@ -1,4 +1,3 @@
-from sklearn.metrics import roc_auc_score
 #!/usr/bin/env python3
 """EXP-001: Strict Leave-Hospital-Out External Validation Protocol.
 
@@ -26,8 +25,6 @@ NOTE ON HISTORICAL SCRIPT DIFFERENCE:
     partition where entire hospitals are held out before any modeling or calibration.
 ========================================================================================
 """
-
-from __future__ import annotations
 
 import csv
 import gzip
@@ -115,7 +112,14 @@ def metrics(y: np.ndarray, p: np.ndarray) -> dict:
         "oe_ratio": oe_ratio,
     }
 
-def fit_lgbm(X: np.ndarray, y: np.ndarray, seed: int = 20261901, n_estimators: int = 1400, lr: float = 0.02) -> lgb.LGBMClassifier:
+def fit_lgbm(
+    X: np.ndarray,
+    y: np.ndarray,
+    seed: int = 20261901,
+    n_estimators: int = 1400,
+    lr: float = 0.02,
+    sample_weight: Optional[np.ndarray] = None,
+) -> lgb.LGBMClassifier:
     scale_pos_weight = float((len(y) - y.sum()) / max(y.sum(), 1))
     model = lgb.LGBMClassifier(
         n_estimators=n_estimators,
@@ -131,7 +135,7 @@ def fit_lgbm(X: np.ndarray, y: np.ndarray, seed: int = 20261901, n_estimators: i
         scale_pos_weight=scale_pos_weight,
         verbose=-1,
     )
-    model.fit(X, y)
+    model.fit(X, y, sample_weight=sample_weight)
     return model
 
 def load_hospitals(eicu_dir: Path) -> dict[str, dict[str, str]]:
