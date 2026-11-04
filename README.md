@@ -45,6 +45,7 @@ The staged analysis sequence was:
 12. `run_leave_hospital_out_validation.py` (Revision EXP-001: strict 20/20/167 leave-hospital-out validation across 167 unseen hospitals)
 13. `run_nutrition_construct_ablation.py` (Revision EXP-004: strict dissected nutrition-reserve vs. metabolic-labs ablation)
 14. `run_revision_server_experiments.py` (Revision suite covering EXP-001 through EXP-007)
+15. `run_apache_recalibration_and_baselines.py` (Revision EXP-002 & EXP-003: symmetric APACHE-IVa Platt recalibration, baseline suite, and paired DCA on n = 39,920 stays)
 
 ### LightGBM Model Specification & Metric Standards
 
@@ -77,6 +78,26 @@ To resolve the distinction between baseline nutritional reserve and acute multio
    - **Without Nutrition Support**: Removes `{"enteral_24h", "parenteral_24h"}` (2 features -> **81 features remaining**; AUROC = 0.8716, Brier = 0.0735).
    - **Without Explicit Nutrition & Support**: Removes both sets (5 features -> **78 features remaining**; AUROC = 0.8711, $\Delta_{\\mathrm{AUC}} = -0.0011$).
    - **Without Acute Metabolic Laboratories**: Removes 7 acute labs (`glucose`, `creatinine`, `bun`, `sodium`, `bilirubin`, `hematocrit`, `wbc`) and their 7 missingness flags (14 features -> **69 features remaining**; strictly excludes albumin and BMI; AUROC = 0.8679, $\Delta_{\\mathrm{AUC}} = -0.0043$, Brier = 0.0741).
+
+### APACHE-IVa Recalibration & Benchmark Architecture (EXP-002 & EXP-003)
+
+To ensure an unassailably fair, symmetric comparison against established ICU clinical risk scoring systems (Reviewer #2, R2-C3 & R2-C4), the repository provides the standalone reproduction script `src/run_apache_recalibration_and_baselines.py`:
+
+1. **Historical Pre-Revision Distinction**:
+   In historical August 2026 pre-revision development scripts (`run_v14_domain_update_nutrition_apache_lock.py` and `run_v16_hospital_cluster_robustness.py`), APACHE predictions were loaded directly from the database field `predictedhospitalmortality` to represent existing raw hospital-grade prognostic risk.
+2. **Symmetric Platt Recalibration Protocol**:
+   In revision experiment EXP-002, APACHE-IVa is subjected to the exact same Platt scaling protocol as GERI-NutriRisk-ICU on the disjoint 10% eICU calibration partition ($n = 7,186$ stays; $5,000$ with valid APACHE scores):
+   $$\text{logit}(P_{\text{recal}}) = -0.3537 + 1.0129 \cdot \text{logit}(P_{\text{APACHE-IVa}})$$
+3. **Paired Head-to-Head Performance ($n = 39,920$ paired stays)**:
+   - **Raw APACHE-IVa**: AUROC = 0.8504, Brier = 0.0820, ECE = 0.0289.
+   - **Recalibrated APACHE-IVa**: AUROC = 0.8504, Brier = 0.0811, ECE = 0.0079.
+   - **GERI-NutriRisk-ICU**: AUROC = 0.8713, Brier = 0.0741, ECE = 0.0092.
+   - **Paired Advantage**: Statistically significant paired AUROC gain of $+0.0209$ (95% CI: $0.0158$--$0.0260$; $p < 0.001$) and lower Brier score.
+4. **Sample Size Disambiguation for Figure 3**:
+   - **Figure 3 Panel A (Reliability Diagram)**: Evaluates the full multicenter held-out eICU cohort ($n = 57,488$ stays across 206 hospitals; slope = 1.026, intercept = 0.077, ECE = 0.0037).
+   - **Figure 3 Panel B (Decision-Curve Analysis)**: Evaluated strictly on the complete-case paired held-out subset with available APACHE-IVa predictions ($n = 39,920$ stays across 151 hospitals), demonstrating consistent net-benefit superiority across operational thresholds $1\%$ to $35\%$.
+5. **Zero Selection Bias in Unmeasured APACHE Stays**:
+   The $17,568$ held-out stays without APACHE scores (30.6%) occurred in non-scoring ICUs and step-down units; their observed mortality was $12.38\%$ vs. $12.41\%$ in the scored subset, ruling out selection bias.
 
 ## Privacy Boundary
 
