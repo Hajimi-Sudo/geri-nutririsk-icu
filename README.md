@@ -46,6 +46,7 @@ The staged analysis sequence was:
 13. `run_nutrition_construct_ablation.py` (Revision EXP-004: strict dissected nutrition-reserve vs. metabolic-labs ablation)
 14. `run_revision_server_experiments.py` (Revision suite covering EXP-001 through EXP-007)
 15. `run_apache_recalibration_and_baselines.py` (Revision EXP-002 & EXP-003: symmetric APACHE-IVa Platt recalibration, baseline suite, and paired DCA on n = 39,920 stays)
+16. `run_hyperparameter_search_and_cv.py` (Revision 5-fold stratified cross-validation hyperparameter audit across 6 candidate configurations on pooled development partition N = 34,123)
 
 ### LightGBM Model Specification & Metric Standards
 
@@ -102,6 +103,27 @@ To ensure an unassailably fair, symmetric comparison against established ICU cli
    - **Figure 3 Panel B (Decision-Curve Analysis)**: Evaluated strictly on the complete-case paired held-out subset with available APACHE-IVa predictions ($n = 39,920$ stays across 151 hospitals), demonstrating consistent net-benefit superiority across operational thresholds $1\%$ to $35\%$.
 5. **Minimal Outcome Distortion in Unmeasured APACHE Stays**:
    The $17,568$ held-out stays without APACHE scores (30.6%) occurred in non-scoring ICUs and step-down units; their observed mortality was $12.38\%$ vs. $12.41\%$ in the scored subset, demonstrating minimal outcome-rate distortion while acknowledging that unmeasured clinical confounders in non-submitting centers cannot be completely excluded.
+
+
+### Hyperparameter Optimization & 5-Fold Cross-Validation Audit (`run_hyperparameter_search_and_cv.py`)
+
+To eliminate any ambiguity regarding hyperparameter optimization and to prove complete test-set isolation (Reviewer #3, R3-C6), the repository provides the standalone 5-fold cross-validation execution script `src/run_hyperparameter_search_and_cv.py` along with full candidate evaluation records:
+
+1. **Protocolized Candidate Search Grid**:
+   Explored 6 distinct architectural configurations (CONFIG-1 through CONFIG-6) across tree capacity (`num_leaves` from 15 to 127, `max_depth` from 5 to 8 and unconstrained), learning rates (0.015 to 0.05), boosting rounds (500 to 1,400), subsampling/colsample ratios (0.80 to 0.90), minimum child samples (50 to 100), and L1/L2 regularization ($\alpha \in [0.0, 0.2]$, $\lambda \in [1.0, 5.0]$).
+2. **Stratified 5-Fold Partition Boundary**:
+   Tuning was conducted strictly on the pooled development training partition ($N = 34,123$: MIMIC-IV development training fold $n = 26,937$ plus eICU local update subset $n = 7,186$).
+   - The disjoint eICU calibration partition ($n = 7,186$) was completely sealed.
+   - The primary held-out benchmark ($n = 57,488$, Protocol A) and the 167 held-out hospitals ($n = 57,536$, Protocol B) were strictly sequestered and untouched. Zero held-out test data was accessed or evaluated during hyperparameter search.
+3. **Dynamic Class-Imbalance Weighting**:
+   Across all candidate configurations, tree-split gradients dynamically penalized positive (mortality) instances via:
+   $$\text{scale\_pos\_weight} = \frac{N_{\text{train}} - N_{\text{events}}}{N_{\text{events}}} \approx 7.06$$
+   to counteract the ~12.4% mortality incidence prior to Platt recalibration.
+4. **Locked Model Selection Rationale**:
+   While ultra-deep heads with unconstrained depth (CONFIG-3 and CONFIG-6, 127 leaves) achieved slightly higher raw development CV AUROC (0.9585 vs. 0.9566), they presented higher risk of cross-center overfitting on unseen hospitals. CONFIG-4 (Locked) was selected and locked as the definitive performance head because it combined high discrimination (mean 5-fold CV AUROC $0.9566 \pm 0.0018$, Brier 0.0396) with conservative tree depth (`num_leaves = 31`, `max_depth = 6`), a robust leaf sample floor (`min_child_samples = 80`), and strong L2 regularization (`reg_lambda = 2.0`), maximizing generalizability across unseen hospital environments.
+5. **Audit Artifacts**:
+   - `results/table_hyperparameter_cv_audit.csv`: Detailed fold-by-fold and aggregate metrics for all 6 candidate configurations.
+   - `results/hyperparameter_cv_summary.json`: Machine-readable summary with execution timestamps, sample sizes, and fold AUROC/Brier vectors.
 
 ## Privacy Boundary
 
