@@ -46,6 +46,14 @@ The staged analysis sequence was:
 13. `run_nutrition_construct_ablation.py` (Revision EXP-004: strict dissected nutrition-reserve vs. metabolic-labs ablation)
 14. `run_revision_server_experiments.py` (Revision suite covering EXP-001 through EXP-007)
 
+### LightGBM Model Specification & Metric Standards
+
+- **Locked Hyperparameters**: The primary LightGBM performance head is trained with:
+  `n_estimators=1400`, `learning_rate=0.02`, `num_leaves=31`, `subsample=0.90`, `colsample_bytree=0.90`, `min_child_samples=80`, `reg_lambda=2.0`, `reg_alpha=0.0`.
+  Outcome class imbalance (12.4% in-hospital mortality) is addressed prior to Platt recalibration via dynamic inverse event weighting:
+  `scale_pos_weight = (len(y) - y.sum()) / max(y.sum(), 1)`.
+- **Metric Computation**: All evaluation scripts strictly standardize on `sklearn.metrics.roc_auc_score` for AUROC calculation to enforce unbiased mid-rank handling for any tied prediction probabilities across tree models.
+
 ### Multicenter Validation Architecture
 
 The framework incorporates two complementary multicenter validation analyses:

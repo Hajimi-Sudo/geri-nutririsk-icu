@@ -1,3 +1,4 @@
+from sklearn.metrics import roc_auc_score
 #!/usr/bin/env python3
 """
 GERI-NutriRisk-ICU: Dissected Nutrition-Construct Ablation Experiment (EXP-004)
@@ -58,14 +59,9 @@ def logit(p):
 
 
 def compute_auc(y, p):
-    order = np.argsort(p)
-    ranks = np.empty_like(order, dtype=float)
-    ranks[order] = np.arange(1, len(p) + 1)
-    n1 = y.sum()
-    n0 = len(y) - n1
-    if n1 == 0 or n0 == 0:
+    if len(np.unique(y)) < 2:
         return float("nan")
-    return float((ranks[y == 1].sum() - n1 * (n1 + 1) / 2.0) / (n1 * n0))
+    return float(roc_auc_score(y, p))
 
 
 def compute_brier(y, p):
