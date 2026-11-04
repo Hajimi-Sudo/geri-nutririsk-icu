@@ -74,7 +74,7 @@ MIMIC_EXTRA_ITEMIDS = {
     "potassium": {"50822", "50971", "52610"},
     "chloride": {"50806", "50902"},
     "bicarbonate": {"50882"},
-    "calcium": {"50808", "50960", "50893"},
+    "calcium": {"50893"},  # Strictly Serum Total Calcium (mg/dL); Item 50808 (Free Calcium, mmol/L) and 50960 (Magnesium) excluded to prevent unit/analyte mixing
     "magnesium": {"50960"},
     "inr": {"51237", "51675"},
     "pt": {"51274"},
@@ -538,10 +538,20 @@ def run():
     write_features(OUT / "mimic_v13_features_server_only.csv", mimic)
     write_features(OUT / "eicu_v13_features_server_only.csv", eicu)
 
-    X_mimic, y_mimic, impute = matrix(mimic)
-    X_eicu, y_eicu, _ = matrix(eicu, impute=impute)
-    train = np.array([(i % 5) != 0 for i in range(len(y_mimic))])
+    # Fit median imputer strictly on development train partition to prevent pre-processing leakage
+    train = np.array([(i % 5) != 0 for i in range(len(mimic))])
     test = ~train
+    mimic_train = [mimic[i] for i in range(len(mimic)) if train[i]]
+    mimic_test = [mimic[i] for i in range(len(mimic)) if test[i]]
+    X_mimic_tr, y_mimic_tr, impute = matrix(mimic_train)
+    X_mimic_te, y_mimic_te, _ = matrix(mimic_test, impute=impute)
+    X_mimic = np.empty((len(mimic), len(FEATURES)), dtype=float)
+    X_mimic[train] = X_mimic_tr
+    X_mimic[test] = X_mimic_te
+    y_mimic = np.empty(len(mimic), dtype=int)
+    y_mimic[train] = y_mimic_tr
+    y_mimic[test] = y_mimic_te
+    X_eicu, y_eicu, _ = matrix(eicu, impute=impute)
     cal = np.array([(i % 5) == 0 for i in range(len(y_eicu))])
     held = ~cal
 
