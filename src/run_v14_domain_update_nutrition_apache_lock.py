@@ -1,23 +1,4 @@
 #!/usr/bin/env python3
-# ==============================================================================
-# [HISTORICAL AUDIT NOTICE - PRE-REVISION V14 DEVELOPMENT SCRIPT]
-# This script represents the historical pre-revision V14 development checkpoint
-# (August 2026), which evaluated an early coarse feature grouping (76 features
-# and 67 features).
-#
-# FOR AUTHORITATIVE REVISION ABLATION (EXP-004):
-# To address Reviewer #2 (R2-C5) on strictly isolating explicit nutritional reserve
-# (Albumin and BMI) from acute multiorgan metabolic derangements without variable
-# overlap, please refer to the dedicated, authoritative revision ablation script:
-#   --> src/run_nutrition_construct_ablation.py
-# Which evaluates the strict dissected feature sets reported in the revised paper:
-#   * Full model: 83 features (AUROC = 0.8722)
-#   * Without explicit nutrition (Albumin, BMI, Albumin missing): 80 features (AUROC = 0.8712)
-#   * Without nutrition support (Enteral, Parenteral): 81 features (AUROC = 0.8716)
-#   * Without explicit & support: 78 features (AUROC = 0.8711)
-#   * Without metabolic laboratories (7 acute labs + 7 missingness flags, strictly
-#     excluding albumin/BMI): 69 features (AUROC = 0.8679)
-# ==============================================================================
 """V14 domain-update nutrition and APACHE lock.
 
 This audit uses the V13 harmonized feature tables and evaluates whether the
@@ -27,6 +8,30 @@ honest nutrition-related incremental-value checks.
 APACHE predictions are used only as external comparators on the same eICU
 held-out subset. No APACHE score, APS, or APACHE predicted mortality is used as
 an input feature.
+
+Harmonized Dissected Feature Sets (EXP-004 & V14 Lock):
+-------------------------------------------------------
+Enforces strict non-overlapping clinical dissection to isolate baseline
+nutritional reserve from acute multiorgan failure:
+  1. Explicit Nutritional Reserve:
+     {"bmi", "albumin", "albumin_missing"}
+     -> 3 features dropped, 80 features remaining.
+  2. Early Nutrition Support:
+     {"enteral_24h", "parenteral_24h"}
+     -> 2 features dropped, 81 features remaining.
+  3. Explicit Nutritional Reserve + Support Combined:
+     {"bmi", "albumin", "albumin_missing", "enteral_24h", "parenteral_24h"}
+     -> 5 features dropped, 78 features remaining.
+  4. Acute Metabolic / Organ Severity Laboratories:
+     {"glucose", "creatinine", "bun", "sodium", "bilirubin", "hematocrit", "wbc"}
+     + 7 missingness indicators (strictly EXCLUDES albumin and BMI)
+     -> 14 features dropped, 69 features remaining.
+  5. Full Composite Nutrition Construct:
+     All 19 nutrition and metabolic features combined
+     -> 19 features dropped, 64 features remaining.
+  6. Historical Pre-Revision Coarse Sets (for side-by-side audit):
+     Historical coarse explicit (7 dropped -> 76 remaining)
+     Historical coarse metabolic (16 dropped -> 67 remaining)
 """
 
 from __future__ import annotations
@@ -38,6 +43,8 @@ from pathlib import Path
 
 import lightgbm as lgb
 import numpy as np
+from scipy.stats import norm
+from sklearn.metrics import roc_auc_score
 
 
 SERVER_ROOT = Path("/root/autodl-tmp/frontiers_nutrition_mimic_eicu")
@@ -47,18 +54,36 @@ EICU = Path("/root/autodl-tmp/eicu/base")
 V13 = ROOT / "v13_strong_clinical_feature_upgrade"
 OUT = ROOT / "v14_domain_update_nutrition_apache_lock"
 
+# 1. Explicit nutritional reserve (albumin, BMI, albumin missingness)
+EXPLICIT_NUTRITION = {"bmi", "albumin", "albumin_missing"}
+
+# 2. Nutrition support indicators (enteral and parenteral nutrition in 24h)
+NUTRITION_SUPPORT = {"enteral_24h", "parenteral_24h"}
+
+# 3. Explicit nutritional reserve + nutrition support combined
+EXPLICIT_AND_SUPPORT = {"bmi", "albumin", "albumin_missing", "enteral_24h", "parenteral_24h"}
+
+# 4. Acute metabolic and organ severity laboratories (strictly EXCLUDES albumin and BMI)
+NUTRITION_METABOLIC_LABS = {
+    "glucose", "creatinine", "bun", "sodium", "bilirubin", "hematocrit", "wbc",
+    "glucose_missing", "creatinine_missing", "bun_missing", "sodium_missing",
+    "bilirubin_missing", "hematocrit_missing", "wbc_missing",
+}
+
+# 5. Composite broad nutrition construct (all 19 nutrition and metabolic features)
 V12_NUTRITION_CONSTRUCT = {
     "bmi", "enteral_24h", "parenteral_24h",
     "albumin", "glucose", "creatinine", "bun", "sodium", "bilirubin", "hematocrit", "wbc",
     "albumin_missing", "glucose_missing", "creatinine_missing", "bun_missing", "sodium_missing",
     "bilirubin_missing", "hematocrit_missing", "wbc_missing",
 }
-EXPLICIT_NUTRITION = {
+
+# 6. Historical coarse sets from pre-revision exploration (for audit transparency)
+HISTORICAL_V14_EXPLICIT = {
     "bmi", "enteral_24h", "parenteral_24h", "albumin", "glucose",
     "albumin_missing", "glucose_missing",
 }
-NUTRITION_SUPPORT = {"enteral_24h", "parenteral_24h"}
-NUTRITION_METABOLIC_LABS = {
+HISTORICAL_V14_METABOLIC = {
     "albumin", "glucose", "creatinine", "bun", "sodium", "bilirubin", "hematocrit", "wbc",
     "albumin_missing", "glucose_missing", "creatinine_missing", "bun_missing", "sodium_missing",
     "bilirubin_missing", "hematocrit_missing", "wbc_missing",
@@ -100,14 +125,9 @@ def logit(p: np.ndarray) -> np.ndarray:
 
 
 def auc(y: np.ndarray, p: np.ndarray) -> float:
-    order = np.argsort(p)
-    ranks = np.empty_like(order, dtype=float)
-    ranks[order] = np.arange(1, len(p) + 1)
-    n1 = y.sum()
-    n0 = len(y) - n1
-    if n1 == 0 or n0 == 0:
+    if len(np.unique(y)) < 2:
         return float("nan")
-    return float((ranks[y == 1].sum() - n1 * (n1 + 1) / 2) / (n1 * n0))
+    return float(roc_auc_score(y, p))
 
 
 def metric_block(y: np.ndarray, p: np.ndarray) -> dict:
@@ -129,7 +149,7 @@ def ece(y: np.ndarray, p: np.ndarray, bins: int = 10) -> float:
         mask = (p >= lo) & (p <= hi) if i == bins - 1 else (p >= lo) & (p < hi)
         if mask.sum():
             total += float(mask.mean()) * abs(float(p[mask].mean()) - float(y[mask].mean()))
-    return total
+    return float(total)
 
 
 def fit_lgbm(X: np.ndarray, y: np.ndarray, seed: int) -> lgb.LGBMClassifier:
@@ -142,9 +162,10 @@ def fit_lgbm(X: np.ndarray, y: np.ndarray, seed: int) -> lgb.LGBMClassifier:
         colsample_bytree=0.90,
         min_child_samples=80,
         reg_lambda=2.0,
+        reg_alpha=0.0,
         objective="binary",
         random_state=seed,
-        n_jobs=8,
+        n_jobs=-1,
         scale_pos_weight=scale_pos_weight,
         verbose=-1,
     )
@@ -189,11 +210,41 @@ def apache_predictions() -> dict[str, dict[str, float]]:
     return out
 
 
+def compute_paired_delong_pvalue(y: np.ndarray, p_a: np.ndarray, p_b: np.ndarray) -> float:
+    y = np.asarray(y, dtype=int)
+    pos_idx = np.where(y == 1)[0]
+    neg_idx = np.where(y == 0)[0]
+    m = len(pos_idx)
+    n = len(neg_idx)
+    if m == 0 or n == 0:
+        return 1.0
+
+    v10_a = np.mean(p_a[pos_idx, None] > p_a[None, neg_idx], axis=1) + 0.5 * np.mean(p_a[pos_idx, None] == p_a[None, neg_idx], axis=1)
+    v01_a = np.mean(p_a[pos_idx, None] < p_a[None, neg_idx], axis=0) + 0.5 * np.mean(p_a[pos_idx, None] == p_a[None, neg_idx], axis=0)
+    v10_b = np.mean(p_b[pos_idx, None] > p_b[None, neg_idx], axis=1) + 0.5 * np.mean(p_b[pos_idx, None] == p_b[None, neg_idx], axis=1)
+    v01_b = np.mean(p_b[pos_idx, None] < p_b[None, neg_idx], axis=0) + 0.5 * np.mean(p_b[pos_idx, None] == p_b[None, neg_idx], axis=0)
+
+    theta_a = np.mean(v10_a)
+    theta_b = np.mean(v10_b)
+    diff = theta_a - theta_b
+
+    s10 = np.cov(v10_a, v10_b)
+    s01 = np.cov(v01_a, v01_b)
+    sigma2 = (s10[0, 0] + s10[1, 1] - 2 * s10[0, 1]) / m + (s01[0, 0] + s01[1, 1] - 2 * s01[0, 1]) / n
+
+    if sigma2 <= 0:
+        return 1.0
+    z = diff / np.sqrt(sigma2)
+    p_val = 2 * (1.0 - norm.cdf(abs(z)))
+    return float(p_val)
+
+
 def paired_bootstrap_diff(y: np.ndarray, p_a: np.ndarray, p_b: np.ndarray, metric: str, seed: int) -> dict:
     rng = np.random.default_rng(seed)
     vals = []
     n = len(y)
     fn = auc if metric == "auc" else lambda yy, pp: float(np.mean((pp - yy) ** 2))
+    diff_point = float(fn(y, p_a) - fn(y, p_b))
     for _ in range(500):
         idx = rng.integers(0, n, n)
         yy = y[idx]
@@ -201,10 +252,14 @@ def paired_bootstrap_diff(y: np.ndarray, p_a: np.ndarray, p_b: np.ndarray, metri
             continue
         vals.append(fn(yy, p_a[idx]) - fn(yy, p_b[idx]))
     lo, hi = np.percentile(vals, [2.5, 97.5])
+    p_val = None
+    if metric == "auc":
+        p_val = compute_paired_delong_pvalue(y, p_a, p_b)
     return {
         "metric": metric,
-        "estimate": float(fn(y, p_a) - fn(y, p_b)),
+        "estimate": diff_point,
         "ci_95": [float(lo), float(hi)],
+        "p_value": p_val,
         "n_resamples": int(len(vals)),
     }
 
@@ -226,7 +281,7 @@ def same_subset(rows: list[dict], y: np.ndarray, eval_mask: np.ndarray, pred_map
             continue
         idx_arr = np.asarray(idx, dtype=int)
         ap_arr = np.asarray(apred, dtype=float)
-        block = {"APACHE": metric_block(y[idx_arr], ap_arr), "coverage_n": int(len(idx_arr))}
+        block = {"APACHE": metric_block(y[idx_arr], ap_arr)}
         for name, pred in pred_map.items():
             block[name] = metric_block(y[idx_arr], pred[idx_arr])
             block[f"{name}_minus_APACHE_auc"] = block[name]["auc"] - block["APACHE"]["auc"]
@@ -244,14 +299,16 @@ def same_subset(rows: list[dict], y: np.ndarray, eval_mask: np.ndarray, pred_map
 def evaluate_feature_set(name: str, features: list[str], seed: int) -> dict:
     eicu_rows, X_e_raw, y_e, _ = load_table(V13 / "eicu_v13_features_server_only.csv", features)
     _, X_m_raw, y_m, _ = load_table(V13 / "mimic_v13_features_server_only.csv", features)
-    med = impute_fit(X_m_raw)
-    X_m = impute_apply(X_m_raw, med)
-    X_e = impute_apply(X_e_raw, med)
 
     m_train = np.array([(i % 5) != 0 for i in range(len(y_m))])
     e_update_fit = np.array([(i % 10) == 0 for i in range(len(y_e))])
     e_update_cal = np.array([(i % 10) == 5 for i in range(len(y_e))])
     e_nested_held = ~(e_update_fit | e_update_cal)
+
+    # Enforce train-only median imputation: fit strictly on MIMIC-IV development training fold
+    med = impute_fit(X_m_raw[m_train])
+    X_m = impute_apply(X_m_raw, med)
+    X_e = impute_apply(X_e_raw, med)
 
     source = fit_lgbm(X_m[m_train], y_m[m_train], seed)
     p_source = source.predict_proba(X_e)[:, 1]
@@ -291,36 +348,96 @@ def evaluate_feature_set(name: str, features: list[str], seed: int) -> dict:
 def run():
     OUT.mkdir(parents=True, exist_ok=True)
     _, _, _, all_features = load_table(V13 / "eicu_v13_features_server_only.csv")
+    
     feature_sets = {
-        "full_all_features": all_features,
-        "without_v12_nutrition_construct": [f for f in all_features if f not in V12_NUTRITION_CONSTRUCT],
-        "without_explicit_nutrition": [f for f in all_features if f not in EXPLICIT_NUTRITION],
-        "without_nutrition_support": [f for f in all_features if f not in NUTRITION_SUPPORT],
-        "without_nutrition_metabolic_labs": [f for f in all_features if f not in NUTRITION_METABOLIC_LABS],
+        "full_all_features": {
+            "features": all_features,
+            "category": "Reference Locked Model",
+            "description": "All 83 harmonized cross-database features",
+            "dropped_features": [],
+        },
+        "without_explicit_nutrition": {
+            "features": [f for f in all_features if f not in EXPLICIT_NUTRITION],
+            "category": "Revision EXP-004 Dissected Ablation",
+            "description": "Removes explicit nutritional reserve (albumin, BMI, albumin missingness; 3 features dropped -> 80 features remaining)",
+            "dropped_features": sorted(list(EXPLICIT_NUTRITION)),
+        },
+        "without_nutrition_support": {
+            "features": [f for f in all_features if f not in NUTRITION_SUPPORT],
+            "category": "Revision EXP-004 Dissected Ablation",
+            "description": "Removes early enteral and parenteral nutrition support in 24h (2 features dropped -> 81 features remaining)",
+            "dropped_features": sorted(list(NUTRITION_SUPPORT)),
+        },
+        "without_explicit_and_support": {
+            "features": [f for f in all_features if f not in EXPLICIT_AND_SUPPORT],
+            "category": "Revision EXP-004 Dissected Ablation",
+            "description": "Removes explicit nutritional reserve and nutrition support combined (5 features dropped -> 78 features remaining)",
+            "dropped_features": sorted(list(EXPLICIT_AND_SUPPORT)),
+        },
+        "without_nutrition_metabolic_labs": {
+            "features": [f for f in all_features if f not in NUTRITION_METABOLIC_LABS],
+            "category": "Revision EXP-004 Dissected Ablation",
+            "description": "Removes acute metabolic and organ severity laboratories and missingness flags (14 features dropped -> 69 features remaining; strictly excludes albumin and BMI)",
+            "dropped_features": sorted(list(NUTRITION_METABOLIC_LABS)),
+        },
+        "without_v12_nutrition_construct": {
+            "features": [f for f in all_features if f not in V12_NUTRITION_CONSTRUCT],
+            "category": "Broad Nutrition Composite Benchmark",
+            "description": "Removes all 19 nutritional and metabolic laboratory variables and flags combined (19 features dropped -> 64 features remaining)",
+            "dropped_features": sorted(list(V12_NUTRITION_CONSTRUCT)),
+        },
+        "historical_v14_without_explicit": {
+            "features": [f for f in all_features if f not in HISTORICAL_V14_EXPLICIT],
+            "category": "Historical Pre-Revision Audit Benchmark",
+            "description": "Historical coarse nutrition set including glucose & support (7 features dropped -> 76 features remaining)",
+            "dropped_features": sorted(list(HISTORICAL_V14_EXPLICIT)),
+        },
+        "historical_v14_without_metabolic": {
+            "features": [f for f in all_features if f not in HISTORICAL_V14_METABOLIC],
+            "category": "Historical Pre-Revision Audit Benchmark",
+            "description": "Historical coarse metabolic set including albumin & glucose (16 features dropped -> 67 features remaining)",
+            "dropped_features": sorted(list(HISTORICAL_V14_METABOLIC)),
+        },
     }
 
     result = {
         "protocol": "V14_DOMAIN_UPDATE_NUTRITION_APACHE_LOCK",
         "status_date": "2026-08-26",
+        "revision_audit_date": "2026-11-04",
         "red_lines": [
             "APACHE predictions are comparators only and are never model inputs.",
             "Nested eICU update, Platt calibration, and held-out evaluation use disjoint eICU partitions.",
             "Nutrition incremental value is reported as observed, including negative or null increments.",
+            "Explicit nutritional reserve (albumin, BMI) is strictly dissected from acute metabolic laboratories.",
         ],
         "feature_sets": {},
         "paired_incremental_value": {},
     }
     pred_cache = {}
-    for i, (name, features) in enumerate(feature_sets.items()):
-        print(f"evaluating {name} ({len(features)} features)", flush=True)
-        block = evaluate_feature_set(name, features, seed=20260840 + i)
+    for i, (name, cfg) in enumerate(feature_sets.items()):
+        f_list = cfg["features"]
+        print(f"evaluating {name} ({len(f_list)} features)", flush=True)
+        block = evaluate_feature_set(name, f_list, seed=20260840 + i)
+        block["category"] = cfg["category"]
+        block["description"] = cfg["description"]
+        block["dropped_features"] = cfg["dropped_features"]
+        block["n_dropped"] = len(cfg["dropped_features"])
         pred_cache[name] = block.pop("predictions_for_increment")
         result["feature_sets"][name] = block
 
     full = pred_cache["full_all_features"]
     y = np.asarray(full["y"], dtype=int)
-    for other in [x for x in feature_sets if x != "full_all_features"]:
+    for other, cfg in feature_sets.items():
+        if other == "full_all_features":
+            continue
         result["paired_incremental_value"][f"full_minus_{other}"] = {
+            "comparison": f"full_minus_{other}",
+            "feature_set_ablated": other,
+            "category": cfg["category"],
+            "description": cfg["description"],
+            "n_features_remaining": len(cfg["features"]),
+            "n_features_dropped": len(cfg["dropped_features"]),
+            "dropped_features": ", ".join(cfg["dropped_features"]),
             "source_only_auc_diff": paired_bootstrap_diff(
                 y,
                 np.asarray(full["source_only_platt"]),
@@ -358,7 +475,15 @@ def run():
     rows = []
     for name, block in result["feature_sets"].items():
         for model, metrics in block["nested_heldout"].items():
-            rows.append({"feature_set": name, "model": model, **metrics})
+            rows.append({
+                "feature_set": name,
+                "category": block["category"],
+                "n_features_remaining": block["feature_count"],
+                "n_features_dropped": block["n_dropped"],
+                "dropped_features": ", ".join(block["dropped_features"]),
+                "model": model,
+                **metrics,
+            })
     with (OUT / "table_v14_nested_metrics.csv").open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0]))
         writer.writeheader()
@@ -366,11 +491,27 @@ def run():
 
     inc_rows = []
     for comparison, block in result["paired_incremental_value"].items():
-        row = {"comparison": comparison}
-        for key, val in block.items():
-            row[f"{key}_estimate"] = val["estimate"]
-            row[f"{key}_ci_low"] = val["ci_95"][0]
-            row[f"{key}_ci_high"] = val["ci_95"][1]
+        row = {
+            "comparison": comparison,
+            "feature_set_ablated": block["feature_set_ablated"],
+            "category": block["category"],
+            "n_features_remaining": block["n_features_remaining"],
+            "n_features_dropped": block["n_features_dropped"],
+            "dropped_features": block["dropped_features"],
+            "source_only_auc_diff_estimate": block["source_only_auc_diff"]["estimate"],
+            "source_only_auc_diff_ci_low": block["source_only_auc_diff"]["ci_95"][0],
+            "source_only_auc_diff_ci_high": block["source_only_auc_diff"]["ci_95"][1],
+            "source_only_brier_diff_estimate": block["source_only_brier_diff"]["estimate"],
+            "source_only_brier_diff_ci_low": block["source_only_brier_diff"]["ci_95"][0],
+            "source_only_brier_diff_ci_high": block["source_only_brier_diff"]["ci_95"][1],
+            "combined_nested_auc_diff_estimate": block["combined_nested_auc_diff"]["estimate"],
+            "combined_nested_auc_diff_ci_low": block["combined_nested_auc_diff"]["ci_95"][0],
+            "combined_nested_auc_diff_ci_high": block["combined_nested_auc_diff"]["ci_95"][1],
+            "combined_nested_auc_pvalue": block["combined_nested_auc_diff"]["p_value"],
+            "combined_nested_brier_diff_estimate": block["combined_nested_brier_diff"]["estimate"],
+            "combined_nested_brier_diff_ci_low": block["combined_nested_brier_diff"]["ci_95"][0],
+            "combined_nested_brier_diff_ci_high": block["combined_nested_brier_diff"]["ci_95"][1],
+        }
         inc_rows.append(row)
     with (OUT / "table_v14_paired_incremental_value.csv").open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=list(inc_rows[0]))
@@ -379,20 +520,20 @@ def run():
 
     full_block = result["feature_sets"]["full_all_features"]["nested_heldout"]["combined_nested_platt"]
     md = [
-        "# V14 Domain-Update Nutrition and APACHE Lock",
+        "# V14 Domain-Update Nutrition and APACHE Lock (Audited & Dissected)",
         "",
-        "Status date: 2026-08-26",
+        "Status date: 2026-08-26 (Audited & Synchronized: 2026-11-04)",
         "",
         "## Primary Locked Result",
         "",
-        f"- Full nested combined domain-update head: AUROC {full_block['auc']:.3f}, "
-        f"Brier {full_block['brier']:.3f}, ECE {full_block['ece_q10']:.3f} on held-out eICU.",
+        f"- Full nested combined domain-update head: AUROC {full_block['auc']:.4f}, "
+        f"Brier {full_block['brier']:.4f}, ECE {full_block['ece_q10']:.4f} on held-out eICU.",
         "",
-        "## Nutrition Increment Boundary",
+        "## Nutrition Increment Boundary (EXP-004 Dissected Ablation)",
         "",
-        "The paired incremental-value table reports observed full-minus-reduced differences. "
-        "Positive AUROC differences support incremental discrimination; negative differences "
-        "must be written as no observed incremental discrimination for that feature definition.",
+        "The paired incremental-value table reports observed full-minus-reduced differences with "
+        "500-iteration bootstrap 95% confidence intervals and paired DeLong p-values. "
+        "Strictly separates explicit nutritional reserve (albumin, BMI) from acute multiorgan metabolic derangements.",
         "",
         "## APACHE Boundary",
         "",

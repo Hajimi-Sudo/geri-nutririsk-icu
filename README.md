@@ -73,11 +73,15 @@ To resolve the distinction between baseline nutritional reserve and acute multio
    Historical August 2026 development lock script evaluating early coarse feature groupings (76 features without nutrition, 67 features without metabolic labs).
 2. **Authoritative Revision Ablation (`run_nutrition_construct_ablation.py` / EXP-004)**:
    Strict, non-overlapping feature dissection executed on the held-out eICU cohort ($n = 57,488$ stays across 206 hospitals):
-   - **Full Model**: 83 cross-database harmonized features (AUROC = 0.8722, Brier = 0.0732, ECE = 0.0037).
-   - **Without Explicit Nutrition Reserve**: Removes `{"bmi", "albumin", "albumin_missing"}` (3 features -> **80 features remaining**; AUROC = 0.8712, $\Delta_{\\mathrm{AUC}} = -0.0010$, Brier = 0.0736, ECE = 0.0047).
-   - **Without Nutrition Support**: Removes `{"enteral_24h", "parenteral_24h"}` (2 features -> **81 features remaining**; AUROC = 0.8716, Brier = 0.0735).
-   - **Without Explicit Nutrition & Support**: Removes both sets (5 features -> **78 features remaining**; AUROC = 0.8711, $\Delta_{\\mathrm{AUC}} = -0.0011$).
-   - **Without Acute Metabolic Laboratories**: Removes 7 acute labs (`glucose`, `creatinine`, `bun`, `sodium`, `bilirubin`, `hematocrit`, `wbc`) and their 7 missingness flags (14 features -> **69 features remaining**; strictly excludes albumin and BMI; AUROC = 0.8679, $\Delta_{\\mathrm{AUC}} = -0.0043$, Brier = 0.0741).
+   - **Full Model**: 83 cross-database harmonized features (AUROC = 0.8722, Brier = 0.0733, ECE = 0.0041).
+   - **Without Explicit Nutrition Reserve**: Removes `{"bmi", "albumin", "albumin_missing"}` (3 features dropped -> **80 features remaining**; AUROC = 0.8718, paired $\Delta_{\mathrm{AUC}} = +0.0003$, 95% CI: $-0.0010$ to $+0.0016$, $p = 0.621$, Brier = 0.0735, ECE = 0.0044).
+   - **Without Early Nutrition Support**: Removes `{"enteral_24h", "parenteral_24h"}` (2 features dropped -> **81 features remaining**; AUROC = 0.8715, paired $\Delta_{\mathrm{AUC}} = +0.0006$, 95% CI: $-0.0002$ to $+0.0013$, $p = 0.0938$, Brier = 0.0734, ECE = 0.0041).
+   - **Without Explicit Nutrition & Support**: Removes both sets (5 features dropped -> **78 features remaining**; AUROC = 0.8714, paired $\Delta_{\mathrm{AUC}} = +0.0008$, 95% CI: $-0.0005$ to $+0.0022$, $p = 0.219$, Brier = 0.0736, ECE = 0.0040).
+   - **Without Acute Metabolic Laboratories**: Removes 7 acute labs (`glucose`, `creatinine`, `bun`, `sodium`, `bilirubin`, `hematocrit`, `wbc`) and their 7 missingness flags (14 features dropped -> **69 features remaining**; strictly excludes albumin and BMI; AUROC = 0.8679, paired $\Delta_{\mathrm{AUC}} = +0.0043$, 95% CI: $+0.0028$ to $+0.0060$, $p = 1.27 \times 10^{-7}$, Brier = 0.0740, $\Delta_{\mathrm{Brier}} = -0.0007$, ECE = 0.0042).
+   - **Without Full Composite Nutrition Construct**: Removes all 19 nutritional and metabolic laboratory variables and flags combined (19 features dropped -> **64 features remaining**; AUROC = 0.8679, paired $\Delta_{\mathrm{AUC}} = +0.0042$, $p = 2.25 \times 10^{-5}$, Brier = 0.0742, ECE = 0.0049).
+   - **Historical Pre-Revision Benchmarks (for audit transparency)**:
+     - Historical without broad nutrition (76 features): AUROC = 0.8711, paired $\Delta_{\mathrm{AUC}} = +0.0011$, $p = 0.132$.
+     - Historical without metabolic labs (67 features): AUROC = 0.8665, paired $\Delta_{\mathrm{AUC}} = +0.0057$, $p = 7.62 \times 10^{-11}$.
 
 ### APACHE-IVa Recalibration & Benchmark Architecture (EXP-002 & EXP-003)
 
@@ -96,8 +100,8 @@ To ensure an unassailably fair, symmetric comparison against established ICU cli
 4. **Sample Size Disambiguation for Figure 3**:
    - **Figure 3 Panel A (Reliability Diagram)**: Evaluates the full multicenter held-out eICU cohort ($n = 57,488$ stays across 206 hospitals; slope = 1.026, intercept = 0.077, ECE = 0.0037).
    - **Figure 3 Panel B (Decision-Curve Analysis)**: Evaluated strictly on the complete-case paired held-out subset with available APACHE-IVa predictions ($n = 39,920$ stays across 151 hospitals), demonstrating consistent net-benefit superiority across operational thresholds $1\%$ to $35\%$.
-5. **Zero Selection Bias in Unmeasured APACHE Stays**:
-   The $17,568$ held-out stays without APACHE scores (30.6%) occurred in non-scoring ICUs and step-down units; their observed mortality was $12.38\%$ vs. $12.41\%$ in the scored subset, ruling out selection bias.
+5. **Minimal Outcome Distortion in Unmeasured APACHE Stays**:
+   The $17,568$ held-out stays without APACHE scores (30.6%) occurred in non-scoring ICUs and step-down units; their observed mortality was $12.38\%$ vs. $12.41\%$ in the scored subset, demonstrating minimal outcome-rate distortion while acknowledging that unmeasured clinical confounders in non-submitting centers cannot be completely excluded.
 
 ## Privacy Boundary
 

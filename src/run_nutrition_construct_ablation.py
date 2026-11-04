@@ -222,17 +222,17 @@ def main():
     print(f"Loaded eICU: {len(y_e)} records, Total harmonized features: {len(features)}")
     assert len(features) == 83, f"Expected 83 features, found {len(features)}"
 
-    # Median imputation fitted on MIMIC-IV
-    print("Fitting median imputation on MIMIC-IV source and transforming...")
-    med = impute_fit(X_m_raw)
-    X_m = impute_apply(X_m_raw, med)
-    X_e = impute_apply(X_e_raw, med)
-
     # Standard nested protocol partitions
     m_train = np.array([(i % 5) != 0 for i in range(len(y_m))])
     e_update_fit = np.array([(i % 10) == 0 for i in range(len(y_e))])
     e_update_cal = np.array([(i % 10) == 5 for i in range(len(y_e))])
     e_held = ~(e_update_fit | e_update_cal)
+
+    # Enforce train-only median imputation: fit strictly on MIMIC-IV development training fold
+    print("Fitting median imputation on MIMIC-IV train partition and transforming...")
+    med = impute_fit(X_m_raw[m_train])
+    X_m = impute_apply(X_m_raw, med)
+    X_e = impute_apply(X_e_raw, med)
 
     print(f"Cohort splits: MIMIC Train = {m_train.sum()}, eICU Update Fit = {e_update_fit.sum()}, eICU Cal = {e_update_cal.sum()}, eICU Held-Out = {e_held.sum()}")
 
@@ -291,6 +291,12 @@ def main():
             "features": [f for f in features if f not in METABOLIC_LABS],
             "category": "Revision EXP-004 (Strict Dissection)",
             "description": "Removes 7 acute metabolic labs and 7 missingness flags (14 variables -> 69 features; excludes albumin/BMI)",
+        },
+        "without_v12_nutrition_construct": {
+            "label": "Ablation: Without Full Composite Nutrition Construct",
+            "features": [f for f in features if f not in (EXPLICIT_NUTRITION | NUTRITION_SUPPORT | METABOLIC_LABS)],
+            "category": "Broad Nutrition Composite Benchmark",
+            "description": "Removes all 19 nutritional and metabolic laboratory variables and flags combined (19 variables -> 64 features)",
         },
         "historical_v14_without_explicit": {
             "label": "Historical V14 Coarse: Without Broad Nutrition Set",
