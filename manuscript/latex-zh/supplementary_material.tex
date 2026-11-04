@@ -409,7 +409,7 @@
  & & & eICU-CRD & 0.0\% & 0.00 $\pm$ 0.00 & 0.00 & 0.00--0.00 & 0--0 \\
 \addlinespace[1.5pt]
 \end{longtable}
-\vspace{-0.5em}\noindent{\footnotesize $^\dagger$：对于 $\mathrm{PaO_2/FiO_2}$ 比值，表中直接报告了真实未测量比例（MIMIC-IV 缺失率列为 88.6\%，eICU-CRD 为 75.9\%）以及在入 ICU 首日具有有效动脉血气与吸氧浓度配对测定人群中的生理分布统计（MIMIC-IV $n = 3{,}828$，eICU-CRD $n = 17{,}333$）。PF 比值计算规则为入住 ICU 首日 24 小时内的 PaO2 中位数除以 FiO2 中位数；在下游机器学习树模型特征工程中，未测动脉血气的常规住院患者赋予数值 0.0 作为未发生急重呼吸衰竭（未插管吸氧）的结构状态编码（显式缺失指示变量敏感性分析表明其性能完全等价，ΔAUROC = -0.0004）。所有常规生化检验与生命体征均采用首日 24 小时中位数（Median）进行特征聚合，GCS 提取首日最差值（nadir），尿量提取 24 小时累积总量。血清钙严格标准化为血清总钙（MIMIC-IV itemid 50893，eICU-CRD \texttt{lab.calcium}；彻底剔除了游离钙 itemid 50808 与镁 itemid 50960）。连续变量中位数插补器严格仅在开发训练集上拟合。}\par\medskip
+\vspace{-0.5em}\noindent{\footnotesize $^\dagger$：对于 $\mathrm{PaO_2/FiO_2}$ 比值，表中报告了真实未测量比例（MIMIC-IV 缺失率列为 88.6\%，eICU-CRD 为 75.9\%）以及仅在入 ICU 首日 24 小时内同时具有 $\mathrm{PaO_2}$ 与 $\mathrm{FiO_2}$ 测定病历中的生理分布统计（MIMIC-IV  = 3{,}828$，eICU-CRD  = 17{,}333$；按首日 $\mathrm{PaO_2}$ 中位数除以首日 $\mathrm{FiO_2}$ 中位数计算，生理截断范围为 20--700）。在下游梯度提升树模型中，未能计算该比值的病历赋予数值哨兵 0.0 作为无法计算指标的结构性缺失标记（避免直接推断为未插管或呼吸正常，缺失受医院检验习惯与采血指征等多重因素影响）；显式缺失指示变量敏感性分析表明，引入二元指示变量（\texttt{pf\_ratio\_missing}）的模型判别力完全一致（$\Delta\mathrm{AUROC} = -0.0004$）。血清钙严格标准化为血清总钙（MIMIC-IV itemid 50893，eICU-CRD \texttt{lab.calcium}；有效范围 4.0--20.0~mg/dL；彻底剔除游离钙 itemid 50808 与镁 itemid 50960）。所有常规生化检验与生命体征均采用首日 24 小时中位数（Median）进行特征聚合。连续变量中位数插补器严格仅在开发训练集上拟合。}\par\medskip
 \endgroup
 
 \clearpage

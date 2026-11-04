@@ -349,8 +349,8 @@ def add_eicu_extra_labs(rows):
 
 def add_derived_features(row):
     # PaO2/FiO2 ratio: calculated as ratio of first-day median PaO2 to median FiO2.
-    # Unmonitored stays (without blood gas orders) are encoded as 0.0 to represent
-    # structural absence of acute respiratory failure monitoring (non-ventilated routine care).
+    # Stays without valid PaO2 and FiO2 data are encoded as 0.0 as a numeric sentinel
+    # indicating that the ratio could not be calculated.
     pao2 = row.get("pao2")
     fio2 = row.get("fio2")
     if pao2 is not None and fio2 is not None and fio2 > 0:
