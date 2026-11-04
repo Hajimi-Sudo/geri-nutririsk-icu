@@ -1,4 +1,23 @@
 #!/usr/bin/env python3
+# ==============================================================================
+# [HISTORICAL AUDIT NOTICE - PRE-REVISION V14 DEVELOPMENT SCRIPT]
+# This script represents the historical pre-revision V14 development checkpoint
+# (August 2026), which evaluated an early coarse feature grouping (76 features
+# and 67 features).
+#
+# FOR AUTHORITATIVE REVISION ABLATION (EXP-004):
+# To address Reviewer #2 (R2-C5) on strictly isolating explicit nutritional reserve
+# (Albumin and BMI) from acute multiorgan metabolic derangements without variable
+# overlap, please refer to the dedicated, authoritative revision ablation script:
+#   --> src/run_nutrition_construct_ablation.py
+# Which evaluates the strict dissected feature sets reported in the revised paper:
+#   * Full model: 83 features (AUROC = 0.8722)
+#   * Without explicit nutrition (Albumin, BMI, Albumin missing): 80 features (AUROC = 0.8712)
+#   * Without nutrition support (Enteral, Parenteral): 81 features (AUROC = 0.8716)
+#   * Without explicit & support: 78 features (AUROC = 0.8711)
+#   * Without metabolic laboratories (7 acute labs + 7 missingness flags, strictly
+#     excluding albumin/BMI): 69 features (AUROC = 0.8679)
+# ==============================================================================
 """V14 domain-update nutrition and APACHE lock.
 
 This audit uses the V13 harmonized feature tables and evaluates whether the

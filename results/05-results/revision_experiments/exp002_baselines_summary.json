@@ -1,0 +1,71 @@
+{
+  "heldout_metrics": {
+    "source_only": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8053186394392308,
+      "brier": 0.08513115883890553,
+      "ece_q10": 0.013376623103191326
+    },
+    "target_only": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8678760077842647,
+      "brier": 0.07472487416131902,
+      "ece_q10": 0.004189597180283569
+    },
+    "combined_domain_updated": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8721554260554737,
+      "brier": 0.07321767063415748,
+      "ece_q10": 0.0036501171723538487
+    }
+  },
+  "pooling_weight_lambda": 1.0,
+  "sample_sizes": {
+    "source_train_n": 26936,
+    "target_update_n": 7187,
+    "target_calibration_n": 7186,
+    "target_heldout_n": 57488
+  },
+  "random_seeds": {
+    "target_only": 20260840,
+    "source_only": 20260841,
+    "combined_domain_updated": 20261840
+  },
+  "apache_iva_recalibrated_same_subset": {
+    "n": 39920,
+    "apache_raw": {
+      "n": 39920,
+      "events": 4956,
+      "event_rate": 0.12414829659318637,
+      "auc": 0.8504124477532476,
+      "brier": 0.08204785646844932,
+      "ece_q10": 0.028903707174170422
+    },
+    "apache_recalibrated": {
+      "n": 39920,
+      "events": 4956,
+      "event_rate": 0.12414829659318637,
+      "auc": 0.8504124477532476,
+      "brier": 0.08105169174861711,
+      "ece_q10": 0.00791047083860919
+    },
+    "domain_updated_same_subset": {
+      "n": 39920,
+      "events": 4956,
+      "event_rate": 0.12414829659318637,
+      "auc": 0.8713008417559248,
+      "brier": 0.07413677623154692,
+      "ece_q10": 0.00919351141348936
+    },
+    "platt_weights": [
+      -0.35368079046836787,
+      1.012864396678661
+    ]
+  }
+}

@@ -40,8 +40,35 @@ The staged analysis sequence was:
 7. `run_v13b_domain_update_calibration.py`
 8. `run_v14_domain_update_nutrition_apache_lock.py`
 9. `run_v15_v14_explainability.py`
-10. `run_v16_hospital_cluster_robustness.py`
+10. `run_v16_hospital_cluster_robustness.py` (Historical V16: cluster bootstrap on primary split)
 11. `export_final_assets.py` and `restyle_nature_figures.py`
+12. `run_leave_hospital_out_validation.py` (Revision EXP-001: strict 20/20/167 leave-hospital-out validation across 167 unseen hospitals)
+13. `run_nutrition_construct_ablation.py` (Revision EXP-004: strict dissected nutrition-reserve vs. metabolic-labs ablation)
+14. `run_revision_server_experiments.py` (Revision suite covering EXP-001 through EXP-007)
+
+### Multicenter Validation Architecture
+
+The framework incorporates two complementary multicenter validation analyses:
+
+1. **Hospital Cluster-Bootstrap Robustness (`run_v16_hospital_cluster_robustness.py`)**:
+   Evaluates intra-cohort robustness across participating hospitals within the primary patient-level test partition (500 resamples across 206 hospitals; Table 22/23).
+2. **Strict Leave-Hospital-Out Validation (`run_leave_hospital_out_validation.py`)**:
+   Partitions the 207 eICU hospitals strictly at the institutional level into 20 domain-update hospitals (n = 9,949), 20 calibration hospitals (n = 4,376), and 167 completely unseen held-out hospitals (n = 57,536; AUROC 0.871, Brier 0.074, ECE 0.009). Patients from the 167 held-out hospitals are completely excluded from training, updating, and calibration to prove true center-level generalizability.
+
+
+### Nutrition-Construct Ablation Architecture
+
+To resolve the distinction between baseline nutritional reserve and acute multiorgan metabolic derangement (Reviewer #2, R2-C5), the repository provides both the historical pre-revision baseline and the authoritative revision ablation:
+
+1. **Historical Pre-Revision Development Baseline (`run_v14_domain_update_nutrition_apache_lock.py`)**:
+   Historical August 2026 development lock script evaluating early coarse feature groupings (76 features without nutrition, 67 features without metabolic labs).
+2. **Authoritative Revision Ablation (`run_nutrition_construct_ablation.py` / EXP-004)**:
+   Strict, non-overlapping feature dissection executed on the held-out eICU cohort ($n = 57,488$ stays across 206 hospitals):
+   - **Full Model**: 83 cross-database harmonized features (AUROC = 0.8722, Brier = 0.0732, ECE = 0.0037).
+   - **Without Explicit Nutrition Reserve**: Removes `{"bmi", "albumin", "albumin_missing"}` (3 features -> **80 features remaining**; AUROC = 0.8712, $\Delta_{\\mathrm{AUC}} = -0.0010$, Brier = 0.0736, ECE = 0.0047).
+   - **Without Nutrition Support**: Removes `{"enteral_24h", "parenteral_24h"}` (2 features -> **81 features remaining**; AUROC = 0.8716, Brier = 0.0735).
+   - **Without Explicit Nutrition & Support**: Removes both sets (5 features -> **78 features remaining**; AUROC = 0.8711, $\Delta_{\\mathrm{AUC}} = -0.0011$).
+   - **Without Acute Metabolic Laboratories**: Removes 7 acute labs (`glucose`, `creatinine`, `bun`, `sodium`, `bilirubin`, `hematocrit`, `wbc`) and their 7 missingness flags (14 features -> **69 features remaining**; strictly excludes albumin and BMI; AUROC = 0.8679, $\Delta_{\\mathrm{AUC}} = -0.0043$, Brier = 0.0741).
 
 ## Privacy Boundary
 

@@ -1,8 +1,28 @@
 #!/usr/bin/env python3
-"""V16 hospital-cluster robustness for the V14 locked model.
+"""V16 Hospital-Cluster Bootstrap Robustness Analysis (Primary-Split Evaluation).
 
-Runs on the server because it needs the eICU patient table and APACHE comparator
-file. APACHE predictions are used only as comparators.
+========================================================================================
+CRITICAL NOTICE ON METHODOLOGY & REPRODUCIBILITY SCOPE:
+========================================================================================
+This script represents the historical V16 development phase (pre-revision), which
+evaluates hospital-cluster bootstrap stability and center-stratified performance
+within the PRIMARY patient-level stratified split (10% eICU update, 10% eICU calibration,
+80% eICU test partition partitioned via modulo indexing).
+
+If you are looking for the STRICT CENTER-LEVEL LEAVE-HOSPITAL-OUT VALIDATION
+(where 20 hospitals are allocated to update, 20 hospitals to calibration, and 167 hospitals
+are strictly held out as unseen centers before any model fitting or imputation),
+please refer to the dedicated standalone script:
+    --> run_leave_hospital_out_validation.py (EXP-001)
+
+Summary of the dual validation architecture:
+  1. run_v16_hospital_cluster_robustness.py (this script):
+     Primary patient-level split (i % 10), evaluating intra-cohort cluster bootstrap
+     and center-stratified performance across participating sites.
+  2. run_leave_hospital_out_validation.py (EXP-001):
+     Strict leave-hospital-out partition (20 / 20 / 167 hospitals), evaluating
+     zero-leakage generalizability to 167 completely independent, unseen hospitals.
+========================================================================================
 """
 
 from __future__ import annotations
