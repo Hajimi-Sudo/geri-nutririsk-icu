@@ -14,9 +14,9 @@
 
 
 \makeatletter
-\setlength{\@fptop}{0pt plus 1fil}
+\setlength{\@fptop}{0pt}
 \setlength{\@fpbot}{0pt plus 1fil}
-\setlength{\@fpsep}{16pt plus 0.2fil}
+\setlength{\@fpsep}{10pt plus 1fil}
 \makeatother
 
 \renewcommand{\topfraction}{0.95}
@@ -36,13 +36,13 @@
 
 All primary model-lock experiments (v7--v16) were executed and formally locked on the remote analysis server on 2026-08-26. Subsequent revision sensitivity analyses, nutrition ablations, and hyperparameter cross-validation audits (EXP-001 through EXP-008) were executed on 2026-09-01 under the identical remote environment and locked feature schema. The runtime root was \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{frontiers\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{mimic\_}\allowbreak\texttt{eicu}, with MIMIC-IV v3.1 under \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{mimiciv/}\allowbreak\texttt{mimic-iv-3.1} and eICU-CRD under \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{eicu/}\allowbreak\texttt{base}. HTTP and HTTPS proxy environment variables were unset before execution. The server-side evidence manifest records all primary and revision artifact hashes and execution logs.
 
-Supplementary Figure~\ref{fig:s1} shows the source-only eICU ROC curve from the transparent-anchor development trajectory. Supplementary Figure~\ref{fig:s2} shows decision-curve behavior before and after Platt recalibration. Supplementary Figure~\ref{fig:s3} reports standardized logistic-anchor coefficients. Supplementary Figure~\ref{fig:s4} summarizes five-split stability. Supplementary Figure~\ref{fig:s5} shows the initial SOTA tabular benchmark. Supplementary Figure~\ref{fig:s6} shows the expanded LightGBM primary diagnostic package. Supplementary Figure~\ref{fig:s7} reports the top 20 gain-ranked features from the locked V14 model. Supplementary Figure~\ref{fig:s8} shows hospital-size versus hospital-level AUROC. Supplementary Figure~\ref{fig:s9_shap} presents the TreeExplainer SHAP global feature importance ranking for the locked GERI-NutriRisk-ICU model.
+Supplementary Figure~\ref{fig:s1} shows the source-only eICU ROC curve from the transparent-anchor development trajectory. Supplementary Figure~\ref{fig:s2} shows decision-curve behavior before and after Platt recalibration. Supplementary Figure~\ref{fig:s3} reports standardized logistic-anchor coefficients. Supplementary Figure~\ref{fig:s4} summarizes five-split stability. Supplementary Figure~\ref{fig:s5} shows the initial SOTA tabular benchmark. Supplementary Figure~\ref{fig:s6} shows the expanded LightGBM primary diagnostic package. Supplementary Figure~\ref{fig:s7} reports the top 20 gain-ranked features from the locked V14 model. Supplementary Figure~\ref{fig:s8} shows hospital-size versus hospital-level AUROC. Supplementary Figure~\ref{fig:s9_shap} presents the Tree\allowbreak Explainer SHAP global feature importance ranking for the locked GERI-NutriRisk-ICU model.
 
 \section{Supplementary Figures}
 
 \begin{figure}[!b]
 \centering
-\includegraphics[width=0.62\textwidth]{supp_figS1_eicu_roc.jpg}
+\includegraphics[width=0.45\textwidth]{supp_figS1_eicu_roc.jpg}
 \caption{Source-only eICU-CRD receiver operating characteristic curve from the transparent-anchor development trajectory.}
 \label{fig:s1}
 \end{figure}
@@ -51,14 +51,14 @@ Supplementary Figure~\ref{fig:s1} shows the source-only eICU ROC curve from the 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.92\textwidth]{supp_figS2_decision_curve.jpg}
+\includegraphics[width=0.62\textwidth]{supp_figS2_decision_curve.jpg}
 \caption{Decision-curve analysis before and after external-domain recalibration.}
 \label{fig:s2}
 \end{figure}
 
 \begin{figure}[!b]
 \centering
-\includegraphics[width=0.90\textwidth]{supp_figS3_standardized_coefficients.jpg}
+\includegraphics[width=0.62\textwidth]{supp_figS3_standardized_coefficients.jpg}
 \caption{Largest non-missingness standardized coefficients in the transparent logistic anchor.}
 \label{fig:s3}
 \end{figure}
@@ -67,14 +67,14 @@ Supplementary Figure~\ref{fig:s1} shows the source-only eICU ROC curve from the 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.92\textwidth]{supp_figS4_benchmark_stability.jpg}
+\includegraphics[width=0.80\textwidth]{supp_figS4_benchmark_stability.jpg}
 \caption{Model-class comparison and five-split stability for the transparent logistic anchor.}
 \label{fig:s4}
 \end{figure}
 
 \begin{figure}[!b]
 \centering
-\includegraphics[width=0.88\textwidth]{supp_figS5_sota_tabular_benchmark.jpg}
+\includegraphics[width=0.70\textwidth]{supp_figS5_sota_tabular_benchmark.jpg}
 \caption{Initial SOTA tabular-model benchmark before the bounded completion queue.}
 \label{fig:s5}
 \end{figure}
@@ -83,14 +83,14 @@ Supplementary Figure~\ref{fig:s1} shows the source-only eICU ROC curve from the 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.88\textwidth]{supp_figS6_lightgbm_primary_package.jpg}
+\includegraphics[width=0.60\textwidth]{supp_figS6_lightgbm_primary_package.jpg}
 \caption{Expanded LightGBM primary diagnostic package before the final APACHE-contextualized domain-update lock.}
 \label{fig:s6}
 \end{figure}
 
 \begin{figure}[!b]
 \centering
-\includegraphics[width=0.85\textwidth]{supp_figS7_v14_top20_gain_importance.jpg}
+\includegraphics[width=0.55\textwidth]{supp_figS7_v14_top20_gain_importance.jpg}
 \caption{Top 20 LightGBM gain-ranked features for the locked V14 domain-updated model.}
 \label{fig:s7}
 \end{figure}
@@ -99,15 +99,15 @@ Supplementary Figure~\ref{fig:s1} shows the source-only eICU ROC curve from the 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.88\textwidth]{supp_figS8_hospital_size_auc_scatter.jpg}
+\includegraphics[width=0.58\textwidth]{supp_figS8_hospital_size_auc_scatter.jpg}
 \caption{Hospital size and hospital-level AUROC among eICU hospitals with at least 200 held-out stays.}
 \label{fig:s8}
 \end{figure}
 
 \begin{figure}[!b]
 \centering
-\includegraphics[width=0.98\textwidth]{supplementary_fig9_shap.jpg}
-\caption{TreeExplainer SHAP explainability and individualized patient vignettes for the locked GERI-NutriRisk-ICU model across held-out eICU-CRD stays ($n=57{,}488$). (A) Global top 15 features ranked by mean absolute SHAP value, highlighting nutritional indicators (albumin, BMI; orange) alongside acute multiorgan severity markers (blue). (B) Local waterfall attribution for Case 1 (Patient 2862205: severe hypoalbuminemia with preserved BMI, predicted mortality 33.0\%, died in hospital), showing how marked hypoalbuminemia (2.0 g/dL) drove elevated risk despite reassuring admission GCS (15) and normal lactate (1.3 mmol/L). (C) Local waterfall attribution for Case 2 (Patient 2600991: higher albumin and BMI despite acute physiological instability, predicted mortality 1.7\%, discharged alive), illustrating how higher albumin (3.8 g/dL) and BMI (26.5 kg/m$^2$) moderated predicted risk. Baseline expected value $E[f(x)] = -1.92$.}
+\includegraphics[width=0.62\textwidth]{supplementary_fig9_shap.jpg}
+\caption{Tree\allowbreak Explainer SHAP explainability and individualized patient vignettes for the locked GERI-NutriRisk-ICU model across held-out eICU-CRD stays ($n=57{,}488$). (A) Global top 15 features ranked by mean absolute SHAP value, highlighting nutritional indicators (albumin, BMI; orange) alongside acute multiorgan severity markers (blue). (B) Local waterfall attribution for Case 1 (Patient 2862205: severe hypoalbuminemia with preserved BMI, predicted mortality 33.0\%, died in hospital), showing how marked hypoalbuminemia (2.0 g/dL) drove elevated risk despite reassuring admission GCS (15) and normal lactate (1.3 mmol/L). (C) Local waterfall attribution for Case 2 (Patient 2600991: higher albumin and BMI despite acute physiological instability, predicted mortality 1.7\%, discharged alive), illustrating how higher albumin (3.8 g/dL) and BMI (26.5 kg/m$^2$) moderated predicted risk. Baseline expected value $E[f(x)] = -1.92$.}
 \label{fig:s9_shap}
 \end{figure}
 
@@ -420,7 +420,7 @@ Supplementary Table~\ref{tab:audit_s2} details model iterations from exploratory
 \singlespacing
 \renewcommand{\arraystretch}{0.82}
 \setlength{\tabcolsep}{2.5pt}
-\begin{longtable}{>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{0.9cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{6.0cm}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{5.6cm}}
 \caption{Chronological development, model selection audit, and freeze protocol across versions v7 through v16 and revision experiments EXP-001 through EXP-008.} \label{tab:audit_s2} \\
 \toprule
 Version & Timestamp & Stage & Features & Objective & Key Outcome / Decision \\
@@ -469,15 +469,15 @@ R1 EXP-002 & 2026-09-01 & Baselines \& APACHE-IVa Recalibration & 83 & Benchmark
 \addlinespace[1pt]
 R1 EXP-003 & 2026-09-01 & Decision Curve Analysis (DCA) & 83 & Evaluate net clinical benefit across clinical threshold probabilities (1\% to 35\%) & GERI-NutriRisk-ICU demonstrated strictly superior net clinical benefit over recalibrated APACHE-IVa across all relevant threshold probabilities (1\%--35\%) \\
 \addlinespace[1pt]
-R1 EXP-004 & 2026-09-01 & Dissected Nutrition Feature Ablation & 80/81/78/69/64 & Address R2-C5: strictly isolate explicit nutritional reserve (albumin, BMI) from acute metabolic laboratories & Without explicit reserve: AUROC 0.8707 ($\Delta = -0.0011$, $p = 0.0886$, Brier 0.0736); without support: 0.8714; without metabolic labs: 0.8674 ($\Delta = -0.0043$, $p < 0.001$); without construct: 0.8673 \\
+R1 EXP-004 & 2026-09-01 & Dissected Nutrition Feature Ablation & 80/\allowbreak 81/\allowbreak 78/\allowbreak 69/\allowbreak 64 & Address R2-C5: strictly isolate explicit nutritional reserve (albumin, BMI) from acute metabolic laboratories & Without explicit reserve: AUROC 0.8707 ($\Delta = -0.0011$, $p = 0.0886$, Brier 0.0736); without support: 0.8714; without metabolic labs: 0.8674 ($\Delta = -0.0043$, $p < 0.001$); without construct: 0.8673 \\
 \addlinespace[1pt]
 R1 EXP-005 & 2026-09-01 & 83-Feature Full Distribution Audit & 83 & Address R2-C6: provide complete mean $\pm$ SD, median, IQR, min--max range, and true missingness across both databases & Completed Supplementary Table S1 for all 83 features; verified continuous medians fitted on development training data only; clarified unmeasured PF ratio \\
 \addlinespace[1pt]
 R1 EXP-006 & 2026-09-01 & Multicenter Calibration Diagnostics & 83 & Hospital-level calibration slope, intercept, and O/E mortality ratio across 140 hospitals with $n \ge 100$ & 140 hospitals ($n \ge 100$): median slope 1.032 (IQR 0.946--1.190), mean O/E ratio 1.001 (IQR 0.902--1.074), full-cohort slope 1.026, aggregate ECE 0.0037 \\
 \addlinespace[1pt]
-R1 EXP-007 & 2026-09-01 & TreeExplainer SHAP Interpretability & 83 & Compute global SHAP feature importance and individualized local waterfall plots for clinical case vignettes & Global ranking confirmed BMI rank 5 (mean $|\text{SHAP}| = 0.242$), BUN, albumin; case vignettes showed nutritional moderation of acute physiological severity \\
+R1 EXP-007 & 2026-09-01 & Tree\allowbreak Explainer SHAP In\-ter\-pret\-abil\-i\-ty & 83 & Compute global SHAP feature importance and individualized local waterfall plots for clinical case vignettes & Global ranking confirmed BMI rank 5 (mean $|\text{SHAP}| = 0.242$), BUN, albumin; case vignettes showed nutritional moderation of acute physiological severity \\
 \addlinespace[1pt]
-R1 EXP-008 & 2026-09-01 & Hyperparameter 5-Fold CV Audit & 83 & Address R3-C6: Protocolized 5-fold stratified CV on pooled development set ($N=34{,}123$) to audit candidate search & Evaluated 6 candidate configurations on pooled dev set ($N=34{,}123$); confirmed locked CONFIG-4 (1,400 trees, lr=0.02, 31 leaves, depth=6, min\_child=80, $\lambda=2.0$, mean CV AUROC 0.8869 $\pm$ 0.0046, Brier 0.1073) \\
+R1 EXP-008 & 2026-09-01 & Hy\-per\-pa\-ram\-e\-ter 5-Fold CV Audit & 83 & Address R3-C6: Protocolized 5-fold stratified CV on pooled development set ($N=34{,}123$) to audit candidate search & Evaluated 6 candidate configurations on pooled dev set ($N=34{,}123$); confirmed locked CONFIG-4 (1,400 trees, lr=0.02, 31 leaves, depth=6, min\_child=80, $\lambda=2.0$, mean CV AUROC 0.8869 $\pm$ 0.0046, Brier 0.1073) \\
 \end{longtable}
 \endgroup
 
@@ -695,8 +695,8 @@ table\_exp002\_dca\_paired\_subset.csv & 3,829 & d45ee3262300\\
 table\_exp003\_hospital\_calibration.csv & 16,043 & 95b6f625cd13\\
 table\_exp004\_nutrition\_construct\_ablation.csv & 1,806 & bde01f4159dd\\
 table\_exp005\_feature\_distributions.csv & 13,123 & 9b3872af61c7\\
-table\_hyperparameter\_cv\_audit.csv & 1,250 & 8626756db603\\
-hyperparameter\_cv\_summary.json & 5,302 & ae06d4f19d20\\
+table\_hyperparameter\_cv\_audit.csv & 1,250 & 297b8f3e0099\\
+hyperparameter\_cv\_summary.json & 5,302 & 675e84f85d41\\
 exp006\_calibration\_diagnostics.json & 1,721 & 51f911768ea9\\
 exp007\_shap\_summary.json & 3,655 & 7a215d413820\\
 feature\_audit\_sensitivity.json & 2,325 & f058db3e678b\\

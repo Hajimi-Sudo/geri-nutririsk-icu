@@ -34,31 +34,29 @@
 
 {\sloppy 主要模型锁定实验（v7--v16）于 2026-08-26 在远程分析服务器上执行并正式锁定。后续返修敏感性分析、营养消融与超参数交叉验证审计（EXP-001 至 EXP-008）于 2026-09-01 在完全相同的远程环境与锁定特征架构下执行。运行根目录为 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{frontiers\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{mimic\_}\allowbreak\texttt{eicu}，其中 MIMIC-IV v3.1 位于 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{mimiciv/}\allowbreak\texttt{mimic-iv-3.1}，eICU-CRD 位于 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{eicu/}\allowbreak\texttt{base}。执行前已取消 HTTP 与 HTTPS 代理环境变量。服务器端证据清单覆盖 v7--v16 基准测试、SOTA、修复、APACHE 锁定、可解释性及多中心鲁棒性产物。\par}
 
-中文补充材料图 S1 展示源域迁移 ROC 曲线。图 S2 展示 Platt 再校准前后的决策曲线。图 S3 报告透明逻辑锚定模型标准化系数。图 S4 总结五折稳定性。图 S5 展示初始 SOTA 表格模型基准。图 S6 展示扩展 LightGBM 诊断包。图 S7 报告锁定 V14 模型 gain 排名前 20 的特征。图 S8 展示医院规模与医院层面 AUROC 的关系。图 S9 展示锁定 GERI-NutriRisk-ICU 模型的 TreeExplainer SHAP 全局特征贡献度排名。
+中文补充材料图 S1 展示源域迁移 ROC 曲线。图 S2 展示 Platt 再校准前后的决策曲线。图 S3 报告透明逻辑锚定模型标准化系数。图 S4 总结五折稳定性。图 S5 展示初始 SOTA 表格模型基准。图 S6 展示扩展 LightGBM 诊断包。图 S7 报告锁定 V14 模型 gain 排名前 20 的特征。图 S8 展示医院规模与医院层面 AUROC 的关系。图 S9 展示锁定 GERI-NutriRisk-ICU 模型的 Tree\allowbreak Explainer SHAP 全局特征贡献度排名。
 
 \section*{补充图}
 
-\begin{figure}[!htbp]
+\begin{figure}[!b]
 \centering
-\includegraphics[width=0.75\textwidth]{supp_figS1_eicu_roc.jpg}
+\includegraphics[width=0.45\textwidth]{supp_figS1_eicu_roc.jpg}
 \caption{中文补充材料图 S1。透明锚定模型开发轨迹中的源域迁移 eICU-CRD ROC 曲线。}
 \label{fig:s1}
 \end{figure}
 
 \clearpage
 
-\begin{figure}[!htbp]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.92\textwidth]{supp_figS2_decision_curve.jpg}
+\includegraphics[width=0.62\textwidth]{supp_figS2_decision_curve.jpg}
 \caption{中文补充材料图 S2。外部域 Platt 再校准前后的决策曲线。}
 \label{fig:s2}
 \end{figure}
 
-\clearpage
-
-\begin{figure}[!htbp]
+\begin{figure}[!b]
 \centering
-\includegraphics[width=0.90\textwidth]{supp_figS3_standardized_coefficients.jpg}
+\includegraphics[width=0.62\textwidth]{supp_figS3_standardized_coefficients.jpg}
 \caption{中文补充材料图 S3。透明逻辑锚定模型中绝对值最大的非缺失性标准化系数。}
 \label{fig:s3}
 \end{figure}
@@ -67,51 +65,47 @@
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.92\textwidth]{supp_figS4_benchmark_stability.jpg}
+\includegraphics[width=0.80\textwidth]{supp_figS4_benchmark_stability.jpg}
 \caption{中文补充材料图 S4。透明逻辑锚定模型的五次划分稳定性和特征数量基准。}
 \label{fig:s4}
 \end{figure}
 
 \begin{figure}[!b]
 \centering
-\includegraphics[width=0.88\textwidth]{supp_figS5_sota_tabular_benchmark.jpg}
+\includegraphics[width=0.70\textwidth]{supp_figS5_sota_tabular_benchmark.jpg}
 \caption{中文补充材料图 S5。封顶补充前的初始 SOTA 表格模型对照。}
 \label{fig:s5}
 \end{figure}
 
 \clearpage
 
-\begin{figure}[!htbp]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.92\textwidth]{supp_figS6_lightgbm_primary_package.jpg}
+\includegraphics[width=0.60\textwidth]{supp_figS6_lightgbm_primary_package.jpg}
 \caption{中文补充材料图 S6。最终 APACHE 对照域更新锁定前的 LightGBM 扩展诊断包。}
 \label{fig:s6}
 \end{figure}
 
-\clearpage
-
-\begin{figure}[!htbp]
+\begin{figure}[!b]
 \centering
-\includegraphics[width=0.88\textwidth]{supp_figS7_v14_top20_gain_importance.jpg}
+\includegraphics[width=0.55\textwidth]{supp_figS7_v14_top20_gain_importance.jpg}
 \caption{中文补充材料图 S7。锁定 V14 域更新模型中 gain 排名前 20 的 LightGBM 特征。}
 \label{fig:s7}
 \end{figure}
 
 \clearpage
 
-\begin{figure}[!htbp]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.88\textwidth]{supp_figS8_hospital_size_auc_scatter.jpg}
+\includegraphics[width=0.58\textwidth]{supp_figS8_hospital_size_auc_scatter.jpg}
 \caption{中文补充材料图 S8。持出住院不少于 200 次的 eICU 医院中，医院规模与医院层面 AUROC 散点图。}
 \label{fig:s8}
 \end{figure}
 
-\clearpage
-
-\begin{figure}[!htbp]
+\begin{figure}[!b]
 \centering
-\includegraphics[width=0.95\textwidth]{supplementary_fig9_shap.jpg}
-\caption{中文补充材料图 S9。锁定 GERI-NutriRisk-ICU 模型在 eICU-CRD 持出集（$n=57,488$）上的 TreeExplainer SHAP 全局特征重要性排名及典型临床病例文摘。（A）按平均绝对 SHAP 值排序的前 15 个全局特征，突出显式营养指标（白蛋白、BMI，橙色）与急性多器官衰竭标志物（蓝色）；（B）病例 1（患者 2862205：重度低白蛋白血症合并保留 BMI，预测死亡率 33.0\%，院内死亡）局部瀑布归因图，展示低白蛋白血症（2.0 g/dL）如何在正常 GCS（15）与正常乳酸（1.3 mmol/L）背景下推高死亡风险；（C）病例 2（患者 2600991：急性生理不稳定合并较高白蛋白与 BMI，预测死亡率 1.7\%，治愈出院）局部瀑布归因图，展示较高白蛋白（3.8 g/dL）与 BMI（26.5 kg/m$^2$）如何缓冲急性生理不稳定。基线期望值 $E[f(x)] = -1.92$。}
+\includegraphics[width=0.62\textwidth]{supplementary_fig9_shap.jpg}
+\caption{中文补充材料图 S9。锁定 GERI-NutriRisk-ICU 模型在 eICU-CRD 持出集（$n=57,488$）上的 Tree\allowbreak Explainer SHAP 全局特征重要性排名及典型临床病例文摘。（A）按平均绝对 SHAP 值排序的前 15 个全局特征，突出显式营养指标（白蛋白、BMI，橙色）与急性多器官衰竭标志物（蓝色）；（B）病例 1（患者 2862205：重度低白蛋白血症合并保留 BMI，预测死亡率 33.0\%，院内死亡）局部瀑布归因图，展示低白蛋白血症（2.0 g/dL）如何在正常 GCS（15）与正常乳酸（1.3 mmol/L）背景下推高死亡风险；（C）病例 2（患者 2600991：急性生理不稳定合并较高白蛋白与 BMI，预测死亡率 1.7\%，治愈出院）局部瀑布归因图，展示较高白蛋白（3.8 g/dL）与 BMI（26.5 kg/m$^2$）如何缓冲急性生理不稳定。基线期望值 $E[f(x)] = -1.92$。}
 \label{fig:s9_shap}
 \end{figure}
 
@@ -424,7 +418,7 @@
 \singlespacing
 \renewcommand{\arraystretch}{0.82}
 \setlength{\tabcolsep}{2.5pt}
-\begin{longtable}{>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{0.9cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{6.0cm}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{5.6cm}}
 \caption{v7 至 v16 版本演进历史、选型准则及 EXP-001 至 EXP-008 返修实验审计清单。} \label{tab:audit_s2} \\
 \toprule
 版本 & 时间戳 & 研发阶段 & 特征数 & 核心目标 & 关键产出 / 决策 \\
@@ -473,13 +467,13 @@ R1 EXP-002 & 2026-09-01 & 基线模型与 APACHE 重校准 & 83 & 在相同配�
 \addlinespace[1pt]
 R1 EXP-003 & 2026-09-01 & 决策曲线分析（DCA） & 83 & 评估全临床决策阈值概率（1\% 至 35\%）下的净临床获益 & GERI-NutriRisk-ICU 在全部临床常用阈值区间全面取得相较于再校准 APACHE-IVa 的净获益优势 \\
 \addlinespace[1pt]
-R1 EXP-004 & 2026-09-01 & 营养构念细分消融实验 & 80/81/78/69/64 & 响应 R2-C5 要求：彻底分离显式营养储备（白蛋白、BMI）与急性代谢生化指标 & 剔除显式储备：AUROC 0.8707（$\Delta = -0.0011$，$p = 0.089$，Brier 0.0736）；除支持：0.8714；除生化：0.8674（$\Delta = -0.0043$，$p < 0.001$）；除全构念：0.8673 \\
+R1 EXP-004 & 2026-09-01 & 营养构念细分消融实验 & 80/\allowbreak 81/\allowbreak 78/\allowbreak 69/\allowbreak 64 & 响应 R2-C5 要求：彻底分离显式营养储备（白蛋白、BMI）与急性代谢生化指标 & 剔除显式储备：AUROC 0.8707（$\Delta = -0.0011$，$p = 0.089$，Brier 0.0736）；除支持：0.8714；除生化：0.8674（$\Delta = -0.0043$，$p < 0.001$）；除全构念：0.8673 \\
 \addlinespace[1pt]
 R1 EXP-005 & 2026-09-01 & 83 特征全景分布审计 & 83 & 响应 R2-C6 要求：提供两库 83 特征完整均值 $\pm$ 标准差、中位数、四分位距、范围与真实缺失率 & 编制补充材料表 S1；确证连续变量中位数插补器严格仅在开发训练集上拟合；澄清未测 PF 哨兵值 \\
 \addlinespace[1pt]
 R1 EXP-006 & 2026-09-01 & 多中心校准诊断学评估 & 83 & 评估 140 家多中心医院（$n \ge 100$）的医院级校准斜率、截距与 O/E 死亡比分布 & 140 家医院中位校准斜率 1.032（IQR 0.946--1.190），均值 O/E 1.001（IQR 0.902--1.074），全域斜率 1.026，ECE 0.0037 \\
 \addlinespace[1pt]
-R1 EXP-007 & 2026-09-01 & TreeExplainer SHAP 归因 & 83 & 计算全局 SHAP 特征重要性排序与典型临床床旁案例的局部瀑布归因图 & 全局排序确认 BMI 位列第 5（均值 $|\text{SHAP}| = 0.242$），血尿素氮、白蛋白前列；案例剖析营养对急性生理风险的调节 \\
+R1 EXP-007 & 2026-09-01 & Tree\allowbreak Explainer SHAP 归因 & 83 & 计算全局 SHAP 特征重要性排序与典型临床床旁案例的局部瀑布归因图 & 全局排序确认 BMI 位列第 5（均值 $|\text{SHAP}| = 0.242$），血尿素氮、白蛋白前列；案例剖析营养对急性生理风险的调节 \\
 \addlinespace[1pt]
 R1 EXP-008 & 2026-09-01 & 超参数 5 折交叉验证审计 & 83 & 响应 R3-C6：在合并开发训练集（$N=34{,}123$）上执行协议化 5 折分层 CV 候选搜索审计 & 评估 6 组协议化候选架构；确证锁定 CONFIG-4（1,400 树，lr=0.02，31 叶，深度 6，min\_child=80，$\lambda=2.0$，平均 CV AUROC 0.8869 $\pm$ 0.0046，Brier 0.1073）兼顾泛化稳健性 \\
 \end{longtable}
