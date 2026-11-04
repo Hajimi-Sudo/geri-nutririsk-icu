@@ -437,7 +437,7 @@ V14 & 2026-08-26 21:44 & FINAL LOCKED MODEL & 83 & Final architecture lock on pr
 V15 & 2026-08-26 21:55 & Explainability Lock & 83 & Group permutation importance and gain feature importance for V14 & Organ support (0.063), vitals (0.048), blood gas (0.020), nutrition/metabolism (0.016) confirmed stratified contribution \\
 V16 & 2026-08-26 22:39 & Primary-Split Cluster Robustness & 83 & Evaluate multicenter cluster robustness and APACHE-IVa difference via hospital-cluster bootstrap on primary test partition & Model-minus-APACHE AUROC difference confirmed (mean +0.021, 95\% cluster CI 0.015 to 0.028; evaluated across 206 hospitals) \\
 R1 EXP-001 & 2026-09-01 & Retrospective Leave-Hospital-Out Validation & 83 & Retrospective institutional sensitivity analysis: strictly partition 207 hospitals by institutional ID & 20 update hospitals ($n=9{,}949$), 20 calibration hospitals ($n=4{,}376$), and 167 held-out hospitals ($n=57{,}536$); AUROC 0.8699, Brier 0.0738, ECE 0.0089, calibration slope 1.037; confirms transportability across health systems within retrospective cohort \\
-R1 EXP-004 & 2026-09-01 & Dissected Nutrition Ablation & 80/81/78/69/64 & Address R2-C5 by strictly isolating explicit nutritional reserve (albumin, BMI) from acute metabolic laboratories & Removed explicit nutrition reserve (3 features $\rightarrow$ 80 features, AUROC 0.8718, $\Delta = +0.0003$, Brier 0.0735), support (81 features, 0.8715, $\Delta = +0.0006$), both (78 features, 0.8714, $\Delta = +0.0008$), metabolic labs (14 features $\rightarrow$ 69 features, 0.8679, $\Delta = +0.0043$, $p < 0.001$), and full construct (19 features $\rightarrow$ 64 features, 0.8679); verified via \texttt{run\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{construct\_}\allowbreak\texttt{ablation.py} \\
+R1 EXP-004 & 2026-09-01 & Dissected Nutrition Ablation & 80/81/78/69/64 & Address R2-C5 by strictly isolating explicit nutritional reserve (albumin, BMI) from acute metabolic laboratories & Removed explicit nutrition reserve (3 features $\rightarrow$ 80 features, AUROC 0.8707, $\Delta = -0.0011$, $p = 0.089$, Brier 0.0736), support (81 features, 0.8714, $\Delta = -0.0004$), both (78 features, 0.8714, $\Delta = -0.0004$), acute metabolic labs (14 features $\rightarrow$ 69 features, AUROC 0.8674, $\Delta = -0.0043$, $p < 0.001$), and full construct (19 features $\rightarrow$ 64 features, AUROC 0.8673, $\Delta = -0.0045$, $p < 0.001$); verified via \texttt{run\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{construct\_}\allowbreak\texttt{ablation.py} \\
 \bottomrule
 \end{tabular}}
 \vspace{0.2em}
@@ -513,18 +513,18 @@ GERI-NutriRisk-ICU & \textbf{0.830} & \textbf{0.090} & \textbf{0.727} & 0.155\\
 \toprule
 Model Configuration & Clinical Category & Dropped Features ($k$) & Remaining ($83-k$) & AUROC & Paired $\Delta$AUROC (95\% CI) & $p$-value & Brier & ECE\\
 \midrule
-Full Model & Reference Locked Model & None ($k=0$) & 83 & \textbf{0.8722} & Reference & N/A & \textbf{0.0733} & \textbf{0.0041}\\
+Full Model & Reference Locked Model & None ($k=0$) & 83 & \textbf{0.8718} & Reference & N/A & \textbf{0.0733} & \textbf{0.0039}\\
 \midrule
 \multicolumn{9}{l}{\textit{Strict Clinical Dissection (EXP-004): Non-Overlapping Physiological Groupings}} \\
-w/o Explicit Nutrition Reserve & Nutritional Reserve & Albumin, BMI, Albumin missing ($k=3$) & 80 & 0.8718 & +0.0003 (-0.0010 to +0.0016) & 0.621 & 0.0735 & 0.0044\\
-w/o Early Nutrition Support & Early Feeding Process & Enteral 24h, Parenteral 24h ($k=2$) & 81 & 0.8715 & +0.0006 (-0.0002 to +0.0013) & 0.0938 & 0.0734 & \textbf{0.0041}\\
-w/o Explicit Reserve \& Support & All Nutrition Variables & 5 nutritional variables ($k=5$) & 78 & 0.8714 & +0.0008 (-0.0005 to +0.0022) & 0.219 & 0.0736 & \textbf{0.0040}\\
-w/o Acute Metabolic Laboratories & Acute Multiorgan Severity & 7 acute labs + 7 missing flags ($k=14$)\textsuperscript{*} & 69 & 0.8679 & \textbf{+0.0043} (+0.0028 to +0.0060) & $1.27 \times 10^{-7}$ & 0.0740 & 0.0042\\
-w/o Full Composite Construct & Broad Composite Benchmark & All 19 nutritional \& metabolic variables ($k=19$) & 64 & 0.8679 & +0.0042 (+0.0021 to +0.0063) & $2.25 \times 10^{-5}$ & 0.0742 & 0.0049\\
+w/o Explicit Nutrition Reserve & Nutritional Reserve & Albumin, BMI, Albumin missing ($k=3$) & 80 & 0.8707 & +0.0011 (-0.0002 to +0.0024) & 0.0886 & 0.0736 & 0.0041\\
+w/o Early Nutrition Support & Early Feeding Process & Enteral 24h, Parenteral 24h ($k=2$) & 81 & 0.8714 & +0.0004 (-0.0003 to +0.0011) & 0.3236 & \textbf{0.0733} & 0.0041\\
+w/o Explicit Reserve \& Support & All Nutrition Variables & 5 nutritional variables ($k=5$) & 78 & 0.8714 & +0.0004 (-0.0009 to +0.0017) & 0.5326 & 0.0736 & 0.0051\\
+w/o Acute Metabolic Laboratories & Acute Multiorgan Severity & 7 acute labs + 7 missing flags ($k=14$)\textsuperscript{*} & 69 & 0.8674 & \textbf{+0.0043} (+0.0028 to +0.0059) & $3.19 \times 10^{-7}$ & 0.0740 & \textbf{0.0034}\\
+w/o Full Composite Construct & Broad Composite Benchmark & All 19 nutritional \& metabolic variables ($k=19$) & 64 & 0.8673 & +0.0045 (+0.0024 to +0.0066) & $9.71 \times 10^{-6}$ & 0.0742 & 0.0038\\
 \midrule
 \multicolumn{9}{l}{\textit{Historical Pre-Revision Benchmarks (for Complete Transparency and Audit Provenance)}} \\
-Historical w/o Broad Nutrition & Pre-Revision V14 Grouping & 7 variables (incl. glucose \& feeding; $k=7$) & 76 & 0.8711 & +0.0011 (-0.0004 to +0.0024) & 0.132 & 0.0736 & 0.0042\\
-Historical w/o Metabolic Labs & Pre-Revision V14 Grouping & 16 variables (incl. albumin \& glucose; $k=16$) & 67 & 0.8665 & +0.0057 (+0.0041 to +0.0075) & $7.62 \times 10^{-11}$ & 0.0743 & 0.0038\\
+Historical w/o Broad Nutrition & Pre-Revision V14 Grouping & 7 variables (incl. glucose \& feeding; $k=7$) & 76 & 0.8706 & +0.0011 (-0.0002 to +0.0025) & 0.0999 & 0.0738 & 0.0051\\
+Historical w/o Metabolic Labs & Pre-Revision V14 Grouping & 16 variables (incl. albumin \& glucose; $k=16$) & 67 & 0.8664 & +0.0054 (+0.0038 to +0.0071) & $5.86 \times 10^{-9}$ & 0.0743 & 0.0051\\
 \bottomrule
 \end{tabular}}
 \begin{flushleft}
