@@ -1,7 +1,7 @@
 config_id,description,num_leaves,max_depth,learning_rate,n_estimators,subsample,colsample_bytree,min_child_samples,reg_alpha,reg_lambda,mean_val_auroc,std_val_auroc,ci95_auroc,mean_val_brier,runtime_seconds,selected_status
-CONFIG-1,"Baseline Fast-Boosting (Shallow trees, standard LR)",15,5,0.05,500,0.8,0.8,50,0.0,1.0,0.95702,0.00167,0.9570 ± 0.0015,0.05214,51.6,Candidate
-CONFIG-2,"Intermediate Capacity (Moderate depth, moderate regularization)",31,6,0.03,800,0.85,0.85,50,0.1,1.0,0.95658,0.00232,0.9566 ± 0.0020,0.04146,102.62,Candidate
-CONFIG-3,"Deep Conservative (Conservative learning rate, standard leaf size)",31,-1,0.02,1000,0.85,0.85,60,0.0,2.0,0.95838,0.00241,0.9584 ± 0.0021,0.03784,132.96,Candidate
-CONFIG-4 (Locked),"Final Locked Performance Head (High-capacity, robust subsampling, L2 reg)",31,6,0.02,1400,0.9,0.9,80,0.0,2.0,0.95655,0.00201,0.9566 ± 0.0018,0.03958,171.4,LOCKED_FINAL_MODEL
-CONFIG-5,"High-Capacity Deep Tree (63 leaves, moderate trees)",63,7,0.02,1000,0.9,0.9,80,0.0,2.0,0.95762,0.00215,0.9576 ± 0.0019,0.03776,140.23,Candidate
-CONFIG-6,"Ultra-Deep Complex Head (127 leaves, prone to cross-center overfitting)",127,8,0.015,1200,0.8,0.8,100,0.2,5.0,0.95852,0.00249,0.9585 ± 0.0022,0.03766,186.86,Candidate
+CONFIG-1,"Baseline Fast-Boosting (Shallow trees, standard LR)",15,5,0.05,500,0.8,0.8,50,0.0,1.0,0.88801,0.00518,0.8880 ± 0.0045,0.11769,49.72,Candidate
+CONFIG-2,"Intermediate Capacity (Moderate depth, moderate regularization)",31,6,0.03,800,0.85,0.85,50,0.1,1.0,0.88640,0.00418,0.8864 ± 0.0037,0.10825,95.81,Candidate
+CONFIG-3,"Deep Conservative (Conservative learning rate, standard leaf size)",31,-1,0.02,1000,0.85,0.85,60,0.0,2.0,0.88831,0.00526,0.8883 ± 0.0046,0.10418,136.82,Candidate
+CONFIG-4 (Locked),"Final Locked Performance Head (High-capacity, robust subsampling, L2 reg)",31,6,0.02,1400,0.9,0.9,80,0.0,2.0,0.88694,0.00457,0.8869 ± 0.0040,0.10733,158.2,LOCKED_FINAL_MODEL
+CONFIG-5,"High-Capacity Deep Tree (63 leaves, moderate trees)",63,7,0.02,1000,0.9,0.9,80,0.0,2.0,0.88802,0.00483,0.8880 ± 0.0042,0.10552,133.4,Candidate
+CONFIG-6,"Ultra-Deep Complex Head (127 leaves, prone to cross-center overfitting)",127,8,0.015,1200,0.8,0.8,100,0.2,5.0,0.88881,0.00499,0.8888 ± 0.0044,0.10403,172.02,Candidate

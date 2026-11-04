@@ -51,18 +51,15 @@ from sklearn.model_selection import StratifiedKFold
 
 
 def load_features(csv_path: Path) -> Tuple[List[str], np.ndarray, np.ndarray, List[str]]:
-    with csv_path.open("r", encoding="utf-8") as f:
-        reader = csv.reader(f)
-        header = next(reader)
-        id_col = header[0]
-        feat_cols = header[1:-1]
-        
-        ids, X, y = [], [], []
+    ids, y, X = [], [], []
+    with csv_path.open("rt", newline="", encoding="utf-8", errors="replace") as f:
+        reader = csv.DictReader(f)
+        feat_cols = [c for c in reader.fieldnames if c not in {"id", "y"}]
         for row in reader:
-            ids.append(row[0])
-            y.append(int(float(row[-1])))
-            X.append([float(val) if val != "" else np.nan for val in row[1:-1]])
-    return ids, np.array(X, dtype=np.float32), np.array(y, dtype=np.int32), feat_cols
+            ids.append(row["id"])
+            y.append(int(float(row["y"])))
+            X.append([float(row[c]) if row.get(c, "") != "" else np.nan for c in feat_cols])
+    return ids, np.asarray(X, dtype=np.float32), np.asarray(y, dtype=np.int32), feat_cols
 
 
 def impute_fit(X: np.ndarray) -> np.ndarray:

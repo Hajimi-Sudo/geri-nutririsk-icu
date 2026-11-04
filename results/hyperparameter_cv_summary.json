@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-11-04 20:40:41",
+  "timestamp": "2026-11-04 23:44:25",
   "development_n": 34123,
-  "development_events": 1168,
-  "event_rate": 0.034229112328927704,
+  "development_events": 4571,
+  "event_rate": 0.133956568883158,
   "cv_folds": 5,
   "selection_rationale": "CONFIG-4 (Locked) achieved the highest cross-validation AUROC on the pooled development training partition while strictly maintaining conservative tree depth (num_leaves=31, max_depth=6), robust min_child_samples=80, and L2 regularization (reg_lambda=2.0) to resist multi-center overfitting prior to external testing.",
   "results": [
@@ -18,19 +18,19 @@
       "min_child_samples": 50,
       "reg_alpha": 0.0,
       "reg_lambda": 1.0,
-      "mean_val_auroc": 0.9570164138363848,
-      "std_val_auroc": 0.001671018667804046,
-      "ci95_auroc": "0.9570 \u00b1 0.0015",
-      "mean_val_brier": 0.05213630633306208,
-      "std_val_brier": 0.003594625708393933,
+      "mean_val_auroc": 0.8880128037913035,
+      "std_val_auroc": 0.0051789598159106736,
+      "ci95_auroc": "0.8880 \u00b1 0.0045",
+      "mean_val_brier": 0.1176922796692709,
+      "std_val_brier": 0.0015186511670691077,
       "fold_aurocs": [
-        0.9568162749774036,
-        0.9567345784915198,
-        0.9585643204213983,
-        0.9588156043193248,
-        0.9541512909722778
+        0.8956983919384806,
+        0.8849713492664901,
+        0.8884186291642395,
+        0.8803461477227709,
+        0.8906295008645362
       ],
-      "runtime_seconds": 51.6
+      "runtime_seconds": 49.72
     },
     {
       "config_id": "CONFIG-2",
@@ -44,19 +44,19 @@
       "min_child_samples": 50,
       "reg_alpha": 0.1,
       "reg_lambda": 1.0,
-      "mean_val_auroc": 0.9565834380446973,
-      "std_val_auroc": 0.002320502507386517,
-      "ci95_auroc": "0.9566 \u00b1 0.0020",
-      "mean_val_brier": 0.04146339261665796,
-      "std_val_brier": 0.0030486635297621535,
+      "mean_val_auroc": 0.8863965718644551,
+      "std_val_auroc": 0.004175581444704003,
+      "ci95_auroc": "0.8864 \u00b1 0.0037",
+      "mean_val_brier": 0.10825012062886119,
+      "std_val_brier": 0.0017938813535317156,
       "fold_aurocs": [
-        0.9569277971644836,
-        0.9562197609534888,
-        0.9590603347999799,
-        0.9583142052857876,
-        0.952395092019746
+        0.8917210874507233,
+        0.8844069970055459,
+        0.8886680905753885,
+        0.8794706890742613,
+        0.8877159952163561
       ],
-      "runtime_seconds": 102.62
+      "runtime_seconds": 95.81
     },
     {
       "config_id": "CONFIG-3",
@@ -70,19 +70,19 @@
       "min_child_samples": 60,
       "reg_alpha": 0.0,
       "reg_lambda": 2.0,
-      "mean_val_auroc": 0.9583754100289523,
-      "std_val_auroc": 0.0024104125103246873,
-      "ci95_auroc": "0.9584 \u00b1 0.0021",
-      "mean_val_brier": 0.03784231374854545,
-      "std_val_brier": 0.002583534279538078,
+      "mean_val_auroc": 0.8883063303159888,
+      "std_val_auroc": 0.005262781466374666,
+      "ci95_auroc": "0.8883 \u00b1 0.0046",
+      "mean_val_brier": 0.10417978098722717,
+      "std_val_brier": 0.001158268505797986,
       "fold_aurocs": [
-        0.9591595376756961,
-        0.9577298491727257,
-        0.9602215919921883,
-        0.9607476185173826,
-        0.9540184527867693
+        0.8963804641200418,
+        0.8848388218086888,
+        0.889387811711187,
+        0.8807760092118466,
+        0.8901485447281801
       ],
-      "runtime_seconds": 132.96
+      "runtime_seconds": 136.82
     },
     {
       "config_id": "CONFIG-4 (Locked)",
@@ -96,19 +96,19 @@
       "min_child_samples": 80,
       "reg_alpha": 0.0,
       "reg_lambda": 2.0,
-      "mean_val_auroc": 0.9565534309070657,
-      "std_val_auroc": 0.0020079968219224695,
-      "ci95_auroc": "0.9566 \u00b1 0.0018",
-      "mean_val_brier": 0.03957768686413189,
-      "std_val_brier": 0.002622814536837335,
+      "mean_val_auroc": 0.8869402014970019,
+      "std_val_auroc": 0.004573983298997524,
+      "ci95_auroc": "0.8869 \u00b1 0.0040",
+      "mean_val_brier": 0.1073281663586716,
+      "std_val_brier": 0.0013963590745341415,
       "fold_aurocs": [
-        0.9580864608174576,
-        0.955542847213307,
-        0.9584891077836002,
-        0.9575627579030581,
-        0.9530859808179055
+        0.892709305463574,
+        0.8837145595479554,
+        0.8900217284772497,
+        0.8799085109612829,
+        0.8883469030349479
       ],
-      "runtime_seconds": 171.4
+      "runtime_seconds": 158.2
     },
     {
       "config_id": "CONFIG-5",
@@ -122,19 +122,19 @@
       "min_child_samples": 80,
       "reg_alpha": 0.0,
       "reg_lambda": 2.0,
-      "mean_val_auroc": 0.9576159438236285,
-      "std_val_auroc": 0.0021484659826040233,
-      "ci95_auroc": "0.9576 \u00b1 0.0019",
-      "mean_val_brier": 0.03776221168391467,
-      "std_val_brier": 0.0031025662899406307,
+      "mean_val_auroc": 0.8880180169388099,
+      "std_val_auroc": 0.004831906648450757,
+      "ci95_auroc": "0.8880 \u00b1 0.0042",
+      "mean_val_brier": 0.10552257707748391,
+      "std_val_brier": 0.0013726730916827875,
       "fold_aurocs": [
-        0.9574685500948588,
-        0.9572150316346949,
-        0.9599350059067855,
-        0.95955467951811,
-        0.9539064519636935
+        0.8944541886265527,
+        0.8852562092630769,
+        0.8896160069531127,
+        0.8803206003991307,
+        0.8904430794521765
       ],
-      "runtime_seconds": 140.23
+      "runtime_seconds": 133.4
     },
     {
       "config_id": "CONFIG-6",
@@ -148,19 +148,19 @@
       "min_child_samples": 100,
       "reg_alpha": 0.2,
       "reg_lambda": 5.0,
-      "mean_val_auroc": 0.9585212047795635,
-      "std_val_auroc": 0.002485907949114054,
-      "ci95_auroc": "0.9585 \u00b1 0.0022",
-      "mean_val_brier": 0.03766276472622161,
-      "std_val_brier": 0.0028875853119163177,
+      "mean_val_auroc": 0.8888077663672339,
+      "std_val_auroc": 0.004993216484101803,
+      "ci95_auroc": "0.8888 \u00b1 0.0044",
+      "mean_val_brier": 0.10402868621680332,
+      "std_val_brier": 0.0011907300740611464,
       "fold_aurocs": [
-        0.9585805300416135,
-        0.9585928493529768,
-        0.9604705717586919,
-        0.9610113413856716,
-        0.953950731358863
+        0.8953628161270369,
+        0.8847285056566643,
+        0.8907236969848269,
+        0.8815257676230253,
+        0.891698045444616
       ],
-      "runtime_seconds": 186.86
+      "runtime_seconds": 172.02
     }
   ]
 }
