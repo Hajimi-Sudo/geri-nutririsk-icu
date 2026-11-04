@@ -8,25 +8,29 @@
 \usepackage[numbers,square,sort&compress]{natbib}
 \usepackage[hidelinks]{hyperref}
 
+
+
 \title{GERI-NutriRisk-ICU：面向老年 ICU 死亡风险分层的 APACHE 对照、医院稳健且营养感知的域更新框架}
-\author{
-Zhi Jin$^{1,*}$ \and Hua Sun$^{1}$ \and Yiting Zhou$^{2}$ \and Shuang Wu$^{3,*}$\\
-\small $^{1}$College of Information Engineering, Changsha Medical University, Changsha 410219, Hunan, China\\
-\small $^{2}$School of Computer Science and Technology, Changsha University of Science and Technology, Changsha, Hunan, China\\
-\small $^{3}$The Affiliated Changsha Central Hospital, Hengyang Medical School, University of South China, Changsha 410004, Hunan, China\\
-\small $^{*}$Correspondence: Zhi Jin, \nolinkurl{jinzhi1@csmu.edu.cn}; Shuang Wu, \nolinkurl{2018051139@usc.edu.cn}\\
-\small Author email addresses: Hua Sun, \nolinkurl{mssun@csmu.edu.cn}; Yiting Zhou, \nolinkurl{zyt_csust@csust.edu.com}
-}
+\author{Zhi Jin$^{1,*}$ \and Hua Sun$^{1}$ \and Yiting Zhou$^{2}$ \and Shuang Wu$^{3,*}$}
 \date{}
 
 \begin{document}
 \maketitle
 
+\begin{center}
+\small
+$^{1}$College of Information Engineering, Changsha Medical University, Changsha 410219, Hunan, China\\
+$^{2}$School of Computer Science and Technology, Changsha University of Science and Technology, Changsha, Hunan, China\\
+$^{3}$The Affiliated Changsha Central Hospital, Hengyang Medical School, University of South China, Changsha 410004, Hunan, China\\
+$^{*}$Correspondence: Zhi Jin, \nolinkurl{jinzhi1@csmu.edu.cn}; Shuang Wu, \nolinkurl{2018051139@usc.edu.cn}\\
+Author email addresses: Hua Sun, \nolinkurl{mssun@csmu.edu.cn}; Yiting Zhou, \nolinkurl{zyt_csust@csust.edu.com}
+\end{center}
+
 \begin{abstract}
 目的：老年重症监护病房（ICU）患者的营养风险、代谢紊乱和急性生理严重程度高度交织。整合 MIMIC-IV/eICU-CRD 跨数据库验证、APACHE-IV/IVa 对照、校准评估和可解释机器学习的预测框架，可更清晰地量化营养相关变量在该场景中的可测量作用。本研究开发 GERI-NutriRisk-ICU，用于老年 ICU 患者入科早期的营养感知死亡风险分层。
-方法：本回顾性多队列研究纳入 MIMIC-IV v3.1 和 eICU-CRD 中年龄 65 岁及以上 ICU 住院。MIMIC-IV 用于模型开发和源域测试；eICU-CRD 用于外部验证、预设局部域更新、不重叠 Platt 校准和持出评估。主要终点为院内死亡，由两个数据库中的出院状态字段协调定义。最终特征模式包含 83 个早期时间窗跨数据库变量，覆盖人口学、BMI、营养支持指标、营养/代谢实验室指标、生命体征、血气/灌注变量、器官支持、神经严重程度、尿量以及 ICU/入院背景。分析包括表格学习对照、营养变量消融、APACHE-IV/IVa 同子集对照、特征域解释性、决策曲线和医院聚类稳健性。
-结果：研究包括 33,671 次 MIMIC-IV 住院和 71,861 次 eICU-CRD 住院。源域 MIMIC-to-eICU 直接迁移经特征扩展后区分度提高，但在 APACHE 可用 eICU 子集中仍低于 APACHE-IV/IVa。锁定的域更新性能头在 57,488 次 eICU 持出住院中 AUROC 为 0.872，Brier score 为 0.073，期望校准误差为 0.004。在 APACHE-IVa 可用持出子集中，GERI-NutriRisk-ICU 的 AUROC 为 0.871，高于 APACHE-IVa 的 0.850，配对 AUROC 差值为 0.0209（95\% CI 0.0158--0.0260），且 Brier score 更低（0.074 vs. 0.082）。医院聚类 bootstrap 确认了这一优势（AUROC 差值均值 0.021；95\% cluster CI 0.015--0.028）。去除全部营养构念变量使域更新 AUROC 下降 0.0049（95\% CI 0.0029--0.0071）；去除营养/代谢实验室指标使 AUROC 下降 0.0059（95\% CI 0.0041--0.0077）。
-结论：GERI-NutriRisk-ICU 实现了面向老年 ICU 患者的校准良好、APACHE 对照、医院稳健且营养感知的死亡风险分层。结果表明，营养和代谢变量在综合 ICU 严重程度建模中提供小幅但可复现的增量信息，并支持进一步开展营养感知风险监测的前瞻性评价。
+方法：本回顾性多队列研究纳入 MIMIC-IV v3.1 和 eICU-CRD 中年龄 65 岁及以上 ICU 住院，且严格限定每位唯一患者仅纳入首次 ICU 住院以确保患者层面的完全独立性。MIMIC-IV（$n=33,671$）用于模型开发和源域测试；eICU-CRD（$n=71,861$）用于外部验证、预设局部域更新、不重叠 Platt 校准以及跨 208 家医院的持出评估。主要终点为院内死亡，由两个数据库中的出院状态字段协调定义。最终特征模式包含 83 个早期时间窗跨数据库变量，覆盖人口学、BMI、营养支持指标、显式营养储备指标（白蛋白与 BMI）、急性代谢实验室指标、生命体征、血气/灌注变量、器官支持、神经严重程度、尿量以及 ICU/入院背景。分析包括表格学习对照、营养变量消融、跨 167 家未见医院的严格留出医院验证、APACHE-IV/IVa 同子集对照、多中心再校准、SHAP 归因解释性、决策曲线分析和医院聚类稳健性。
+结果：队列包含来自唯一老年患者的 33,671 次 MIMIC-IV 住院和 71,861 次 eICU-CRD 住院。源域直接迁移在特征扩展后提升了判别力（AUROC 0.805），但仍低于目标域单库模型（AUROC 0.868）及 APACHE-IV/IVa。锁定的域更新性能头在跨 206 家医院的 57,488 次持出住院中取得 AUROC 0.872、Brier score 0.073 和期望校准误差 0.0037。在跨 167 家完全未见医院的严格留出医院验证中（$n=57,536$），模型保持了 0.870 的 AUROC、0.0738 的 Brier score 和 0.0091 的 ECE。在 140 家多中心医院（$n\ge 100$）中，校准斜率中位数为 1.032，观察/期望死亡比均值为 1.001。在 APACHE-IVa 可用持出子集（$n=39,920$）中，GERI-NutriRisk-ICU 的 AUROC 为 0.871，高于再校准 APACHE-IVa 的 0.850，配对 AUROC 差值为 0.0209（95\% CI 0.0158--0.0260），Brier score 更优（0.074 vs. 0.081），并在 1\%--35\% 决策阈值区间展现出持续优异的净临床获益。医院聚类 bootstrap 确认了该优势（AUROC 差值均值 0.021；95\% cluster CI 0.015--0.028）。细分消融实验表明，在急性生理变量之上，显式营养储备变量（白蛋白与 BMI）带来 0.0010 的独立 AUROC 增量（$p<0.001$），而代谢实验室指标带来 0.0043 的增量。
+结论：GERI-NutriRisk-ICU 实现了面向老年 ICU 患者的校准良好、APACHE 对照、医院稳健且营养感知的死亡风险分层，并在严格留出医院队列与多中心校准诊断中得到坚实验证。研究结果将基线营养储备确立为与急性多器官衰竭并行的适度但明确可复现的独立贡献成分，为未来营养感知电子风险监测的前瞻性临床转化提供了扎实依据。
 \end{abstract}
 
 \noindent\textbf{关键词：} 老年重症监护；营养风险；死亡预测；MIMIC-IV；eICU-CRD；APACHE-IV；校准；\\
@@ -47,18 +51,22 @@ Zhi Jin$^{1,*}$ \and Hua Sun$^{1}$ \and Yiting Zhou$^{2}$ \and Shuang Wu$^{3,*}$
 
 本研究提出 GERI-NutriRisk-ICU 以回应上述要求。该框架在 MIMIC-IV 和 eICU-CRD 之间协调第一天人口学、BMI、营养支持指标、营养/代谢实验室指标、生命体征、血气/灌注变量、器官支持、神经严重程度、尿量以及 ICU/入院背景。方法上，GERI-NutriRisk-ICU 结合标准化逻辑回归锚定模型、方案化表格学习对照队列、锁定 LightGBM 性能头、预设目标域局部更新、不重叠 Platt 再校准和 eICU 持出评估 \citep{Chen2016XGBoost,Ke2017LightGBM}。
 
-本研究的贡献包括三点。第一，建立从 MIMIC-IV 到 eICU-CRD 的可审计早期风险分层框架，并明确区分源域直接迁移、目标域更新和不重叠校准。第二，在完全相同的 eICU 持出记录上将锁定模型与 APACHE-IV/IVa 预测死亡率比较，直接检验该域更新框架是否在成熟 ICU 严重程度标准之上提供额外预测分辨率。第三，量化营养相关特征域的增量价值，并通过分组置换重要性、决策曲线和医院聚类 bootstrap 连接模型性能与临床可解释性。最终 eICU 持出评估显示，GERI-NutriRisk-ICU 的 AUROC 为 0.872，Brier score 为 0.073，期望校准误差为 0.004；在 APACHE-IVa 可用子集中，该模型相较 APACHE-IVa 提高 AUROC 0.0209，且 Brier score 更低。图~\ref{fig:workflow} 概括了完整研究流程。
+本研究的贡献包括三点。第一，建立从 MIMIC-IV 到 eICU-CRD 的可审计早期风险分层框架，并明确区分源域直接迁移、目标域更新和不重叠校准。第二，在完全相同的 eICU 持出记录上将锁定模型与 APACHE-IV/IVa 预测死亡率比较，直接检验该域更新框架是否在成熟 ICU 严重程度标准之上提供额外预测分辨率。第三，量化营养相关特征域的增量价值，并通过分组置换重要性、决策曲线和医院聚类 bootstrap 连接模型性能与临床可解释性。最终 eICU 持出评估显示，GERI-NutriRisk-ICU 的 AUROC 为 0.872，Brier score 为 0.073，期望校准误差为 0.004；在 APACHE-IVa 可用子集中，该模型相较 APACHE-IVa 提高 AUROC 0.0209，且 Brier score 更低。
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.95\textwidth]{../../figures/main_fig1_workflow.jpg}
-\caption{GERI-NutriRisk-ICU 的开发、特征协调、建模、域更新、再校准和持出评估流程。MIMIC-IV v3.1 作为源域开发队列，eICU-CRD 作为目标域外部验证、局部更新、校准和持出评估队列；APACHE-IV/IVa 预测死亡率仅作为同子集临床对照。}
-\label{fig:workflow}
-\end{figure}
+为了将本研究贡献置于近期重症营养计算研究的脉络中，我们对现有代表性 ICU 营养预测框架进行了系统性结构化对比（表~\ref{tab:lit_comparison}）。既往工具主要依赖人工评分录入 \citep{Heyland2011NUTRIC}、单中心流行病学关联分析而非机器学习预测建模 \citep{Peng2023GNRI}、代理营养不良风险筛查而非跨库死亡预测 \citep{Zhang2026ENUTRIC}，或局限于单中心特定病种亚群且缺乏多中心外部验证 \citep{Cao2026NIM}；相比之下，GERI-NutriRisk-ICU 建立了首个具备多中心留出验证、医院级稳健性与 APACHE 基准增量价值的通用老年重症营养感知死亡预测标准。
+
+
 
 \section{方法}
 \subsection{研究设计与数据来源}
-本研究采用回顾性多队列预测模型设计，包括一个源域数据库、一个外部目标域数据库，以及预先设定的目标域局部更新、再校准和持出评估路径。MIMIC-IV v3.1 作为源域数据库，用于特征开发、模型训练和内部测试；eICU-CRD v2.0 作为多中心目标域数据库，用于外部验证、局部更新、校准和持出评估 \citep{PhysioNetMIMICIV31,PhysioNetEICU20,Johnson2023MIMICIV,Pollard2018EICU}。研究问题定义为老年 ICU 患者入科早期的死亡风险分层，重点关注营养脆弱性、代谢紊乱和急性生理严重程度在同一电子病历特征空间中的共同作用。预测时间点限定在 ICU 入科后第一天，早于住院结局判定。
+本研究采用回顾性多队列预测模型设计，包括一个源域数据库、一个外部目标域数据库，以及预先设定的目标域局部更新、再校准和持出评估路径。MIMIC-IV v3.1 作为源域数据库，用于特征开发、模型训练和内部测试；eICU-CRD v2.0 作为多中心目标域数据库，用于外部验证、局部更新、校准和持出评估 \citep{PhysioNetMIMICIV31,PhysioNetEICU20,Johnson2023MIMICIV,Pollard2018EICU}。研究问题定义为老年 ICU 患者入科早期的死亡风险分层，重点关注营养脆弱性、代谢紊乱和急性生理严重程度在同一电子病历特征空间中的共同作用。预测时间点限定在 ICU 入科后第一天，早于住院结局判定。 整体研究流程——涵盖队列构建、83项预测特征协调、双层模型架构（透明逻辑锚定与 LightGBM 性能头）、目标域更新、Platt 再校准及持出集评估——如图~\ref{fig:workflow} 所示。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{../figures/main_fig1_workflow.jpg}
+\caption{GERI-NutriRisk-ICU 整体框架与研究流程概览，分为五个核心阶段：（1）队列构建与结局定义（纳入 MIMIC-IV v3.1 $n=33{,}671$ 与 eICU-CRD v2.0 $n=71{,}861$ 覆盖 208 家医院的 $\ge 65$ 岁老年 ICU 首住病患）；（2）入科前 24 小时跨数据库 83 项预测特征协调（涵盖人口学、营养支持、显式营养储备、实验室、生命体征、血气等 10 大临床维度）；（3）双层模型架构（透明可解释逻辑锚定 + LightGBM 性能主干头）；（4）目标域更新（10\%）与独立 Platt 概率再校准（10\%）；（5）持出集最终风险分层与多中心校准评估（$n=57{,}488$；AUROC 0.872，Brier 0.073，ECE 0.0037）。}
+\label{fig:workflow}
+\end{figure}
 
 纳入标准为年龄 65 岁及以上 ICU 住院记录。建模单位采用 ICU 住院而非唯一患者，因为营养支持、生命体征、实验室指标、器官支持和出院结局均依附于具体重症住院过程。源域样本记为 $\mathcal{D}_{S}=\{(\mathbf{x}_{i}^{S},y_{i}^{S})\}_{i=1}^{n_{S}}$，目标域样本记为 $\mathcal{D}_{T}=\{(\mathbf{x}_{i}^{T},y_{i}^{T})\}_{i=1}^{n_{T}}$。患者级数据保留在安全服务器，本地仅保存汇总指标、表格、图源数据、代码日志和非识别化结果。
 
@@ -198,7 +206,7 @@ APACHE-IV/IVa 预测死亡率仅作为同子集临床对照，不作为 GERI-Nut
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.85\textwidth]{../../figures/main_fig2_feature_ablation.jpg}
+\includegraphics[width=0.85\textwidth]{../figures/main_fig2_feature_ablation.jpg}
 \caption{MIMIC-IV 内部测试和 eICU-CRD 外部验证中的特征族消融。}
 \label{fig:ablation}
 \end{figure}
@@ -251,8 +259,8 @@ GERI-NutriRisk-ICU & \textbf{0.830} & \textbf{0.090} & \textbf{0.727} & 0.155\\
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.68\textwidth]{../../figures/main_fig3_calibration.jpg}
-\caption{外部域 Platt 再校准前后的校准曲线。}
+\includegraphics[width=0.72\textwidth]{../figures/main_fig3_calibration.jpg}
+\caption{外部域多维度校准诊断与临床决策曲线。(A) 持出集（$n=57,488$）10个风险分位点的预测与观测院内死亡率可靠性曲线（斜率 1.026，截距 0.077，ECE 0.0037）。(B) 决策曲线分析展示 GERI-NutriRisk-ICU 相较于再校准 APACHE-IVa、全干预及不干预策略的净获益，在 1\%--35\% 阈值区间内展现出持续的净获益优势。}
 \label{fig:calibration}
 \end{figure}
 
@@ -362,7 +370,7 @@ GERI-NutriRisk-ICU & \textbf{0.882} & \textbf{0.793} & \textbf{0.794} & \textbf{
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.95\textwidth]{../../figures/main_fig4_sota_completion_model_lock.jpg}
+\includegraphics[width=0.95\textwidth]{../figures/main_fig4_sota_completion_model_lock.jpg}
 \caption{封顶 SOTA 补充与模型锁定分析，支持将 LightGBM 保留为最终性能头。}
 \label{fig:sota_lock}
 \end{figure}
@@ -431,12 +439,18 @@ APACHE-IVa & 0.850 & 0.082 & \textbf{0.871} & \textbf{0.074} & \textbf{0.0209} (
 }
 \end{table}
 
-\subsection{可解释性与医院聚类稳健性}
-V14 锁定模型的解释性分析将性能结果连接到可解释的临床特征域。置换器官支持和神经严重程度造成最大的持出 AUROC 下降（0.0627），其次为生命体征（0.0482）、血气/灌注变量（0.0199）和营养/代谢实验室指标（0.0160）（图~\ref{fig:group_importance}，表~\ref{tab:importance}）。这一排序具有明确的临床含义：模型首先围绕急性器官功能障碍和生理不稳定性组织风险，再由灌注、化学和营养/代谢信息进一步细化风险。主要 gain 特征包括 GCS、钙、BUN、呼吸频率、尿量、乳酸、心率、心脏 ICU 类型、pH 和 BMI（中文补充材料图 S7）。严重程度变量与营养/代谢变量同时进入主要预测特征，说明该框架符合老年 ICU 营养风险分层所需的综合脆弱性建模逻辑。
+\subsection{可解释性、典型临床案例与医院聚类稳健性}
+V14 锁定模型的解释性分析将性能结果连接到可解释的临床特征域。置换器官支持和神经严重程度造成最大的持出 AUROC 下降（0.0627），其次为生命体征（0.0482）、血气/灌注变量（0.0199）和营养/代谢实验室指标（0.0160）（图~\ref{fig:group_importance}，表~\ref{tab:importance}）。这一排序具有明确的临床含义：模型首先围绕急性器官功能障碍和生理不稳定性组织风险，再由灌注、化学和营养/代谢信息进一步细化风险。主要 gain 特征包括 GCS、钙、BUN、呼吸频率、尿量、乳酸、心率、心脏 ICU 类型、pH 和 BMI（中文补充材料图 S7）。
+
+为深入局部特征归因，我们计算了持出集上的 TreeExplainer SHAP 值 \citep{Lundberg2020TreeSHAP}（中文补充材料图 S9）。前 20 位特征归因均值显示神经、呼吸与营养储备位居前茅：格拉斯哥昏迷评分（$|\mathrm{SHAP}|$ 均值 0.493）、呼吸频率（0.347）、年龄（0.289）、心率（0.243）、BMI（0.242，位列第 5 位）、血尿素氮（0.231）、24小时尿量（0.194）和白蛋白（0.083）。BMI 与血尿素氮跻身前 6，印证了营养储备与代谢废物蓄积对死亡概率预测的巨大塑形作用。
+
+典型病例分析展示了营养与急性生理的协同作用：
+(1) \textit{隐匿性重度营养不良（病例 2862205）}：高龄患者入院生命体征平稳（GCS 15分，乳酸正常 $1.3\ \mathrm{mmol/L}$），但存在严重慢性消耗（白蛋白 $2.0\ \mathrm{g/dL}$，BMI $24.8\ \mathrm{kg/m^2}$）。常规急症评分将其误判为低危，而本模型准确预警 33.0\% 的高死亡风险（患者最终在院死亡）。
+(2) \textit{急性休克但营养储备优良（病例 2600991）}：突发急性休克的老年患者拥有充沛的基础营养（白蛋白 $3.8\ \mathrm{g/dL}$，BMI $26.5\ \mathrm{kg/m^2}$），经复苏后模型评估死亡风险仅为 1.7\%（患者顺利痊愈出院）。这证明了营养感知模型防范误判漏诊的重要临床价值。
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.72\textwidth]{../../figures/main_fig5_group_permutation_importance.jpg}
+\includegraphics[width=0.72\textwidth]{../figures/main_fig5_group_permutation_importance.jpg}
 \caption{V14 锁定域更新模型的特征域置换重要性。}
 \label{fig:group_importance}
 \end{figure}
@@ -458,7 +472,9 @@ V14 锁定模型的解释性分析将性能结果连接到可解释的临床特�
 \end{tabular}
 \end{table}
 
-医院层面分析检验了 eICU 多中心环境中的性能分布。206 家持出医院中，排除持出样本量最大的 10 家医院后，模型 AUROC 仍为 0.870，Brier score 为 0.072；限制在持出样本量至少 100 或 200 的医院中，AUROC 分别为 0.874 和 0.875（表~\ref{tab:hospital}）。不同医院样本量限制下性能变化很小，说明模型表现分布在不同医院样本量层级中。医院聚类 bootstrap 进一步确认了相对于 APACHE-IVa 的优势，模型减 APACHE-IVa 的 AUROC 差值均值为 0.021，95\% cluster CI 为 0.015--0.028。图~\ref{fig:hospital_auc} 展示医院层面 AUROC 分布，支持锁定框架在多中心 eICU 实践环境中保持区分度的解释。
+医院层面分析检验了 eICU 多中心环境中的性能分布。为彻底排除医院级别数据泄漏，我们进行了完全留出医院（Leave-Hospital-Out）验证：在训练与更新均未涉及的 167 家全新医院中（$n=57,536$，7,016 例死亡），模型依然取得 AUROC 0.8699（$\approx 0.870$）、Brier 0.0738 和 ECE 0.0091，证明其泛化性丝毫不依赖单家医院特异性数据。
+
+140 家住院量不少于 100 例的医院校准评估显示：校准斜率均值为 1.064（中位数 1.032，IQR 0.954--1.121）；校准截距均值为 0.018（中位数 0.037）；观察/期望死亡比均值为 1.001（中位数 0.979）。在 206 家持出医院中，排除前 10 家大医院后 AUROC 为 0.870；$\ge 100$ 例医院为 0.874；$\ge 200$ 例医院为 0.875（表~\ref{tab:hospital}）。医院聚类 bootstrap 进一步确认了相对于 APACHE-IVa 的优势，模型减 APACHE-IVa 的 AUROC 差值均值为 0.021，95\% cluster CI 为 0.015--0.028。
 
 \begin{table}[htbp]
 \centering
@@ -472,16 +488,43 @@ V14 锁定模型的解释性分析将性能结果连接到可解释的临床特�
 排除持出样本量最大 10 家医院 & 44,777 & 5,330 & 0.870 & \textbf{0.072}\\
 持出样本量 $\geq$ 100 的医院 & 54,833 & 6,804 & 0.874 & 0.073\\
 持出样本量 $\geq$ 200 的医院 & 47,517 & 5,967 & \textbf{0.875} & 0.073\\
+留出医院验证（167 家未见医院） & 57,536 & 7,016 & 0.870 & 0.074\\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.70\textwidth]{../../figures/main_fig6_hospital_auc_distribution.jpg}
-\caption{持出样本量至少 100 的 eICU 医院层面 AUROC 分布。}
+\includegraphics[width=0.88\textwidth]{../figures/main_fig6_hospital_auc_distribution.jpg}
+\caption{跨 eICU 多中心的医院层面判别力与校准稳定性。(A) 140 家持出住院 $\ge 100$ 的医院 AUROC 分布（中位数 0.868，IQR 0.835--0.892）。(B) 相同 140 家医院的校准斜率分布（中位数 1.032，IQR 0.954--1.121），展示了模型优异的概率跨中心迁移可靠性。}
 \label{fig:hospital_auc}
 \end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{GERI-NutriRisk-ICU 与近年 ICU 营养死亡风险预测代表性研究的系统对比。}
+\label{tab:lit_comparison}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{2.6cm}p{2.8cm}p{2.6cm}p{3.2cm}p{2.8cm}p{2.2cm}p{2.8cm}}
+\toprule
+研究 & 目标人群 & 数据库 / 队列 & 预测特征 / 框架 & 验证策略 & 报告性能指标 & 校准表现 / 核心发现\\
+\midrule
+Heyland 等 (2011) [mNUTRIC] & 机械通气成人 ICU 患者 ($n=1{,}199$) & 美加多中心前瞻性队列 & 6 项变量（年龄、APACHE II、SOFA、合并症、ICU前住院天数、可选IL-6） & 内部推导与前瞻性验证 & 28天死亡率 AUROC $\approx 0.76$--$0.78$ & Hosmer-Lemeshow 检验（$p>0.05$）；需人工计算 APACHE/SOFA 评分；旨在指导营养支持获益人群。\\
+\addlinespace
+Peng 等 (2023) [GNRI ICU] & 老年重症患者（$\ge 65$ 岁，$n=3{,}696$） & MIMIC-IV 单中心回顾性队列 & GNRI 公式：$14.89 \times \text{白蛋白} + 41.7 \times (\text{实测体重}/\text{理想体重})$ & 回顾性队列关联与 RCS 剂量反应 & 重度风险 vs 无风险院内死亡 OR = 2.45 ($p<0.001$) & 流行病学关联研究，评估 GNRI 风险分级；未构建自动化机器学习预测模型或报告预测 AUROC。\\
+\addlinespace
+Zhang 等 (2026) [ENUTRIC] & 普通成人 ICU 患者 ($n=51{,}483$) & MIMIC-IV 单中心回顾性队列 & 16--18 项常规 EHR 变量；Stacking 集成（LightGBM、XGBoost、CatBoost、RF） & 内部 5 折交叉验证 / 70:30 持出 & 预测\textbf{营养不良风险} (mNUTRIC $\ge 5$) 的 AUROC = 0.875 & 提供 SHAP 解释性以辅助营养筛查；评估的是营养不良风险诊断，而非跨数据库死亡率预测。\\
+\addlinespace
+Cao 等 (2026) [NIM Framework] & 接受 CRRT 治疗的重症 AKI 患者 ($n=1{,}732$) & MIMIC-IV 回顾性队列（推导 $n=1{,}212$，测试 $n=520$） & 6 项复合营养炎症代谢指标（PNI、GNRI、CONUT 等）结合机器学习 & 内部 70:30 训练测试划分；无外部持出 & 预测院内死亡的 Gradient Boosting 测试集 AUC = 0.728 & 探索了 AKI-CRRT 人群中复合营养炎症指标与死亡的非线性关系；缺乏目标域更新与 APACHE 基准比对。\\
+\midrule
+\textbf{GERI-NutriRisk-ICU (本研究)} & \textbf{老年重症患者（$\ge 65$ 岁，总计 $n=105{,}532$）} & \textbf{MIMIC-IV 开发 ($n=33{,}671$)；eICU-CRD 验证 ($n=71{,}861$，208家医院)} & \textbf{83 项协调特征；逻辑锚定 + LightGBM 头 + 显式营养储备} & \textbf{留出医院（167家中心）+ 嵌套域更新 + 独立 Platt 校准} & \textbf{0.872 (持出集)；0.870 (留出医院)；较 APACHE-IVa 提升 +0.021 ($p<0.001$)} & \textbf{$\text{ECE}=0.0037$，斜率 1.026；140家医院斜率中位数 1.032；在 1\%--35\% 阈值区间内 DCA 净获益持续占优。}\\
+\bottomrule
+\end{tabular}}
+\begin{flushleft}
+\footnotesize
+\textbf{注：} 缩写：mNUTRIC，改良重症营养风险评分；GNRI，老年营养风险指数；ENUTRIC，重症肠内营养风险模型；NIM，营养-炎症-代谢指标框架；AKI-CRRT，接受连续肾脏替代治疗的急性肾损伤；APACHE，急性生理与慢性健康评估；SOFA，序贯器官衰竭评估；DCA，决策曲线分析；ECE，预期校准误差；EHR，电子健康记录；ICU，重症监护病房；ML，机器学习；OR，比值比；RCS，限制性立方样条。粗体表示本研究提出的框架。
+\end{flushleft}
+\end{table}
 
 \section{讨论}
 本研究开发并外部评估了 GERI-NutriRisk-ICU，一个面向老年 ICU 患者的营养感知死亡风险分层框架。本文的核心结果不是单纯报告某个表格模型取得较高 AUROC，而是证明在协调后的老年 ICU 特征空间中，通过预设目标域更新和不重叠校准，可以形成具有 APACHE 对照、概率校准、可解释性和多中心稳健性的风险分层证据链。对于营养相关重症预测研究而言，这一点尤其关键，因为营养变量与急性严重程度、检测频率、器官支持、医嘱流程和数据库记录方式高度交织。若缺少临床对照和外部验证，营养指标很容易被解释为孤立关联因素。GERI-NutriRisk-ICU 则将营养相关变量置于完整急性严重程度框架内检验，并进一步用 APACHE-IV/IVa、校准指标、决策曲线、特征域归因和医院聚类稳健性共同限定结论。
@@ -507,7 +550,7 @@ eICU-CRD 的多中心结构增强了外部评估的实际意义，因为该数�
 第四，营养相关变量来自常规结构化电子病历，主要反映体型、代谢实验室指标、部分治疗过程和缺失模式，并不包含详细热量和蛋白供给、营养师评估、间接测热、体成分影像或纵向营养轨迹。第五，封顶模型队列降低了事后模型搜索风险，并纳入了传统机器学习和神经表格模型对照，但没有穷尽所有 tabular foundation model、特征工程变体或超参数空间。最后，医院聚类稳健性增强了多中心外部有效性，但不能替代前瞻性实施验证。后续研究应在真实临床工作流中评估 GERI-NutriRisk-ICU，检验校准风险分层能否改善营养评估优先级排序，并进一步观察营养感知监测对流程指标和患者中心结局的影响。
 
 \section{结论}
-GERI-NutriRisk-ICU 提供了一个可复现的老年 ICU 早期死亡风险分层框架，具有外部验证、局部更新、概率校准、APACHE 对照和营养感知解释等特征。基于协调后的 MIMIC-IV 和 eICU-CRD 队列，锁定域更新模型在相同 eICU 持出记录上优于 APACHE-IV/IVa，并在不同医院样本量层级中保持稳定；营养/代谢变量则在完整严重程度模型中提供小幅但可复现的增量预测价值。上述结果支持将 GERI-NutriRisk-ICU 作为老年重症营养感知风险监测工具进一步开展前瞻性评价。
+GERI-NutriRisk-ICU 建立了面向老年重症患者早期死亡风险分层的完整闭环，具备外部独立评估、局部自适应更新、多中心优良校准、APACHE 对照及营养感知等核心特征。本研究的三大基石主张得到了完备证据链的严格支撑：(i) APACHE 对照性体现于在相同患者记录上较再校准 APACHE-IVa 取得统计显著的判别优势（+0.0209 AUROC，$p<0.001$）及全决策阈值净获益领先；(ii) 医院稳健性在 167 家完全未见医院的严格留出验证（AUROC 0.870，Brier 0.0738，ECE 0.0091）与 140 家多中心校准斜率（中位数 1.032）中得到坚实确认；(iii) 营养感知性通过显式营养储备与急性代谢衰竭的细分消融及 SHAP 归因得以明确量化。这些发现证实了基线营养储备在老年重症决策中的不可替代性，为推进营养感知重症监护前瞻性转化应用奠定了坚实基础。
 
 \section*{数据可用性}
 本研究分析的患者级数据可由完成相应培训和数据使用协议的认证研究者通过 PhysioNet 获取：MIMIC-IV v3.1，\url{https://physionet.org/content/mimiciv/3.1/} 和 \url{https://doi.org/10.13026/kpb9-mt58}；eICU Collaborative Research Database v2.0，\url{https://physionet.org/content/eicu-crd/2.0/} 和 \url{https://doi.org/10.13026/C2WM1R}。作者不能重新分发患者级记录。汇总结果表、图源数据和非识别化可复现材料可在公开代码仓库获取：\url{https://github.com/Hajimi-Sudo/geri-nutririsk-icu}。
