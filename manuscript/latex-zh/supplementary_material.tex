@@ -32,7 +32,7 @@
 
 \section*{补充方法}
 
-{\sloppy 所有最终结果锁定实验均于 2026-08-26 在远程分析服务器上重新运行。运行根目录为 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{frontiers\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{mimic\_}\allowbreak\texttt{eicu}，其中 MIMIC-IV v3.1 位于 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{mimiciv/}\allowbreak\texttt{mimic-iv-3.1}，eICU-CRD 位于 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{eicu/}\allowbreak\texttt{base}。执行前已取消 HTTP 与 HTTPS 代理环境变量。服务器端证据清单覆盖 v7--v16 基准测试、SOTA、修复、APACHE 锁定、可解释性及多中心鲁棒性产物。\par}
+{\sloppy 主要模型锁定实验（v7--v16）于 2026-08-26 在远程分析服务器上执行并正式锁定。后续返修敏感性分析、营养消融与超参数交叉验证审计（EXP-001 至 EXP-008）于 2026-09-01 在完全相同的远程环境与锁定特征架构下执行。运行根目录为 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{frontiers\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{mimic\_}\allowbreak\texttt{eicu}，其中 MIMIC-IV v3.1 位于 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{mimiciv/}\allowbreak\texttt{mimic-iv-3.1}，eICU-CRD 位于 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{eicu/}\allowbreak\texttt{base}。执行前已取消 HTTP 与 HTTPS 代理环境变量。服务器端证据清单覆盖 v7--v16 基准测试、SOTA、修复、APACHE 锁定、可解释性及多中心鲁棒性产物。\par}
 
 中文补充材料图 S1 展示源域迁移 ROC 曲线。图 S2 展示 Platt 再校准前后的决策曲线。图 S3 报告透明逻辑锚定模型标准化系数。图 S4 总结五折稳定性。图 S5 展示初始 SOTA 表格模型基准。图 S6 展示扩展 LightGBM 诊断包。图 S7 报告锁定 V14 模型 gain 排名前 20 的特征。图 S8 展示医院规模与医院层面 AUROC 的关系。图 S9 展示锁定 GERI-NutriRisk-ICU 模型的 TreeExplainer SHAP 全局特征贡献度排名。
 
@@ -414,45 +414,78 @@
 
 \clearpage
 
-\subsection*{中文补充材料表 S2：模型版本演进完整审计清单（v7--v16）}
+\subsection*{中文补充材料表 S2：模型版本演进与返修实验完整审计清单（v7--v16 与 EXP-001--EXP-008）}
 \label{sec:tab_s2}
 
-中文补充材料表 S2 提供了编年史维度的版本演进审计，明确区分早期探索阶段与锁定阶段，记录各阶段特征规模、更新策略、选型指标和持出集初测时间。
+中文补充材料表 S2 提供了编年史维度的版本演进审计，明确区分早期探索性基准对比、主模型冻结锁定以及协议化返修扩展实验。
 
-\begin{table}[htbp]
-\centering
-\caption{v7 至 v16 版本演进历史、选型准则与冻结协议审计。}
-\label{tab:audit_s2}
-\renewcommand{\arraystretch}{1.12}
-\noindent\resizebox{\linewidth}{!}{%
-\begin{tabular}{lllc p{5.0cm} p{6.5cm}}
+\begingroup
+\scriptsize
+\singlespacing
+\renewcommand{\arraystretch}{0.82}
+\setlength{\tabcolsep}{2.5pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{0.9cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{6.0cm}}
+\caption{v7 至 v16 版本演进历史、选型准则及 EXP-001 至 EXP-008 返修实验审计清单。} \label{tab:audit_s2} \\
 \toprule
 版本 & 时间戳 & 研发阶段 & 特征数 & 核心目标 & 关键产出 / 决策 \\
 \midrule
-V7 & 2026-08-26 18:04 & 探索性基准对比 & 27 & 评估源域直接迁移下的表格模型族（LR, RF, XGB, CatBoost, LightGBM） & LightGBM 综合表现最优（AUROC 0.794, Brier 0.088）；冻结为无需目标域更新的探索基线 \\
-V8 & 2026-08-26 18:15 & SOTA 表格模型对比 & 27 & 以 LightGBM 为锚点全面对比代表性表格 SOTA 模型 & CatBoost (0.793)、XGBoost (0.793)、MLP (0.782)；均未达到预设的 0.015 优势阈值 \\
-V9 & 2026-08-26 18:25 & 性能主干头锁定 & 27 & 将 LightGBM 锁定为首要性能主干，并保留透明逻辑锚定模型 & 确立双模型架构：逻辑回归提供可解释临床基准，LightGBM 提供最强判别力 \\
-V10 & 2026-08-26 19:13 & SOTA 封顶队列锁定 & 27 & 规范化锁定树模型对比集成 & 确认 LightGBM 在全样本多中心验证中保持判别力与计算效率双重优势 \\
-V11 & 2026-08-26 19:17 & 神经表格 TabNet 审计 & 27 & 评估深度表格架构（TabNet）在老年重症重症监护数据上的泛化性能 & TabNet AUROC 仅为 0.771；深度学习在 EHR 异构表格特征上未超过梯度提升树 \\
-V12 & 2026-08-26 20:40 & 特征扩展与代理变量审查 & 74 & 扩充早期生理与器官衰竭特征，直接应对临床混杂与病情严重度争议 & 源域迁移 AUROC 提升至 0.805；明确需要完整血气分析与入科情境特征协调 \\
-V13 & 2026-08-26 21:19 & 协调 83 特征架构 & 83 & 完整提取跨库协调的 83 项特征（涵盖人口学、营养、体征、检验、血气、支持、情境） & 固化特征工程管道并产出零时间泄露的锁定数据集 \\
-V13b & 2026-08-26 21:33 & 目标域更新与再校准审计 & 83 & 在 80\% 患者级内部测试基准上审计目标域更新与独立 Platt 概率再校准表现 & 域更新模型 AUROC 达 0.872；独立 Platt 缩放消除概率漂移（Brier 0.073, ECE 0.0037）；在锁定前验证更新可行性 \\
-V14 & 2026-08-26 21:44 & 最终锁定模型 & 83 & 主分区架构最终锁定评测：APACHE-IV/IVa 同子集对照与初步营养消融 & 持出验证 AUROC 0.872，Brier 0.073；显著超越 APACHE-IVa（+0.0209 AUROC, $p < 0.001$）；锁定并为返修 EXP-001 留出医院外部验证确立基准 \\
-V15 & 2026-08-26 21:55 & 可解释性分析锁定 & 83 & V14 模型的分组置换重要性与增益特征重要性评测 & 器官支持 (0.063)、生命体征 (0.048)、血气 (0.020)、营养/代谢 (0.016) 确认分层贡献 \\
-V16 & 2026-08-26 22:39 & 主分区中心聚类稳健性评测 & 83 & 在主患者级分层测试集上通过医院聚类 Bootstrap 检验中心间稳健性与 APACHE-IVa 差值 & 证实模型相对 APACHE-IVa 的增量优势高度稳健（均值 +0.021，95\% 集群 CI 0.015 至 0.028；在 206 家医院上评估） \\
-R1 EXP-001 & 2026-09-01 & 回顾性留出医院敏感性分析 & 83 & 回顾性机构层级敏感性分析：严格按机构代码划分 207 家医院 & 20 家更新医院（$n=9{,}949$），20 家校准医院（$n=4{,}376$），167 家留出测试医院（$n=57{,}536$）；AUROC 0.8699，Brier 0.0738，ECE 0.0089，校准斜率 1.037；在回顾性队列内确证跨医疗系统可迁移性（通过 \texttt{run\_}\allowbreak\texttt{leave\_}\allowbreak\texttt{hospital\_}\allowbreak\texttt{out\_}\allowbreak\texttt{validation.py} 复现） \\
-R1 EXP-004 & 2026-09-01 & 营养构念细分消融实验 & 80/81/78/69/64 & 响应审稿人 2（R2-C5）要求，彻底分离显式营养储备与急性代谢实验室指标 & 剔除显式营养储备（3项指标 $\rightarrow$ 80项特征，AUROC 0.8707，$\Delta = -0.0011$，$p = 0.0886$，Brier 0.0736）、营养支持（81项特征，0.8714，$\Delta = -0.0004$）、两者皆除（78项特征，0.8714）、急性代谢生化（14项指标 $\rightarrow$ 69项特征，0.8674，$\Delta = -0.0043$，$p < 0.001$）、全复合构念（19项指标 $\rightarrow$ 64项特征，0.8673，$\Delta = -0.0045$，$p < 0.001$）；通过 \texttt{run\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{construct\_}\allowbreak\texttt{ablation.py} 复现 \\
-R1 EXP-008 & 2026-09-01 & 超参数 5 折交叉验证审计 & 83 & 响应 R3-C6：在合并开发训练集（$N=34{,}123$）上执行协议化 5 折分层交叉验证审计候选搜索 & 系统评估了 6 组协议化候选架构（覆盖树容量、学习率、采样率与正则化）；确证 CONFIG-4（锁定架构：1,400 树，学习率 0.02，31 叶，深度 6，min\_child=80，$\lambda=2.0$）在判别力（5 折平均 CV AUROC 0.9566 $\pm$ 0.0018）与抗跨中心过拟合之间达到最优平衡；零测试数据泄露 \\
+\endfirsthead
+\multicolumn{6}{c}{{\bfseries \tablename\ \thetable{} -- 续上页}} \\
+\toprule
+版本 & 时间戳 & 研发阶段 & 特征数 & 核心目标 & 关键产出 / 决策 \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{{续下页}} \\
 \bottomrule
-\end{tabular}}
-\vspace{0.4em}
-\noindent\parbox{\linewidth}{\footnotesize\textbf{注：} 缩写：LR，逻辑回归；RF，随机森林；XGB，XGBoost；CatBoost，分类特征梯度提升；LightGBM，轻量梯度提升机；MLP，多层感知机；TabNet，注意力解释表格神经网络；AUROC，受试者工作特征曲线下面积；ECE，预期校准误差；CI，置信区间。模型开发在 MIMIC-IV（$n = 33{,}671$）上进行，并在 eICU-CRD（$n = 71{,}861$ 次合格住院，覆盖 207 家医院 [原始数据库包含 208 家医院]）上进行外部多中心评估。在回顾性模型开发与架构锁定阶段（v7--v14），eICU 记录按照固定患者级行号取模规则划分（10\% 更新、10\% 校准、80\% 主要保留基准，$n=57{,}488$）。为解决潜在的院内相关性并评估跨未知医疗系统的机构可迁移性，返修 EXP-001 实施了严格按机构代码划分的回顾性留一医院验证敏感性分析（20 家更新、20 家校准、167 家完全隔离的保留医院，$n=57{,}536$）。V16 评估了主患者级测试分区内 206 家医院的聚类 Bootstrap 稳健性；历史 V14 评估了早期粗粒度特征分组（76 和 67 特征）；返修 EXP-004 严格细分了显式营养储备与急性代谢实验室指标，消除了特征重叠（80、81、78 和 69 特征）。
-}
-\end{table}
-
+\endfoot
+\bottomrule
+\multicolumn{6}{p{16.9cm}}{\scriptsize\textbf{注：} 缩写：LR，逻辑回归；RF，随机森林；XGB，XGBoost；CatBoost，分类特征梯度提升；LightGBM，轻量梯度提升机；MLP，多层感知机；TabNet，注意力解释表格神经网络；AUROC，受试者工作特征曲线下面积；ECE，预期校准误差；CI，置信区间。模型开发在 MIMIC-IV（$n = 33{,}671$）上进行，并在 eICU-CRD（$n = 71{,}861$ 次合格住院，覆盖 207 家医院 [原始库 208 家]）上外部验证。在回顾性开发阶段（v7--v14），eICU 记录按照固定行号取模规则划分（10\% 更新、10\% 校准、80\% 保留测试基准，$n=57{,}488$）。为解决潜在院内相关性并评估机构可迁移性，返修 EXP-001 实施了严格按机构代码划分的回顾性留出医院敏感性分析（20 家更新、20 家校准、167 家留出医院，$n=57{,}536$）。返修 EXP-004 严格细分了显式营养储备与急性代谢实验室指标，消除了特征重叠（80、81、78、69、64 特征）。返修 EXP-008 在合并开发集（$N=34{,}123$）上执行协议化 5 折 CV 超参数搜索。} \\
+\endlastfoot
+V7 & 2026-08-26 18:04 & 探索性基准对比 & 27 & 评估源域直接迁移下的表格模型族（LR, RF, XGB, CatBoost, LightGBM） & LightGBM 综合表现最优（AUROC 0.794, Brier 0.088）；冻结为无需目标域更新的探索基线 \\
+\addlinespace[1pt]
+V8 & 2026-08-26 18:15 & SOTA 表格模型对比 & 27 & 以 LightGBM 为锚点全面对比代表性表格 SOTA 模型 & LightGBM (0.794)、XGBoost (0.779)、CatBoost (0.742)、MLP (0.677)；均未达到预设的 0.015 优势阈值 \\
+\addlinespace[1pt]
+V9 & 2026-08-26 18:25 & 性能主干头锁定 & 27 & 将 LightGBM 锁定为首要性能主干，并保留透明逻辑锚定模型 & 确立双模型架构：逻辑回归提供可解释临床基准，LightGBM 提供最强判别力 \\
+\addlinespace[1pt]
+V10 & 2026-08-26 19:13 & SOTA 封顶队列锁定 & 27 & 规范化锁定树模型对比集成 & 确认 LightGBM 在全样本多中心验证中保持判别力与计算效率双重优势 \\
+\addlinespace[1pt]
+V11 & 2026-08-26 19:17 & 神经表格 TabNet 审计 & 27 & 评估深度表格架构（TabNet）在老年重症监护数据上的泛化性能 & TabNet AUROC 仅为 0.771；深度学习在 EHR 异构表格特征上未超过梯度提升树 \\
+\addlinespace[1pt]
+V12 & 2026-08-26 20:40 & 特征扩展与审查 & 74 & 扩充早期生理与器官衰竭特征，直接应对临床混杂与病情严重度争议 & 源域迁移 AUROC 提升至 0.805；明确需要完整血气分析与入科情境特征协调 \\
+\addlinespace[1pt]
+V13 & 2026-08-26 21:19 & 协调 83 特征架构 & 83 & 完整提取跨库协调的 83 项特征（涵盖人口学、营养、体征、检验、血气、情境） & 固化特征工程管道并产出零时间泄露的锁定数据集 \\
+\addlinespace[1pt]
+V13b & 2026-08-26 21:33 & 目标域更新与校准审计 & 83 & 在 80\% 患者级内部测试基准上审计目标域更新与独立 Platt 概率再校准表现 & 域更新模型 AUROC 达 0.872；独立 Platt 缩放消除概率漂移（Brier 0.073, ECE 0.0037） \\
+\addlinespace[1pt]
+V14 & 2026-08-26 21:44 & 最终锁定模型 & 83 & 主分区架构最终锁定评测：APACHE-IV/IVa 同子集对照与初步营养消融 & 持出验证 AUROC 0.872，Brier 0.073；显著超越 APACHE-IVa（+0.0209 AUROC, $p < 0.001$）；锁定 \\
+\addlinespace[1pt]
+V15 & 2026-08-26 21:55 & 可解释性分析锁定 & 83 & V14 模型的分组置换重要性与增益特征重要性评测 & 器官支持 (0.063)、生命体征 (0.048)、血气 (0.020)、营养/代谢 (0.016) 确认分层贡献 \\
+\addlinespace[1pt]
+V16 & 2026-08-26 22:39 & 中心聚类稳健性评测 & 83 & 在主分层测试集上通过医院聚类 Bootstrap 检验中心间稳健性与 APACHE 差值 & 证实模型相对 APACHE-IVa 的增量优势高度稳健（均值 +0.021，95\% 集群 CI 0.015 至 0.028；206 家医院） \\
+\addlinespace[1pt]
+\midrule
+\multicolumn{6}{l}{\textbf{权威返修多中心验证与敏感性实验（2026-09-01 执行）}} \\
+\midrule
+R1 EXP-001 & 2026-09-01 & 回顾性留出医院敏感性分析 & 83 & 回顾性机构层级敏感性分析：严格按机构代码划分 207 家医院 & 20 家更新（$n=9{,}949$），20 家校准（$n=4{,}376$），167 家留出医院（$n=57{,}536$）；AUROC 0.8699，Brier 0.0738，ECE 0.0089，斜率 1.037；确证可迁移性 \\
+\addlinespace[1pt]
+R1 EXP-002 & 2026-09-01 & 基线模型与 APACHE 重校准 & 83 & 在相同配对子集（$n=39{,}920$）上基准比对 Target-only、Source-only 及再校准 APACHE & Target-only 0.8679，Source-only 0.8053，Updated 0.8722；APACHE-IVa AUROC 0.8504，Brier 0.0811；保持 +0.0209 显著优势（$p < 0.001$） \\
+\addlinespace[1pt]
+R1 EXP-003 & 2026-09-01 & 决策曲线分析（DCA） & 83 & 评估全临床决策阈值概率（1\% 至 35\%）下的净临床获益 & GERI-NutriRisk-ICU 在全部临床常用阈值区间全面取得相较于再校准 APACHE-IVa 的净获益优势 \\
+\addlinespace[1pt]
+R1 EXP-004 & 2026-09-01 & 营养构念细分消融实验 & 80/81/78/69/64 & 响应 R2-C5 要求：彻底分离显式营养储备（白蛋白、BMI）与急性代谢生化指标 & 剔除显式储备：AUROC 0.8707（$\Delta = -0.0011$，$p = 0.089$，Brier 0.0736）；除支持：0.8714；除生化：0.8674（$\Delta = -0.0043$，$p < 0.001$）；除全构念：0.8673 \\
+\addlinespace[1pt]
+R1 EXP-005 & 2026-09-01 & 83 特征全景分布审计 & 83 & 响应 R2-C6 要求：提供两库 83 特征完整均值 $\pm$ 标准差、中位数、四分位距、范围与真实缺失率 & 编制补充材料表 S1；确证连续变量中位数插补器严格仅在开发训练集上拟合；澄清未测 PF 哨兵值 \\
+\addlinespace[1pt]
+R1 EXP-006 & 2026-09-01 & 多中心校准诊断学评估 & 83 & 评估 140 家多中心医院（$n \ge 100$）的医院级校准斜率、截距与 O/E 死亡比分布 & 140 家医院中位校准斜率 1.032（IQR 0.946--1.190），均值 O/E 1.001（IQR 0.902--1.074），全域斜率 1.026，ECE 0.0037 \\
+\addlinespace[1pt]
+R1 EXP-007 & 2026-09-01 & TreeExplainer SHAP 归因 & 83 & 计算全局 SHAP 特征重要性排序与典型临床床旁案例的局部瀑布归因图 & 全局排序确认 BMI 位列第 5（均值 $|\text{SHAP}| = 0.242$），血尿素氮、白蛋白前列；案例剖析营养对急性生理风险的调节 \\
+\addlinespace[1pt]
+R1 EXP-008 & 2026-09-01 & 超参数 5 折交叉验证审计 & 83 & 响应 R3-C6：在合并开发训练集（$N=34{,}123$）上执行协议化 5 折分层 CV 候选搜索审计 & 评估 6 组协议化候选架构；确证锁定 CONFIG-4（1,400 树，lr=0.02，31 叶，深度 6，min\_child=80，$\lambda=2.0$，平均 CV AUROC 0.9566 $\pm$ 0.0018）兼顾泛化稳健性 \\
+\end{longtable}
+\endgroup
 
 \clearpage
-
 \subsection*{中文补充材料表 S3：与近期重症营养相关死亡预测研究的结构化文献对比}
 \label{sec:tab_s3}
 
@@ -486,7 +519,7 @@ Cao 等 (2026) [NIM Framework] & 接受 CRRT 治疗的重症 AKI 患者 ($n=1{,}
 
 \clearpage
 
-\subsection*{中文补充材料表 S4--S10：模型基准、敏感性分析与复现审计}
+\subsection*{中文补充材料表 S4--S11：模型基准、敏感性分析与复现审计}
 \label{sec:tab_s4_s10}
 
 \begin{table}[htbp]
@@ -668,6 +701,9 @@ table\_exp004\_nutrition\_construct\_ablation.csv & 1,806 & bde01f4159dd\\
 table\_exp005\_feature\_distributions.csv & 13,123 & 9b3872af61c7\\
 table\_hyperparameter\_cv\_audit.csv & 1,250 & 8626756db603\\
 hyperparameter\_cv\_summary.json & 5,302 & ae06d4f19d20\\
+exp006\_calibration\_diagnostics.json & 1,721 & 51f911768ea9\\
+exp007\_shap\_summary.json & 3,655 & 7a215d413820\\
+feature\_audit\_sensitivity.json & 2,325 & f058db3e678b\\
 \bottomrule
 \end{tabular}
 \end{table}

@@ -410,45 +410,78 @@ Variable & Category & Unit & Cohort & Missing & Mean $\pm$ SD & Median & IQR & M
 
 \clearpage
 
-\subsection{Supplementary Table S2: Complete Audit Log of Model Versions v7--v16}
+\subsection{Supplementary Table S2: Chronological Audit Log (Versions v7--v16 and Revision EXP-001--EXP-008)}
 \label{sec:tab_s2}
 
-Supplementary Table S2 provides a chronological audit of model iterations, distinguishing exploratory source-domain benchmarking from formal locked evaluations and held-out validation.
+Supplementary Table~\ref{tab:audit_s2} details model iterations from exploratory benchmarking to formal freeze and protocolized revision experiments.
 
-\begin{table}[!htbp]
-\centering
-\caption{Chronological development, model selection audit, and freeze protocol across versions v7 through v16.}
-\label{tab:audit_s2}
-\renewcommand{\arraystretch}{0.90}
-\noindent\resizebox{\linewidth}{!}{%
-\begin{tabular}{lllc p{5.0cm} p{6.5cm}}
+\begingroup
+\scriptsize
+\singlespacing
+\renewcommand{\arraystretch}{0.82}
+\setlength{\tabcolsep}{2.5pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{0.9cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{6.0cm}}
+\caption{Chronological development, model selection audit, and freeze protocol across versions v7 through v16 and revision experiments EXP-001 through EXP-008.} \label{tab:audit_s2} \\
 \toprule
 Version & Timestamp & Stage & Features & Objective & Key Outcome / Decision \\
 \midrule
-V7 & 2026-08-26 18:04 & Exploratory Benchmark & 27 & Evaluate tabular model families (LR, RF, XGB, CatBoost, LightGBM) under source-only transport & LightGBM achieved best trade-off (AUROC 0.794, Brier 0.088); baseline frozen without target adaptation \\
-V8 & 2026-08-26 18:15 & SOTA Benchmark & 27 & Benchmark tabular SOTA baselines against LightGBM anchor & LightGBM (0.794), XGBoost (0.779), CatBoost (0.742), MLP (0.677); evaluated under early 27-feature source-only schema without target adaptation; none exceeded LightGBM by prespecified 0.015 delta \\
-V9 & 2026-08-26 18:25 & Primary Head Lock & 27 & Lock LightGBM as primary performance head alongside transparent logistic anchor & Retained dual-model architecture: logistic regression for interpretable reference, LightGBM for discrimination \\
-V10 & 2026-08-26 19:13 & SOTA Completion Lock & 27 & Formal lock of tree-based comparator ensemble & Confirmed LightGBM retained superiority and computational efficiency \\
-V11 & 2026-08-26 19:17 & Neural TabNet Audit & 27 & Evaluate deep tabular neural architecture (TabNet) on geriatric critical care data & TabNet AUROC 0.771; deep learning did not outperform gradient-boosted trees on EHR tabular features \\
-V12 & 2026-08-26 20:40 & Feature Expansion \& Proxy Review & 74 & Expand early physiologic and organ failure variables to address clinical severity confounding & Source-only AUROC rose to 0.805; identified need for full blood gas and admission context harmonization \\
-V13 & 2026-08-26 21:19 & Harmonized 83-Feature Schema & 83 & Extract full 83 cross-database harmonized features covering demographics, nutrition, vitals, labs, blood gas, support, context & Frozen feature extraction pipeline and produced locked CSV datasets with zero time leakage \\
-V13b & 2026-08-26 21:33 & Domain Update Calibration Audit & 83 & Audit target-domain updating with disjoint Platt calibration on internal 80\% benchmark & Domain-updated AUROC reached 0.872; disjoint Platt scaling eliminated probability shift (Brier 0.073, ECE 0.0037); verified feasibility prior to model lock \\
-V14 & 2026-08-26 21:44 & FINAL LOCKED MODEL & 83 & Final architecture lock on primary partition: APACHE-IV/IVa benchmark and preliminary nutrition ablation & Held-out AUROC 0.872, Brier 0.073; exceeded APACHE-IVa by +0.0209 AUROC ($p < 0.001$); locked for subsequent leave-hospital-out validation (EXP-001) \\
-V15 & 2026-08-26 21:55 & Explainability Lock & 83 & Group permutation importance and gain feature importance for V14 & Organ support (0.063), vitals (0.048), blood gas (0.020), nutrition/metabolism (0.016) confirmed stratified contribution \\
-V16 & 2026-08-26 22:39 & Primary-Split Cluster Robustness & 83 & Evaluate multicenter cluster robustness and APACHE-IVa difference via hospital-cluster bootstrap on primary test partition & Model-minus-APACHE AUROC difference confirmed (mean +0.021, 95\% cluster CI 0.015 to 0.028; evaluated across 206 hospitals) \\
-R1 EXP-001 & 2026-09-01 & Retrospective Leave-Hospital-Out Validation & 83 & Retrospective institutional sensitivity analysis: strictly partition 207 hospitals by institutional ID & 20 update hospitals ($n=9{,}949$), 20 calibration hospitals ($n=4{,}376$), and 167 held-out hospitals ($n=57{,}536$); AUROC 0.8699, Brier 0.0738, ECE 0.0089, calibration slope 1.037; confirms transportability across health systems within retrospective cohort \\
-R1 EXP-004 & 2026-09-01 & Dissected Nutrition Ablation & 80/81/78/69/64 & Address R2-C5 by strictly isolating explicit nutritional reserve (albumin, BMI) from acute metabolic laboratories & Removed explicit nutrition reserve (3 features $\rightarrow$ 80 features, AUROC 0.8707, $\Delta = -0.0011$, $p = 0.0886$, Brier 0.0736), support (81 features, 0.8714, $\Delta = -0.0004$, $p=0.324$), both (78 features, 0.8714, $\Delta = -0.0004$, $p=0.533$), acute metabolic labs (14 features $\rightarrow$ 69 features, AUROC 0.8674, $\Delta = -0.0043$, $p < 0.001$), and full construct (19 features $\rightarrow$ 64 features, AUROC 0.8673, $\Delta = -0.0045$, $p < 0.001$); verified via \texttt{run\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{construct\_}\allowbreak\texttt{ablation.py} \\
-R1 EXP-008 & 2026-09-01 & Hyperparameter 5-Fold CV Audit & 83 & Address R3-C6: Protocolized 5-fold stratified CV on pooled development set ($N=34{,}123$) to audit candidate search & Evaluated 6 candidate configurations across tree capacity, learning rates, subsampling, and regularization; confirmed CONFIG-4 (Locked: 1,400 trees, lr=0.02, 31 leaves, depth=6, min\_child=80, $\lambda=2.0$) balances discrimination (mean CV AUROC 0.9566 $\pm$ 0.0018) with resistance to multi-center overfitting; zero held-out test data accessed \\
+\endfirsthead
+\multicolumn{6}{c}{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+Version & Timestamp & Stage & Features & Objective & Key Outcome / Decision \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{{Continued on next page}} \\
 \bottomrule
-\end{tabular}}
-\vspace{0.2em}
-\noindent\parbox{\linewidth}{\scriptsize\textbf{Note:} Abbreviations: LR, logistic regression; RF, random forest; XGB, XGBoost; CatBoost, categorical gradient boosting; LightGBM, light gradient boosting machine; MLP, multilayer perceptron; TabNet, attentive interpretable tabular learning; AUROC, area under the receiver operating characteristic curve; ECE, expected calibration error; CI, confidence interval. Development was conducted on MIMIC-IV ($n = 33{,}671$) with external multicenter evaluation on eICU-CRD ($n = 71{,}861$ eligible stays across 207 hospitals [208 hospitals in the original database]). During retrospective model development and architecture lock (v7--v14), eICU records were partitioned using a fixed patient-level row-index modulo rule (10\% update, 10\% calibration, 80\% primary held-out benchmark, $n=57{,}488$). To address potential intra-hospital correlation and evaluate institutional generalizability, Revision EXP-001 implemented a retrospective leave-hospital-out sensitivity analysis strictly partitioning hospitals by institutional identifier (20 update, 20 calibration, and 167 completely untouched held-out hospitals, $n=57{,}536$). V16 evaluated cluster-bootstrap robustness within the primary patient-level test partition across 206 hospitals; Historical V14 evaluated an early coarse feature grouping (76 and 67 features); Revision EXP-004 strictly dissected explicit nutritional reserve from acute metabolic laboratories without variable overlap (80, 81, 78, and 69 features).
-}
-\end{table}
-
+\endfoot
+\bottomrule
+\multicolumn{6}{p{16.9cm}}{\scriptsize\textbf{Note:} Abbreviations: LR, logistic regression; RF, random forest; XGB, XGBoost; CatBoost, categorical gradient boosting; LightGBM, light gradient boosting machine; MLP, multilayer perceptron; TabNet, attentive tabular learning; AUROC, area under receiver operating characteristic curve; ECE, expected calibration error; CI, confidence interval. Development was conducted on MIMIC-IV ($n = 33{,}671$) with multicenter evaluation on eICU-CRD ($n = 71{,}861$ stays across 207 hospitals [208 in database]). During retrospective development (v7--v14), eICU records were partitioned using a fixed row-index modulo rule (10\% update, 10\% calibration, 80\% primary benchmark, $n=57{,}488$). To evaluate institutional generalizability, Revision EXP-001 implemented retrospective leave-hospital-out analysis partitioning hospitals by institutional ID (20 update, 20 calibration, 167 held-out hospitals, $n=57{,}536$). Revision EXP-004 strictly dissected explicit nutritional reserve from acute metabolic laboratories without variable overlap (80, 81, 78, 69, 64 features). Revision EXP-008 protocolized 5-fold CV hyperparameter search on the pooled development set ($N=34{,}123$).} \\
+\endlastfoot
+V7 & 2026-08-26 18:04 & Exploratory Benchmark & 27 & Evaluate tabular model families (LR, RF, XGB, CatBoost, LightGBM) under source-only transport & LightGBM achieved best trade-off (AUROC 0.794, Brier 0.088); baseline frozen without target adaptation \\
+\addlinespace[1pt]
+V8 & 2026-08-26 18:15 & SOTA Benchmark & 27 & Benchmark tabular SOTA baselines against LightGBM anchor & LightGBM (0.794), XGBoost (0.779), CatBoost (0.742), MLP (0.677); evaluated under early 27-feature source schema; none exceeded LightGBM by 0.015 delta \\
+\addlinespace[1pt]
+V9 & 2026-08-26 18:25 & Primary Head Lock & 27 & Lock LightGBM as primary performance head alongside transparent logistic anchor & Retained dual-model architecture: logistic regression for interpretable reference, LightGBM for discrimination \\
+\addlinespace[1pt]
+V10 & 2026-08-26 19:13 & SOTA Completion Lock & 27 & Formal lock of tree-based comparator ensemble & Confirmed LightGBM retained superiority and computational efficiency across development splits \\
+\addlinespace[1pt]
+V11 & 2026-08-26 19:17 & Neural TabNet Audit & 27 & Evaluate deep tabular neural architecture (TabNet) on geriatric critical care data & TabNet AUROC 0.771; deep tabular learning did not outperform gradient-boosted trees on EHR tabular features \\
+\addlinespace[1pt]
+V12 & 2026-08-26 20:40 & Feature Expansion \& Review & 74 & Expand early physiologic and organ failure variables to address clinical severity confounding & Source-only AUROC rose to 0.805; identified need for full blood gas and admission context harmonization \\
+\addlinespace[1pt]
+V13 & 2026-08-26 21:19 & Harmonized 83-Feature Schema & 83 & Extract full 83 cross-database harmonized features covering demographics, nutrition, vitals, labs, blood gas, context & Frozen feature extraction pipeline and produced locked CSV datasets with zero time leakage \\
+\addlinespace[1pt]
+V13b & 2026-08-26 21:33 & Domain Update Calibration Audit & 83 & Audit target-domain updating with disjoint Platt calibration on internal 80\% benchmark & Domain-updated AUROC reached 0.872; disjoint Platt scaling resolved shift (Brier 0.073, ECE 0.0037); verified feasibility prior to model lock \\
+\addlinespace[1pt]
+V14 & 2026-08-26 21:44 & FINAL LOCKED MODEL & 83 & Final architecture lock on primary partition: APACHE-IV/IVa benchmark and preliminary nutrition ablation & Held-out AUROC 0.872, Brier 0.073; exceeded APACHE-IVa by +0.0209 AUROC ($p < 0.001$); locked for subsequent leave-hospital-out validation (EXP-001) \\
+\addlinespace[1pt]
+V15 & 2026-08-26 21:55 & Explainability Lock & 83 & Group permutation importance and gain feature importance for V14 & Organ support (0.063), vitals (0.048), blood gas (0.020), nutrition/metabolism (0.016) confirmed stratified contribution \\
+\addlinespace[1pt]
+V16 & 2026-08-26 22:39 & Cluster Robustness Audit & 83 & Evaluate multicenter cluster robustness and APACHE-IVa difference via hospital-cluster bootstrap & Model-minus-APACHE AUROC difference confirmed (mean +0.021, 95\% cluster CI 0.015--0.028; evaluated across 206 hospitals) \\
+\addlinespace[1pt]
+\midrule
+\multicolumn{6}{l}{\textbf{Authoritative Revision Validation and Sensitivity Experiments (2026-09-01)}} \\
+\midrule
+R1 EXP-001 & 2026-09-01 & Retrospective Leave-Hospital-Out Validation & 83 & Retrospective institutional sensitivity analysis: strictly partition 207 hospitals by institutional ID & 20 update ($n=9{,}949$), 20 calibration ($n=4{,}376$), 167 held-out hospitals ($n=57{,}536$); AUROC 0.8699, Brier 0.0738, ECE 0.0089, slope 1.037; confirms transportability \\
+\addlinespace[1pt]
+R1 EXP-002 & 2026-09-01 & Baselines \& APACHE-IVa Recalibration & 83 & Benchmark against Target-only, Source-only, and Platt-recalibrated APACHE-IVa on identical held-out subset ($n=39{,}920$) & Target-only 0.8679, Source-only 0.8053, Updated 0.8722; recalibrated APACHE-IVa AUROC 0.8504, Brier 0.0811; maintained +0.0209 AUROC advantage ($p < 0.001$) \\
+\addlinespace[1pt]
+R1 EXP-003 & 2026-09-01 & Decision Curve Analysis (DCA) & 83 & Evaluate net clinical benefit across clinical threshold probabilities (1\% to 35\%) & GERI-NutriRisk-ICU demonstrated strictly superior net clinical benefit over recalibrated APACHE-IVa across all relevant threshold probabilities (1\%--35\%) \\
+\addlinespace[1pt]
+R1 EXP-004 & 2026-09-01 & Dissected Nutrition Feature Ablation & 80/81/78/69/64 & Address R2-C5: strictly isolate explicit nutritional reserve (albumin, BMI) from acute metabolic laboratories & Without explicit reserve: AUROC 0.8707 ($\Delta = -0.0011$, $p = 0.0886$, Brier 0.0736); without support: 0.8714; without metabolic labs: 0.8674 ($\Delta = -0.0043$, $p < 0.001$); without construct: 0.8673 \\
+\addlinespace[1pt]
+R1 EXP-005 & 2026-09-01 & 83-Feature Full Distribution Audit & 83 & Address R2-C6: provide complete mean $\pm$ SD, median, IQR, min--max range, and true missingness across both databases & Completed Supplementary Table S1 for all 83 features; verified continuous medians fitted on development training data only; clarified unmeasured PF ratio \\
+\addlinespace[1pt]
+R1 EXP-006 & 2026-09-01 & Multicenter Calibration Diagnostics & 83 & Hospital-level calibration slope, intercept, and O/E mortality ratio across 140 hospitals with $n \ge 100$ & 140 hospitals ($n \ge 100$): median slope 1.032 (IQR 0.946--1.190), mean O/E ratio 1.001 (IQR 0.902--1.074), full-cohort slope 1.026, aggregate ECE 0.0037 \\
+\addlinespace[1pt]
+R1 EXP-007 & 2026-09-01 & TreeExplainer SHAP Interpretability & 83 & Compute global SHAP feature importance and individualized local waterfall plots for clinical case vignettes & Global ranking confirmed BMI rank 5 (mean $|\text{SHAP}| = 0.242$), BUN, albumin; case vignettes showed nutritional moderation of acute physiological severity \\
+\addlinespace[1pt]
+R1 EXP-008 & 2026-09-01 & Hyperparameter 5-Fold CV Audit & 83 & Address R3-C6: Protocolized 5-fold stratified CV on pooled development set ($N=34{,}123$) to audit candidate search & Evaluated 6 candidate configurations on pooled dev set ($N=34{,}123$); confirmed locked CONFIG-4 (1,400 trees, lr=0.02, 31 leaves, depth=6, min\_child=80, $\lambda=2.0$, mean CV AUROC 0.9566 $\pm$ 0.0018) \\
+\end{longtable}
+\endgroup
 
 \clearpage
-
 \subsection{Supplementary Table S3: Structured Comparison with Recent ICU Nutrition-Related Mortality Studies}
 \label{sec:tab_s3}
 
@@ -467,11 +500,11 @@ Supplementary Table~\ref{tab:lit_s3} provides a structured literature comparison
 Study & Target Population & Database / Cohort & Predictors / Framework & Validation Strategy & Reported Performance & Calibration / Key Findings\\
 \midrule
 Heyland et al. (2011) [mNUTRIC] & Mechanically ventilated adult ICU patients ($n=1{,}199$) & Prospective multicenter Canadian \& US ICUs & 6 variables (Age, APACHE II, SOFA, comorbidities, pre-ICU hospital days; optional IL-6) & Internal split-sample derivation \& validation & 28-day mortality AUROC $\approx 0.76$--$0.78$ & Hosmer-Lemeshow test ($p>0.05$); requires manual calculation of APACHE II/SOFA; designed to identify nutrition therapy benefit.\\
-\addlinespace[2pt]
+\addlinespace[1pt]
 Peng et al. (2023) [GNRI in Elderly ICU] & Critically ill elderly patients ($\ge 65$ years, $n=3{,}696$) & MIMIC-IV single-center retrospective & GNRI formula: $14.89 \times \text{albumin} + 41.7 \times (\text{weight}/\allowbreak\text{ideal weight})$ & Retrospective cohort association \& RCS dose-response & Major risk vs no risk OR = 2.45 ($p<0.001$) for hospital mortality & Epidemiological association study evaluating categorical GNRI risk; did not develop an automated ML prediction model or report prediction AUROC.\\
-\addlinespace[2pt]
+\addlinespace[1pt]
 Zhang et al. (2026) [E-NUTRIC Stacking] & General adult ICU patients ($n=51{,}483$) & MIMIC-IV single-center retrospective & 16--18 routine EHR features; Stacking ensemble (LightGBM, XGBoost, CatBoost, RF) & Internal 5-fold cross-validation / 70:30 holdout & AUROC = 0.875 for predicting \textbf{nutritional risk} (mNUTRIC $\ge 5$) & Provided SHAP interpretability for malnutrition screening; evaluated nutritional risk diagnosis rather than cross-database mortality prediction.\\
-\addlinespace[2pt]
+\addlinespace[1pt]
 Cao et al. (2026) [NIM in AKI-CRRT] & ICU patients with acute kidney injury undergoing CRRT ($n=1{,}732$) & MIMIC-IV retrospective cohort (derivation $n=1{,}212$, test $n=520$) & 6 composite nutritional-inflammatory-\allowbreak metabolic indices (PNI, GNRI, CONUT, etc.) + ML & Internal 70:30 train-test split; no external holdout & Gradient Boosting test AUROC = 0.728 for hospital mortality & Explored dose-response non-linearity between NIM indices and mortality in AKI-CRRT; lacked target-domain updating or APACHE benchmarking.\\
 \midrule
 \textbf{GERI-NutriRisk-ICU (This Study)} & \textbf{Older ICU patients ($\ge 65$ years, $n=105{,}532$ total)} & \textbf{MIMIC-IV dev ($n=33{,}671$); eICU-CRD multicenter validation ($n=71{,}861$ eligible stays across 207 hospitals [208 hospitals in the original database])} & \textbf{83 harmonized predictors; logistic anchor + LightGBM head + explicit nutrition reserve} & \textbf{Retrospective leave-hospital-out (167 held-out hospitals) + nested update + disjoint Platt calibration} & \textbf{0.872 (held-out); 0.871 (leave-hospital-out); +0.021 over APACHE-IVa ($p<0.001$)} & \textbf{$\text{ECE}=0.0037$, slope 1.026; 140-hospital median slope 1.032; sustained superior net clinical benefit on DCA across 1\%--35\%.}\\
@@ -483,7 +516,7 @@ Cao et al. (2026) [NIM in AKI-CRRT] & ICU patients with acute kidney injury unde
 
 \clearpage
 
-\subsection{Supplementary Tables S4--S10: Model Benchmarks, Sensitivity, and Replication Audits}
+\subsection{Supplementary Tables S4--S11: Model Benchmarks, Sensitivity, and Replication Audits}
 \label{sec:tab_s4_s10}
 
 \begin{table}[!htbp]
@@ -664,6 +697,9 @@ table\_exp004\_nutrition\_construct\_ablation.csv & 1,806 & bde01f4159dd\\
 table\_exp005\_feature\_distributions.csv & 13,123 & 9b3872af61c7\\
 table\_hyperparameter\_cv\_audit.csv & 1,250 & 8626756db603\\
 hyperparameter\_cv\_summary.json & 5,302 & ae06d4f19d20\\
+exp006\_calibration\_diagnostics.json & 1,721 & 51f911768ea9\\
+exp007\_shap\_summary.json & 3,655 & 7a215d413820\\
+feature\_audit\_sensitivity.json & 2,325 & f058db3e678b\\
 \bottomrule
 \end{tabular}
 \end{table}
