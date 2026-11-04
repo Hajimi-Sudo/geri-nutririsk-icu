@@ -14,6 +14,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import numpy as np
+from sklearn.metrics import roc_auc_score
 
 
 ROOT = Path("/root/autodl-tmp/frontiers_nutrition_mimic_eicu")
@@ -135,15 +136,9 @@ def matrix(data, features, impute=None, scaler=None, add_intercept=True):
 def auc(y, p):
     y = np.asarray(y)
     p = np.asarray(p)
-    order = np.argsort(p)
-    ranks = np.empty_like(order, dtype=float)
-    ranks[order] = np.arange(1, len(p) + 1)
-    n1 = y.sum()
-    n0 = len(y) - n1
-    if n1 == 0 or n0 == 0:
+    if len(np.unique(y)) < 2:
         return float("nan")
-    return float((ranks[y == 1].sum() - n1 * (n1 + 1) / 2) / (n1 * n0))
-
+    return float(roc_auc_score(y, p))
 
 def brier(y, p):
     return float(np.mean((p - y) ** 2))

@@ -195,16 +195,16 @@ def run():
     mimic_ids, X_m_raw, y_m, _ = load_features(mimic_csv)
     print(f"Loaded MIMIC: {len(y_m)} stays, eICU: {len(y_e)} stays, Features: {len(features)}")
 
-    # Preprocessing
-    med = impute_fit(X_m_raw)
-    X_m = impute_apply(X_m_raw, med)
-    X_e = impute_apply(X_e_raw, med)
-
     # Standard split masks
     m_train = np.array([(i % 5) != 0 for i in range(len(y_m))])
     e_update_fit = np.array([(i % 10) == 0 for i in range(len(y_e))])
     e_update_cal = np.array([(i % 10) == 5 for i in range(len(y_e))])
     e_held = ~(e_update_fit | e_update_cal)
+
+    # Preprocessing: train-only median imputation fitted strictly on MIMIC training fold
+    med = impute_fit(X_m_raw[m_train])
+    X_m = impute_apply(X_m_raw, med)
+    X_e = impute_apply(X_e_raw, med)
 
     h_map = load_hospitals()
     ap_map = load_apache()

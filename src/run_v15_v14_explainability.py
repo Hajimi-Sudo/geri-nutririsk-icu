@@ -10,6 +10,7 @@ from pathlib import Path
 import lightgbm as lgb
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn.metrics import roc_auc_score
 
 
 PROJECT = Path(__file__).resolve().parents[1]
@@ -53,12 +54,11 @@ def logit(p):
 
 
 def auc(y, p):
-    order = np.argsort(p)
-    ranks = np.empty_like(order, dtype=float)
-    ranks[order] = np.arange(1, len(p) + 1)
-    n1 = y.sum()
-    n0 = len(y) - n1
-    return float((ranks[y == 1].sum() - n1 * (n1 + 1) / 2) / (n1 * n0))
+    y = np.asarray(y)
+    p = np.asarray(p)
+    if len(np.unique(y)) < 2:
+        return float("nan")
+    return float(roc_auc_score(y, p))
 
 
 def brier(y, p):
@@ -128,14 +128,15 @@ def run():
     OUT.mkdir(parents=True, exist_ok=True)
     _, X_e_raw, y_e, features = load_table(V13 / "eicu_v13_features_server_only.csv")
     _, X_m_raw, y_m, _ = load_table(V13 / "mimic_v13_features_server_only.csv")
-    med = impute_fit(X_m_raw)
-    X_m = impute_apply(X_m_raw, med)
-    X_e = impute_apply(X_e_raw, med)
-
     m_train = np.array([(i % 5) != 0 for i in range(len(y_m))])
     e_update_fit = np.array([(i % 10) == 0 for i in range(len(y_e))])
     e_update_cal = np.array([(i % 10) == 5 for i in range(len(y_e))])
     e_nested_held = ~(e_update_fit | e_update_cal)
+
+    # Train-only median imputation: fitted strictly on MIMIC development training fold
+    med = impute_fit(X_m_raw[m_train])
+    X_m = impute_apply(X_m_raw, med)
+    X_e = impute_apply(X_e_raw, med)
 
     model = fit_lgbm(
         np.vstack([X_m[m_train], X_e[e_update_fit]]),
