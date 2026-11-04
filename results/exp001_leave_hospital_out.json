@@ -1,0 +1,75 @@
+{
+  "protocol": "Strict Leave-Hospital-Out Multicenter Validation (EXP-001)",
+  "update_hospitals": 20,
+  "calibration_hospitals": 20,
+  "heldout_hospitals": 167,
+  "update_stays": 9949,
+  "calibration_stays": 4376,
+  "heldout_stays": 57536,
+  "platt_parameters": {
+    "intercept": -1.501965839833228,
+    "slope": 0.7839742094446029
+  },
+  "leave_hospital_out_metrics": {
+    "n": 57536,
+    "events": 7016,
+    "event_rate": 0.12194104560622915,
+    "auc": 0.8699459938193528,
+    "brier": 0.0737838274051973,
+    "ece_q10": 0.008866490405824986,
+    "calibration_slope": 1.0371617169796923,
+    "calibration_intercept": 0.17431448084981413,
+    "oe_ratio": 1.0746512164929414
+  },
+  "sensitivity_analysis": [
+    {
+      "subset": "All 167 Unseen Held-Out Hospitals",
+      "n": 57536,
+      "events": 7016,
+      "event_rate": 0.12194104560622915,
+      "auc": 0.8699459938193528,
+      "brier": 0.0737838274051973,
+      "ece_q10": 0.008866490405824986,
+      "calibration_slope": 1.0371617169796923,
+      "calibration_intercept": 0.17431448084981413,
+      "oe_ratio": 1.0746512164929414
+    },
+    {
+      "subset": "Excluding Top-10 Volume Hospitals",
+      "n": 42611,
+      "events": 4948,
+      "event_rate": 0.11612025063950623,
+      "auc": 0.8650012730437062,
+      "brier": 0.0720156384591718,
+      "ece_q10": 0.004315640907017587,
+      "calibration_slope": 1.0184470135079038,
+      "calibration_intercept": 0.07498020563338878,
+      "oe_ratio": 1.0298012078714727
+    },
+    {
+      "subset": "Hospitals with N >= 100",
+      "n": 55618,
+      "events": 6792,
+      "event_rate": 0.12211873853788342,
+      "auc": 0.8717832064362394,
+      "brier": 0.07341401092542829,
+      "ece_q10": 0.009869347338664354,
+      "calibration_slope": 1.0467989413639187,
+      "calibration_intercept": 0.20012985968648547,
+      "oe_ratio": 1.0814267101509702
+    },
+    {
+      "subset": "Hospitals with N >= 200",
+      "n": 50069,
+      "events": 6242,
+      "event_rate": 0.12466795821765964,
+      "auc": 0.8733605574105352,
+      "brier": 0.07393303383250219,
+      "ece_q10": 0.011120627960973215,
+      "calibration_slope": 1.0552638174083093,
+      "calibration_intercept": 0.23556087707138595,
+      "oe_ratio": 1.0954374733841041
+    }
+  ],
+  "execution_time_seconds": 105.50066065788269
+}

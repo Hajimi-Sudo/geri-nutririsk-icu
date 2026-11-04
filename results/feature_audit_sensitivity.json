@@ -1,0 +1,89 @@
+{
+  "calcium_audit": {
+    "mimic": {
+      "total_stays": 33671,
+      "calcium_nonnull_n": 32161,
+      "calcium_nonnull_pct": 95.51542870719611,
+      "ionized_calcium_contamination_n": 6827,
+      "ionized_calcium_contamination_pct": 21.22757376947234,
+      "ionized_calcium_median_iqr": [
+        1.17,
+        1.13,
+        1.22
+      ],
+      "clean_total_calcium_n": 25334,
+      "clean_total_calcium_pct": 75.2398206171483,
+      "clean_total_calcium_missing_pct": 24.760179382851714,
+      "clean_total_calcium_mean_sd": [
+        8.127352845977738,
+        1.222329984773047
+      ],
+      "clean_total_calcium_median_iqr": [
+        8.4,
+        7.8,
+        8.85
+      ]
+    },
+    "eicu": {
+      "total_stays": 71861,
+      "calcium_nonnull_n": 60020,
+      "calcium_nonnull_pct": 83.52235565884138,
+      "calcium_missing_pct": 16.477644341158626,
+      "calcium_mean_sd": [
+        8.32265736945583,
+        0.7424506259263141
+      ],
+      "calcium_median_iqr": [
+        8.35,
+        7.9,
+        8.8
+      ]
+    }
+  },
+  "pf_ratio_audit": {
+    "mimic": {
+      "total_stays": 33671,
+      "pao2_nonnull_n": 18378,
+      "fio2_nonnull_n": 3830,
+      "paired_pf_nonnull_n": 3828,
+      "paired_pf_pct": 11.368833714472395,
+      "unmeasured_zero_n": 29843,
+      "unmeasured_zero_pct": 88.63116628552761,
+      "measured_pf_mean_sd": [
+        253.24251393258055,
+        154.17715887113144
+      ],
+      "measured_pf_median_iqr": [
+        215.0,
+        137.0,
+        335.0
+      ]
+    },
+    "eicu": {
+      "total_stays": 71861,
+      "pao2_nonnull_n": 21036,
+      "fio2_nonnull_n": 21699,
+      "paired_pf_nonnull_n": 17333,
+      "paired_pf_pct": 24.12017645176104,
+      "unmeasured_zero_n": 54528,
+      "unmeasured_zero_pct": 75.87982354823896,
+      "measured_pf_mean_sd": [
+        237.50374185237865,
+        116.5615350070758
+      ],
+      "measured_pf_median_iqr": [
+        222.0,
+        150.16666666666666,
+        309.0
+      ]
+    }
+  },
+  "model_sensitivity": {
+    "baseline_heldout_test_auc": 0.8743602311332722,
+    "baseline_heldout_test_brier": 0.07322402056158477,
+    "clean_calcium_heldout_test_auc": 0.8738181521074779,
+    "clean_calcium_heldout_test_brier": 0.07338553360916909,
+    "delta_auc": -0.0005420790257942842,
+    "delta_brier": 0.00016151304758432738
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "heldout_metrics": {
+    "source_only": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8034862335189162,
+      "brier": 0.08486076512756509,
+      "ece_q10": 0.014603241310588395,
+      "calibration_slope": 1.0477523038710437,
+      "calibration_intercept": 0.08535753668313312,
+      "oe_ratio": 1.0076882930401072
+    },
+    "target_only": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8680948518007976,
+      "brier": 0.07465979026939486,
+      "ece_q10": 0.004111817140280779,
+      "calibration_slope": 1.049203070731229,
+      "calibration_intercept": 0.11949622053101377,
+      "oe_ratio": 1.0308750262583461
+    },
+    "combined_domain_updated": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8728321752019913,
+      "brier": 0.07321818352873165,
+      "ece_q10": 0.003420646839000948,
+      "calibration_slope": 1.0257790227910566,
+      "calibration_intercept": 0.06735232945111612,
+      "oe_ratio": 1.0179944993640333
+    }
+  },
+  "pooling_weight_lambda": 1.0,
+  "sample_sizes": {
+    "source_train_n": 26936,
+    "target_update_n": 7187,
+    "target_calibration_n": 7186,
+    "target_heldout_n": 57488
+  },
+  "random_seeds": {
+    "target_only": 20260840,
+    "source_only": 20260841,
+    "combined_domain_updated": 20261840
+  },
+  "apache_iva_recalibrated_same_subset": {
+    "n": 39920,
+    "apache_raw": {
+      "n": 39920,
+      "events": 4956,
+      "event_rate": 0.12414829659318637,
+      "auc": 0.8504124477532476,
+      "brier": 0.08204785646844932,
+      "ece_q10": 0.028903707174170422,
+      "calibration_slope": 1.0351055456470037,
+      "calibration_intercept": -0.2856607607316681,
+      "oe_ratio": 0.8111510698147746
+    },
+    "apache_recalibrated": {
+      "n": 39920,
+      "events": 4956,
+      "event_rate": 0.12414829659318637,
+      "auc": 0.8504124477532476,
+      "brier": 0.08105169174861711,
+      "ece_q10": 0.00791047083860919,
+      "calibration_slope": 1.0213582495305,
+      "calibration_intercept": 0.07497233357339968,
+      "oe_ratio": 1.0276908130531133
+    },
+    "domain_updated_same_subset": {
+      "n": 39920,
+      "events": 4956,
+      "event_rate": 0.12414829659318637,
+      "auc": 0.8711983900147172,
+      "brier": 0.07417461046940023,
+      "ece_q10": 0.008128683297841619,
+      "calibration_slope": 0.998396518006922,
+      "calibration_intercept": 0.10255546487265782,
+      "oe_ratio": 1.0652821453175185
+    },
+    "platt_weights": [
+      -0.35368079046836787,
+      1.012864396678661
+    ],
+    "paired_delong_comparison": {
+      "delta_auroc": 0.020785942261469792,
+      "ci_95_lower": 0.015715780949245764,
+      "ci_95_upper": 0.02585610357369382,
+      "p_value": 8.881784197001252e-16
+    }
+  },
+  "unmeasured_apache_audit": {
+    "n_unmeasured": 17568,
+    "observed_deaths": 2174,
+    "observed_mortality_rate": 0.12374772313296903,
+    "measured_mortality_rate": 0.12414829659318637,
+    "rate_difference": 0.00040057346021733775
+  }
+}

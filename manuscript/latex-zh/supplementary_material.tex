@@ -32,31 +32,33 @@
 
 \section*{补充方法}
 
-所有最终结果锁定实验均于 2026-08-26 在远程分析服务器上重新运行。运行根目录为 \texttt{/root/autodl-tmp/}\allowbreak\texttt{frontiers\_nutrition\_mimic\_eicu}，其中 MIMIC-IV v3.1 位于 \texttt{/root/autodl-tmp/}\allowbreak\texttt{mimiciv/mimic-iv-3.1}，eICU-CRD 位于 \texttt{/root/autodl-tmp/}\allowbreak\texttt{eicu/base}。执行前已取消 HTTP 与 HTTPS 代理环境变量。服务器端证据清单覆盖 v7--v16 基准测试、SOTA、修复、APACHE 锁定、可解释性及多中心鲁棒性产物。
+{\sloppy 所有最终结果锁定实验均于 2026-08-26 在远程分析服务器上重新运行。运行根目录为 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{frontiers\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{mimic\_}\allowbreak\texttt{eicu}，其中 MIMIC-IV v3.1 位于 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{mimiciv/}\allowbreak\texttt{mimic-iv-3.1}，eICU-CRD 位于 \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{eicu/}\allowbreak\texttt{base}。执行前已取消 HTTP 与 HTTPS 代理环境变量。服务器端证据清单覆盖 v7--v16 基准测试、SOTA、修复、APACHE 锁定、可解释性及多中心鲁棒性产物。\par}
 
 中文补充材料图 S1 展示源域迁移 ROC 曲线。图 S2 展示 Platt 再校准前后的决策曲线。图 S3 报告透明逻辑锚定模型标准化系数。图 S4 总结五折稳定性。图 S5 展示初始 SOTA 表格模型基准。图 S6 展示扩展 LightGBM 诊断包。图 S7 报告锁定 V14 模型 gain 排名前 20 的特征。图 S8 展示医院规模与医院层面 AUROC 的关系。图 S9 展示锁定 GERI-NutriRisk-ICU 模型的 TreeExplainer SHAP 全局特征贡献度排名。
 
 \section*{补充图}
 
-\begin{figure}[!b]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.45\textwidth]{supp_figS1_eicu_roc.jpg}
+\includegraphics[width=0.75\textwidth]{supp_figS1_eicu_roc.jpg}
 \caption{中文补充材料图 S1。透明锚定模型开发轨迹中的源域迁移 eICU-CRD ROC 曲线。}
 \label{fig:s1}
 \end{figure}
 
 \clearpage
 
-\begin{figure}[!t]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.80\textwidth]{supp_figS2_decision_curve.jpg}
+\includegraphics[width=0.92\textwidth]{supp_figS2_decision_curve.jpg}
 \caption{中文补充材料图 S2。外部域 Platt 再校准前后的决策曲线。}
 \label{fig:s2}
 \end{figure}
 
-\begin{figure}[!b]
+\clearpage
+
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.78\textwidth]{supp_figS3_standardized_coefficients.jpg}
+\includegraphics[width=0.90\textwidth]{supp_figS3_standardized_coefficients.jpg}
 \caption{中文补充材料图 S3。透明逻辑锚定模型中绝对值最大的非缺失性标准化系数。}
 \label{fig:s3}
 \end{figure}
@@ -65,47 +67,51 @@
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.98\textwidth]{supp_figS4_benchmark_stability.jpg}
+\includegraphics[width=0.92\textwidth]{supp_figS4_benchmark_stability.jpg}
 \caption{中文补充材料图 S4。透明逻辑锚定模型的五次划分稳定性和特征数量基准。}
 \label{fig:s4}
 \end{figure}
 
 \begin{figure}[!b]
 \centering
-\includegraphics[width=0.90\textwidth]{supp_figS5_sota_tabular_benchmark.jpg}
+\includegraphics[width=0.88\textwidth]{supp_figS5_sota_tabular_benchmark.jpg}
 \caption{中文补充材料图 S5。封顶补充前的初始 SOTA 表格模型对照。}
 \label{fig:s5}
 \end{figure}
 
 \clearpage
 
-\begin{figure}[!t]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.72\textwidth]{supp_figS6_lightgbm_primary_package.jpg}
+\includegraphics[width=0.92\textwidth]{supp_figS6_lightgbm_primary_package.jpg}
 \caption{中文补充材料图 S6。最终 APACHE 对照域更新锁定前的 LightGBM 扩展诊断包。}
 \label{fig:s6}
 \end{figure}
 
-\begin{figure}[!b]
+\clearpage
+
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.66\textwidth]{supp_figS7_v14_top20_gain_importance.jpg}
+\includegraphics[width=0.88\textwidth]{supp_figS7_v14_top20_gain_importance.jpg}
 \caption{中文补充材料图 S7。锁定 V14 域更新模型中 gain 排名前 20 的 LightGBM 特征。}
 \label{fig:s7}
 \end{figure}
 
 \clearpage
 
-\begin{figure}[!t]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.70\textwidth]{supp_figS8_hospital_size_auc_scatter.jpg}
+\includegraphics[width=0.88\textwidth]{supp_figS8_hospital_size_auc_scatter.jpg}
 \caption{中文补充材料图 S8。持出住院不少于 200 次的 eICU 医院中，医院规模与医院层面 AUROC 散点图。}
 \label{fig:s8}
 \end{figure}
 
-\begin{figure}[!b]
+\clearpage
+
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.72\textwidth]{supplementary_fig9_shap.jpg}
-\caption{中文补充材料图 S9。锁定 GERI-NutriRisk-ICU 模型在 eICU-CRD 持出集（$n=57,488$）上的 TreeExplainer SHAP 全局特征贡献度排名。柱状图展示各特征绝对 SHAP 均值。}
+\includegraphics[width=0.95\textwidth]{supplementary_fig9_shap.jpg}
+\caption{中文补充材料图 S9。锁定 GERI-NutriRisk-ICU 模型在 eICU-CRD 持出集（$n=57,488$）上的 TreeExplainer SHAP 全局特征重要性排名及典型临床病例文摘。（A）按平均绝对 SHAP 值排序的前 15 个全局特征，突出显式营养储备指标（白蛋白、BMI，橙色）与急性多器官衰竭标志物（蓝色）；（B）病例 1（患者 2862205：重度营养不良但生命体征代偿良好，预测死亡率 33.0\%，院内死亡）局部瀑布归因图；（C）病例 2（患者 2600991：急性应激但营养储备良好，预测死亡率 1.7\%，治愈出院）局部瀑布归因图。基线期望值 $E[f(x)] = -1.92$。}
 \label{fig:s9_shap}
 \end{figure}
 
@@ -115,126 +121,296 @@
 
 中文补充材料表 S1--S10 依次提供跨数据库协调特征字典、模型演进编年审计、代表性文献对比、特征族消融、敏感性分析、亚组验证、SOTA 基准比较与证据清单。所有表格均与英文补充材料严格同步；粗体表示对应比较中的最优显示值，Brier 和 ECE 越低越好。
 
-\subsection*{中文补充材料表 S1：83个协调预测特征数据字典与跨数据库分布}
+\subsection*{中文补充材料表 S1：83个协调预测特征数据字典与跨数据库全景分布}
 \label{sec:tab_s1}
 
-中文补充材料表 S1 详尽记录了 MIMIC-IV 与 eICU-CRD 之间协调的全部 83 个变量，涵盖所属临床范畴、测量单位、24小时聚合方法、缺失率以及跨数据库分布摘要（中位数 [四分位距]），验证了两库数据定义与数值分布的高度一致性。
+中文补充材料表 S1 详尽记录了 MIMIC-IV（$n = 33{,}671$）与 eICU-CRD（$n = 71{,}861$）之间协调的全部 83 个变量，涵盖所属临床范畴、测量单位、队列来源、真实缺失率，以及完整的统计分布信息（均值 $\pm$ 标准差、中位数、四分位距 IQR、取值范围 Min--Max），验证了跨系统指标定义与生理分布的高度可比性。变量提取规则、原始 EHR 来源字段、24小时聚合方法与缺失指示变量生成规则均在配套开源数据字典（\texttt{supplementary\_table\_s1\_predictor\_dictionary\_and\_distributions.csv}）及正文第 2.2 节中详细说明。
 
 \begingroup
 \footnotesize
 \singlespacing
-\renewcommand{\arraystretch}{0.95}
-\setlength{\tabcolsep}{2.5pt}
-\begin{longtable}{>{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedleft\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedleft\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{2.8cm}}
-\caption{完整 83 预测变量字典、提取规则与跨库分布审计（MIMIC-IV $n = 33{,}671$ 与 eICU-CRD $n = 71{,}861$）。} \label{tab:dict_s1} \\
+\renewcommand{\arraystretch}{0.92}
+\setlength{\tabcolsep}{2.2pt}
+\begin{longtable}{%
+>{\raggedright\arraybackslash}p{2.6cm}%
+>{\raggedright\arraybackslash}p{2.0cm}%
+>{\raggedright\arraybackslash}p{1.2cm}%
+>{\raggedright\arraybackslash}p{1.5cm}%
+>{\raggedleft\arraybackslash}p{1.1cm}%
+>{\raggedleft\arraybackslash}p{2.2cm}%
+>{\raggedleft\arraybackslash}p{1.1cm}%
+>{\raggedleft\arraybackslash}p{2.2cm}%
+>{\raggedleft\arraybackslash}p{2.2cm}%
+}
+\caption{完整 83 预测变量字典与跨库全景分布审计（MIMIC-IV $n = 33{,}671$ 与 eICU-CRD $n = 71{,}861$）。} \label{tab:dict_s1} \\
 \toprule
-特征名称 & 临床类别 & 单位 & 聚合方式 & \multicolumn{2}{c}{MIMIC-IV ($n = 33{,}671$)} & \multicolumn{2}{c}{eICU-CRD ($n = 71{,}861$)} \\
-\cmidrule(lr){5-6} \cmidrule(lr){7-8}
- & & & & 缺失率 & 中位数 [IQR] & 缺失率 & 中位数 [IQR] \\
+特征名称 & 临床类别 & 单位 & 队列 & 缺失率 & 均值 $\pm$ 标准差 & 中位数 & 四分位距 & 取值范围 \\
 \midrule
 \endfirsthead
-\multicolumn{8}{c}%
+\multicolumn{9}{c}%
 {{\bfseries \tablename\ \thetable{} -- 续上页}} \\
 \toprule
-特征名称 & 临床类别 & 单位 & 聚合方式 & \multicolumn{2}{c}{MIMIC-IV ($n = 33{,}671$)} & \multicolumn{2}{c}{eICU-CRD ($n = 71{,}861$)} \\
-\cmidrule(lr){5-6} \cmidrule(lr){7-8}
- & & & & 缺失率 & 中位数 [IQR] & 缺失率 & 中位数 [IQR] \\
+特征名称 & 临床类别 & 单位 & 队列 & 缺失率 & 均值 $\pm$ 标准差 & 中位数 & 四分位距 & 取值范围 \\
 \midrule
 \endhead
 \midrule
-\multicolumn{8}{r}{{见下页续}} \\
+\multicolumn{9}{r}{{见下页续}} \\
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-& & & & Miss & Median [IQR] & Miss & Median [IQR] \\
-& & & & Miss & Median [IQR] & Miss & Median [IQR] \\
-age & Demographics & Years & Admission baseline & 0.0\% & 76.00 [70.00, 83.00] & 0.0\% & 76.00 [70.00, 83.00] \\
-male & Demographics & Binary & Admission baseline & 0.0\% & 1.00 [0.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-bmi & Nutritional Reserve & kg/m$^2$ & First available / admission & 48.8\% & 27.40 [24.00, 31.50] & 10.0\% & 26.95 [23.24, 31.56] \\
-enteral\_\allowbreak 24h & Nutrition Support & Binary & Cumulative 24h presence & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-parenteral\_\allowbreak 24h & Nutrition Support & Binary & Cumulative 24h presence & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-albumin & Nutritional Reserve & g/dL & First-day nadir/median & 75.0\% & 3.20 [2.70, 3.60] & 69.4\% & 2.80 [2.40, 3.30] \\
-glucose & Metabolic Severity & mg/dL & First-day median & 3.0\% & 130.00 [109.00, 156.00] & 27.0\% & 140.00 [99.00, 196.00] \\
-creatinine & Metabolic Severity & mg/dL & First-day peak & 3.0\% & 1.00 [0.75, 1.40] & 34.3\% & 1.10 [0.80, 1.70] \\
-bun & Metabolic Severity & mg/dL & First-day peak & 3.1\% & 20.50 [15.00, 32.00] & 34.6\% & 23.00 [16.00, 37.00] \\
-sodium & Metabolic Severity & mEq/L & First-day median & 2.9\% & 138.00 [136.00, 141.00] & 34.0\% & 138.00 [136.00, 141.00] \\
-bilirubin & Metabolic Severity & mg/dL & First-day peak & 60.3\% & 0.70 [0.40, 1.20] & 72.7\% & 0.70 [0.40, 1.10] \\
-hematocrit & Metabolic Severity & \% & First-day nadir & 3.3\% & 31.70 [27.85, 36.00] & 34.8\% & 32.09 [27.50, 36.60] \\
-wbc & Metabolic Severity & $\times 10^9$/L & First-day peak & 3.6\% & 10.70 [7.90, 14.40] & 36.8\% & 10.40 [7.53, 15.20] \\
-albumin\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 1.00 [1.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-glucose\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-creatinine\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-bun\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-sodium\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-bilirubin\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 1.00 [0.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-hematocrit\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-wbc\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-heart\_\allowbreak rate & Vital Signs & bpm & First-day median & 0.1\% & 80.00 [70.00, 90.00] & 3.5\% & 80.00 [70.00, 92.00] \\
-resp\_\allowbreak rate & Vital Signs & breaths/\allowbreak min & First-day median & 0.4\% & 18.00 [16.00, 21.00] & 11.1\% & 19.00 [16.00, 22.00] \\
-temperature\_\allowbreak c & Vital Signs & $^\circ$C & First-day median & 3.6\% & 36.75 [36.56, 37.00] & 90.8\% & 37.11 [36.60, 37.60] \\
-spo2 & Vital Signs & \% & First-day nadir & 0.3\% & 97.00 [96.00, 99.00] & 5.0\% & 97.00 [95.00, 99.00] \\
-map & Vital Signs & mmHg & First-day nadir & 0.5\% & 75.00 [69.00, 83.00] & 77.2\% & 75.00 [69.00, 84.00] \\
-heart\_\allowbreak rate\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-resp\_\allowbreak rate\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-temperature\_\allowbreak c\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-spo2\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-map\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-urine\_\allowbreak 24h\_\allowbreak ml & Physiologic Severity & mL/24h & Cumulative 24h total & 6.5\% & 1445.00 [850.00, 2215.00] & 58.5\% & 1264.98 [675.82, 2116.58] \\
-ventilation\_\allowbreak 24h & Organ Support & Binary & Presence in first 24h & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-dialysis\_\allowbreak 24h & Organ Support & Binary & Presence in first 24h & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-gcs\_\allowbreak 24h & Neurologic Severity & Points (3--15) & First-day nadir & 0.7\% & 13.00 [4.00, 15.00] & 18.3\% & 15.00 [13.00, 15.00] \\
-urine\_\allowbreak 24h\_\allowbreak ml\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-ventilation\_\allowbreak 24h\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-dialysis\_\allowbreak 24h\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-gcs\_\allowbreak 24h\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-lactate & Blood Gas / Perfusion & mmol/L & First-day peak & 45.1\% & 1.80 [1.30, 2.55] & 79.4\% & 1.80 [1.20, 2.80] \\
-platelet & Hematology / Coagulation & $\times 10^9$/L & First-day nadir & 3.5\% & 182.00 [137.00, 241.00] & 18.2\% & 183.00 [137.50, 238.00] \\
-potassium & Chemistry & mEq/L & First-day median & 2.9\% & 4.10 [3.80, 4.50] & 13.4\% & 4.05 [3.70, 4.40] \\
-chloride & Chemistry & mEq/L & First-day median & 2.9\% & 105.00 [101.00, 108.00] & 14.7\% & 105.00 [101.00, 109.00] \\
-bicarbonate & Chemistry & mEq/L & First-day nadir & 3.1\% & 23.00 [21.00, 25.00] & 14.1\% & 24.00 [21.75, 27.00] \\
-calcium & Chemistry & mg/dL & First-day nadir & 4.5\% & 8.10 [4.77, 8.70] & 16.5\% & 8.35 [7.90, 8.80] \\
-magnesium & Chemistry & mg/dL & First-day nadir & 7.1\% & 2.00 [1.85, 2.25] & 50.9\% & 1.91 [1.71, 2.17] \\
-inr & Hematology / Coagulation & Ratio & First-day peak & 16.2\% & 1.25 [1.10, 1.45] & 66.6\% & 1.30 [1.10, 1.70] \\
-pt & Hematology / Coagulation & Seconds & First-day peak & 16.2\% & 13.80 [12.50, 15.80] & 67.5\% & 15.50 [13.40, 19.30] \\
-ptt & Hematology / Coagulation & Seconds & First-day peak & 16.9\% & 30.60 [27.25, 37.40] & 78.2\% & 33.95 [29.00, 44.50] \\
-ph & Blood Gas / Perfusion & Units & First-day nadir & 43.7\% & 7.38 [7.33, 7.41] & 71.3\% & 7.37 [7.31, 7.42] \\
-pco2 & Blood Gas / Perfusion & mmHg & First-day median & 45.4\% & 40.00 [36.00, 44.50] & 80.5\% & 40.00 [34.30, 47.00] \\
-pao2 & Blood Gas / Perfusion & mmHg & First-day nadir & 45.4\% & 113.50 [69.00, 181.00] & 70.7\% & 98.45 [76.20, 140.00] \\
-fio2 & Blood Gas / Perfusion & Fraction (0.21--1.0) & First-day peak & 88.6\% & 0.50 [0.40, 0.70] & 69.8\% & 0.45 [0.35, 0.70] \\
-base\_\allowbreak excess & Blood Gas / Perfusion & mEq/L & First-day nadir & 45.4\% & -1.00 [-3.50, 0.50] & 78.1\% & -0.90 [-4.55, 2.50] \\
-anion\_\allowbreak gap & Blood Gas / Perfusion & mEq/L & First-day peak & 3.1\% & 13.50 [11.00, 16.00] & 20.2\% & 10.00 [7.50, 13.00] \\
-hemoglobin & Hematology / Coagulation & g/dL & First-day nadir & 3.5\% & 10.40 [9.10, 11.85] & 16.1\% & 10.70 [9.20, 12.20] \\
-lactate\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-platelet\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-potassium\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-chloride\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-bicarbonate\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-calcium\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-magnesium\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-inr\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-pt\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-ptt\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-ph\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-pco2\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-pao2\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-fio2\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 1.00 [1.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-base\_\allowbreak excess\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-anion\_\allowbreak gap\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-hemoglobin\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-pf\_\allowbreak ratio & Blood Gas / Perfusion & Ratio & First-day nadir & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak cardiac & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak surgical & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak neuro & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak trauma & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak medical & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak med\_\allowbreak surg & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-admit\_\allowbreak emergency\_\allowbreak or\_\allowbreak ed & Admission Context & Binary & Admission baseline & 0.0\% & 1.00 [0.00, 1.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-admit\_\allowbreak transfer & Admission Context & Binary & Admission baseline & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-admit\_\allowbreak elective & Admission Context & Binary & Admission baseline & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
+\textbf{age} & 人口统计学 & 岁 & MIMIC-IV & 0.0\% & 76.72 $\pm$ 7.78 & 76.00 & 70.00--83.00 & 65.00--91.00 \\
+ & & & eICU-CRD & 0.0\% & 76.75 $\pm$ 7.66 & 76.00 & 70.00--83.00 & 65.00--90.00 \\
+\addlinespace[1.5pt]
+\textbf{male} & 人口统计学 & 二分类 & MIMIC-IV & 0.0\% & 0.53 $\pm$ 0.50 & 1.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.52 $\pm$ 0.50 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{bmi} & 营养储备指标 & kg/m$^2$ & MIMIC-IV & 48.8\% & 28.23 $\pm$ 6.44 & 27.40 & 24.00--31.50 & 7.46--91.30 \\
+ & & & eICU-CRD & 10.0\% & 28.07 $\pm$ 7.29 & 26.95 & 23.24--31.56 & 8.85--174.55 \\
+\addlinespace[1.5pt]
+\textbf{enteral\_\allowbreak 24h} & 营养支持指标 & 二分类 & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.18 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.11 $\pm$ 0.31 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{parenteral\_\allowbreak 24h} & 营养支持指标 & 二分类 & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.07 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.10 $\pm$ 0.31 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{albumin} & 营养储备指标 & g/dL & MIMIC-IV & 75.0\% & 3.12 $\pm$ 0.63 & 3.20 & 2.70--3.60 & 0.90--6.30 \\
+ & & & eICU-CRD & 69.4\% & 2.82 $\pm$ 0.66 & 2.80 & 2.40--3.30 & 1.00--6.60 \\
+\addlinespace[1.5pt]
+\textbf{glucose} & 急性代谢生化 & mg/dL & MIMIC-IV & 3.0\% & 139.92 $\pm$ 49.72 & 130.00 & 109.00--156.00 & 29.00--803.00 \\
+ & & & eICU-CRD & 27.0\% & 159.63 $\pm$ 85.00 & 140.00 & 99.00--196.00 & 20.00--986.00 \\
+\addlinespace[1.5pt]
+\textbf{creatinine} & 急性代谢生化 & mg/dL & MIMIC-IV & 3.0\% & 1.34 $\pm$ 1.16 & 1.00 & 0.75--1.40 & 0.10--18.10 \\
+ & & & eICU-CRD & 34.3\% & 1.54 $\pm$ 1.42 & 1.10 & 0.80--1.70 & 0.10--23.30 \\
+\addlinespace[1.5pt]
+\textbf{bun} & 急性代谢生化 & mg/dL & MIMIC-IV & 3.1\% & 27.36 $\pm$ 20.68 & 20.50 & 15.00--32.00 & 1.00--226.50 \\
+ & & & eICU-CRD & 34.6\% & 30.04 $\pm$ 22.35 & 23.00 & 16.00--37.00 & 1.00--253.00 \\
+\addlinespace[1.5pt]
+\textbf{sodium} & 急性代谢生化 & mEq/L & MIMIC-IV & 2.9\% & 138.24 $\pm$ 4.82 & 138.00 & 136.00--141.00 & 97.00--183.00 \\
+ & & & eICU-CRD & 34.0\% & 138.28 $\pm$ 5.62 & 138.00 & 136.00--141.00 & 102.00--184.00 \\
+\addlinespace[1.5pt]
+\textbf{bilirubin} & 急性代谢生化 & mg/dL & MIMIC-IV & 60.3\% & 1.33 $\pm$ 2.74 & 0.70 & 0.40--1.20 & 0.00--74.70 \\
+ & & & eICU-CRD & 72.7\% & 1.05 $\pm$ 1.63 & 0.70 & 0.40--1.10 & 0.10--35.70 \\
+\addlinespace[1.5pt]
+\textbf{hematocrit} & 急性代谢生化 & \% & MIMIC-IV & 3.3\% & 32.15 $\pm$ 5.74 & 31.70 & 27.85--36.00 & 11.50--67.95 \\
+ & & & eICU-CRD & 34.8\% & 32.12 $\pm$ 6.51 & 32.09 & 27.50--36.60 & 6.10--61.40 \\
+\addlinespace[1.5pt]
+\textbf{wbc} & 急性代谢生化 & $\times 10^9$/L & MIMIC-IV & 3.6\% & 12.13 $\pm$ 8.20 & 10.70 & 7.90--14.40 & 0.10--199.30 \\
+ & & & eICU-CRD & 36.8\% & 12.46 $\pm$ 8.73 & 10.40 & 7.53--15.20 & 0.10--198.10 \\
+\addlinespace[1.5pt]
+\textbf{albumin\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.75 $\pm$ 0.43 & 1.00 & 1.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.69 $\pm$ 0.46 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{glucose\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.27 $\pm$ 0.44 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{creatinine\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.34 $\pm$ 0.47 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{bun\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.35 $\pm$ 0.48 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{sodium\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.34 $\pm$ 0.47 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{bilirubin\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.60 $\pm$ 0.49 & 1.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.73 $\pm$ 0.45 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{hematocrit\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.18 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.35 $\pm$ 0.48 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{wbc\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.04 $\pm$ 0.19 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.37 $\pm$ 0.48 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{heart\_\allowbreak rate} & 生命体征 & 次/分 & MIMIC-IV & 0.1\% & 81.19 $\pm$ 15.57 & 80.00 & 70.00--90.00 & 28.00--165.00 \\
+ & & & eICU-CRD & 3.5\% & 81.49 $\pm$ 16.53 & 80.00 & 70.00--92.00 & 23.00--177.00 \\
+\addlinespace[1.5pt]
+\textbf{resp\_\allowbreak rate} & 生命体征 & 次/\allowbreak 分 & MIMIC-IV & 0.4\% & 18.89 $\pm$ 3.87 & 18.00 & 16.00--21.00 & 6.00--41.00 \\
+ & & & eICU-CRD & 11.1\% & 19.65 $\pm$ 4.93 & 19.00 & 16.00--22.00 & 3.00--80.00 \\
+\addlinespace[1.5pt]
+\textbf{temperature\_\allowbreak c} & 生命体征 & $^\circ$C & MIMIC-IV & 3.6\% & 36.76 $\pm$ 0.50 & 36.75 & 36.56--37.00 & 29.40--40.33 \\
+ & & & eICU-CRD & 90.8\% & 36.94 $\pm$ 1.14 & 37.11 & 36.60--37.60 & 25.40--40.75 \\
+\addlinespace[1.5pt]
+\textbf{spo2} & 生命体征 & \% & MIMIC-IV & 0.3\% & 96.96 $\pm$ 2.62 & 97.00 & 96.00--99.00 & 30.00--100.00 \\
+ & & & eICU-CRD & 5.0\% & 96.71 $\pm$ 3.40 & 97.00 & 95.00--99.00 & 30.00--100.00 \\
+\addlinespace[1.5pt]
+\textbf{map} & 生命体征 & mmHg & MIMIC-IV & 0.5\% & 76.47 $\pm$ 10.94 & 75.00 & 69.00--83.00 & 23.50--147.00 \\
+ & & & eICU-CRD & 77.2\% & 76.84 $\pm$ 13.22 & 75.00 & 69.00--84.00 & 20.00--199.00 \\
+\addlinespace[1.5pt]
+\textbf{heart\_\allowbreak rate\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.04 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.03 $\pm$ 0.18 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{resp\_\allowbreak rate\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.06 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.11 $\pm$ 0.31 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{temperature\_\allowbreak c\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.04 $\pm$ 0.19 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.91 $\pm$ 0.29 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{spo2\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.05 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.05 $\pm$ 0.22 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{map\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.01 $\pm$ 0.07 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.77 $\pm$ 0.42 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{urine\_\allowbreak 24h\_\allowbreak ml} & 生理严重程度 & mL/24h & MIMIC-IV & 6.5\% & 1701.44 $\pm$ 1738.33 & 1445.00 & 850.00--2215.00 & 0.00--103750.00 \\
+ & & & eICU-CRD & 58.5\% & 1585.71 $\pm$ 1411.17 & 1264.98 & 675.82--2116.58 & 0.00--32180.54 \\
+\addlinespace[1.5pt]
+\textbf{ventilation\_\allowbreak 24h} & 器官支持 & 二分类 & MIMIC-IV & 0.0\% & 0.32 $\pm$ 0.47 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.21 $\pm$ 0.40 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{dialysis\_\allowbreak 24h} & 器官支持 & 二分类 & MIMIC-IV & 0.0\% & 0.01 $\pm$ 0.11 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.02 $\pm$ 0.15 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{gcs\_\allowbreak 24h} & 神经严重程度 & 分 (3--15) & MIMIC-IV & 0.7\% & 10.22 $\pm$ 4.97 & 13.00 & 4.00--15.00 & 3.00--15.00 \\
+ & & & eICU-CRD & 18.3\% & 12.99 $\pm$ 3.38 & 15.00 & 13.00--15.00 & 3.00--15.00 \\
+\addlinespace[1.5pt]
+\textbf{urine\_\allowbreak 24h\_\allowbreak ml\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.06 $\pm$ 0.25 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.58 $\pm$ 0.49 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{ventilation\_\allowbreak 24h\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.00 & 0.00 & 0.00--0.00 & 0--0 \\
+ & & & eICU-CRD & 0.0\% & 0.00 $\pm$ 0.00 & 0.00 & 0.00--0.00 & 0--0 \\
+\addlinespace[1.5pt]
+\textbf{dialysis\_\allowbreak 24h\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.00 & 0.00 & 0.00--0.00 & 0--0 \\
+ & & & eICU-CRD & 0.0\% & 0.00 $\pm$ 0.00 & 0.00 & 0.00--0.00 & 0--0 \\
+\addlinespace[1.5pt]
+\textbf{gcs\_\allowbreak 24h\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.01 $\pm$ 0.08 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.18 $\pm$ 0.39 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{lactate} & 血气/组织灌注 & mmol/L & MIMIC-IV & 45.1\% & 2.28 $\pm$ 1.87 & 1.80 & 1.30--2.55 & 0.20--25.05 \\
+ & & & eICU-CRD & 79.4\% & 2.66 $\pm$ 2.82 & 1.80 & 1.20--2.80 & 0.20--28.30 \\
+\addlinespace[1.5pt]
+\textbf{platelet} & 血液学/凝血 & $\times 10^9$/L & MIMIC-IV & 3.5\% & 198.95 $\pm$ 95.41 & 182.00 & 137.00--241.00 & 5.00--1760.00 \\
+ & & & eICU-CRD & 18.2\% & 196.22 $\pm$ 92.06 & 183.00 & 137.50--238.00 & 5.00--2000.00 \\
+\addlinespace[1.5pt]
+\textbf{potassium} & 生化电解质 & mEq/L & MIMIC-IV & 2.9\% & 4.18 $\pm$ 0.54 & 4.10 & 3.80--4.50 & 1.60--9.90 \\
+ & & & eICU-CRD & 13.4\% & 4.12 $\pm$ 0.58 & 4.05 & 3.70--4.40 & 1.90--9.60 \\
+\addlinespace[1.5pt]
+\textbf{chloride} & 生化电解质 & mEq/L & MIMIC-IV & 2.9\% & 104.41 $\pm$ 5.88 & 105.00 & 101.00--108.00 & 67.00--148.00 \\
+ & & & eICU-CRD & 14.7\% & 104.75 $\pm$ 6.34 & 105.00 & 101.00--109.00 & 67.00--150.00 \\
+\addlinespace[1.5pt]
+\textbf{bicarbonate} & 生化电解质 & mEq/L & MIMIC-IV & 3.1\% & 23.09 $\pm$ 4.17 & 23.00 & 21.00--25.00 & 3.00--49.00 \\
+ & & & eICU-CRD & 14.1\% & 24.46 $\pm$ 5.03 & 24.00 & 21.75--27.00 & 3.00--57.20 \\
+\addlinespace[1.5pt]
+\textbf{calcium} & 生化电解质 & mg/dL & MIMIC-IV & 24.8\% & 8.13 $\pm$ 1.22 & 8.40 & 7.80--8.85 & 4.00--14.10 \\
+ & & & eICU-CRD & 16.5\% & 8.32 $\pm$ 0.74 & 8.35 & 7.90--8.80 & 4.10--16.60 \\
+\addlinespace[1.5pt]
+\textbf{magnesium} & 生化电解质 & mg/dL & MIMIC-IV & 7.1\% & 2.08 $\pm$ 0.38 & 2.00 & 1.85--2.25 & 0.60--6.40 \\
+ & & & eICU-CRD & 50.9\% & 1.97 $\pm$ 0.39 & 1.91 & 1.71--2.17 & 0.50--12.45 \\
+\addlinespace[1.5pt]
+\textbf{inr} & 血液学/凝血 & 比值 & MIMIC-IV & 16.2\% & 1.44 $\pm$ 0.73 & 1.25 & 1.10--1.45 & 0.60--17.45 \\
+ & & & eICU-CRD & 66.6\% & 1.64 $\pm$ 1.02 & 1.30 & 1.10--1.70 & 0.70--19.60 \\
+\addlinespace[1.5pt]
+\textbf{pt} & 血液学/凝血 & 秒 & MIMIC-IV & 16.2\% & 15.70 $\pm$ 7.65 & 13.80 & 12.50--15.80 & 8.00--150.00 \\
+ & & & eICU-CRD & 67.5\% & 18.33 $\pm$ 9.50 & 15.50 & 13.40--19.30 & 8.40--145.90 \\
+\addlinespace[1.5pt]
+\textbf{ptt} & 血液学/凝血 & 秒 & MIMIC-IV & 16.9\% & 37.60 $\pm$ 20.88 & 30.60 & 27.25--37.40 & 17.50--150.00 \\
+ & & & eICU-CRD & 78.2\% & 41.60 $\pm$ 22.63 & 33.95 & 29.00--44.50 & 15.70--226.90 \\
+\addlinespace[1.5pt]
+\textbf{ph} & 血气/组织灌注 & 单位 & MIMIC-IV & 43.7\% & 7.37 $\pm$ 0.07 & 7.38 & 7.33--7.41 & 6.64--7.62 \\
+ & & & eICU-CRD & 71.3\% & 7.36 $\pm$ 0.10 & 7.37 & 7.31--7.42 & 6.72--7.70 \\
+\addlinespace[1.5pt]
+\textbf{pco2} & 血气/组织灌注 & mmHg & MIMIC-IV & 45.4\% & 41.24 $\pm$ 9.25 & 40.00 & 36.00--44.50 & 12.00--124.50 \\
+ & & & eICU-CRD & 80.5\% & 42.46 $\pm$ 12.97 & 40.00 & 34.30--47.00 & 8.00--145.80 \\
+\addlinespace[1.5pt]
+\textbf{pao2} & 血气/组织灌注 & mmHg & MIMIC-IV & 45.4\% & 134.29 $\pm$ 85.73 & 113.50 & 69.00--181.00 & 13.00--559.00 \\
+ & & & eICU-CRD & 70.7\% & 122.13 $\pm$ 74.05 & 98.45 & 76.20--140.00 & 17.00--610.00 \\
+\addlinespace[1.5pt]
+\textbf{fio2} & 血气/组织灌注 & 比率 (0.21--1.0) & MIMIC-IV & 88.6\% & 0.58 $\pm$ 0.21 & 0.50 & 0.40--0.70 & 0.20--1.00 \\
+ & & & eICU-CRD & 69.8\% & 0.53 $\pm$ 0.25 & 0.45 & 0.35--0.70 & 0.20--1.00 \\
+\addlinespace[1.5pt]
+\textbf{base\_\allowbreak excess} & 血气/组织灌注 & mEq/L & MIMIC-IV & 45.4\% & -1.43 $\pm$ 4.65 & -1.00 & -3.50--0.50 & -38.00--29.50 \\
+ & & & eICU-CRD & 78.1\% & -0.91 $\pm$ 6.70 & -0.90 & -4.55--2.50 & -36.00--35.90 \\
+\addlinespace[1.5pt]
+\textbf{anion\_\allowbreak gap} & 血气/组织灌注 & mEq/L & MIMIC-IV & 3.1\% & 13.78 $\pm$ 3.76 & 13.50 & 11.00--16.00 & 1.00--46.00 \\
+ & & & eICU-CRD & 20.2\% & 10.56 $\pm$ 4.38 & 10.00 & 7.50--13.00 & 0.00--58.00 \\
+\addlinespace[1.5pt]
+\textbf{hemoglobin} & 血液学/凝血 & g/dL & MIMIC-IV & 3.5\% & 10.54 $\pm$ 1.96 & 10.40 & 9.10--11.85 & 3.60--22.95 \\
+ & & & eICU-CRD & 16.1\% & 10.75 $\pm$ 2.10 & 10.70 & 9.20--12.20 & 2.00--21.90 \\
+\addlinespace[1.5pt]
+\textbf{lactate\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.45 $\pm$ 0.50 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.79 $\pm$ 0.40 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{platelet\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.04 $\pm$ 0.18 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.18 $\pm$ 0.39 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{potassium\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.13 $\pm$ 0.34 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{chloride\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.15 $\pm$ 0.35 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{bicarbonate\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.14 $\pm$ 0.35 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{calcium\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.25 $\pm$ 0.43 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.16 $\pm$ 0.37 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{magnesium\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.07 $\pm$ 0.26 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.51 $\pm$ 0.50 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{inr\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.16 $\pm$ 0.37 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.67 $\pm$ 0.47 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{pt\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.16 $\pm$ 0.37 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.67 $\pm$ 0.47 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{ptt\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.17 $\pm$ 0.37 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.78 $\pm$ 0.41 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{ph\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.44 $\pm$ 0.50 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.71 $\pm$ 0.45 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{pco2\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.45 $\pm$ 0.50 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.81 $\pm$ 0.40 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{pao2\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.45 $\pm$ 0.50 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.71 $\pm$ 0.46 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{fio2\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.89 $\pm$ 0.32 & 1.00 & 1.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.70 $\pm$ 0.46 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{base\_\allowbreak excess\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.45 $\pm$ 0.50 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.78 $\pm$ 0.41 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{anion\_\allowbreak gap\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.20 $\pm$ 0.40 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{hemoglobin\_\allowbreak missing} & 缺失指示变量 & 二分类 & MIMIC-IV & 0.0\% & 0.04 $\pm$ 0.18 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.16 $\pm$ 0.37 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{pf\_\allowbreak ratio$^\dagger$} & 血气/组织灌注 & 比值 & MIMIC-IV & 88.6\% & 253.24 $\pm$ 154.18 & 215.00 & 137.00--335.00 & 25.00--700.00 \\
+ & & & eICU-CRD & 75.9\% & 237.50 $\pm$ 116.56 & 222.00 & 150.17--309.00 & 20.00--700.00 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak cardiac} & 入科背景 & 二分类 & MIMIC-IV & 0.0\% & 0.34 $\pm$ 0.47 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.24 $\pm$ 0.42 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak surgical} & 入科背景 & 二分类 & MIMIC-IV & 0.0\% & 0.40 $\pm$ 0.49 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.06 $\pm$ 0.24 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak neuro} & 入科背景 & 二分类 & MIMIC-IV & 0.0\% & 0.10 $\pm$ 0.30 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.11 $\pm$ 0.31 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak trauma} & 入科背景 & 二分类 & MIMIC-IV & 0.0\% & 0.10 $\pm$ 0.31 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.04 $\pm$ 0.19 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak medical} & 入科背景 & 二分类 & MIMIC-IV & 0.0\% & 0.17 $\pm$ 0.38 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.01 $\pm$ 0.11 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak med\_\allowbreak surg} & 入科背景 & 二分类 & MIMIC-IV & 0.0\% & 0.15 $\pm$ 0.35 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.55 $\pm$ 0.50 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{admit\_\allowbreak emergency\_\allowbreak or\_\allowbreak ed} & 入科背景 & 二分类 & MIMIC-IV & 0.0\% & 0.55 $\pm$ 0.50 & 1.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.78 $\pm$ 0.42 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{admit\_\allowbreak transfer} & 入科背景 & 二分类 & MIMIC-IV & 0.0\% & 0.31 $\pm$ 0.46 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.24 $\pm$ 0.43 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{admit\_\allowbreak elective} & 入科背景 & 二分类 & MIMIC-IV & 0.0\% & 0.04 $\pm$ 0.20 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.00 $\pm$ 0.00 & 0.00 & 0.00--0.00 & 0--0 \\
+\addlinespace[1.5pt]
 \end{longtable}
+\vspace{-0.5em}\noindent{\footnotesize $^\dagger$：对于 $\mathrm{PaO_2/FiO_2}$ 比值，表中直接报告了真实未测量比例（MIMIC-IV 缺失率列为 88.6\%，eICU-CRD 为 75.9\%）以及在入 ICU 首日具有有效动脉血气与吸氧浓度配对测定人群中的生理分布统计（MIMIC-IV $n = 3{,}828$，eICU-CRD $n = 17{,}333$）。PF 比值计算规则为入住 ICU 首日 24 小时内的 PaO2 中位数除以 FiO2 中位数；在下游机器学习树模型特征工程中，未测动脉血气的常规住院患者赋予数值 0.0 作为未发生急重呼吸衰竭（未插管吸氧）的结构状态编码（显式缺失指示变量敏感性分析表明其性能完全等价，ΔAUROC = -0.0004）。所有常规生化检验与生命体征均采用首日 24 小时中位数（Median）进行特征聚合，GCS 提取首日最差值（nadir），尿量提取 24 小时累积总量。血清钙严格标准化为血清总钙（MIMIC-IV itemid 50893，eICU-CRD \texttt{lab.calcium}；彻底剔除了游离钙 itemid 50808 与镁 itemid 50960）。连续变量中位数插补器严格仅在开发训练集上拟合。}\par\medskip
 \endgroup
-
 
 \clearpage
 
@@ -248,7 +424,7 @@ admit\_\allowbreak elective & Admission Context & Binary & Admission baseline & 
 \caption{v7 至 v16 版本演进历史、选型准则与冻结协议审计。}
 \label{tab:audit_s2}
 \renewcommand{\arraystretch}{1.12}
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\linewidth}{!}{%
 \begin{tabular}{lllc p{5.0cm} p{6.5cm}}
 \toprule
 版本 & 时间戳 & 研发阶段 & 特征数 & 核心目标 & 关键产出 / 决策 \\
@@ -264,14 +440,13 @@ V13b & 2026-08-26 21:33 & 目标域更新与再校准审计 & 83 & 在 80\% 患�
 V14 & 2026-08-26 21:44 & 最终锁定模型 & 83 & 主分区架构最终锁定评测：APACHE-IV/IVa 同子集对照与初步营养消融 & 持出验证 AUROC 0.872，Brier 0.073；显著超越 APACHE-IVa（+0.0209 AUROC, $p < 0.001$）；锁定并为返修 EXP-001 留出医院外部验证确立基准 \\
 V15 & 2026-08-26 21:55 & 可解释性分析锁定 & 83 & V14 模型的分组置换重要性与增益特征重要性评测 & 器官支持 (0.063)、生命体征 (0.048)、血气 (0.020)、营养/代谢 (0.016) 确认分层贡献 \\
 V16 & 2026-08-26 22:39 & 主分区中心聚类稳健性评测 & 83 & 在主患者级分层测试集上通过医院聚类 Bootstrap 检验中心间稳健性与 APACHE-IVa 差值 & 证实模型相对 APACHE-IVa 的增量优势高度稳健（均值 +0.021，95\% 集群 CI 0.015 至 0.028；在 206 家医院上评估） \\
-R1 EXP-001 & 2026-09-01 & 严格留出医院多中心外部验证 & 83 & 严格在机构层级划分 207 家医院以评测完全未见中心的泛化能力 & 20 家更新医院（$n=9{,}949$），20 家校准医院（$n=4{,}376$），167 家完全未见留出测试医院（$n=57{,}536$）；AUROC 0.871，Brier 0.074，ECE 0.009；确证真机构独立性（通过 \texttt{run\_leave\_hospital\_out\_validation.py} 独立复现） \\
-R1 EXP-004 & 2026-09-01 & 营养构念细分消融实验 & 80/81/78/69 & 响应审稿人 2（R2-C5）要求，彻底分离显式营养储备与急性代谢实验室指标 & 剔除显式营养储备（3项指标 $\rightarrow$ 80项特征，AUROC 0.8712，$p < 0.001$，Brier 0.0736）、营养支持（81项特征，0.8716）、两者皆除（78项特征，0.8711）、急性代谢指标（14项指标 $\rightarrow$ 69项特征，0.8679）；通过 \texttt{run\_nutrition\_construct\_ablation.py} 复现 \\
+R1 EXP-001 & 2026-09-01 & 回顾性留出医院敏感性分析 & 83 & 回顾性机构层级敏感性分析：严格按机构代码划分 207 家医院 & 20 家更新医院（$n=9{,}949$），20 家校准医院（$n=4{,}376$），167 家留出测试医院（$n=57{,}536$）；AUROC 0.8699，Brier 0.0738，ECE 0.0089，校准斜率 1.037；在回顾性队列内确证跨医疗系统可迁移性（通过 \texttt{run\_}\allowbreak\texttt{leave\_}\allowbreak\texttt{hospital\_}\allowbreak\texttt{out\_}\allowbreak\texttt{validation.py} 复现） \\
+R1 EXP-004 & 2026-09-01 & 营养构念细分消融实验 & 80/81/78/69 & 响应审稿人 2（R2-C5）要求，彻底分离显式营养储备与急性代谢实验室指标 & 剔除显式营养储备（3项指标 $\rightarrow$ 80项特征，AUROC 0.8712，$p < 0.001$，Brier 0.0736）、营养支持（81项特征，0.8716）、两者皆除（78项特征，0.8711）、急性代谢指标（14项指标 $\rightarrow$ 69项特征，0.8679）；通过 \texttt{run\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{construct\_}\allowbreak\texttt{ablation.py} 复现 \\
 \bottomrule
 \end{tabular}}
-\begin{flushleft}
-\footnotesize
-\textbf{注：} 缩写：LR，逻辑回归；RF，随机森林；XGB，XGBoost；CatBoost，分类特征梯度提升；LightGBM，轻量梯度提升机；MLP，多层感知机；TabNet，注意力解释表格神经网络；AUROC，受试者工作特征曲线下面积；ECE，预期校准误差；CI，置信区间。所有模型开发严格遵循时间与机构持出规则：在 MIMIC-IV（$n = 33{,}671$）训练，在 eICU-CRD（$n = 71{,}861$，覆盖 207 家老年收治医院）独立验证。在回顾性研发阶段（v7--v14），80% 患者级分区（$n=57{,}488$）作为内部演进跟踪基准；为彻底排除测试集反复查看带来的潜在优化偏倚并检验真实机构泛化度，一审返修 EXP-001 开展了严格的中心级留出医院验证，167 家医院的全部患者在模型训练、更新与校准全过程中完全物理隔离、从未被查看。V16 评测了主患者级测试分区内 206 家医院的聚类 Bootstrap 稳健性；历史 V14 评测了早期粗粒度变量打包（76 与 67 特征）；返修 EXP-004 严格细分了显式营养储备与急性代谢生化指标，消除了变量重叠污染（80、81、78 与 69 特征）。
-\end{flushleft}
+\vspace{0.4em}
+\noindent\parbox{\linewidth}{\footnotesize\textbf{注：} 缩写：LR，逻辑回归；RF，随机森林；XGB，XGBoost；CatBoost，分类特征梯度提升；LightGBM，轻量梯度提升机；MLP，多层感知机；TabNet，注意力解释表格神经网络；AUROC，受试者工作特征曲线下面积；ECE，预期校准误差；CI，置信区间。模型开发在 MIMIC-IV（$n = 33{,}671$）上进行，并在 eICU-CRD（$n = 71{,}861$ 次合格住院，覆盖 207 家医院 [原始数据库包含 208 家医院]）上进行外部多中心评估。在回顾性模型开发与架构锁定阶段（v7--v14），eICU 记录按照固定患者级行号取模规则划分（10\% 更新、10\% 校准、80\% 主要保留基准，$n=57{,}488$）。为解决潜在的院内相关性并评估跨未知医疗系统的机构可迁移性，返修 EXP-001 实施了严格按机构代码划分的回顾性留一医院验证敏感性分析（20 家更新、20 家校准、167 家完全隔离的保留医院，$n=57{,}536$）。V16 评估了主患者级测试分区内 206 家医院的聚类 Bootstrap 稳健性；历史 V14 评估了早期粗粒度特征分组（76 和 67 特征）；返修 EXP-004 严格细分了显式营养储备与急性代谢实验室指标，消除了特征重叠（80、81、78 和 69 特征）。
+}
 \end{table}
 
 
@@ -286,27 +461,25 @@ R1 EXP-004 & 2026-09-01 & 营养构念细分消融实验 & 80/81/78/69 & 响应�
 \centering
 \caption{GERI-NutriRisk-ICU 与近期营养相关重症死亡率预测研究的结构化文献对比。}
 \label{tab:lit_s3}
-\renewcommand{\arraystretch}{1.25}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{p{2.6cm}p{2.8cm}p{2.6cm}p{3.2cm}p{2.8cm}p{2.2cm}p{2.8cm}}
+\renewcommand{\arraystretch}{1.05}
+\noindent\resizebox{\linewidth}{!}{%
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{3.2cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{3.5cm}}
 \toprule
 研究 & 目标人群 & 数据库 / 队列 & 预测特征 / 框架 & 验证策略 & 报告性能指标 & 校准表现 / 核心发现\\
 \midrule
-Heyland 等 (2011) [mNUTRIC] & 机械通气成人 ICU 患者 ($n=1{,}199$) & 美加多中心前瞻性队列 & 6 项变量（年龄、APACHE II、SOFA、合并症、ICU前住院天数、可选IL-6） & 内部推导与前瞻性验证 & 28天死亡率 AUROC $\approx 0.76$--$0.78$ & Hosmer-Lemeshow 检验（$p>0.05$）；需人工计算 APACHE/SOFA 评分；旨在指导营养支持获益人群。\\
+Heyland 等 (2011) [mNUTRIC] & 机械通气成人 ICU 患者 ($n=1{,}199$) & 美加多中心前瞻性队列 & 6 项变量（年龄、APACHE II、SOFA、合并症、ICU前住院天数、可选IL-6） & 内部推导与前瞻性验证 & 28天死亡率 AUROC $\approx 0.76$--$0.78$ & Hosmer-Lemeshow 检验（$p>0.05$）；需人工计算 APACHE/\allowbreak SOFA 评分；旨在指导营养支持获益人群。\\
 \addlinespace
-Peng 等 (2023) [GNRI ICU] & 老年重症患者（$\ge 65$ 岁，$n=3{,}696$） & MIMIC-IV 单中心回顾性队列 & GNRI 公式：$14.89 \times \text{白蛋白} + 41.7 \times (\text{实测体重}/\text{理想体重})$ & 回顾性队列关联与 RCS 剂量反应 & 重度风险 vs 无风险院内死亡 OR = 2.45 ($p<0.001$) & 流行病学关联研究，评估 GNRI 风险分级；未构建自动化机器学习预测模型或报告预测 AUROC。\\
+Peng 等 (2023) [GNRI ICU] & 老年重症患者（$\ge 65$ 岁，$n=3{,}696$） & MIMIC-IV 单中心回顾性队列 & GNRI 公式：$14.89 \times \text{白蛋白} + 41.7 \times{}$ (实测体重/\allowbreak 理想体重) & 回顾性队列关联与 RCS 剂量反应 & 重度风险 vs 无风险院内死亡 OR = 2.45 ($p<0.001$) & 流行病学关联研究，评估 GNRI 风险分级；未构建自动化机器学习预测模型或报告预测 AUROC。\\
 \addlinespace
 Zhang 等 (2026) [ENUTRIC] & 普通成人 ICU 患者 ($n=51{,}483$) & MIMIC-IV 单中心回顾性队列 & 16--18 项常规 EHR 变量；Stacking 集成（LightGBM、XGBoost、CatBoost、RF） & 内部 5 折交叉验证 / 70:30 持出 & 预测\textbf{营养不良风险} (mNUTRIC $\ge 5$) 的 AUROC = 0.875 & 提供 SHAP 解释性以辅助营养筛查；评估的是营养不良风险诊断，而非跨数据库死亡率预测。\\
 \addlinespace
 Cao 等 (2026) [NIM Framework] & 接受 CRRT 治疗的重症 AKI 患者 ($n=1{,}732$) & MIMIC-IV 回顾性队列（推导 $n=1{,}212$，测试 $n=520$） & 6 项复合营养炎症代谢指标（PNI、GNRI、CONUT 等）结合机器学习 & 内部 70:30 训练测试划分；无外部持出 & 预测院内死亡的 Gradient Boosting 测试集 AUC = 0.728 & 探索了 AKI-CRRT 人群中复合营养炎症指标与死亡的非线性关系；缺乏目标域更新与 APACHE 基准比对。\\
 \midrule
-\textbf{GERI-NutriRisk-ICU (本研究)} & \textbf{老年重症患者（$\ge 65$ 岁，总计 $n=105{,}532$）} & \textbf{MIMIC-IV 开发 ($n=33{,}671$)；eICU-CRD 验证 ($n=71{,}861$，208家医院)} & \textbf{83 项协调特征；逻辑锚定 + LightGBM 头 + 显式营养储备} & \textbf{回顾性留出医院（167家中心）+ 嵌套域更新 + 独立 Platt 校准} & \textbf{0.872 (持出集)；0.871 (留出医院)；较 APACHE-IVa 提升 +0.021 ($p<0.001$)} & \textbf{$\text{ECE}=0.0037$，斜率 1.026；140家医院斜率中位数 1.032；在 1\%--35\% 阈值区间内 DCA 净获益持续占优。}\\
+\textbf{GERI-NutriRisk-ICU (本研究)} & \textbf{老年重症患者（$\ge 65$ 岁，总计 $n=105{,}532$）} & \textbf{MIMIC-IV 开发 ($n=33{,}671$)；eICU-CRD 验证 ($n=71{,}861$，207 家收治老年患者的医院)} & \textbf{83 项协调特征；逻辑锚定 + LightGBM 头 + 显式营养储备} & \textbf{回顾性留出医院（167家中心）+ 嵌套域更新 + 独立 Platt 校准} & \textbf{0.872 (持出集)；0.871 (留出医院)；较 APACHE-IVa 提升 +0.021 ($p<0.001$)} & \textbf{$\text{ECE}=0.0037$，斜率 1.026；140家医院斜率中位数 1.032；在 1\%--35\% 阈值区间内 DCA 净获益持续占优。}\\
 \bottomrule
 \end{tabular}}
-\begin{flushleft}
-\footnotesize
-\textbf{注：} 缩写：mNUTRIC，改良重症营养风险评分；GNRI，老年营养风险指数；ENUTRIC，重症肠内营养风险模型；NIM，营养-炎症-代谢指标框架；AKI-CRRT，接受连续肾脏替代治疗的急性肾损伤；APACHE，急性生理与慢性健康评估；SOFA，序贯器官衰竭评估；DCA，决策曲线分析；ECE，预期校准误差；EHR，电子健康记录；ICU，重症监护病房；ML，机器学习；OR，比值比；RCS，限制性立方样条。粗体表示本研究提出的框架。
-\end{flushleft}
+\vspace{0.4em}
+\noindent\parbox{\linewidth}{\footnotesize\textbf{注：} 缩写：mNUTRIC，改良重症营养风险评分；GNRI，老年营养风险指数；ENUTRIC，重症肠内营养风险模型；NIM，营养-炎症-代谢指标框架；AKI-CRRT，接受连续肾脏替代治疗的急性肾损伤；APACHE，急性生理与慢性健康评估；SOFA，序贯器官衰竭评估；DCA，决策曲线分析；ECE，预期校准误差；EHR，电子健康记录；ICU，重症监护病房；ML，机器学习；OR，比值比；RCS，限制性立方样条。粗体表示本研究提出的框架。}
 \end{table}
 
 
@@ -334,11 +507,42 @@ GERI-NutriRisk-ICU & \textbf{0.830} & \textbf{0.090} & \textbf{0.727} & 0.155\\
 \end{tabular}
 \end{table}
 
+\begin{table}[!htbp]
+\centering
+\caption{持出集 eICU-CRD（$n = 57{,}488$）中权威细分营养与代谢生化特征消融分析（EXP-004）。粗体表示各列显示结果中的最优值；Brier 和 ECE 越低越好。配对差值及 95\% bootstrap 置信区间相对于锁定的 83 特征完整模型报告。}
+\label{tab:ablation_exp004}
+\noindent\resizebox{\linewidth}{!}{%
+\begin{tabular}{llccrrrrr}
+\toprule
+模型配置 & 临床范畴 & 剔除特征（$k$） & 剩余特征（$83-k$） & AUROC & 配对 $\Delta$AUROC（95\% CI） & $p$ 值 & Brier & ECE\\
+\midrule
+完整模型 & 参考锁定模型 & 无（$k=0$） & 83 & \textbf{0.8722} & 参考基准 & N/A & \textbf{0.0733} & \textbf{0.0041}\\
+\midrule
+\multicolumn{9}{l}{\textit{严格临床细分消融（EXP-004）：互不重叠的生理学分组}} \\
+去除显式营养储备 & 营养生理储备 & 白蛋白、BMI、白蛋白缺失指示（$k=3$） & 80 & 0.8718 & +0.0003 (-0.0010 至 +0.0016) & 0.621 & 0.0735 & 0.0044\\
+去除早期营养支持 & 早期喂养过程 & 肠内营养 24h、肠外营养 24h（$k=2$） & 81 & 0.8715 & +0.0006 (-0.0002 至 +0.0013) & 0.0938 & 0.0734 & \textbf{0.0041}\\
+去除显式营养与支持 & 全部营养相关变量 & 5 项营养变量（$k=5$） & 78 & 0.8714 & +0.0008 (-0.0005 至 +0.0022) & 0.219 & 0.0736 & \textbf{0.0040}\\
+去除急性代谢实验室指标 & 急性多器官严重程度 & 7 项急性生化 + 7 项缺失指示（$k=14$）\textsuperscript{*} & 69 & 0.8679 & \textbf{+0.0043} (+0.0028 至 +0.0060) & $1.27 \times 10^{-7}$ & 0.0740 & 0.0042\\
+去除全部复合构念 & 广义营养复合基准 & 全部 19 项营养与代谢生化变量（$k=19$） & 64 & 0.8679 & +0.0042 (+0.0021 至 +0.0063) & $2.25 \times 10^{-5}$ & 0.0742 & 0.0049\\
+\midrule
+\multicolumn{9}{l}{\textit{历史返修前基准（用于完整审计溯源与透明性）}} \\
+历史粗分类去除营养指标 & 返修前 V14 分组 & 7 项变量（含血糖与营养支持；$k=7$） & 76 & 0.8711 & +0.0011 (-0.0004 至 +0.0024) & 0.132 & 0.0736 & 0.0042\\
+历史粗分类去除代谢生化 & 返修前 V14 分组 & 16 项变量（含白蛋白与血糖；$k=16$） & 67 & 0.8665 & +0.0057 (+0.0041 至 +0.0075) & $7.62 \times 10^{-11}$ & 0.0743 & 0.0038\\
+\bottomrule
+\end{tabular}}
+\begin{flushleft}
+\footnotesize
+\textsuperscript{*}急性代谢实验室指标严格排除白蛋白与 BMI：血糖、肌酐、尿素氮、血钠、总胆红素、红细胞比容、白细胞计数及其 7 项缺失指示变量。连续变量中位数插补严格在开发训练集上拟合。相同预测概率通过 \texttt{sklearn.metrics.roc\_auc\_score} 赋予标准平均秩。配对 $p$ 值基于 DeLong 检验计算；95\% 置信区间基于 500 次配对 bootstrap 抽样生成。
+\end{flushleft}
+\end{table}
+
+
+
 \begin{table}[htbp]
 \centering
 \caption{中文补充材料表 S5。GERI-NutriRisk-ICU 源域迁移中的营养构念敏感性分析。粗体表示模型行中的最优值；Brier 和 ECE 越低越好。}
 \label{tab:sens_s5}
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\linewidth}{!}{%
 \begin{tabular}{lrrr}
 \toprule
 模型或对比 & eICU AUROC & eICU Brier & eICU ECE\\
@@ -385,7 +589,7 @@ GERI-NutriRisk-ICU & \textbf{0.830} & \textbf{0.090} & \textbf{0.727} & 0.155\\
 \centering
 \caption{中文补充材料表 S7。初始 SOTA 表格模型对照。粗体表示对应指标列中的最优值；Brier 和 ECE 越低越好。}
 \label{tab:sota_s7}
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\linewidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \toprule
 模型 & MIMIC AUROC & MIMIC Brier & eICU AUROC & eICU Brier & eICU ECE & eICU Platt Brier\\
@@ -402,7 +606,7 @@ GERI-NutriRisk-ICU & \textbf{0.882} & 0.124 & \textbf{0.793} & 0.291 & 0.386 & \
 \centering
 \caption{中文补充材料表 S8。封顶 SOTA 补充与 GERI-NutriRisk-ICU 模型锁定队列。粗体表示对应指标列中的最优值；Brier 越低越好。}
 \label{tab:sota_lock_s8}
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\linewidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \toprule
 模型 & MIMIC AUROC & MIMIC Brier & eICU AUROC & eICU Brier & eICU Platt AUROC & eICU Platt Brier\\

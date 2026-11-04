@@ -1,0 +1,176 @@
+{
+  "top_20_features": [
+    {
+      "feature": "gcs_24h",
+      "mean_abs_shap": 0.4933641526772576
+    },
+    {
+      "feature": "resp_rate",
+      "mean_abs_shap": 0.3466692794069772
+    },
+    {
+      "feature": "age",
+      "mean_abs_shap": 0.28948813469763063
+    },
+    {
+      "feature": "heart_rate",
+      "mean_abs_shap": 0.2433566363195438
+    },
+    {
+      "feature": "bmi",
+      "mean_abs_shap": 0.24178472465292003
+    },
+    {
+      "feature": "bun",
+      "mean_abs_shap": 0.2307970696701054
+    },
+    {
+      "feature": "urine_24h_ml",
+      "mean_abs_shap": 0.19386507851315662
+    },
+    {
+      "feature": "hemoglobin",
+      "mean_abs_shap": 0.18140666249954499
+    },
+    {
+      "feature": "anion_gap",
+      "mean_abs_shap": 0.14413838450123476
+    },
+    {
+      "feature": "calcium",
+      "mean_abs_shap": 0.1399899766662753
+    },
+    {
+      "feature": "icu_type_cardiac",
+      "mean_abs_shap": 0.12730810210677532
+    },
+    {
+      "feature": "spo2",
+      "mean_abs_shap": 0.10299783197128118
+    },
+    {
+      "feature": "fio2",
+      "mean_abs_shap": 0.10286794203632739
+    },
+    {
+      "feature": "wbc",
+      "mean_abs_shap": 0.1015050079729327
+    },
+    {
+      "feature": "ph",
+      "mean_abs_shap": 0.09982521004340131
+    },
+    {
+      "feature": "chloride",
+      "mean_abs_shap": 0.09626942963728284
+    },
+    {
+      "feature": "temperature_c",
+      "mean_abs_shap": 0.08727583719467474
+    },
+    {
+      "feature": "lactate",
+      "mean_abs_shap": 0.08542776521746537
+    },
+    {
+      "feature": "pao2_missing",
+      "mean_abs_shap": 0.08422620302282745
+    },
+    {
+      "feature": "sodium",
+      "mean_abs_shap": 0.08344850874308624
+    }
+  ],
+  "sample_cases": [
+    {
+      "id": "2862205",
+      "pred_prob": 0.3298361628388215,
+      "outcome": 1,
+      "albumin": 2.0,
+      "bmi": 24.788595999734753,
+      "gcs": 15.0,
+      "lactate": 1.2999999999999998
+    },
+    {
+      "id": "1346820",
+      "pred_prob": 0.265032601788041,
+      "outcome": 0,
+      "albumin": 2.1,
+      "bmi": 20.200425996295802,
+      "gcs": null,
+      "lactate": null
+    },
+    {
+      "id": "1102819",
+      "pred_prob": 0.11326707969380104,
+      "outcome": 0,
+      "albumin": 3.8,
+      "bmi": 19.812695109261185,
+      "gcs": 11.0,
+      "lactate": 1.9
+    },
+    {
+      "id": "1518600",
+      "pred_prob": 0.32838727462487116,
+      "outcome": 0,
+      "albumin": 1.9,
+      "bmi": 22.345330160618683,
+      "gcs": 13.0,
+      "lactate": 3.2
+    },
+    {
+      "id": "2791611",
+      "pred_prob": 0.07999293958587882,
+      "outcome": 0,
+      "albumin": 2.8,
+      "bmi": 19.25421815647961,
+      "gcs": 15.0,
+      "lactate": null
+    },
+    {
+      "id": "2600991",
+      "pred_prob": 0.016681596952648446,
+      "outcome": 0,
+      "albumin": 3.8,
+      "bmi": 26.459407580262713,
+      "gcs": 15.0,
+      "lactate": null
+    },
+    {
+      "id": "184012",
+      "pred_prob": 0.12753882625915589,
+      "outcome": 0,
+      "albumin": 2.4,
+      "bmi": 26.523437499999996,
+      "gcs": 14.0,
+      "lactate": 1.8
+    },
+    {
+      "id": "2596031",
+      "pred_prob": 0.19059535601817038,
+      "outcome": 0,
+      "albumin": 3.5,
+      "bmi": 23.339158398283566,
+      "gcs": 3.0,
+      "lactate": 0.75
+    },
+    {
+      "id": "980105",
+      "pred_prob": 0.057751524168996,
+      "outcome": 0,
+      "albumin": 2.6,
+      "bmi": 54.389842791416854,
+      "gcs": 14.0,
+      "lactate": null
+    },
+    {
+      "id": "675234",
+      "pred_prob": 0.4745340830915031,
+      "outcome": 0,
+      "albumin": 2.4,
+      "bmi": 23.126115407495544,
+      "gcs": 8.0,
+      "lactate": null
+    }
+  ]
+}

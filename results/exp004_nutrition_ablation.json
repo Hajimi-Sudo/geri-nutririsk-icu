@@ -1,0 +1,146 @@
+{
+  "full_model": {
+    "label": "Full GERI-NutriRisk-ICU Model",
+    "category": "Reference Locked Model",
+    "description": "All 83 harmonized cross-database features",
+    "n_features": 83,
+    "metrics": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8717739637770003,
+      "brier": 0.07332827612913831,
+      "ece_q10": 0.003915490611515375
+    },
+    "runtime_seconds": 63.22269320487976,
+    "delta_auc": 0.0,
+    "delta_brier": 0.0,
+    "p_value_vs_full": 1.0
+  },
+  "without_explicit_nutrition": {
+    "label": "Ablation: Without Explicit Nutrition Reserve",
+    "category": "Revision EXP-004 (Strict Dissection)",
+    "description": "Removes Albumin, BMI, and Albumin missingness (3 variables -> 80 features)",
+    "n_features": 80,
+    "metrics": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8706804692148953,
+      "brier": 0.07355408622778845,
+      "ece_q10": 0.004074870878429048
+    },
+    "runtime_seconds": 60.974467515945435,
+    "delta_auc": -0.0010934945621050574,
+    "delta_brier": 0.00022581009865013657,
+    "p_value_vs_full": 0.08855324264302955
+  },
+  "without_nutrition_support": {
+    "label": "Ablation: Without Nutrition Support",
+    "category": "Revision EXP-004 (Strict Dissection)",
+    "description": "Removes Enteral and Parenteral nutrition in 24h (2 variables -> 81 features)",
+    "n_features": 81,
+    "metrics": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8713999446989013,
+      "brier": 0.07332424622858828,
+      "ece_q10": 0.00408430769491636
+    },
+    "runtime_seconds": 64.80251240730286,
+    "delta_auc": -0.00037401907809908597,
+    "delta_brier": -4.029900550026055e-06,
+    "p_value_vs_full": 0.3236366231149814
+  },
+  "without_explicit_and_support": {
+    "label": "Ablation: Without Explicit Nutrition & Support",
+    "category": "Revision EXP-004 (Strict Dissection)",
+    "description": "Removes both explicit nutrition and support indicators (5 variables -> 78 features)",
+    "n_features": 78,
+    "metrics": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8713712887256,
+      "brier": 0.07358135543196742,
+      "ece_q10": 0.005074787213014522
+    },
+    "runtime_seconds": 61.1962890625,
+    "delta_auc": -0.00040267505140034743,
+    "delta_brier": 0.0002530793028291123,
+    "p_value_vs_full": 0.532616829724267
+  },
+  "without_metabolic_labs": {
+    "label": "Ablation: Without Acute Metabolic Laboratories",
+    "category": "Revision EXP-004 (Strict Dissection)",
+    "description": "Removes 7 acute metabolic labs and 7 missingness flags (14 variables -> 69 features; excludes albumin/BMI)",
+    "n_features": 69,
+    "metrics": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8674298613790616,
+      "brier": 0.07402501056954341,
+      "ece_q10": 0.003387504944301623
+    },
+    "runtime_seconds": 56.23040556907654,
+    "delta_auc": -0.004344102397938698,
+    "delta_brier": 0.0006967344404051057,
+    "p_value_vs_full": 3.191282185177613e-07
+  },
+  "without_v12_nutrition_construct": {
+    "label": "Ablation: Without Full Composite Nutrition Construct",
+    "category": "Broad Nutrition Composite Benchmark",
+    "description": "Removes all 19 nutritional and metabolic laboratory variables and flags combined (19 variables -> 64 features)",
+    "n_features": 64,
+    "metrics": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.8672507121102666,
+      "brier": 0.07420974861126624,
+      "ece_q10": 0.0037971315757401904
+    },
+    "runtime_seconds": 52.701032876968384,
+    "delta_auc": -0.00452325166673373,
+    "delta_brier": 0.0008814724821279291,
+    "p_value_vs_full": 9.71386453874068e-06
+  },
+  "historical_v14_without_explicit": {
+    "label": "Historical V14 Coarse: Without Broad Nutrition Set",
+    "category": "Historical V14 Audit Benchmark",
+    "description": "Historical pre-revision V14 grouping including glucose & support (7 variables -> 76 features)",
+    "n_features": 76,
+    "metrics": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.870633552682847,
+      "brier": 0.07376274467867638,
+      "ece_q10": 0.005112194177915587
+    },
+    "runtime_seconds": 59.373841762542725,
+    "delta_auc": -0.001140411094153304,
+    "delta_brier": 0.0004344685495380751,
+    "p_value_vs_full": 0.099966580516057
+  },
+  "historical_v14_without_metabolic": {
+    "label": "Historical V14 Coarse: Without Broad Metabolic Labs",
+    "category": "Historical V14 Audit Benchmark",
+    "description": "Historical pre-revision V14 grouping including albumin & glucose (16 variables -> 67 features)",
+    "n_features": 67,
+    "metrics": {
+      "n": 57488,
+      "events": 7130,
+      "event_rate": 0.12402588366267743,
+      "auc": 0.866417377245124,
+      "brier": 0.0743367338790829,
+      "ece_q10": 0.005115975021708203
+    },
+    "runtime_seconds": 55.10210657119751,
+    "delta_auc": -0.005356586531876317,
+    "delta_brier": 0.0010084577499445968,
+    "p_value_vs_full": 5.8567468652626076e-09
+  }
+}

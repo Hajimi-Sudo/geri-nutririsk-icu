@@ -34,7 +34,7 @@
 
 \section{Supplementary Methods}
 
-All final result-lock experiments were rerun on the remote analysis server on 2026-08-26. The runtime root was \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{frontiers\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{mimic\_}\allowbreak\texttt{eicu}, with MIMIC-IV v3.1 under \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{mimiciv/}\allowbreak\texttt{mimic-iv-3.1} and eICU-CRD under \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{eicu/}\allowbreak\texttt{base}. HTTP and HTTPS proxy environment variables were unset before execution. The server-side evidence manifest covers v7--v16 benchmark, SOTA, repair, APACHE-lock, explainability, and hospital-robustness artifacts.
+All primary model-lock experiments (v7--v16) were executed and formally locked on the remote analysis server on 2026-08-26. Subsequent revision sensitivity analyses and ablation protocols (EXP-001 through EXP-005) were executed on 2026-09-01 under the identical remote environment and locked feature schema. The runtime root was \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{frontiers\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{mimic\_}\allowbreak\texttt{eicu}, with MIMIC-IV v3.1 under \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{mimiciv/}\allowbreak\texttt{mimic-iv-3.1} and eICU-CRD under \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{eicu/}\allowbreak\texttt{base}. HTTP and HTTPS proxy environment variables were unset before execution. The server-side evidence manifest records all primary and revision artifact hashes and execution logs.
 
 Supplementary Figure~\ref{fig:s1} shows the source-only eICU ROC curve from the transparent-anchor development trajectory. Supplementary Figure~\ref{fig:s2} shows decision-curve behavior before and after Platt recalibration. Supplementary Figure~\ref{fig:s3} reports standardized logistic-anchor coefficients. Supplementary Figure~\ref{fig:s4} summarizes five-split stability. Supplementary Figure~\ref{fig:s5} shows the initial SOTA tabular benchmark. Supplementary Figure~\ref{fig:s6} shows the expanded LightGBM primary diagnostic package. Supplementary Figure~\ref{fig:s7} reports the top 20 gain-ranked features from the locked V14 model. Supplementary Figure~\ref{fig:s8} shows hospital-size versus hospital-level AUROC. Supplementary Figure~\ref{fig:s9_shap} presents the TreeExplainer SHAP global feature importance ranking for the locked GERI-NutriRisk-ICU model.
 
@@ -419,7 +419,7 @@ Supplementary Table S2 provides a chronological audit of model iterations, disti
 \centering
 \caption{Chronological development, model selection audit, and freeze protocol across versions v7 through v16.}
 \label{tab:audit_s2}
-\renewcommand{\arraystretch}{0.98}
+\renewcommand{\arraystretch}{0.90}
 \noindent\resizebox{\linewidth}{!}{%
 \begin{tabular}{lllc p{5.0cm} p{6.5cm}}
 \toprule
@@ -436,12 +436,12 @@ V13b & 2026-08-26 21:33 & Domain Update Calibration Audit & 83 & Audit target-do
 V14 & 2026-08-26 21:44 & FINAL LOCKED MODEL & 83 & Final architecture lock on primary partition: APACHE-IV/IVa benchmark and preliminary nutrition ablation & Held-out AUROC 0.872, Brier 0.073; exceeded APACHE-IVa by +0.0209 AUROC ($p < 0.001$); locked for subsequent leave-hospital-out validation (EXP-001) \\
 V15 & 2026-08-26 21:55 & Explainability Lock & 83 & Group permutation importance and gain feature importance for V14 & Organ support (0.063), vitals (0.048), blood gas (0.020), nutrition/metabolism (0.016) confirmed stratified contribution \\
 V16 & 2026-08-26 22:39 & Primary-Split Cluster Robustness & 83 & Evaluate multicenter cluster robustness and APACHE-IVa difference via hospital-cluster bootstrap on primary test partition & Model-minus-APACHE AUROC difference confirmed (mean +0.021, 95\% cluster CI 0.015 to 0.028; evaluated across 206 hospitals) \\
-R1 EXP-001 & 2026-09-01 & Retrospective Leave-Hospital-Out Validation & 83 & Retrospective institutional sensitivity analysis: strictly partition 207 hospitals by institutional ID & 20 update hospitals ($n=9{,}949$), 20 calibration hospitals ($n=4{,}376$), and 167 held-out hospitals ($n=57{,}536$); AUROC 0.8708, Brier 0.0737, ECE 0.0091; confirms transportability across health systems within retrospective cohort \\
+R1 EXP-001 & 2026-09-01 & Retrospective Leave-Hospital-Out Validation & 83 & Retrospective institutional sensitivity analysis: strictly partition 207 hospitals by institutional ID & 20 update hospitals ($n=9{,}949$), 20 calibration hospitals ($n=4{,}376$), and 167 held-out hospitals ($n=57{,}536$); AUROC 0.8699, Brier 0.0738, ECE 0.0089, calibration slope 1.037; confirms transportability across health systems within retrospective cohort \\
 R1 EXP-004 & 2026-09-01 & Dissected Nutrition Ablation & 80/81/78/69/64 & Address R2-C5 by strictly isolating explicit nutritional reserve (albumin, BMI) from acute metabolic laboratories & Removed explicit nutrition reserve (3 features $\rightarrow$ 80 features, AUROC 0.8718, $\Delta = +0.0003$, Brier 0.0735), support (81 features, 0.8715, $\Delta = +0.0006$), both (78 features, 0.8714, $\Delta = +0.0008$), metabolic labs (14 features $\rightarrow$ 69 features, 0.8679, $\Delta = +0.0043$, $p < 0.001$), and full construct (19 features $\rightarrow$ 64 features, 0.8679); verified via \texttt{run\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{construct\_}\allowbreak\texttt{ablation.py} \\
 \bottomrule
 \end{tabular}}
-\vspace{0.4em}
-\noindent\parbox{\linewidth}{\footnotesize\textbf{Note:} Abbreviations: LR, logistic regression; RF, random forest; XGB, XGBoost; CatBoost, categorical gradient boosting; LightGBM, light gradient boosting machine; MLP, multilayer perceptron; TabNet, attentive interpretable tabular learning; AUROC, area under the receiver operating characteristic curve; ECE, expected calibration error; CI, confidence interval. All model development strictly followed temporal and institutional holdout rules: training on MIMIC-IV ($n = 33{,}671$), external validation on eICU-CRD ($n = 71{,}861$ across 207 hospitals with older stays). During retrospective model development (v7--v14), the 80\% patient-level partition ($n=57{,}488$) served as the internal tracking benchmark; to eliminate any potential bias from repeated test-split tracking and verify institutional generalizability, Revision EXP-001 implemented a retrospective center-level leave-hospital-out sensitivity analysis where all patients from 167 hospitals were completely excluded from updating and calibration. V16 evaluated cluster-bootstrap robustness within the primary patient-level test partition across 206 hospitals; Historical V14 evaluated an early coarse feature grouping (76 and 67 features); Revision EXP-004 strictly dissected explicit nutritional reserve from acute metabolic laboratories without variable overlap (80, 81, 78, and 69 features).
+\vspace{0.2em}
+\noindent\parbox{\linewidth}{\scriptsize\textbf{Note:} Abbreviations: LR, logistic regression; RF, random forest; XGB, XGBoost; CatBoost, categorical gradient boosting; LightGBM, light gradient boosting machine; MLP, multilayer perceptron; TabNet, attentive interpretable tabular learning; AUROC, area under the receiver operating characteristic curve; ECE, expected calibration error; CI, confidence interval. Development was conducted on MIMIC-IV ($n = 33{,}671$) with external multicenter evaluation on eICU-CRD ($n = 71{,}861$ eligible stays across 207 hospitals [208 hospitals in the original database]). During retrospective model development and architecture lock (v7--v14), eICU records were partitioned using a fixed patient-level row-index modulo rule (10\% update, 10\% calibration, 80\% primary held-out benchmark, $n=57{,}488$). To address potential intra-hospital correlation and evaluate institutional generalizability, Revision EXP-001 implemented a retrospective leave-hospital-out sensitivity analysis strictly partitioning hospitals by institutional identifier (20 update, 20 calibration, and 167 completely untouched held-out hospitals, $n=57{,}536$). V16 evaluated cluster-bootstrap robustness within the primary patient-level test partition across 206 hospitals; Historical V14 evaluated an early coarse feature grouping (76 and 67 features); Revision EXP-004 strictly dissected explicit nutritional reserve from acute metabolic laboratories without variable overlap (80, 81, 78, and 69 features).
 }
 \end{table}
 
@@ -473,7 +473,7 @@ Zhang et al. (2026) [E-NUTRIC Stacking] & General adult ICU patients ($n=51{,}48
 \addlinespace[2pt]
 Cao et al. (2026) [NIM in AKI-CRRT] & ICU patients with acute kidney injury undergoing CRRT ($n=1{,}732$) & MIMIC-IV retrospective cohort (derivation $n=1{,}212$, test $n=520$) & 6 composite nutritional-inflammatory-\allowbreak metabolic indices (PNI, GNRI, CONUT, etc.) + ML & Internal 70:30 train-test split; no external holdout & Gradient Boosting test AUROC = 0.728 for hospital mortality & Explored dose-response non-linearity between NIM indices and mortality in AKI-CRRT; lacked target-domain updating or APACHE benchmarking.\\
 \midrule
-\textbf{GERI-NutriRisk-ICU (This Study)} & \textbf{Older ICU patients ($\ge 65$ years, $n=105{,}532$ total)} & \textbf{MIMIC-IV dev ($n=33{,}671$); eICU-CRD multicenter validation ($n=71{,}861$, 207 hospitals with older stays)} & \textbf{83 harmonized predictors; logistic anchor + LightGBM head + explicit nutrition reserve} & \textbf{Retrospective leave-hospital-out (167 held-out hospitals) + nested update + disjoint Platt calibration} & \textbf{0.872 (held-out); 0.871 (leave-hospital-out); +0.021 over APACHE-IVa ($p<0.001$)} & \textbf{$\text{ECE}=0.0037$, slope 1.026; 140-hospital median slope 1.032; sustained superior net clinical benefit on DCA across 1\%--35\%.}\\
+\textbf{GERI-NutriRisk-ICU (This Study)} & \textbf{Older ICU patients ($\ge 65$ years, $n=105{,}532$ total)} & \textbf{MIMIC-IV dev ($n=33{,}671$); eICU-CRD multicenter validation ($n=71{,}861$ eligible stays across 207 hospitals [208 hospitals in the original database])} & \textbf{83 harmonized predictors; logistic anchor + LightGBM head + explicit nutrition reserve} & \textbf{Retrospective leave-hospital-out (167 held-out hospitals) + nested update + disjoint Platt calibration} & \textbf{0.872 (held-out); 0.871 (leave-hospital-out); +0.021 over APACHE-IVa ($p<0.001$)} & \textbf{$\text{ECE}=0.0037$, slope 1.026; 140-hospital median slope 1.032; sustained superior net clinical benefit on DCA across 1\%--35\%.}\\
 \bottomrule
 \end{tabular}}
 \vspace{0.4em}
@@ -635,18 +635,32 @@ GERI-NutriRisk-ICU & \textbf{0.882} & \textbf{0.793} & \textbf{0.794} & \textbf{
 
 \begin{table}[!htbp]
 \centering
-\caption{Server-run evidence manifest summary for final lock files.}
+\caption{Server-run evidence manifest summary for final model lock and revision experiments.}
 \label{tab:manifest_s10}
 \small
 \begin{tabular}{lll}
 \toprule
 Result file & Size, bytes & SHA256 prefix\\
 \midrule
+\multicolumn{3}{l}{\textbf{Primary Model Development and Architecture Lock Files (2026-08-26)}}\\
 v13\_strong\_clinical\_feature\_upgrade\_metrics.json & 7,255 & 750374631740\\
 v13b\_domain\_update\_calibration\_metrics.json & 9,549 & 52cb99361d49\\
 v14\_domain\_update\_nutrition\_apache\_lock\_metrics.json & 43,022 & 66b92042570d\\
 v15\_v14\_explainability\_metrics.json & 6,842 & 84692d0059b8\\
 v16\_hospital\_cluster\_robustness\_metrics.json & 5,395 & 5716ef423da0\\
+\midrule
+\multicolumn{3}{l}{\textbf{Revision Validation and Sensitivity Experiments (2026-09-01)}}\\
+exp001\_leave\_hospital\_out.json & 2,307 & 90b34fe1cd4b\\
+exp002\_baselines\_summary.json & 3,072 & 30c1f5fdb9d3\\
+exp003\_dca\_data.json & 4,217 & cef1a0520d68\\
+exp004\_nutrition\_ablation.json & 5,238 & 4c5d84676fbc\\
+table\_exp001\_leave\_hospital\_out\_sensitivity.csv & 809 & 8c67ed0d1897\\
+table\_exp001\_hospital\_level\_performance.csv & 13,888 & 78a5889708e8\\
+table\_exp002\_apache\_recalibration.csv & 2,040 & 84db671aad3d\\
+table\_exp002\_dca\_paired\_subset.csv & 3,829 & d45ee3262300\\
+table\_exp003\_hospital\_calibration.csv & 16,043 & 95b6f625cd13\\
+table\_exp004\_nutrition\_construct\_ablation.csv & 1,806 & bde01f4159dd\\
+table\_exp005\_feature\_distributions.csv & 13,123 & 9b3872af61c7\\
 \bottomrule
 \end{tabular}
 \end{table}
