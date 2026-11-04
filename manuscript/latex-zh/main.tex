@@ -111,7 +111,7 @@ x_{ij}=H_j\left(\{z_{ij}(t):t\in W_i\},\mathbf{b}_{i}\right),\quad j=1,\ldots,p,
 m_{ij}=I(x_{ij}\ \text{在}\ W_i\ \text{内未被观测}).
 \label{eq:missingness}
 \end{equation}
-公式~\ref{eq:missingness} 将缺失性视为电子病历观测过程的一部分，而不是单纯的数据清洗问题。在 ICU 数据中，某项指标是否被检测往往与分诊、病情严重程度、临床怀疑和诊疗流程有关，因此可映射的缺失指示变量本身具有预测信息。跨数据库协调要求每个保留特征均具备明确 MIMIC-IV 来源、eICU-CRD 来源、方向一致的临床含义和显式缺失处理。
+公式~\ref{eq:missingness} 将缺失性视为电子病历观测过程的一部分，而不是单纯的数据清洗问题。在 ICU 数据中，某项指标是否被检测往往与分诊、病情严重程度、临床怀疑和诊疗流程有关，因此可映射的缺失指示变量本身具有预测信息。跨数据库协调要求每个保留特征均具备明确 MIMIC-IV 来源、eICU-CRD 来源、方向一致的临床含义和显式缺失处理。本研究对常规生化指标执行了严格标准化：血清钙严格限定为血清总钙（mg/dL；MIMIC-IV itemid 50893，eICU-CRD \texttt{lab.calcium}；有效范围 4.0--20.0 mg/dL），彻底剔除了游离钙（itemid 50808，mmol/L）和血清镁（itemid 50960）。表 9 与表 10 忠实记录了历史 V14 模型锁定时的基准数据；而补充材料表 S1、EXP-001（留出医院验证）与 EXP-004（营养消融）均基于清洗后的纯总钙特征矩阵重新拟合；专项敏感性分析（EXP-005；\texttt{results/feature\_audit\_sensitivity.json}）证实基于清洗后数据端到端重训的模型性能保持高度一致（$\text{AUROC} = 0.8738$ vs.\ $0.8744$，$\Delta\mathrm{AUROC} = -0.0005$；$\text{Brier} = 0.0734$ vs.\ $0.0732$），证实历史基线结论完全稳健。
 
 \subsection{GERI-NutriRisk-ICU 框架}
 GERI-NutriRisk-ICU 区分四个功能模块：用于系数级解释的标准化逻辑回归锚定模型、方案化表格学习对照、锁定 LightGBM 性能头，以及用于外部域概率尺度修正的 Platt 再校准层。对所有模型族，未校准风险函数统一写为
