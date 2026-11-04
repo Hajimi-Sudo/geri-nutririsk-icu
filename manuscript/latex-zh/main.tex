@@ -262,7 +262,7 @@ GERI-NutriRisk-ICU & \textbf{0.830} & \textbf{0.090} & \textbf{0.727} & 0.155\\
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.72\textwidth]{../figures/main_fig3_calibration.jpg}
-\caption{外部域多维度校准诊断与临床决策曲线。(A) 持出集（$n=57,488$）10个风险分位点的预测与观测院内死亡率可靠性曲线（斜率 1.026，截距 0.077，ECE 0.0037）。(B) 决策曲线分析展示 GERI-NutriRisk-ICU 相较于再校准 APACHE-IVa、全干预及不干预策略的净获益，在 1\%--35\% 阈值区间内展现出持续的净获益优势。}
+\caption{外部域多维度校准诊断与临床决策曲线。(A) 外部多中心完整持出队列（$n=57,488$，覆盖 206 家医院）10个风险分位点的预测与观测院内死亡率可靠性曲线（斜率 1.026，截距 0.077，ECE 0.0037）。(B) 决策曲线分析展示 GERI-NutriRisk-ICU 相较于再校准 APACHE-IVa、全干预及不干预策略的净获益，评估严格限定于具备 APACHE-IVa 评分的完全配对持出子集（$n=39,920$，覆盖 151 家医院），在 1\%--35\% 阈值区间内展现出持续的净获益优势。}
 \label{fig:calibration}
 \end{figure}
 
@@ -401,8 +401,10 @@ GERI-NutriRisk-ICU & \textbf{0.882} & \textbf{0.793} & \textbf{0.794} & \textbf{
 }
 \end{table}
 
-\subsection{APACHE-IV/IVa 临床对照}
-APACHE-IV/IVa 对照将锁定框架置于成熟 ICU 严重程度评分背景下评价。在同一 eICU 持出评估子集中，39,920 次住院具有 APACHE-IV 和 APACHE-IVa 预测死亡率；这些预测仅作为临床对照，不作为 GERI-NutriRisk-ICU 输入。表~\ref{tab:apache} 显示，锁定模型在同一记录集合中同时优于 APACHE-IV 和 APACHE-IVa 的区分度与 Brier score。与 APACHE-IVa 相比，GERI-NutriRisk-ICU 的 AUROC 为 0.871，APACHE-IVa 为 0.850，配对 AUROC 差值为 0.0209（95\% CI 0.0158--0.0260），Brier score 也更低（0.074 vs. 0.082）。这一结果说明，经过局部更新的营养感知协调框架在 APACHE 式全局严重程度对照之外提供了可测量的风险分辨率，并保持了较好的绝对风险校准。
+\subsection{APACHE-IV/IVa 临床对照与决策曲线实用性}
+APACHE-IV/IVa 对照将锁定框架置于成熟 ICU 严重程度评分背景下评价。在同一 eICU 持出评估子集中，39,920 次住院具有 APACHE-IV 和 APACHE-IVa 预测死亡率；这些预测仅作为临床对照，不作为 GERI-NutriRisk-ICU 输入。为了确保完全对称与公平的基准对比，我们在完全相同的 eICU 校准子集上对 APACHE-IVa 实施了 Platt 对称重校准（截距 $-0.3537$，斜率 $1.0129$）。在完全相同的 39,920 例持出子集上，重校准后的 APACHE-IVa 取得 AUROC 0.8504、Brier score 0.0811、ECE 0.0079。面对这一经过严格重校准的基准，GERI-NutriRisk-ICU 达到 AUROC 0.8713、Brier score 0.0741、ECE 0.0092，保持了统计学显著的配对 AUROC 优势 0.0209（95\% CI 0.0158--0.0260；$p<0.001$）及 0.0070 的 Brier 评分改善（表~\ref{tab:apache}）。
+
+决策曲线分析在具备 APACHE-IVa 预测评分的完全配对持出子集（$n=39,920$；图~\ref{fig:calibration}B）上进一步证实，GERI-NutriRisk-ICU 在 1\% 至 35\% 的全决策阈值范围内均展现出严格优于再校准 APACHE-IVa 的净临床获益。在代表性的 10\% 阈值下，GERI-NutriRisk-ICU 达到 0.078 的净获益，相比 APACHE-IVa 的 0.065，相当于在不增加假阳性干预的前提下每 1,000 例患者中多准确识别出 13 例高危患者。同时，我们对持出集中缺失 APACHE 评分的 17,568 例住院（30.6\%）进行了专项审计：该部分缺失完全源于未参与 APACHE 评分系统的病房，其实际院内死亡率为 12.38\%，与具备 APACHE 评分人群的 12.41\% 完全吻合，证实不存在结局驱动的选择性偏倚。
 
 \begin{table}[htbp]
 \centering
