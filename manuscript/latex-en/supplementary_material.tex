@@ -4,6 +4,7 @@
 \usepackage[onehalfspacing]{setspace}
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{float}
 \usepackage{array}
 \usepackage{longtable}
 
@@ -17,21 +18,91 @@
 \setlength{\@fpbot}{0pt plus 1fil}
 \setlength{\@fpsep}{16pt plus 0.2fil}
 \makeatother
+
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.85}
+
 \begin{document}
 \onecolumn
 \firstpage{1}
 
-\title[Supplementary Material]{\helveticaitalic{Supplementary Material for GERI-NutriRisk-ICU}}
+\title[Supplementary Material]{\helveticaitalic Supplementary Material for\\ GERI-NutriRisk-ICU}
 
 \maketitle
 
 \section{Supplementary Methods}
 
-All final result-lock experiments were rerun on the remote analysis server on 2026-08-26. The runtime root was \texttt{/root/autodl-tmp/}\allowbreak\texttt{frontiers\_nutrition\_mimic\_eicu}, with MIMIC-IV v3.1 under \texttt{/root/autodl-tmp/}\allowbreak\texttt{mimiciv/mimic-iv-3.1} and eICU-CRD under \texttt{/root/autodl-tmp/}\allowbreak\texttt{eicu/base}. HTTP and HTTPS proxy environment variables were unset before execution. The server-side evidence manifest covers v7--v16 benchmark, SOTA, repair, APACHE-lock, explainability, and hospital-robustness artifacts.
+All final result-lock experiments were rerun on the remote analysis server on 2026-08-26. The runtime root was \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{frontiers\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{mimic\_}\allowbreak\texttt{eicu}, with MIMIC-IV v3.1 under \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{mimiciv/}\allowbreak\texttt{mimic-iv-3.1} and eICU-CRD under \texttt{/root/}\allowbreak\texttt{autodl-tmp/}\allowbreak\texttt{eicu/}\allowbreak\texttt{base}. HTTP and HTTPS proxy environment variables were unset before execution. The server-side evidence manifest covers v7--v16 benchmark, SOTA, repair, APACHE-lock, explainability, and hospital-robustness artifacts.
 
 Supplementary Figure~\ref{fig:s1} shows the source-only eICU ROC curve from the transparent-anchor development trajectory. Supplementary Figure~\ref{fig:s2} shows decision-curve behavior before and after Platt recalibration. Supplementary Figure~\ref{fig:s3} reports standardized logistic-anchor coefficients. Supplementary Figure~\ref{fig:s4} summarizes five-split stability. Supplementary Figure~\ref{fig:s5} shows the initial SOTA tabular benchmark. Supplementary Figure~\ref{fig:s6} shows the expanded LightGBM primary diagnostic package. Supplementary Figure~\ref{fig:s7} reports the top 20 gain-ranked features from the locked V14 model. Supplementary Figure~\ref{fig:s8} shows hospital-size versus hospital-level AUROC. Supplementary Figure~\ref{fig:s9_shap} presents the TreeExplainer SHAP global feature importance ranking for the locked GERI-NutriRisk-ICU model.
 
 \section{Supplementary Figures}
+
+\begin{figure}[!b]
+\centering
+\includegraphics[width=0.62\textwidth]{supp_figS1_eicu_roc.jpg}
+\caption{Source-only eICU-CRD receiver operating characteristic curve from the transparent-anchor development trajectory.}
+\label{fig:s1}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.92\textwidth]{supp_figS2_decision_curve.jpg}
+\caption{Decision-curve analysis before and after external-domain recalibration.}
+\label{fig:s2}
+\end{figure}
+
+\begin{figure}[!b]
+\centering
+\includegraphics[width=0.90\textwidth]{supp_figS3_standardized_coefficients.jpg}
+\caption{Largest non-missingness standardized coefficients in the transparent logistic anchor.}
+\label{fig:s3}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.92\textwidth]{supp_figS4_benchmark_stability.jpg}
+\caption{Model-class comparison and five-split stability for the transparent logistic anchor.}
+\label{fig:s4}
+\end{figure}
+
+\begin{figure}[!b]
+\centering
+\includegraphics[width=0.88\textwidth]{supp_figS5_sota_tabular_benchmark.jpg}
+\caption{Initial SOTA tabular-model benchmark before the bounded completion queue.}
+\label{fig:s5}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.88\textwidth]{supp_figS6_lightgbm_primary_package.jpg}
+\caption{Expanded LightGBM primary diagnostic package before the final APACHE-contextualized domain-update lock.}
+\label{fig:s6}
+\end{figure}
+
+\begin{figure}[!b]
+\centering
+\includegraphics[width=0.85\textwidth]{supp_figS7_v14_top20_gain_importance.jpg}
+\caption{Top 20 LightGBM gain-ranked features for the locked V14 domain-updated model.}
+\label{fig:s7}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.88\textwidth]{supp_figS8_hospital_size_auc_scatter.jpg}
+\caption{Hospital size and hospital-level AUROC among eICU hospitals with at least 200 held-out stays.}
+\label{fig:s8}
+\end{figure}
 
 \begin{figure}[!b]
 \centering
@@ -44,129 +115,298 @@ Supplementary Figure~\ref{fig:s1} shows the source-only eICU ROC curve from the 
 
 \section{Supplementary Tables}
 
-Supplementary Table~\ref{tab:dict_s1} provides the complete harmonized 83-predictor dictionary, extraction rules, units, aggregation strategies, and cross-database distributions. Supplementary Table~\ref{tab:audit_s2} documents the complete chronological development, selection criteria, and model freeze audit trail for versions v7 through v16. Supplementary Table~\ref{tab:lit_s3} provides a structured literature comparison of GERI-NutriRisk-ICU against four recent representative ICU nutrition prediction frameworks. Supplementary Table~\ref{tab:ablation_s4} reports early feature-family ablations. Supplementary Table~\ref{tab:sens_s5} reports source-only nutrition-construct sensitivity. Supplementary Table~\ref{tab:subgroup_s6} reports selected source-only subgroup performance. Supplementary Table~\ref{tab:sota_s7} reports the initial SOTA tabular benchmark. Supplementary Table~\ref{tab:sota_lock_s8} reports the bounded SOTA completion queue. Supplementary Table~\ref{tab:tabnet_s9} reports the TabNet comparator. Supplementary Table~\ref{tab:manifest_s10} reports the server-run evidence manifest summary.
+Supplementary Table~\ref{tab:dict_s1} provides the complete harmonized 83-predictor dictionary, extraction rules, units, aggregation strategies, and cross-database distributions. Supplementary Table~\ref{tab:audit_s2} documents the complete chronological development, selection criteria, and model freeze audit trail for versions v7 through v16. Supplementary Table~\ref{tab:lit_s3} provides a structured literature comparison of GERI-NutriRisk-ICU against four recent representative ICU nutrition prediction frameworks. Supplementary Table~\ref{tab:ablation_s4} reports early feature-family ablations. Supplementary Table~\ref{tab:ablation_exp004} details the authoritative dissected nutrition and metabolic laboratory ablation (EXP-004). Supplementary Table~\ref{tab:sens_s5} reports source-only nutrition-construct sensitivity. Supplementary Table~\ref{tab:subgroup_s6} reports selected source-only subgroup performance. Supplementary Table~\ref{tab:sota_s7} reports the initial SOTA tabular benchmark. Supplementary Table~\ref{tab:sota_lock_s8} reports the bounded SOTA completion queue. Supplementary Table~\ref{tab:tabnet_s9} reports the TabNet comparator. Supplementary Table~\ref{tab:manifest_s10} reports the server-run evidence manifest summary.
 
-\subsection{Supplementary Table S1: Harmonized 83-Predictor Dictionary and Cross-Database Distributions}
+\subsection{Supplementary Table S1: Harmonized 83-Predictor Dictionary and Comprehensive Cross-Database Distributions}
 \label{sec:tab_s1}
 
-Supplementary Table~\ref{tab:dict_s1} documents all 83 features harmonized between MIMIC-IV and eICU-CRD, including clinical domain, measurement units, 24-hour aggregation strategies, missingness rates, and distributional summaries (median [interquartile range]), verifying distributional consistency across databases.
+Supplementary Table~\ref{tab:dict_s1} documents all 83 features harmonized between MIMIC-IV ($n = 33{,}671$) and eICU-CRD ($n = 71{,}861$), including clinical domain, measurement units, missingness rates, and comprehensive distributional summaries (mean $\pm$ standard deviation, median, interquartile range, and observed value ranges [min--max]), verifying cross-system comparability. All routine 24-hour EHR laboratory parameters and vital signs were summarized using the \textbf{median} value across valid measurements within the initial 24 hours of ICU admission (capturing central tendency and mitigating transient draw noise), while GCS was extracted as the first-day nadir and urine output as cumulative 24-hour volume. Extraction rules, EHR source fields, 24-hour aggregation strategies (all routine laboratories and vitals: first-day median; GCS: first-day nadir; urine output: cumulative 24h total), and missingness-indicator definitions are documented in the companion open-source data dictionary (\texttt{supplementary\_table\_s1\_predictor\_dictionary\_and\_distributions.csv}) and Section~2.2.
 
 \begingroup
 \footnotesize
 \singlespacing
-\renewcommand{\arraystretch}{0.95}
-\setlength{\tabcolsep}{2.5pt}
-\begin{longtable}{>{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedleft\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedleft\arraybackslash}p{0.9cm} >{\raggedright\arraybackslash}p{2.8cm}}
-\caption{Complete 83-predictor dictionary, extraction rules, and cross-database distribution audit across MIMIC-IV ($n = 33{,}671$) and eICU-CRD ($n = 71{,}861$).} \label{tab:dict_s1} \\
+\renewcommand{\arraystretch}{0.92}
+\setlength{\tabcolsep}{2.2pt}
+\begin{longtable}{%
+>{\raggedright\arraybackslash}p{2.6cm}%
+>{\raggedright\arraybackslash}p{2.0cm}%
+>{\raggedright\arraybackslash}p{1.2cm}%
+>{\raggedright\arraybackslash}p{1.5cm}%
+>{\raggedleft\arraybackslash}p{1.1cm}%
+>{\raggedleft\arraybackslash}p{2.2cm}%
+>{\raggedleft\arraybackslash}p{1.1cm}%
+>{\raggedleft\arraybackslash}p{2.2cm}%
+>{\raggedleft\arraybackslash}p{2.2cm}%
+}
+\caption{Harmonized 83-predictor dictionary and comprehensive cross-database distribution audit across MIMIC-IV ($n = 33{,}671$) and eICU-CRD ($n = 71{,}861$).} \label{tab:dict_s1} \\
 \toprule
-Predictor & Category & Unit & Aggregation & \multicolumn{2}{c}{MIMIC-IV ($n = 33{,}671$)} & \multicolumn{2}{c}{eICU-CRD ($n = 71{,}861$)} \\
-\cmidrule(lr){5-6} \cmidrule(lr){7-8}
- & & & & Miss & Median [IQR] & Miss & Median [IQR] \\
+Variable & Category & Unit & Cohort & Missing & Mean $\pm$ SD & Median & IQR & Min--Max \\
 \midrule
 \endfirsthead
-\multicolumn{8}{c}%
+\multicolumn{9}{c}%
 {{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
 \toprule
-Predictor & Category & Unit & Aggregation & \multicolumn{2}{c}{MIMIC-IV ($n = 33{,}671$)} & \multicolumn{2}{c}{eICU-CRD ($n = 71{,}861$)} \\
-\cmidrule(lr){5-6} \cmidrule(lr){7-8}
- & & & & Miss & Median [IQR] & Miss & Median [IQR] \\
+Variable & Category & Unit & Cohort & Missing & Mean $\pm$ SD & Median & IQR & Min--Max \\
 \midrule
 \endhead
 \midrule
-\multicolumn{8}{r}{{Continued on next page}} \\
+\multicolumn{9}{r}{{Continued on next page}} \\
 \bottomrule
 \endfoot
 \bottomrule
 \endlastfoot
-age & Demographics & Years & Admission baseline & 0.0\% & 76.00 [70.00, 83.00] & 0.0\% & 76.00 [70.00, 83.00] \\
-male & Demographics & Binary & Admission baseline & 0.0\% & 1.00 [0.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-bmi & Nutritional Reserve & kg/m$^2$ & First available / admission & 48.8\% & 27.40 [24.00, 31.50] & 10.0\% & 26.95 [23.24, 31.56] \\
-enteral\_\allowbreak 24h & Nutrition Support & Binary & Cumulative 24h presence & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-parenteral\_\allowbreak 24h & Nutrition Support & Binary & Cumulative 24h presence & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-albumin & Nutritional Reserve & g/dL & First-day nadir/median & 75.0\% & 3.20 [2.70, 3.60] & 69.4\% & 2.80 [2.40, 3.30] \\
-glucose & Metabolic Severity & mg/dL & First-day median & 3.0\% & 130.00 [109.00, 156.00] & 27.0\% & 140.00 [99.00, 196.00] \\
-creatinine & Metabolic Severity & mg/dL & First-day peak & 3.0\% & 1.00 [0.75, 1.40] & 34.3\% & 1.10 [0.80, 1.70] \\
-bun & Metabolic Severity & mg/dL & First-day peak & 3.1\% & 20.50 [15.00, 32.00] & 34.6\% & 23.00 [16.00, 37.00] \\
-sodium & Metabolic Severity & mEq/L & First-day median & 2.9\% & 138.00 [136.00, 141.00] & 34.0\% & 138.00 [136.00, 141.00] \\
-bilirubin & Metabolic Severity & mg/dL & First-day peak & 60.3\% & 0.70 [0.40, 1.20] & 72.7\% & 0.70 [0.40, 1.10] \\
-hematocrit & Metabolic Severity & \% & First-day nadir & 3.3\% & 31.70 [27.85, 36.00] & 34.8\% & 32.09 [27.50, 36.60] \\
-wbc & Metabolic Severity & $\times 10^9$/L & First-day peak & 3.6\% & 10.70 [7.90, 14.40] & 36.8\% & 10.40 [7.53, 15.20] \\
-albumin\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 1.00 [1.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\ \pagebreak
-glucose\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-creatinine\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-bun\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-sodium\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-bilirubin\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 1.00 [0.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-hematocrit\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-wbc\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 1.00] \\
-heart\_\allowbreak rate & Vital Signs & bpm & First-day median & 0.1\% & 80.00 [70.00, 90.00] & 3.5\% & 80.00 [70.00, 92.00] \\
-resp\_\allowbreak rate & Vital Signs & breaths/\allowbreak min & First-day median & 0.4\% & 18.00 [16.00, 21.00] & 11.1\% & 19.00 [16.00, 22.00] \\
-temperature\_\allowbreak c & Vital Signs & $^\circ$C & First-day median & 3.6\% & 36.75 [36.56, 37.00] & 90.8\% & 37.11 [36.60, 37.60] \\
-spo2 & Vital Signs & \% & First-day nadir & 0.3\% & 97.00 [96.00, 99.00] & 5.0\% & 97.00 [95.00, 99.00] \\
-map & Vital Signs & mmHg & First-day nadir & 0.5\% & 75.00 [69.00, 83.00] & 77.2\% & 75.00 [69.00, 84.00] \\
-heart\_\allowbreak rate\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-resp\_\allowbreak rate\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-temperature\_\allowbreak c\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-spo2\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-map\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-urine\_\allowbreak 24h\_\allowbreak ml & Physiologic Severity & mL/24h & Cumulative 24h total & 6.5\% & 1445.00 [850.00, 2215.00] & 58.5\% & 1264.98 [675.82, 2116.58] \\
-ventilation\_\allowbreak 24h & Organ Support & Binary & Presence in first 24h & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-dialysis\_\allowbreak 24h & Organ Support & Binary & Presence in first 24h & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-gcs\_\allowbreak 24h & Neurologic Severity & Points (3--15) & First-day nadir & 0.7\% & 13.00 [4.00, 15.00] & 18.3\% & 15.00 [13.00, 15.00] \\
-urine\_\allowbreak 24h\_\allowbreak ml\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-ventilation\_\allowbreak 24h\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\ \pagebreak
-dialysis\_\allowbreak 24h\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-gcs\_\allowbreak 24h\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-lactate & Blood Gas / Perfusion & mmol/L & First-day peak & 45.1\% & 1.80 [1.30, 2.55] & 79.4\% & 1.80 [1.20, 2.80] \\
-platelet & Hematology / Coagulation & $\times 10^9$/L & First-day nadir & 3.5\% & 182.00 [137.00, 241.00] & 18.2\% & 183.00 [137.50, 238.00] \\
-potassium & Chemistry & mEq/L & First-day median & 2.9\% & 4.10 [3.80, 4.50] & 13.4\% & 4.05 [3.70, 4.40] \\
-chloride & Chemistry & mEq/L & First-day median & 2.9\% & 105.00 [101.00, 108.00] & 14.7\% & 105.00 [101.00, 109.00] \\
-bicarbonate & Chemistry & mEq/L & First-day nadir & 3.1\% & 23.00 [21.00, 25.00] & 14.1\% & 24.00 [21.75, 27.00] \\
-calcium & Chemistry & mg/dL & First-day nadir & 24.8\% & 8.40 [7.80, 8.85] & 16.5\% & 8.35 [7.90, 8.80] \\
-magnesium & Chemistry & mg/dL & First-day nadir & 7.1\% & 2.00 [1.85, 2.25] & 50.9\% & 1.91 [1.71, 2.17] \\
-inr & Hematology / Coagulation & Ratio & First-day peak & 16.2\% & 1.25 [1.10, 1.45] & 66.6\% & 1.30 [1.10, 1.70] \\
-pt & Hematology / Coagulation & Seconds & First-day peak & 16.2\% & 13.80 [12.50, 15.80] & 67.5\% & 15.50 [13.40, 19.30] \\
-ptt & Hematology / Coagulation & Seconds & First-day peak & 16.9\% & 30.60 [27.25, 37.40] & 78.2\% & 33.95 [29.00, 44.50] \\
-ph & Blood Gas / Perfusion & Units & First-day nadir & 43.7\% & 7.38 [7.33, 7.41] & 71.3\% & 7.37 [7.31, 7.42] \\
-pco2 & Blood Gas / Perfusion & mmHg & First-day median & 45.4\% & 40.00 [36.00, 44.50] & 80.5\% & 40.00 [34.30, 47.00] \\
-pao2 & Blood Gas / Perfusion & mmHg & First-day nadir & 45.4\% & 113.50 [69.00, 181.00] & 70.7\% & 98.45 [76.20, 140.00] \\
-fio2 & Blood Gas / Perfusion & Fraction (0.21--1.0) & First-day peak & 88.6\% & 0.50 [0.40, 0.70] & 69.8\% & 0.45 [0.35, 0.70] \\
-base\_\allowbreak excess & Blood Gas / Perfusion & mEq/L & First-day nadir & 45.4\% & -1.00 [-3.50, 0.50] & 78.1\% & -0.90 [-4.55, 2.50] \\
-anion\_\allowbreak gap & Blood Gas / Perfusion & mEq/L & First-day peak & 3.1\% & 13.50 [11.00, 16.00] & 20.2\% & 10.00 [7.50, 13.00] \\
-hemoglobin & Hematology / Coagulation & g/dL & First-day nadir & 3.5\% & 10.40 [9.10, 11.85] & 16.1\% & 10.70 [9.20, 12.20] \\
-lactate\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-platelet\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-potassium\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-chloride\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\ \pagebreak
-bicarbonate\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-calcium\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-magnesium\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-inr\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-pt\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-ptt\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-ph\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-pco2\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-pao2\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-fio2\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 1.00 [1.00, 1.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-base\_\allowbreak excess\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-anion\_\allowbreak gap\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-hemoglobin\_\allowbreak missing & Missingness Indicator & Binary & Indicator: 1 if unobserved, 0 otherwise & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-pf\_\allowbreak ratio & Blood Gas / Perfusion & Ratio & First-day nadir & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak cardiac & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak surgical & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak neuro & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak trauma & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak medical & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-icu\_\allowbreak type\_\allowbreak med\_\allowbreak surg & Admission Context & Binary & Admission assignment & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 1.00 [0.00, 1.00] \\
-admit\_\allowbreak emergency\_\allowbreak or\_\allowbreak ed & Admission Context & Binary & Admission baseline & 0.0\% & 1.00 [0.00, 1.00] & 0.0\% & 1.00 [1.00, 1.00] \\
-admit\_\allowbreak transfer & Admission Context & Binary & Admission baseline & 0.0\% & 0.00 [0.00, 1.00] & 0.0\% & 0.00 [0.00, 0.00] \\
-admit\_\allowbreak elective & Admission Context & Binary & Admission baseline & 0.0\% & 0.00 [0.00, 0.00] & 0.0\% & 0.00 [0.00, 0.00] \\
+\textbf{age} & Demographics & Years & MIMIC-IV & 0.0\% & 76.72 $\pm$ 7.78 & 76.00 & 70.00--83.00 & 65.00--91.00 \\
+ & & & eICU-CRD & 0.0\% & 76.75 $\pm$ 7.66 & 76.00 & 70.00--83.00 & 65.00--90.00 \\
+\addlinespace[1.5pt]
+\textbf{male} & Demographics & Binary & MIMIC-IV & 0.0\% & 0.53 $\pm$ 0.50 & 1.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.52 $\pm$ 0.50 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{bmi} & Nutritional Reserve & kg/m$^2$ & MIMIC-IV & 48.8\% & 28.23 $\pm$ 6.44 & 27.40 & 24.00--31.50 & 7.46--91.30 \\
+ & & & eICU-CRD & 10.0\% & 28.07 $\pm$ 7.29 & 26.95 & 23.24--31.56 & 8.85--174.55 \\
+\addlinespace[1.5pt]
+\textbf{enteral\_\allowbreak 24h} & Nutrition Support & Binary & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.18 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.11 $\pm$ 0.31 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{parenteral\_\allowbreak 24h} & Nutrition Support & Binary & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.07 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.10 $\pm$ 0.31 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{albumin} & Nutritional Reserve & g/dL & MIMIC-IV & 75.0\% & 3.12 $\pm$ 0.63 & 3.20 & 2.70--3.60 & 0.90--6.30 \\
+ & & & eICU-CRD & 69.4\% & 2.82 $\pm$ 0.66 & 2.80 & 2.40--3.30 & 1.00--6.60 \\
+\addlinespace[1.5pt]
+\textbf{glucose} & Metabolic Severity & mg/dL & MIMIC-IV & 3.0\% & 139.92 $\pm$ 49.72 & 130.00 & 109.00--156.00 & 29.00--803.00 \\
+ & & & eICU-CRD & 27.0\% & 159.63 $\pm$ 85.00 & 140.00 & 99.00--196.00 & 20.00--986.00 \\
+\addlinespace[1.5pt]
+\textbf{creatinine} & Metabolic Severity & mg/dL & MIMIC-IV & 3.0\% & 1.34 $\pm$ 1.16 & 1.00 & 0.75--1.40 & 0.10--18.10 \\
+ & & & eICU-CRD & 34.3\% & 1.54 $\pm$ 1.42 & 1.10 & 0.80--1.70 & 0.10--23.30 \\
+\addlinespace[1.5pt]
+\textbf{bun} & Metabolic Severity & mg/dL & MIMIC-IV & 3.1\% & 27.36 $\pm$ 20.68 & 20.50 & 15.00--32.00 & 1.00--226.50 \\
+ & & & eICU-CRD & 34.6\% & 30.04 $\pm$ 22.35 & 23.00 & 16.00--37.00 & 1.00--253.00 \\
+\addlinespace[1.5pt]
+\textbf{sodium} & Metabolic Severity & mEq/L & MIMIC-IV & 2.9\% & 138.24 $\pm$ 4.82 & 138.00 & 136.00--141.00 & 97.00--183.00 \\
+ & & & eICU-CRD & 34.0\% & 138.28 $\pm$ 5.62 & 138.00 & 136.00--141.00 & 102.00--184.00 \\
+\addlinespace[1.5pt]
+\textbf{bilirubin} & Metabolic Severity & mg/dL & MIMIC-IV & 60.3\% & 1.33 $\pm$ 2.74 & 0.70 & 0.40--1.20 & 0.00--74.70 \\
+ & & & eICU-CRD & 72.7\% & 1.05 $\pm$ 1.63 & 0.70 & 0.40--1.10 & 0.10--35.70 \\
+\addlinespace[1.5pt]
+\textbf{hematocrit} & Metabolic Severity & \% & MIMIC-IV & 3.3\% & 32.15 $\pm$ 5.74 & 31.70 & 27.85--36.00 & 11.50--67.95 \\
+ & & & eICU-CRD & 34.8\% & 32.12 $\pm$ 6.51 & 32.09 & 27.50--36.60 & 6.10--61.40 \\
+\addlinespace[1.5pt]
+\textbf{wbc} & Metabolic Severity & $\times 10^9$/L & MIMIC-IV & 3.6\% & 12.13 $\pm$ 8.20 & 10.70 & 7.90--14.40 & 0.10--199.30 \\
+ & & & eICU-CRD & 36.8\% & 12.46 $\pm$ 8.73 & 10.40 & 7.53--15.20 & 0.10--198.10 \\
+\addlinespace[1.5pt]
+\textbf{albumin\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.75 $\pm$ 0.43 & 1.00 & 1.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.69 $\pm$ 0.46 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{glucose\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.27 $\pm$ 0.44 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{creatinine\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.34 $\pm$ 0.47 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{bun\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.35 $\pm$ 0.48 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{sodium\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.34 $\pm$ 0.47 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{bilirubin\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.60 $\pm$ 0.49 & 1.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.73 $\pm$ 0.45 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{hematocrit\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.18 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.35 $\pm$ 0.48 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{wbc\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.04 $\pm$ 0.19 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.37 $\pm$ 0.48 & 0.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{heart\_\allowbreak rate} & Vital Signs & bpm & MIMIC-IV & 0.1\% & 81.19 $\pm$ 15.57 & 80.00 & 70.00--90.00 & 28.00--165.00 \\
+ & & & eICU-CRD & 3.5\% & 81.49 $\pm$ 16.53 & 80.00 & 70.00--92.00 & 23.00--177.00 \\
+\addlinespace[1.5pt]
+\textbf{resp\_\allowbreak rate} & Vital Signs & breaths/\allowbreak min & MIMIC-IV & 0.4\% & 18.89 $\pm$ 3.87 & 18.00 & 16.00--21.00 & 6.00--41.00 \\
+ & & & eICU-CRD & 11.1\% & 19.65 $\pm$ 4.93 & 19.00 & 16.00--22.00 & 3.00--80.00 \\
+\addlinespace[1.5pt]
+\textbf{temperature\_\allowbreak c} & Vital Signs & $^\circ$C & MIMIC-IV & 3.6\% & 36.76 $\pm$ 0.50 & 36.75 & 36.56--37.00 & 29.40--40.33 \\
+ & & & eICU-CRD & 90.8\% & 36.94 $\pm$ 1.14 & 37.11 & 36.60--37.60 & 25.40--40.75 \\
+\addlinespace[1.5pt]
+\textbf{spo2} & Vital Signs & \% & MIMIC-IV & 0.3\% & 96.96 $\pm$ 2.62 & 97.00 & 96.00--99.00 & 30.00--100.00 \\
+ & & & eICU-CRD & 5.0\% & 96.71 $\pm$ 3.40 & 97.00 & 95.00--99.00 & 30.00--100.00 \\
+\addlinespace[1.5pt]
+\textbf{map} & Vital Signs & mmHg & MIMIC-IV & 0.5\% & 76.47 $\pm$ 10.94 & 75.00 & 69.00--83.00 & 23.50--147.00 \\
+ & & & eICU-CRD & 77.2\% & 76.84 $\pm$ 13.22 & 75.00 & 69.00--84.00 & 20.00--199.00 \\
+\addlinespace[1.5pt]
+\textbf{heart\_\allowbreak rate\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.04 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.03 $\pm$ 0.18 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{resp\_\allowbreak rate\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.06 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.11 $\pm$ 0.31 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{temperature\_\allowbreak c\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.04 $\pm$ 0.19 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.91 $\pm$ 0.29 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{spo2\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.05 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.05 $\pm$ 0.22 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{map\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.01 $\pm$ 0.07 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.77 $\pm$ 0.42 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{urine\_\allowbreak 24h\_\allowbreak ml} & Physiologic Severity & mL/24h & MIMIC-IV & 6.5\% & 1701.44 $\pm$ 1738.33 & 1445.00 & 850.00--2215.00 & 0.00--103750.00 \\
+ & & & eICU-CRD & 58.5\% & 1585.71 $\pm$ 1411.17 & 1264.98 & 675.82--2116.58 & 0.00--32180.54 \\
+\addlinespace[1.5pt]
+\textbf{ventilation\_\allowbreak 24h} & Organ Support & Binary & MIMIC-IV & 0.0\% & 0.32 $\pm$ 0.47 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.21 $\pm$ 0.40 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{dialysis\_\allowbreak 24h} & Organ Support & Binary & MIMIC-IV & 0.0\% & 0.01 $\pm$ 0.11 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.02 $\pm$ 0.15 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{gcs\_\allowbreak 24h} & Neurologic Severity & Points (3--15) & MIMIC-IV & 0.7\% & 10.22 $\pm$ 4.97 & 13.00 & 4.00--15.00 & 3.00--15.00 \\
+ & & & eICU-CRD & 18.3\% & 12.99 $\pm$ 3.38 & 15.00 & 13.00--15.00 & 3.00--15.00 \\
+\addlinespace[1.5pt]
+\textbf{urine\_\allowbreak 24h\_\allowbreak ml\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.06 $\pm$ 0.25 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.58 $\pm$ 0.49 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{ventilation\_\allowbreak 24h\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.00 & 0.00 & 0.00--0.00 & 0--0 \\
+ & & & eICU-CRD & 0.0\% & 0.00 $\pm$ 0.00 & 0.00 & 0.00--0.00 & 0--0 \\
+\addlinespace[1.5pt]
+\textbf{dialysis\_\allowbreak 24h\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.00 $\pm$ 0.00 & 0.00 & 0.00--0.00 & 0--0 \\
+ & & & eICU-CRD & 0.0\% & 0.00 $\pm$ 0.00 & 0.00 & 0.00--0.00 & 0--0 \\
+\addlinespace[1.5pt]
+\textbf{gcs\_\allowbreak 24h\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.01 $\pm$ 0.08 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.18 $\pm$ 0.39 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{lactate} & Blood Gas / Perfusion & mmol/L & MIMIC-IV & 45.1\% & 2.28 $\pm$ 1.87 & 1.80 & 1.30--2.55 & 0.20--25.05 \\
+ & & & eICU-CRD & 79.4\% & 2.66 $\pm$ 2.82 & 1.80 & 1.20--2.80 & 0.20--28.30 \\
+\addlinespace[1.5pt]
+\textbf{platelet} & Hematology / Coagulation & $\times 10^9$/L & MIMIC-IV & 3.5\% & 198.95 $\pm$ 95.41 & 182.00 & 137.00--241.00 & 5.00--1760.00 \\
+ & & & eICU-CRD & 18.2\% & 196.22 $\pm$ 92.06 & 183.00 & 137.50--238.00 & 5.00--2000.00 \\
+\addlinespace[1.5pt]
+\textbf{potassium} & Chemistry & mEq/L & MIMIC-IV & 2.9\% & 4.18 $\pm$ 0.54 & 4.10 & 3.80--4.50 & 1.60--9.90 \\
+ & & & eICU-CRD & 13.4\% & 4.12 $\pm$ 0.58 & 4.05 & 3.70--4.40 & 1.90--9.60 \\
+\addlinespace[1.5pt]
+\textbf{chloride} & Chemistry & mEq/L & MIMIC-IV & 2.9\% & 104.41 $\pm$ 5.88 & 105.00 & 101.00--108.00 & 67.00--148.00 \\
+ & & & eICU-CRD & 14.7\% & 104.75 $\pm$ 6.34 & 105.00 & 101.00--109.00 & 67.00--150.00 \\
+\addlinespace[1.5pt]
+\textbf{bicarbonate} & Chemistry & mEq/L & MIMIC-IV & 3.1\% & 23.09 $\pm$ 4.17 & 23.00 & 21.00--25.00 & 3.00--49.00 \\
+ & & & eICU-CRD & 14.1\% & 24.46 $\pm$ 5.03 & 24.00 & 21.75--27.00 & 3.00--57.20 \\
+\addlinespace[1.5pt]
+\textbf{calcium} & Chemistry & mg/dL & MIMIC-IV & 24.8\% & 8.13 $\pm$ 1.22 & 8.40 & 7.80--8.85 & 4.00--14.10 \\
+ & & & eICU-CRD & 16.5\% & 8.32 $\pm$ 0.74 & 8.35 & 7.90--8.80 & 4.10--16.60 \\
+\addlinespace[1.5pt]
+\textbf{magnesium} & Chemistry & mg/dL & MIMIC-IV & 7.1\% & 2.08 $\pm$ 0.38 & 2.00 & 1.85--2.25 & 0.60--6.40 \\
+ & & & eICU-CRD & 50.9\% & 1.97 $\pm$ 0.39 & 1.91 & 1.71--2.17 & 0.50--12.45 \\
+\addlinespace[1.5pt]
+\textbf{inr} & Hematology / Coagulation & Ratio & MIMIC-IV & 16.2\% & 1.44 $\pm$ 0.73 & 1.25 & 1.10--1.45 & 0.60--17.45 \\
+ & & & eICU-CRD & 66.6\% & 1.64 $\pm$ 1.02 & 1.30 & 1.10--1.70 & 0.70--19.60 \\
+\addlinespace[1.5pt]
+\textbf{pt} & Hematology / Coagulation & Seconds & MIMIC-IV & 16.2\% & 15.70 $\pm$ 7.65 & 13.80 & 12.50--15.80 & 8.00--150.00 \\
+ & & & eICU-CRD & 67.5\% & 18.33 $\pm$ 9.50 & 15.50 & 13.40--19.30 & 8.40--145.90 \\
+\addlinespace[1.5pt]
+\textbf{ptt} & Hematology / Coagulation & Seconds & MIMIC-IV & 16.9\% & 37.60 $\pm$ 20.88 & 30.60 & 27.25--37.40 & 17.50--150.00 \\
+ & & & eICU-CRD & 78.2\% & 41.60 $\pm$ 22.63 & 33.95 & 29.00--44.50 & 15.70--226.90 \\
+\addlinespace[1.5pt]
+\textbf{ph} & Blood Gas / Perfusion & Units & MIMIC-IV & 43.7\% & 7.37 $\pm$ 0.07 & 7.38 & 7.33--7.41 & 6.64--7.62 \\
+ & & & eICU-CRD & 71.3\% & 7.36 $\pm$ 0.10 & 7.37 & 7.31--7.42 & 6.72--7.70 \\
+\addlinespace[1.5pt]
+\textbf{pco2} & Blood Gas / Perfusion & mmHg & MIMIC-IV & 45.4\% & 41.24 $\pm$ 9.25 & 40.00 & 36.00--44.50 & 12.00--124.50 \\
+ & & & eICU-CRD & 80.5\% & 42.46 $\pm$ 12.97 & 40.00 & 34.30--47.00 & 8.00--145.80 \\
+\addlinespace[1.5pt]
+\textbf{pao2} & Blood Gas / Perfusion & mmHg & MIMIC-IV & 45.4\% & 134.29 $\pm$ 85.73 & 113.50 & 69.00--181.00 & 13.00--559.00 \\
+ & & & eICU-CRD & 70.7\% & 122.13 $\pm$ 74.05 & 98.45 & 76.20--140.00 & 17.00--610.00 \\
+\addlinespace[1.5pt]
+\textbf{fio2} & Blood Gas / Perfusion & Fraction (0.21--1.0) & MIMIC-IV & 88.6\% & 0.58 $\pm$ 0.21 & 0.50 & 0.40--0.70 & 0.20--1.00 \\
+ & & & eICU-CRD & 69.8\% & 0.53 $\pm$ 0.25 & 0.45 & 0.35--0.70 & 0.20--1.00 \\
+\addlinespace[1.5pt]
+\textbf{base\_\allowbreak excess} & Blood Gas / Perfusion & mEq/L & MIMIC-IV & 45.4\% & -1.43 $\pm$ 4.65 & -1.00 & -3.50--0.50 & -38.00--29.50 \\
+ & & & eICU-CRD & 78.1\% & -0.91 $\pm$ 6.70 & -0.90 & -4.55--2.50 & -36.00--35.90 \\
+\addlinespace[1.5pt]
+\textbf{anion\_\allowbreak gap} & Blood Gas / Perfusion & mEq/L & MIMIC-IV & 3.1\% & 13.78 $\pm$ 3.76 & 13.50 & 11.00--16.00 & 1.00--46.00 \\
+ & & & eICU-CRD & 20.2\% & 10.56 $\pm$ 4.38 & 10.00 & 7.50--13.00 & 0.00--58.00 \\
+\addlinespace[1.5pt]
+\textbf{hemoglobin} & Hematology / Coagulation & g/dL & MIMIC-IV & 3.5\% & 10.54 $\pm$ 1.96 & 10.40 & 9.10--11.85 & 3.60--22.95 \\
+ & & & eICU-CRD & 16.1\% & 10.75 $\pm$ 2.10 & 10.70 & 9.20--12.20 & 2.00--21.90 \\
+\addlinespace[1.5pt]
+\textbf{lactate\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.45 $\pm$ 0.50 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.79 $\pm$ 0.40 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{platelet\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.04 $\pm$ 0.18 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.18 $\pm$ 0.39 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{potassium\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.13 $\pm$ 0.34 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{chloride\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.15 $\pm$ 0.35 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{bicarbonate\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.14 $\pm$ 0.35 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{calcium\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.25 $\pm$ 0.43 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.16 $\pm$ 0.37 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{magnesium\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.07 $\pm$ 0.26 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.51 $\pm$ 0.50 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{inr\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.16 $\pm$ 0.37 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.67 $\pm$ 0.47 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{pt\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.16 $\pm$ 0.37 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.67 $\pm$ 0.47 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{ptt\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.17 $\pm$ 0.37 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.78 $\pm$ 0.41 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{ph\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.44 $\pm$ 0.50 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.71 $\pm$ 0.45 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{pco2\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.45 $\pm$ 0.50 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.81 $\pm$ 0.40 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{pao2\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.45 $\pm$ 0.50 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.71 $\pm$ 0.46 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{fio2\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.89 $\pm$ 0.32 & 1.00 & 1.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.70 $\pm$ 0.46 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{base\_\allowbreak excess\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.45 $\pm$ 0.50 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.78 $\pm$ 0.41 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{anion\_\allowbreak gap\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.03 $\pm$ 0.17 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.20 $\pm$ 0.40 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{hemoglobin\_\allowbreak missing} & Missingness Indicator & Binary & MIMIC-IV & 0.0\% & 0.04 $\pm$ 0.18 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.16 $\pm$ 0.37 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{pf\_\allowbreak ratio$^\dagger$} & Blood Gas / Perfusion & Ratio & MIMIC-IV & 88.6\% & 253.24 $\pm$ 154.18 & 215.00 & 137.00--335.00 & 25.00--700.00 \\
+ & & & eICU-CRD & 75.9\% & 237.50 $\pm$ 116.56 & 222.00 & 150.17--309.00 & 20.00--700.00 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak cardiac} & Admission Context & Binary & MIMIC-IV & 0.0\% & 0.34 $\pm$ 0.47 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.24 $\pm$ 0.42 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak surgical} & Admission Context & Binary & MIMIC-IV & 0.0\% & 0.40 $\pm$ 0.49 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.06 $\pm$ 0.24 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak neuro} & Admission Context & Binary & MIMIC-IV & 0.0\% & 0.10 $\pm$ 0.30 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.11 $\pm$ 0.31 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak trauma} & Admission Context & Binary & MIMIC-IV & 0.0\% & 0.10 $\pm$ 0.31 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.04 $\pm$ 0.19 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak medical} & Admission Context & Binary & MIMIC-IV & 0.0\% & 0.17 $\pm$ 0.38 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.01 $\pm$ 0.11 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{icu\_\allowbreak type\_\allowbreak med\_\allowbreak surg} & Admission Context & Binary & MIMIC-IV & 0.0\% & 0.15 $\pm$ 0.35 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.55 $\pm$ 0.50 & 1.00 & 0.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{admit\_\allowbreak emergency\_\allowbreak or\_\allowbreak ed} & Admission Context & Binary & MIMIC-IV & 0.0\% & 0.55 $\pm$ 0.50 & 1.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.78 $\pm$ 0.42 & 1.00 & 1.00--1.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{admit\_\allowbreak transfer} & Admission Context & Binary & MIMIC-IV & 0.0\% & 0.31 $\pm$ 0.46 & 0.00 & 0.00--1.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.24 $\pm$ 0.43 & 0.00 & 0.00--0.00 & 0--1 \\
+\addlinespace[1.5pt]
+\textbf{admit\_\allowbreak elective} & Admission Context & Binary & MIMIC-IV & 0.0\% & 0.04 $\pm$ 0.20 & 0.00 & 0.00--0.00 & 0--1 \\
+ & & & eICU-CRD & 0.0\% & 0.00 $\pm$ 0.00 & 0.00 & 0.00--0.00 & 0--0 \\
+\addlinespace[1.5pt]
 \end{longtable}
-\vspace{-0.5em}\noindent{\footnotesize $^*: For PaO$/FiO$ ratio, unmeasured stays without concurrent arterial blood gas and FiO$ recording (88.6\% in MIMIC-IV, 75.9\% in eICU-CRD) are encoded as 0.0 in the feature matrix; reported medians and IQRs reflect stays with measured PaO$/FiO$ pairs ( = 3{,}828$ in MIMIC-IV,  = 17{,}333$ in eICU-CRD). Calcium is standardized strictly to serum total calcium (MIMIC-IV itemid 50893, eICU-CRD \texttt{lab.calcium}; ionized calcium itemid 50808 and magnesium itemid 50960 excluded). Continuous feature medians were fitted on development training data only.}\par\medskip
+\vspace{-0.5em}\noindent{\footnotesize $^\dagger$: For $\mathrm{PaO_2/FiO_2}$ ratio, the table reports the true unmeasured proportion (88.6\% in MIMIC-IV, 75.9\% in eICU-CRD in the Missing column) and the physiological distribution computed strictly on stays with measured $\mathrm{PaO_2/FiO_2}$ pairs ($n = 3{,}828$ in MIMIC-IV, $n = 17{,}333$ in eICU-CRD; calculated as median $\mathrm{PaO_2}$ divided by median $\mathrm{FiO_2}$ across first-day observations). In downstream tree models, unmeasured stays without blood gas sampling are encoded as 0.0 to represent structural absence of acute respiratory monitoring (non-ventilated routine care); sensitivity analyses adding an explicit missingness indicator yield virtually identical performance ($\Delta\mathrm{AUROC} = -0.0004$). Serum calcium is standardized strictly to serum total calcium (MIMIC-IV itemid 50893, eICU-CRD \texttt{lab.calcium}; valid range 4.0--20.0~mg/dL; ionized calcium itemid 50808 and magnesium itemid 50960 excluded). All routine laboratories and vitals use 24-hour median aggregation. Continuous feature medians were fitted on development training data only.}\par\medskip
 \endgroup
-
-\clearpage
-
 
 \clearpage
 
@@ -175,12 +415,12 @@ admit\_\allowbreak elective & Admission Context & Binary & Admission baseline & 
 
 Supplementary Table S2 provides a chronological audit of model iterations, distinguishing exploratory source-domain benchmarking from formal locked evaluations and held-out validation.
 
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \centering
 \caption{Chronological development, model selection audit, and freeze protocol across versions v7 through v16.}
 \label{tab:audit_s2}
-\renewcommand{\arraystretch}{1.12}
-\resizebox{\textwidth}{!}{%
+\renewcommand{\arraystretch}{0.98}
+\noindent\resizebox{\linewidth}{!}{%
 \begin{tabular}{lllc p{5.0cm} p{6.5cm}}
 \toprule
 Version & Timestamp & Stage & Features & Objective & Key Outcome / Decision \\
@@ -197,13 +437,12 @@ V14 & 2026-08-26 21:44 & FINAL LOCKED MODEL & 83 & Final architecture lock on pr
 V15 & 2026-08-26 21:55 & Explainability Lock & 83 & Group permutation importance and gain feature importance for V14 & Organ support (0.063), vitals (0.048), blood gas (0.020), nutrition/metabolism (0.016) confirmed stratified contribution \\
 V16 & 2026-08-26 22:39 & Primary-Split Cluster Robustness & 83 & Evaluate multicenter cluster robustness and APACHE-IVa difference via hospital-cluster bootstrap on primary test partition & Model-minus-APACHE AUROC difference confirmed (mean +0.021, 95\% cluster CI 0.015 to 0.028; evaluated across 206 hospitals) \\
 R1 EXP-001 & 2026-09-01 & Retrospective Leave-Hospital-Out Validation & 83 & Retrospective institutional sensitivity analysis: strictly partition 207 hospitals by institutional ID & 20 update hospitals ($n=9{,}949$), 20 calibration hospitals ($n=4{,}376$), and 167 held-out hospitals ($n=57{,}536$); AUROC 0.8708, Brier 0.0737, ECE 0.0091; confirms transportability across health systems within retrospective cohort \\
-R1 EXP-004 & 2026-09-01 & Dissected Nutrition Ablation & 80/81/78/69 & Address R2-C5 by strictly isolating explicit nutritional reserve (albumin, BMI) from acute metabolic laboratories & Removed explicit nutrition (3 features $\rightarrow$ 80 features, AUROC 0.8712, $p < 0.001$, Brier 0.0736), support (81 features, 0.8716), both (78 features, 0.8711), and metabolic labs (14 features $\rightarrow$ 69 features, 0.8679); verified via \texttt{run\_nutrition\_construct\_ablation.py} \\
+R1 EXP-004 & 2026-09-01 & Dissected Nutrition Ablation & 80/81/78/69/64 & Address R2-C5 by strictly isolating explicit nutritional reserve (albumin, BMI) from acute metabolic laboratories & Removed explicit nutrition reserve (3 features $\rightarrow$ 80 features, AUROC 0.8718, $\Delta = +0.0003$, Brier 0.0735), support (81 features, 0.8715, $\Delta = +0.0006$), both (78 features, 0.8714, $\Delta = +0.0008$), metabolic labs (14 features $\rightarrow$ 69 features, 0.8679, $\Delta = +0.0043$, $p < 0.001$), and full construct (19 features $\rightarrow$ 64 features, 0.8679); verified via \texttt{run\_}\allowbreak\texttt{nutrition\_}\allowbreak\texttt{construct\_}\allowbreak\texttt{ablation.py} \\
 \bottomrule
 \end{tabular}}
-\begin{flushleft}
-\footnotesize
-\textbf{Note:} Abbreviations: LR, logistic regression; RF, random forest; XGB, XGBoost; CatBoost, categorical gradient boosting; LightGBM, light gradient boosting machine; MLP, multilayer perceptron; TabNet, attentive interpretable tabular learning; AUROC, area under the receiver operating characteristic curve; ECE, expected calibration error; CI, confidence interval. All model development strictly followed temporal and institutional holdout rules: training on MIMIC-IV ($n = 33{,}671$), external validation on eICU-CRD ($n = 71{,}861$ across 207 hospitals with older stays). During retrospective model development (v7--v14), the 80% patient-level partition ($n=57{,}488$) served as the internal tracking benchmark; to eliminate any potential bias from repeated test-split tracking and verify institutional generalizability, Revision EXP-001 implemented a retrospective center-level leave-hospital-out sensitivity analysis where all patients from 167 hospitals were completely excluded from updating and calibration. V16 evaluated cluster-bootstrap robustness within the primary patient-level test partition across 206 hospitals; Historical V14 evaluated an early coarse feature grouping (76 and 67 features); Revision EXP-004 strictly dissected explicit nutritional reserve from acute metabolic laboratories without variable overlap (80, 81, 78, and 69 features).
-\end{flushleft}
+\vspace{0.4em}
+\noindent\parbox{\linewidth}{\footnotesize\textbf{Note:} Abbreviations: LR, logistic regression; RF, random forest; XGB, XGBoost; CatBoost, categorical gradient boosting; LightGBM, light gradient boosting machine; MLP, multilayer perceptron; TabNet, attentive interpretable tabular learning; AUROC, area under the receiver operating characteristic curve; ECE, expected calibration error; CI, confidence interval. All model development strictly followed temporal and institutional holdout rules: training on MIMIC-IV ($n = 33{,}671$), external validation on eICU-CRD ($n = 71{,}861$ across 207 hospitals with older stays). During retrospective model development (v7--v14), the 80\% patient-level partition ($n=57{,}488$) served as the internal tracking benchmark; to eliminate any potential bias from repeated test-split tracking and verify institutional generalizability, Revision EXP-001 implemented a retrospective center-level leave-hospital-out sensitivity analysis where all patients from 167 hospitals were completely excluded from updating and calibration. V16 evaluated cluster-bootstrap robustness within the primary patient-level test partition across 206 hospitals; Historical V14 evaluated an early coarse feature grouping (76 and 67 features); Revision EXP-004 strictly dissected explicit nutritional reserve from acute metabolic laboratories without variable overlap (80, 81, 78, and 69 features).
+}
 \end{table}
 
 
@@ -214,40 +453,39 @@ R1 EXP-004 & 2026-09-01 & Dissected Nutrition Ablation & 80/81/78/69 & Address R
 
 Supplementary Table~\ref{tab:lit_s3} provides a structured literature comparison of GERI-NutriRisk-ICU against four recent representative ICU nutrition prediction frameworks.
 
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \centering
 \caption{Structured comparison of GERI-NutriRisk-ICU with recent nutrition-related ICU mortality prediction studies.}
 \label{tab:lit_s3}
-\renewcommand{\arraystretch}{1.15}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{p{2.6cm}p{2.8cm}p{2.6cm}p{3.2cm}p{2.8cm}p{2.2cm}p{2.8cm}}
+\scriptsize
+\renewcommand{\arraystretch}{0.96}
+\setlength{\tabcolsep}{2.5pt}
+\noindent\resizebox{\linewidth}{!}{%
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.1cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{2.5cm}>{\raggedright\arraybackslash}p{3.6cm}}
 \toprule
 Study & Target Population & Database / Cohort & Predictors / Framework & Validation Strategy & Reported Performance & Calibration / Key Findings\\
 \midrule
 Heyland et al. (2011) [mNUTRIC] & Mechanically ventilated adult ICU patients ($n=1{,}199$) & Prospective multicenter Canadian \& US ICUs & 6 variables (Age, APACHE II, SOFA, comorbidities, pre-ICU hospital days; optional IL-6) & Internal split-sample derivation \& validation & 28-day mortality AUROC $\approx 0.76$--$0.78$ & Hosmer-Lemeshow test ($p>0.05$); requires manual calculation of APACHE II/SOFA; designed to identify nutrition therapy benefit.\\
-\addlinespace
-Peng et al. (2023) [GNRI in Elderly ICU] & Critically ill elderly patients ($\ge 65$ years, $n=3{,}696$) & MIMIC-IV single-center retrospective & GNRI formula: $14.89 \times \text{albumin} + 41.7 \times (\text{weight}/\text{ideal weight})$ & Retrospective cohort association \& RCS dose-response & Major risk vs no risk OR = 2.45 ($p<0.001$) for hospital mortality & Epidemiological association study evaluating categorical GNRI risk; did not develop an automated ML prediction model or report prediction AUROC.\\
-\addlinespace
+\addlinespace[2pt]
+Peng et al. (2023) [GNRI in Elderly ICU] & Critically ill elderly patients ($\ge 65$ years, $n=3{,}696$) & MIMIC-IV single-center retrospective & GNRI formula: $14.89 \times \text{albumin} + 41.7 \times (\text{weight}/\allowbreak\text{ideal weight})$ & Retrospective cohort association \& RCS dose-response & Major risk vs no risk OR = 2.45 ($p<0.001$) for hospital mortality & Epidemiological association study evaluating categorical GNRI risk; did not develop an automated ML prediction model or report prediction AUROC.\\
+\addlinespace[2pt]
 Zhang et al. (2026) [E-NUTRIC Stacking] & General adult ICU patients ($n=51{,}483$) & MIMIC-IV single-center retrospective & 16--18 routine EHR features; Stacking ensemble (LightGBM, XGBoost, CatBoost, RF) & Internal 5-fold cross-validation / 70:30 holdout & AUROC = 0.875 for predicting \textbf{nutritional risk} (mNUTRIC $\ge 5$) & Provided SHAP interpretability for malnutrition screening; evaluated nutritional risk diagnosis rather than cross-database mortality prediction.\\
-\addlinespace
-Cao et al. (2026) [NIM in AKI-CRRT] & ICU patients with acute kidney injury undergoing CRRT ($n=1{,}732$) & MIMIC-IV retrospective cohort (derivation $n=1{,}212$, test $n=520$) & 6 composite nutritional-inflammatory-metabolic indices (PNI, GNRI, CONUT, etc.) + ML & Internal 70:30 train-test split; no external holdout & Gradient Boosting test AUROC = 0.728 for hospital mortality & Explored dose-response non-linearity between NIM indices and mortality in AKI-CRRT; lacked target-domain updating or APACHE benchmarking.\\
+\addlinespace[2pt]
+Cao et al. (2026) [NIM in AKI-CRRT] & ICU patients with acute kidney injury undergoing CRRT ($n=1{,}732$) & MIMIC-IV retrospective cohort (derivation $n=1{,}212$, test $n=520$) & 6 composite nutritional-inflammatory-\allowbreak metabolic indices (PNI, GNRI, CONUT, etc.) + ML & Internal 70:30 train-test split; no external holdout & Gradient Boosting test AUROC = 0.728 for hospital mortality & Explored dose-response non-linearity between NIM indices and mortality in AKI-CRRT; lacked target-domain updating or APACHE benchmarking.\\
 \midrule
 \textbf{GERI-NutriRisk-ICU (This Study)} & \textbf{Older ICU patients ($\ge 65$ years, $n=105{,}532$ total)} & \textbf{MIMIC-IV dev ($n=33{,}671$); eICU-CRD multicenter validation ($n=71{,}861$, 207 hospitals with older stays)} & \textbf{83 harmonized predictors; logistic anchor + LightGBM head + explicit nutrition reserve} & \textbf{Retrospective leave-hospital-out (167 held-out hospitals) + nested update + disjoint Platt calibration} & \textbf{0.872 (held-out); 0.871 (leave-hospital-out); +0.021 over APACHE-IVa ($p<0.001$)} & \textbf{$\text{ECE}=0.0037$, slope 1.026; 140-hospital median slope 1.032; sustained superior net clinical benefit on DCA across 1\%--35\%.}\\
 \bottomrule
 \end{tabular}}
-\begin{flushleft}
-\footnotesize
-\textbf{Note:} Abbreviations: mNUTRIC, modified Nutrition Risk in the Critically Ill score; GNRI, Geriatric Nutritional Risk Index; ENUTRIC, Enteral Nutrition Risk in Critically Ill; NIM, Nutritional-Inflammatory-Metabolic index framework; AKI-CRRT, acute kidney injury undergoing continuous renal replacement therapy; APACHE, Acute Physiology and Chronic Health Evaluation; SOFA, Sequential Organ Failure Assessment; DCA, decision curve analysis; ECE, expected calibration error; EHR, electronic health record; ICU, intensive care unit; ML, machine learning; OR, odds ratio; RCS, restricted cubic splines. Bold text denotes the proposed framework.
-\end{flushleft}
+\vspace{0.4em}
+\noindent\parbox{\linewidth}{\tiny \textbf{Note:} Abbreviations: mNUTRIC, modified Nutrition Risk in the Critically Ill score; GNRI, Geriatric Nutritional Risk Index; ENUTRIC, Enteral Nutrition Risk in Critically Ill; NIM, Nutritional-Inflammatory-Metabolic index framework; AKI-CRRT, acute kidney injury undergoing continuous renal replacement therapy; APACHE, Acute Physiology and Chronic Health Evaluation; SOFA, Sequential Organ Failure Assessment; DCA, decision curve analysis; ECE, expected calibration error; EHR, electronic health record; ICU, intensive care unit; ML, machine learning; OR, odds ratio; RCS, restricted cubic splines. Bold text denotes the proposed framework.}
 \end{table}
-
 
 \clearpage
 
 \subsection{Supplementary Tables S4--S10: Model Benchmarks, Sensitivity, and Replication Audits}
 \label{sec:tab_s4_s10}
 
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \centering
 \caption{Early GERI-NutriRisk-ICU feature-family ablation in MIMIC-IV internal testing and eICU-CRD external validation. Bold values indicate the best value in each displayed metric column; lower Brier score is better.}
 \label{tab:ablation_s4}
@@ -266,11 +504,42 @@ GERI-NutriRisk-ICU & \textbf{0.830} & \textbf{0.090} & \textbf{0.727} & 0.155\\
 \end{tabular}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[!htbp]
+\centering
+\caption{Authoritative Dissected Nutrition and Metabolic Laboratory Feature Ablation (EXP-004) in Held-Out eICU-CRD ($n = 57{,}488$). Bold values indicate the best value in each displayed metric column; lower Brier score and ECE are better. Paired differences and 95\% bootstrap confidence intervals are reported relative to the locked 83-feature full model.}
+\label{tab:ablation_exp004}
+\noindent\resizebox{\linewidth}{!}{%
+\begin{tabular}{llccrrrrr}
+\toprule
+Model Configuration & Clinical Category & Dropped Features ($k$) & Remaining ($83-k$) & AUROC & Paired $\Delta$AUROC (95\% CI) & $p$-value & Brier & ECE\\
+\midrule
+Full Model & Reference Locked Model & None ($k=0$) & 83 & \textbf{0.8722} & Reference & N/A & \textbf{0.0733} & \textbf{0.0041}\\
+\midrule
+\multicolumn{9}{l}{\textit{Strict Clinical Dissection (EXP-004): Non-Overlapping Physiological Groupings}} \\
+w/o Explicit Nutrition Reserve & Nutritional Reserve & Albumin, BMI, Albumin missing ($k=3$) & 80 & 0.8718 & +0.0003 (-0.0010 to +0.0016) & 0.621 & 0.0735 & 0.0044\\
+w/o Early Nutrition Support & Early Feeding Process & Enteral 24h, Parenteral 24h ($k=2$) & 81 & 0.8715 & +0.0006 (-0.0002 to +0.0013) & 0.0938 & 0.0734 & \textbf{0.0041}\\
+w/o Explicit Reserve \& Support & All Nutrition Variables & 5 nutritional variables ($k=5$) & 78 & 0.8714 & +0.0008 (-0.0005 to +0.0022) & 0.219 & 0.0736 & \textbf{0.0040}\\
+w/o Acute Metabolic Laboratories & Acute Multiorgan Severity & 7 acute labs + 7 missing flags ($k=14$)\textsuperscript{*} & 69 & 0.8679 & \textbf{+0.0043} (+0.0028 to +0.0060) & $1.27 \times 10^{-7}$ & 0.0740 & 0.0042\\
+w/o Full Composite Construct & Broad Composite Benchmark & All 19 nutritional \& metabolic variables ($k=19$) & 64 & 0.8679 & +0.0042 (+0.0021 to +0.0063) & $2.25 \times 10^{-5}$ & 0.0742 & 0.0049\\
+\midrule
+\multicolumn{9}{l}{\textit{Historical Pre-Revision Benchmarks (for Complete Transparency and Audit Provenance)}} \\
+Historical w/o Broad Nutrition & Pre-Revision V14 Grouping & 7 variables (incl. glucose \& feeding; $k=7$) & 76 & 0.8711 & +0.0011 (-0.0004 to +0.0024) & 0.132 & 0.0736 & 0.0042\\
+Historical w/o Metabolic Labs & Pre-Revision V14 Grouping & 16 variables (incl. albumin \& glucose; $k=16$) & 67 & 0.8665 & +0.0057 (+0.0041 to +0.0075) & $7.62 \times 10^{-11}$ & 0.0743 & 0.0038\\
+\bottomrule
+\end{tabular}}
+\begin{flushleft}
+\footnotesize
+\textsuperscript{*}Acute metabolic laboratories strictly exclude albumin and BMI: glucose, creatinine, blood urea nitrogen, sodium, total bilirubin, hematocrit, white blood cell count, and their 7 corresponding missingness flags. Continuous features were imputed using medians fitted strictly on development training folds. Tied predictions were ranked with standard mid-ranks via \texttt{sklearn.metrics.roc\_auc\_score}. Paired $p$-values were computed via DeLong's test; 95\% confidence intervals were derived from 500-iteration paired bootstrap.
+\end{flushleft}
+\end{table}
+
+
+
+\begin{table}[!htbp]
 \centering
 \caption{Source-only GERI-NutriRisk-ICU nutrition-construct sensitivity analysis in eICU-CRD. Bold values indicate the best value among model rows; lower Brier score and ECE are better.}
 \label{tab:sens_s5}
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\linewidth}{!}{%
 \begin{tabular}{lrrr}
 \toprule
 Model or contrast & eICU AUROC & eICU Brier & eICU ECE\\
@@ -287,7 +556,7 @@ Full V3 minus without nutrition/metabolic laboratories & -0.0050 (-0.0084 to -0.
 \end{tabular}}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \centering
 \caption{Selected eICU subgroup performance for the source-only transparent logistic anchor.}
 \label{tab:subgroup_s6}
@@ -311,13 +580,11 @@ Enteral nutrition & Yes & 7,926 & 1,280 & 0.716 & 0.185\\
 \end{tabular}
 \end{table}
 
-\clearpage
-
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \centering
 \caption{Initial SOTA tabular-model benchmark. Bold values indicate the best value in each displayed metric column; lower Brier score and ECE are better.}
 \label{tab:sota_s7}
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\linewidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \toprule
 Model & MIMIC AUROC & MIMIC Brier & eICU AUROC & eICU Brier & eICU ECE & eICU Platt Brier\\
@@ -330,11 +597,11 @@ GERI-NutriRisk-ICU & \textbf{0.882} & 0.124 & \textbf{0.793} & 0.291 & 0.386 & \
 \end{tabular}}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \centering
 \caption{Bounded SOTA completion and GERI-NutriRisk-ICU model-lock benchmark. Bold values indicate the best value in each displayed metric column; lower Brier score is better.}
 \label{tab:sota_lock_s8}
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\linewidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \toprule
 Model & MIMIC AUROC & MIMIC Brier & eICU AUROC & eICU Brier & eICU Platt AUROC & eICU Platt Brier\\
@@ -351,7 +618,7 @@ GERI-NutriRisk-ICU & \textbf{0.882} & 0.124 & \textbf{0.793} & 0.291 & \textbf{0
 \end{tabular}}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \centering
 \caption{TabNet neural tabular comparator against GERI-NutriRisk-ICU. Bold values indicate the best value in each displayed metric column; lower Brier score is better.}
 \label{tab:tabnet_s9}
@@ -366,7 +633,7 @@ GERI-NutriRisk-ICU & \textbf{0.882} & \textbf{0.793} & \textbf{0.794} & \textbf{
 \end{tabular}
 \end{table}
 
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \centering
 \caption{Server-run evidence manifest summary for final lock files.}
 \label{tab:manifest_s10}

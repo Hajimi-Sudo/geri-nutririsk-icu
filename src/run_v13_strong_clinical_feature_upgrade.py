@@ -115,7 +115,7 @@ VALID_RANGES = {
     "potassium": (1.0, 10.0),
     "chloride": (50.0, 150.0),
     "bicarbonate": (2.0, 60.0),
-    "calcium": (1.0, 25.0),
+    "calcium": (4.0, 20.0),  # Strictly Total Calcium (mg/dL); excludes ionized calcium (~1.17 mmol/L)
     "magnesium": (0.2, 15.0),
     "inr": (0.5, 20.0),
     "pt": (5.0, 150.0),
@@ -348,10 +348,15 @@ def add_eicu_extra_labs(rows):
 
 
 def add_derived_features(row):
+    # PaO2/FiO2 ratio: calculated as ratio of first-day median PaO2 to median FiO2.
+    # Unmonitored stays (without blood gas orders) are encoded as 0.0 to represent
+    # structural absence of acute respiratory failure monitoring (non-ventilated routine care).
     pao2 = row.get("pao2")
     fio2 = row.get("fio2")
     if pao2 is not None and fio2 is not None and fio2 > 0:
         row["pf_ratio"] = float(max(20.0, min(700.0, pao2 / fio2)))
+    else:
+        row["pf_ratio"] = 0.0
     sodium = row.get("sodium")
     chloride = row.get("chloride")
     bicarbonate = row.get("bicarbonate")

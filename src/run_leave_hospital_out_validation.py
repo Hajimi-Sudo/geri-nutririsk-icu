@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+from typing import Optional, Dict, Any, List
 """EXP-001: Strict Leave-Hospital-Out External Validation Protocol.
 
 GERI-NutriRisk-ICU: an APACHE-contextualized, hospital-robust, and nutrition-aware
